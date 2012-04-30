@@ -58,7 +58,7 @@ Theme Styles
 body {
   box-sizing: border-box;
   color:#373737;
-  background: #212121;
+  background: #000;
   font-size: 16px;
   font-family: 'Myriad Pro', Calibri, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -69,7 +69,7 @@ h1, h2, h3, h4, h5, h6 {
   margin: 10px 0;
   font-weight: 700;
   color:#222222;
-  font-family: 'Lucida Grande', 'Calibri', Helvetica, Arial, sans-serif;
+  font-family: 'Trocchi', serif;
   letter-spacing: -1px;
 }
 
@@ -128,6 +128,7 @@ a {
 nav a {
   font-size: 11pt;
   font-weight: bold;
+  font-family: 'Trocchi', serif;
 }
 
 nav a:hover {
@@ -285,7 +286,7 @@ Full-Width Styles
 .inner {
   position: relative;
   max-width: 640px;
-  padding: 0 10px;
+  padding: 3px 10px;
   margin: 0 auto;
 }
 
