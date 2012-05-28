@@ -944,7 +944,7 @@ background-repeat: repeat-x;
   background-color: #fd3c00 \9;
 }
 .button.highlight:hover {
-  color: #ffffff;
+  color: #000;
   text-shadow: 0 -2px 0 rgba(0, 0, 0, 0.15);
 }
 .button.primary.active,
