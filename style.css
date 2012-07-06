@@ -1966,9 +1966,16 @@ background: -ms-radial-gradient(center, ellipse cover,  #303030 1%,#000000 98%);
 background: radial-gradient(center, ellipse cover,  #303030 1%,#000000 98%); /* W3C */
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#303030', endColorstr='#000000',GradientType=1 ); /* IE6-8 fallback on horizontal gradient */
 
+
+  background-color: #303030;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background: -webkit-radial-gradient(circle, #303030, #000000);
+  background: -moz-radial-gradient(circle, #303030, #000000);
+  background: -ms-radial-gradient(circle, #303030, #000000);
 }
 .alternative {
-  width: 520px;
+  width: 650px;
   padding: 200px 0 0;
   background: none;
   border: none;
