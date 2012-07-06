@@ -1975,6 +1975,7 @@ body {
   background: -webkit-radial-gradient(circle, #303030, #000000);
   background: -moz-radial-gradient(circle, #303030, #000000);
   background: -ms-radial-gradient(circle, #303030, #000000);
+
 }
 .alternative {
   width: 650px;
