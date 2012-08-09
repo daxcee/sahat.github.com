@@ -534,10 +534,9 @@ h1 {
   line-height: 1.1em;
   margin-bottom: 15px;
   color: #fff;
-  font-weight: 100;
+  font-weight: 700;
   text-transform: uppercase;
-  font-family: 'Raleway', cursive;
-  }
+font-family: 'Raleway', cursive;}
 h1 small {
   font-size: 18px;
 }
