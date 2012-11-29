@@ -1,19 +1,21 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>{% if page.title %} {{ page.title }} | {% endif %}sahat yalkabov</title>
+    <title>{% if page.title %} {{ page.title }} | {% endif %}Sahat Yalkabov &middot;  Central</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Personal web site for Sahat Yalkabov">
     <meta name="author" content="Sahat Yalkabov">
-    <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon.png" />
-    <link rel="shortcut icon" href="/assets/apple-touch-icon.png" />
+
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif">
     <link rel="stylesheet" href="/plugins/nivo/css/nivo-slider.css">
     <link rel="stylesheet" href="/plugins/nivo/themes/default/default.css">
 
-    <script src="/js/modernizr-2.0.6.min.js"></script>
-    <style> 
+    <!--[if lt IE 9]>
+    <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <style>
       body > header {
         font-family: 'Myriad Pro', Arial, sans-serif;
         text-align: right;
@@ -350,50 +352,45 @@
   <header>
     <span><a href="/">sahat.me</a></span> 
     <ul>
-      <li><a href="/journal">journal</a></li> 
+      <li><a href="/blog">blog</a></li>
       <li><a href="/portfolio">portfolio</a></li>
       <li><a href="/about">about</a></li>
       <li><a href="/eve">eve</a></li>
     </ul>
   </header>
 
-    <section>
-      <br /><br />
-      <header id="log"> 
-        <h2><a href="/">sahat<span id="ext">.me</span></a><span class="path">/{% if page.category %}{{page.category}}{% else %}{{ page.title }}{% endif %}</span></h2> 
-      </header>
-      {{ content }}
-    </section> 
+  <section>
+    <br /><br />
+    <header id="log">
+      <h2><a href="/">sahat<span id="ext">.me</span></a><span class="path">/{% if page.category %}{{page.category}}{% else %}{{ page.title }}{% endif %}</span></h2>
+    </header>
+    {{ content }}
+  </section>
 
-    <footer>
-      <div>Copyright &copy; 2011 Sahat Yalkabov</div>
-      <img src="/assets/icon-html5.png">
-      <img src="/assets/icon-css3.png">
-      <img src="/assets/icon-github.png">
-      <img src="/assets/less-small.png">
-    </footer>
+  <footer>
+    <div>Copyright &copy; 2011-2012 Sahat Yalkabov</div>
+    <img src="/assets/icon-github.png">
+  </footer>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.6.2.min.js"><\/script>')</script>
-    <script type="text/javascript" src="/plugins/nivo/js/jquery.nivo.slider.pack.js"></script>
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 
-    
-    <script>
+  <script>
     $(window).load(function() {
       $('#slider').nivoSlider();
     });
-    </script>
+  </script>
 
-    <script>
-    window._gaq = [['_setAccount','UA-17023058-2'],['_trackPageview'],['_trackPageLoadTime']];
-      Modernizr.load({
-        load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-      });
-    </script>
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-17023058-2']);
+    _gaq.push(['_trackPageview']);
 
-    <!--[if lt IE 7 ]>
-    <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-    <![endif]-->
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </body>
 </html>
