@@ -10,6 +10,8 @@
   <link rel="stylesheet" href="/css/bootstrap.css" >
   <link rel="stylesheet" href="/css/style.css">
 
+  <link rel="stylesheet" type="text/css" href="/css/page-player.css" />
+
   <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
   <!--[if lt IE 9]>
   <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
@@ -42,12 +44,19 @@
 </div>
 
 <script src="js/jquery.js"></script>
-<script src="/audiojs/audio.min.js"></script>
-<script>
-  audiojs.events.ready(function() {
-    var as = audiojs.createAll();
-  });
-</script>
+<script src="/js/soundmanager2-nodebug-jsmin.js"></script>
+<script type="text/javascript">
 
+  soundManager.setup({
+    url: '/swf/'
+  });
+
+  // demo only..
+  function setTheme(sTheme) {
+    var o = document.getElementsByTagName('ul')[0];
+    o.className = 'playlist'+(sTheme?' '+sTheme:'');
+    return false;
+  }
+</script>
 </body>
 </html>

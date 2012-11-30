@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="sahat.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354237406564" ignored="false" />
     <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354237525447" ignored="false" />
+    <file path="/default.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354238023412" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,19 +26,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="44" selection-start="456" selection-end="456" vertical-scroll-proportion="0.47297296">
+            <state line="4" column="1" selection-start="38" selection-end="38" vertical-scroll-proportion="-2.5">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="default.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_layouts/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="50" column="0" selection-start="1146" selection-end="1146" vertical-scroll-proportion="-28.291666">
+            <state line="12" column="5" selection-start="364" selection-end="436" vertical-scroll-proportion="0.26509574">
               <folding />
             </state>
           </provider>
@@ -60,8 +62,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/_layouts/default.html" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/_layouts/default.html" />
       </list>
     </option>
   </component>
@@ -229,16 +231,16 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1146" selection-end="1146" vertical-scroll-proportion="-28.291666">
+        <state line="4" column="1" selection-start="38" selection-end="38" vertical-scroll-proportion="-2.5">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="44" selection-start="456" selection-end="456" vertical-scroll-proportion="0.47297296">
+        <state line="12" column="5" selection-start="364" selection-end="436" vertical-scroll-proportion="0.26509574">
           <folding />
         </state>
       </provider>
