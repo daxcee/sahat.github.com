@@ -13,7 +13,7 @@
     <file path="/a.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240240017" ignored="false" />
     <file path="/a.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240241470" ignored="false" />
     <file path="/a.xml" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240245012" ignored="false" />
-    <file path="/style.css" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240685469" ignored="false" />
+    <file path="/style.css" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354241308858" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +42,7 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="146" column="31" selection-start="2541" selection-end="2541" vertical-scroll-proportion="0.9388336">
+            <state line="20" column="19" selection-start="335" selection-end="335" vertical-scroll-proportion="0.42674252">
               <folding />
             </state>
           </provider>
@@ -321,7 +321,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="146" column="31" selection-start="2541" selection-end="2541" vertical-scroll-proportion="0.9388336">
+        <state line="20" column="19" selection-start="335" selection-end="335" vertical-scroll-proportion="0.42674252">
           <folding />
         </state>
       </provider>
