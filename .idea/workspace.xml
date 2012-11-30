@@ -2,19 +2,23 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/blog.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/eve.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/soundmanager2-jsmin.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sahat.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354237406564" ignored="false" />
-    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354241374599" ignored="false" />
+    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354241478789" ignored="false" />
     <file path="/default.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354239632013" ignored="false" />
     <file path="$USER_HOME$/Dropbox/Projects/csc322/views/index.jade" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240174187" ignored="false" />
     <file path="/a.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240240017" ignored="false" />
     <file path="/a.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240241470" ignored="false" />
     <file path="/a.xml" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240245012" ignored="false" />
-    <file path="/style.css" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354241308858" ignored="false" />
+    <file path="/style.css" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354241858275" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,28 +35,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="5" selection-start="417" selection-end="417" vertical-scroll-proportion="0.47297296">
+            <state line="24" column="2" selection-start="600" selection-end="600" vertical-scroll-proportion="-15.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2780" column="2" selection-start="48191" selection-end="48676" vertical-scroll-proportion="-15.423077">
+            <state line="155" column="22" selection-start="2629" selection-end="2629" vertical-scroll-proportion="0.44523472">
               <folding />
             </state>
           </provider>
@@ -86,8 +81,9 @@
     <option name="changedFiles">
       <list>
         <option value="$PROJECT_DIR$/_layouts/default.html" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/index.html" />
+        <option value="$USER_HOME$/Dropbox/Projects/sahat.github.com4/_old/css/style.css" />
+        <option value="$PROJECT_DIR$/css/style.css" />
       </list>
     </option>
   </component>
@@ -138,20 +134,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -306,23 +288,30 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="2" selection-start="600" selection-end="600" vertical-scroll-proportion="-15.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Dropbox/Projects/sahat.github.com4/_old/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="402" column="3" selection-start="8124" selection-end="9003" vertical-scroll-proportion="1.2259036">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2780" column="2" selection-start="48191" selection-end="48676" vertical-scroll-proportion="-15.423077">
+        <state line="2783" column="4" selection-start="48287" selection-end="48287" vertical-scroll-proportion="-3.7786145">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="0" selection-start="31" selection-end="31" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="5" selection-start="417" selection-end="417" vertical-scroll-proportion="0.47297296">
+        <state line="155" column="22" selection-start="2629" selection-end="2629" vertical-scroll-proportion="0.44523472">
           <folding />
         </state>
       </provider>
