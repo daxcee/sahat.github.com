@@ -2,14 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/audiojs/audio.min.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/audiojs/audiojs.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/audiojs/player-graphics.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/css/page-player.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/soundmanager2-nodebug-jsmin.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sahat.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354237406564" ignored="false" />
-    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354237525447" ignored="false" />
-    <file path="/default.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354238023412" ignored="false" />
+    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354238731386" ignored="false" />
+    <file path="/default.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354239632013" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,7 +35,7 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="1" selection-start="38" selection-end="38" vertical-scroll-proportion="-2.5">
+            <state line="13" column="0" selection-start="252" selection-end="252" vertical-scroll-proportion="-8.125">
               <folding />
             </state>
           </provider>
@@ -38,7 +44,7 @@
       <file leaf-file-name="default.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_layouts/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="5" selection-start="364" selection-end="436" vertical-scroll-proportion="0.26509574">
+            <state line="42" column="13" selection-start="1017" selection-end="1017" vertical-scroll-proportion="0.8232695">
               <folding />
             </state>
           </provider>
@@ -68,9 +74,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="10" />
+    <option name="x" value="-2" />
     <option name="y" value="22" />
-    <option name="width" value="1420" />
+    <option name="width" value="767" />
     <option name="height" value="800" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -151,14 +157,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="10" y="22" width="1420" height="800" extended-state="0" />
+    <frame x="-2" y="22" width="767" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -233,14 +239,14 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="1" selection-start="38" selection-end="38" vertical-scroll-proportion="-2.5">
+        <state line="13" column="0" selection-start="252" selection-end="252" vertical-scroll-proportion="-8.125">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="5" selection-start="364" selection-end="436" vertical-scroll-proportion="0.26509574">
+        <state line="42" column="13" selection-start="1017" selection-end="1017" vertical-scroll-proportion="0.8232695">
           <folding />
         </state>
       </provider>
