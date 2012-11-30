@@ -1,7 +1,6 @@
 html,
 body {
   height: 100%;
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
 /* Wrapper for page content to push down footer */
@@ -119,11 +118,8 @@ p {
   padding-bottom: 84px;
 }
 
-
-
 /* Pagination
 -------------------------------------------------- */
-
 .pagination {
   margin-bottom: 80px;
   color: #ccc;
