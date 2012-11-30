@@ -2,12 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/js/application.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nivo/css/nivo-slider.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nivo/js/jquery.nivo.slider.pack.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nivo/themes/default/arrows.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nivo/themes/default/bullets.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nivo/themes/default/default.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/plugins/nivo/themes/default/loading.gif" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/portfolio.html" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
     </list>
     <ignored path="sahat.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354237406564" ignored="false" />
-    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354243266522" ignored="false" />
+    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354243804410" ignored="false" />
     <file path="/default.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354241964159" ignored="false" />
     <file path="$USER_HOME$/Dropbox/Projects/csc322/views/index.jade" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240174187" ignored="false" />
     <file path="/a.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240240017" ignored="false" />
@@ -33,7 +41,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="104" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.5945946">
+            <state line="27" column="50" selection-start="815" selection-end="815" vertical-scroll-proportion="0.481982">
               <folding />
             </state>
           </provider>
@@ -42,7 +50,7 @@
       <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_layouts/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="17" selection-start="855" selection-end="855" vertical-scroll-proportion="-21.875">
+            <state line="43" column="0" selection-start="550" selection-end="1049" vertical-scroll-proportion="-23.916666">
               <folding />
             </state>
           </provider>
@@ -290,14 +298,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="17" selection-start="855" selection-end="855" vertical-scroll-proportion="-21.875">
+        <state line="43" column="0" selection-start="550" selection-end="1049" vertical-scroll-proportion="-23.916666">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="104" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.5945946">
+        <state line="27" column="50" selection-start="815" selection-end="815" vertical-scroll-proportion="0.481982">
           <folding />
         </state>
       </provider>
