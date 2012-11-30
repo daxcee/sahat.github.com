@@ -1,52 +1,26 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Sahat Yalkabov &middot;  Central</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Personal web site for Sahat Yalkabov">
-  <meta name="author" content="Sahat Yalkabov">
+---
+layout: default
+title: Index
+---
+<h4>Blog</h4>
+<div class="posts">
+  {% for post in site.categories.blog %}
+  <h3><a href="{{ post.url }}">
+    {{ post.title }}
+    <small>{{ post.date | date_to_string }}</small>
+  </a></h3>
+  {% endfor %}
+</div>
 
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Droid+Serif">
-  <link rel="stylesheet" href="/css/style.css">
+<h4>Projects</h4>
+<div class="posts">
+  <h3><a href="#">
+    Update on the Glyphicons font
+  </a></h3>
 
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
+  <h3><a href="#">
+    Update on the Glyphicons font
+  </a></h3>
+</div>
 
-<body id="clouds">
-
-  <div id="horizon">
-    <div id="content">
-      <iframe src="http://player.vimeo.com/video/24001060?byline=0&amp;portrait=0&amp;color=c9ff23" width="400" height="300" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-      <div class="profiles">
-        <header>
-          <h1>sahat<span id="ext">.yalkabov</span></h1>
-        </header>
-        <ul>
-          <li><a class="profile" href="/blog">blog</a></li>
-          <li><a class="profile" href="/portfolio">portfolio</a></li>
-          <li><a class="profile" href="/about">about</a></li>
-          <li><a class="profile" href="/eve">eve</a></li>
-        </ul>
-      </div> 
-    </div> 
-  </div>
-
-  <script src="js/jquery.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-17023058-2']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
-
-</body>
-</html>
+</div>
