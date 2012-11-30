@@ -2,6 +2,7 @@
 layout: post
 comments: true
 title: JavaScript - The programming language of the futue?
+category: posts
 ---
 
 JavaScript - The programming language of the future?
