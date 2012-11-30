@@ -2,26 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/apple-touch-icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/audio/where-the-lonely-ones-roam.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/audio/where-the-lonely-ones-roam.ogg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/backbone.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/clouds.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/cristina.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/gnome3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/icon-css3.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/img/clouds.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/index.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/mp3/evanescence-going-under.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/swf/soundmanager2.swf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/swf/soundmanager2_debug.swf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/swf/soundmanager2_flash9.swf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/swf/soundmanager2_flash9_debug.swf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/swf/soundmanager2_flash_xdomain.zip" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
     </list>
     <ignored path="sahat.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,7 +33,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="2" selection-start="520" selection-end="520" vertical-scroll-proportion="0.518018">
+            <state line="20" column="25" selection-start="430" selection-end="430" vertical-scroll-proportion="0.45045045">
               <folding />
             </state>
           </provider>
@@ -316,7 +297,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="2" selection-start="520" selection-end="520" vertical-scroll-proportion="0.518018">
+        <state line="20" column="25" selection-start="430" selection-end="430" vertical-scroll-proportion="0.45045045">
           <folding />
         </state>
       </provider>
