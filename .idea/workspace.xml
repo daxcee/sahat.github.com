@@ -42,7 +42,16 @@
       <file leaf-file-name="style.css" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="140" column="19" selection-start="2449" selection-end="2449" vertical-scroll-proportion="0.8913044">
+            <state line="146" column="31" selection-start="2541" selection-end="2541" vertical-scroll-proportion="0.9388336">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bootstrap.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2780" column="2" selection-start="48191" selection-end="48676" vertical-scroll-proportion="-15.423077">
               <folding />
             </state>
           </provider>
@@ -303,9 +312,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/bootstrap.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2780" column="2" selection-start="48191" selection-end="48676" vertical-scroll-proportion="-15.423077">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="140" column="19" selection-start="2449" selection-end="2449" vertical-scroll-proportion="0.8913044">
+        <state line="146" column="31" selection-start="2541" selection-end="2541" vertical-scroll-proportion="0.9388336">
           <folding />
         </state>
       </provider>
