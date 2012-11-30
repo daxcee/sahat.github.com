@@ -48,11 +48,6 @@ ul, ol {
   margin: 0 0 14px;
 }
 
-body,
-p {
-  line-height: 28px;
-}
-
 /* List of posts
 ------------------------- */
 .posts {
@@ -134,4 +129,13 @@ p {
   text-decoration: none;
   background-color: #eee;
   border-radius: 4px;
+}
+
+.youtube {
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+  border-color: rgba(82, 168, 236, 0.8);
+  outline: 0;
+}
 }
