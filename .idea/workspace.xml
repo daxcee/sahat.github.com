@@ -2,20 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/audiojs/audio.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/audiojs/audiojs.swf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/audiojs/player-graphics.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/css/page-player.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/js/soundmanager2-nodebug-jsmin.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sahat.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354237406564" ignored="false" />
-    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354238731386" ignored="false" />
+    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240214884" ignored="false" />
     <file path="/default.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354239632013" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/Projects/csc322/views/index.jade" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240174187" ignored="false" />
+    <file path="/a.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240240017" ignored="false" />
+    <file path="/a.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240241470" ignored="false" />
+    <file path="/a.xml" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240245012" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,19 +29,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="252" selection-end="252" vertical-scroll-proportion="-8.125">
+            <state line="21" column="0" selection-start="412" selection-end="581" vertical-scroll-proportion="0.47297296">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="default.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_layouts/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="13" selection-start="1017" selection-end="1017" vertical-scroll-proportion="0.8232695">
+            <state line="44" column="7" selection-start="1064" selection-end="1064" vertical-scroll-proportion="-25.166666">
               <folding />
             </state>
           </provider>
@@ -68,8 +65,8 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/_layouts/default.html" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -143,9 +140,39 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="options.lastSelected" value="preferences.sourceCode.XML" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+  </component>
+  <component name="PublishConfig">
+    <servers>
+      <server id="cbed8ac4-6b9b-4796-ae8f-ec1e69e6038c">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </server>
+    </servers>
   </component>
   <component name="RunManager">
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugSession" factoryName="Local">
+      <JSDebuggerConfigurationSettings>
+        <option name="engineId" />
+        <option name="fileUrl" />
+      </JSDebuggerConfigurationSettings>
+      <method />
+    </configuration>
     <list size="0" />
   </component>
   <component name="ShelveChangesManager" show_recycled="false" />
@@ -237,16 +264,16 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/index.html">
+    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="252" selection-end="252" vertical-scroll-proportion="-8.125">
+        <state line="44" column="7" selection-start="1064" selection-end="1064" vertical-scroll-proportion="-25.166666">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/default.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="13" selection-start="1017" selection-end="1017" vertical-scroll-proportion="0.8232695">
+        <state line="21" column="0" selection-start="412" selection-end="581" vertical-scroll-proportion="0.47297296">
           <folding />
         </state>
       </provider>
