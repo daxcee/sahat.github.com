@@ -1,7 +1,7 @@
 html,
 body {
   height: 100%;
-  /* The html and body elements cannot have any padding or margin. */
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
 }
 
 /* Wrapper for page content to push down footer */
@@ -47,6 +47,12 @@ body {
 ul, ol {
   padding: 0;
   margin: 0 0 14px;
+}
+
+body,
+p {
+  font-size: 16px;
+  line-height: 28px;
 }
 
 /* List of posts
