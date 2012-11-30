@@ -7,7 +7,7 @@
     <ignored path="sahat.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354237406564" ignored="false" />
-    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354243060018" ignored="false" />
+    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354243266522" ignored="false" />
     <file path="/default.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354241964159" ignored="false" />
     <file path="$USER_HOME$/Dropbox/Projects/csc322/views/index.jade" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240174187" ignored="false" />
     <file path="/a.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240240017" ignored="false" />
@@ -33,7 +33,7 @@
       <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="97" selection-start="1135" selection-end="1135" vertical-scroll-proportion="0.5945946">
+            <state line="32" column="104" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.5945946">
               <folding />
             </state>
           </provider>
@@ -297,7 +297,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="97" selection-start="1135" selection-end="1135" vertical-scroll-proportion="0.5945946">
+        <state line="32" column="104" selection-start="1152" selection-end="1152" vertical-scroll-proportion="0.5945946">
           <folding />
         </state>
       </provider>
