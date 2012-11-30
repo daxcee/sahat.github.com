@@ -2,12 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/apple-touch-icon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/audio/where-the-lonely-ones-roam.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/audio/where-the-lonely-ones-roam.ogg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/backbone.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/clouds.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/cristina.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/favicon.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/gnome3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/icon-css3.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/img/clouds.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/index.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/mp3/evanescence-going-under.mp3" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/swf/soundmanager2.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/swf/soundmanager2_debug.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/swf/soundmanager2_flash9.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/swf/soundmanager2_flash9_debug.swf" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/swf/soundmanager2_flash_xdomain.zip" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
     </list>
     <ignored path="sahat.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354237406564" ignored="false" />
-    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354241478789" ignored="false" />
+    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354242666293" ignored="false" />
     <file path="/default.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354241964159" ignored="false" />
     <file path="$USER_HOME$/Dropbox/Projects/csc322/views/index.jade" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240174187" ignored="false" />
     <file path="/a.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240240017" ignored="false" />
@@ -30,28 +49,19 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="index.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="2" selection-start="600" selection-end="600" vertical-scroll-proportion="-15.0">
+            <state line="23" column="2" selection-start="520" selection-end="520" vertical-scroll-proportion="0.518018">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/css/style.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="151" column="1" selection-start="2580" selection-end="2580" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="default.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="default.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/_layouts/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="16" selection-start="560" selection-end="560" vertical-scroll-proportion="0.4054054">
+            <state line="35" column="17" selection-start="855" selection-end="855" vertical-scroll-proportion="-21.875">
               <folding />
             </state>
           </provider>
@@ -75,10 +85,10 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/index.html" />
         <option value="$USER_HOME$/Dropbox/Projects/sahat.github.com4/_old/css/style.css" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/_layouts/default.html" />
+        <option value="$PROJECT_DIR$/index.html" />
       </list>
     </option>
   </component>
@@ -292,21 +302,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="151" column="1" selection-start="2580" selection-end="2580" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="2" selection-start="600" selection-end="600" vertical-scroll-proportion="-15.0">
+        <state line="151" column="1" selection-start="2580" selection-end="2580" vertical-scroll-proportion="0.95732576">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="16" selection-start="560" selection-end="560" vertical-scroll-proportion="0.4054054">
+        <state line="35" column="17" selection-start="855" selection-end="855" vertical-scroll-proportion="-21.875">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="2" selection-start="520" selection-end="520" vertical-scroll-proportion="0.518018">
           <folding />
         </state>
       </provider>
