@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Emilie Autumn- Opheliac</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- CSS -->
+    <link href='http://fonts.googleapis.com/css?family=Jolly+Lodger' rel='stylesheet' type='text/css'>
+
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+
+      /* Sticky footer styles
+      -------------------------------------------------- */
+
+      html,
+      body {
+        color: #f5f5f5;
+        height: 100%;
+        /* The html and body elements cannot have any padding or margin. */
+        background: url('img/ea.jpg') #000 no-repeat center center fixed;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+        /* Wrapper for page content to push down footer */
+      #wrap {
+        min-height: 100%;
+        height: auto !important;
+        height: 100%;
+        /* Negative indent footer by it's height */
+        margin: 0 auto -60px;
+      }
+
+      /* Set the fixed height of the footer here */
+      #push,
+      #footer {
+        background-color: rgba(245,245,245,0.2);
+      }
+      #footer p {
+        margin: 5px 0 5px 0;
+      }
+
+      .nav-pills > li > a {
+        color: #000;
+        border-radius: 0;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        margin-top: 0;
+        margin-bottom: -20px;
+        margin-right: 0;
+      }
+      .nav-pills > li > a:hover {
+        background-color: rgba(255,255,255,0.5);
+      }
+
+      .nav-pills > .active > a {
+        background-color: rgba(0,0,0,0.5);
+      }
+      .nav-pills > .active > a:hover {
+        background-color: rgba(0,0,0,0.5);
+      }
+
+      #lyricbox {
+        text-align: center;
+        margin: 80px auto;
+
+      }
+
+      #lyricbox h1 {
+        color: #dd1144;
+        font-family: 'Jolly Lodger', cursive;
+        text-shadow: 2px 2px #000;
+      }
+
+    </style>
+
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+    <script src="js/jquery.js"></script>
+    <script src="js/jquery.jplayer.min.js"></script>
+    <script src="js/opheliac.js"></script>
+  </head>
+
+  <body>
+    <div id="wrap">
+      <div class="container">
+
+        <div id="debug"></div>
+        <div id="controls">
+          <div id="jpId"></div>
+        </div>
+
+        <div id="lyricbox">
+          <div id="lyrics1"><h1></h1></div>
+          <div id="lyrics2"><h1></h1></div>
+          <div id="lyrics3"><h1></h1></div>
+          <div id="lyrics4"><h1></h1></div>
+          <div id="lyrics5"><h1></h1></div>
+          <div id="lyrics6"><h1></h1></div>
+          <div id="lyrics7"><h1></h1></div>
+          <div id="lyrics8"><h1></h1></div>
+          <div id="lyrics9"><h1></h1></div>
+          <div id="lyrics10"><h1></h1></div>
+
+        </div>
+
+      </div>
+
+      <div id="push"></div>
+    </div>
+
+    <div id="footer">
+      <div class="container">
+
+        <ul class="pull-left nav nav-pills lead">
+          <li class="active">
+            <a href="#"><span id="time"></span></a>
+          </li>
+          <li id="play"><a href="#">play</a></li>
+          <li id="stop"><a href="#">stop</a></li>
+        </ul>
+        <p class="muted lead pull-right">Emilie Autumn - Opheliac</p>
+      </div>
+    </div>
+  </body>
+</html>
