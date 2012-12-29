@@ -19,7 +19,7 @@ $(document).ready(function() {
           mp3: "opheliac.mp3" //HTML5 audio for streaming only! Buy the music folks! The National - Exile Vilify
         });
       },
-      volume: 0.8,
+      volume: 0.9,
       supplied: "mp3, oga",
       swfPath: "./res/"
     });
@@ -34,25 +34,11 @@ $(document).ready(function() {
           mp3: "opheliac.mp3" //HTML5 audio for streaming only! Buy the music folks! The National - Exile Vilify
         }).jPlayer("play");
       },
-      volume: 0.8,
+      volume: 0.9,
       supplied: "mp3, oga",
       swfPath: "./res/"
     });
   }
-
-
-
-  $('#credits').click(function () {
-    if ($(this).text() == 'Credits') {
-      $('#creditsbox').fadeIn(500);
-      $(this).text('Hide Credits');
-    }
-    else {
-      $('#creditsbox').fadeOut(500);
-      $(this).text('Credits');
-    }
-  })
-
 
   $('#stop').click(function() {
     //$("#jpId").jPlayer("playHead", 75); // Move play-head to start.
@@ -83,7 +69,7 @@ $(document).ready(function() {
     startLyrics();
   });
   $('#jpId').bind($.jPlayer.event.loadstart, function(event) {
-    $('#play').html('<a href="#">loading</a>');
+    $('#play').html('<a href="#">play</a>');
   });
   $('#jpId').bind($.jPlayer.event.suspend, function(event) {
     $('#play').html('<a href="#">play</a>');
