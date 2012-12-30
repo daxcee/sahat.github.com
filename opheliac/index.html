@@ -40,10 +40,14 @@
       #push,
       #footer {
         background-color: rgba(245,245,245,0.2);
+        z-index: 300;
+        position: relative;
+        overflow: hidden;
       }
       #footer p {
         margin: 5px 0 5px 0;
       }
+
 
       .nav-pills > li > a {
         color: #000;
@@ -77,6 +81,63 @@
         text-shadow: 2px 2px #000;
       }
 
+      @-webkit-keyframes STAR-MOVE {
+        from {
+          left: 0;
+          top: 0;
+        }
+        to {
+          left: -10000px;
+          top: -2000px;
+        }
+      }
+
+      #midground {
+        background: url(img/midground.png) repeat 20% 20%;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        opacity: 0.5;
+        z-index: 200;
+
+        -moz-animation-name: STAR-MOVE;
+        -moz-animation-duration: 150s;
+        -moz-animation-timing-function: linear;
+        -moz-animation-iteration-count: infinite;
+
+        -ms-animation-name: STAR-MOVE;
+        -ms-animation-duration: 150s;
+        -ms-animation-timing-function: linear;
+        -ms-animation-iteration-count: infinite;
+
+        -webkit-animation-name: STAR-MOVE;
+        -webkit-animation-duration: 150s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+      }
+
+      #foreground {
+        background: url(img/foreground.png) repeat 35% 35%;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        opacity: 0.5;
+        z-index: 300;
+
+        -moz-animation-name: STAR-MOVE;
+        -moz-animation-duration: 100s;
+        -moz-animation-timing-function: linear;
+        -moz-animation-iteration-count: infinite;
+
+        -ms-animation-name: STAR-MOVE;
+        -ms-animation-duration: 100s;
+        -ms-animation-timing-function: linear;
+        -ms-animation-iteration-count: infinite;
+
+        -webkit-animation-name: STAR-MOVE;
+        -webkit-animation-duration: 100s;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-iteration-count: infinite;
+      }
+
     </style>
 
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
@@ -86,6 +147,8 @@
   </head>
 
   <body>
+    <div id="midground"></div>
+    <div id="foreground"></div>
     <div id="wrap">
       <div class="container">
 
@@ -126,5 +189,6 @@
         <p class="muted lead pull-right">Emilie Autumn - Opheliac</p>
       </div>
     </div>
+
   </body>
 </html>
