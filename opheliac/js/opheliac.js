@@ -41,7 +41,7 @@ $(document).ready(function() {
   }
 
   $('#stop').click(function() {
-    //$("#jpId").jPlayer("playHead", 75); // Move play-head to start.
+    //$("#jpId").jPlayer("playHead", 26); // Move play-head to start.
 
     $('#jpId').jPlayer('stop');
     $('#play').html('<a href="#">play</a>');
@@ -162,6 +162,12 @@ $(document).ready(function() {
         $('#lyrics3 h1').hide();
         $('#lyrics4 h1').hide();
         $('#lyrics1 h1').html("You know the games I play").show('slow');
+        $('#foreground').css({"-webkit-animation-duration":"10s"});
+        $('#background').css({"-webkit-animation-duration":"5s"});
+        $('#foreground').css({"-moz-animation-duration":"10s"});
+        $('#background').css({"-moz-animation-duration":"5s"});
+        $('#foreground').css({"-ms-animation-duration":"10s"});
+        $('#background').css({"-ms-animation-duration":"5s"});
         break;
       case 14:
         $('#lyrics2 h1').html("And the words I say").show('slow');
@@ -211,6 +217,12 @@ $(document).ready(function() {
         break;
       case 27:
         $('#lyrics9 h1').html("It's the Opheliac in me").fadeIn(1000);
+        $('#foreground').css({"-webkit-animation-duration":"100s"});
+        $('#background').css({"-webkit-animation-duration":"100s"});
+        $('#foreground').css({"-moz-animation-duration":"100s"});
+        $('#background').css({"-moz-animation-duration":"100s"});
+        $('#foreground').css({"-ms-animation-duration":"100s"});
+        $('#background').css({"-ms-animation-duration":"100s"});
         break;
       case 28:
         $('#lyrics9 h1').html("It's the Opheliac in me").fadeOut(1000);
@@ -274,6 +286,12 @@ $(document).ready(function() {
         $('#lyrics3 h1').hide();
         $('#lyrics4 h1').hide();
         $('#lyrics1 h1').html("You know the games I play").show('slow');
+        $('#foreground').css({"-webkit-animation-duration":"10s"});
+        $('#background').css({"-webkit-animation-duration":"5s"});
+        $('#foreground').css({"-moz-animation-duration":"10s"});
+        $('#background').css({"-moz-animation-duration":"5s"});
+        $('#foreground').css({"-ms-animation-duration":"10s"});
+        $('#background').css({"-ms-animation-duration":"5s"});
         break;
       case 42:
         $('#lyrics2 h1').html("And the words I say").show('slow');
@@ -325,6 +343,12 @@ $(document).ready(function() {
         break;
       case 55:
         $('#lyrics9 h1').html("It's the Opheliac in me").fadeIn(1000);
+        $('#foreground').css({"-webkit-animation-duration":"100s"});
+        $('#background').css({"-webkit-animation-duration":"100s"});
+        $('#foreground').css({"-moz-animation-duration":"100s"});
+        $('#background').css({"-moz-animation-duration":"100s"});
+        $('#foreground').css({"-ms-animation-duration":"100s"});
+        $('#background').css({"-ms-animation-duration":"100s"});
         break;
       case 56:
         $('#lyrics9 h1').html("It's the Opheliac in me").fadeOut(1000);
@@ -417,6 +441,12 @@ $(document).ready(function() {
         $('#lyrics2 h1').fadeOut(200);
         $('#lyrics1 h1').fadeOut(200);
         $('#lyrics1 h1').html("You know the games I play").show('slow');
+        $('#foreground').css({"-webkit-animation-duration":"10s"});
+        $('#background').css({"-webkit-animation-duration":"5s"});
+        $('#foreground').css({"-moz-animation-duration":"10s"});
+        $('#background').css({"-moz-animation-duration":"5s"});
+        $('#foreground').css({"-ms-animation-duration":"10s"});
+        $('#background').css({"-ms-animation-duration":"5s"});
         break;
       case 75:
         $('#lyrics2 h1').html("And the words I say").show('slow');
@@ -465,6 +495,7 @@ $(document).ready(function() {
         break;
       case 87:
         $('#lyrics8 h1').html("I only hope that in the end you will see").slideDown(600);
+
         break;
       case 88:
         $('#lyrics1 h1').delay(1900).fadeOut(1000);
@@ -476,6 +507,12 @@ $(document).ready(function() {
         $('#lyrics7 h1').delay(1300).fadeOut(1000);
         $('#lyrics8 h1').delay(1100).fadeOut(1000);
         $('#lyrics9 h1').delay(1000).fadeOut(1000);
+        $('#foreground').css({"-webkit-animation-duration":"100s"});
+        $('#background').css({"-webkit-animation-duration":"100s"});
+        $('#foreground').css({"-moz-animation-duration":"100s"});
+        $('#background').css({"-moz-animation-duration":"100s"});
+        $('#foreground').css({"-ms-animation-duration":"100s"});
+        $('#background').css({"-ms-animation-duration":"100s"});
         $('#lyrics10 h1').html("But never doubt").slideDown(1000).delay(4000).fadeOut(1000);
         break;
       default:
