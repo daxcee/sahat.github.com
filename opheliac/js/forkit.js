@@ -66,7 +66,7 @@
 
 		dom.ribbon = document.querySelector( '.forkit' );
 		dom.curtain = document.querySelector( '.forkit-curtain' );
-		dom.closeButton = document.querySelector( '.forkit-curtain .close-button' );
+		dom.closeButton = document.querySelector( '.forkit-curtain .close-button3d' );
 
 		if( dom.ribbon ) {
 

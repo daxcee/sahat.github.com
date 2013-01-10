@@ -151,7 +151,7 @@ ul, ol {
   max-height: 315px;
 }
 
-.button {
+.button3d {
     border: 0;
     border-radius: 0;
     outline: 0;
@@ -167,13 +167,13 @@ ul, ol {
 
 
 
-.button:hover, .button:focus, #rcp_submit:hover, #rcp_submit:focus {
+.button3d:hover, .button3d:focus, #rcp_submit:hover, #rcp_submit:focus {
     color: white;
     text-decoration: none;
     background: #3d57b4;
 }
 
-.button:active,
+.button3d:active,
 #rcp_submit:active {
     box-shadow: 1px 0px 1px #203891,0px 1px 1px #3852b1,2px 1px 1px #203891,1px 2px 1px #3852b1,3px 2px 1px #203891;
     top: -2px;

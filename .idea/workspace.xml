@@ -2,26 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/js/jquery-1.8.3.min.js" />
-      <change type="DELETED" beforePath="C:\Users\Sahat\sahat.github.com\css\bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Sahat\sahat.github.com\js\google-code-prettify\prettify.css" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Sahat\sahat.github.com\js\google-code-prettify\prettify.js" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\Sahat\sahat.github.com\js\jquery.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/js/bootstrap.min.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whiteteeth/js/application.js" afterPath="$PROJECT_DIR$/whiteteeth/js/application.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whiteteeth/js/bootstrap-button.js" afterPath="$PROJECT_DIR$/whiteteeth/js/bootstrap-button.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whiteteeth/js/bootstrap.js" afterPath="$PROJECT_DIR$/whiteteeth/js/bootstrap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/opheliac/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/opheliac/js/bootstrap.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whiteteeth/js/bootstrap.min.js" afterPath="$PROJECT_DIR$/whiteteeth/js/bootstrap.min.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/default.html" afterPath="$PROJECT_DIR$/_layouts/default.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/sahat.github.com.iml" afterPath="$PROJECT_DIR$/.idea/sahat.github.com.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/opheliac/css/docs.css" afterPath="$PROJECT_DIR$/opheliac/css/docs.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whiteteeth/css/docs.css" afterPath="$PROJECT_DIR$/whiteteeth/css/docs.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/opheliac/js/forkit.js" afterPath="$PROJECT_DIR$/opheliac/js/forkit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/opheliac/index.html" afterPath="$PROJECT_DIR$/opheliac/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/opheliac/js/jquery-1.8.3.min.js" afterPath="$PROJECT_DIR$/opheliac/js/jquery-1.8.3.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/opheliac/js/jquery.js" afterPath="$PROJECT_DIR$/opheliac/js/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/whiteteeth/js/jquery.js" afterPath="$PROJECT_DIR$/whiteteeth/js/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sahat.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357792429150" ignored="false" />
-    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793248758" ignored="false" />
-    <file path="/default.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793872551" ignored="false" />
+    <file path="/Dummy.txt" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793910607" ignored="false" />
+    <file path="/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794041934" ignored="false" />
+    <file path="/default.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794740363" ignored="false" />
     <file path="$USER_HOME$/csc322/views/index.jade" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240174187" ignored="false" />
-    <file path="/a.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240240017" ignored="false" />
-    <file path="/a.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1354240241470" ignored="false" />
+    <file path="/a.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794580333" ignored="false" />
+    <file path="/a.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794592734" ignored="false" />
     <file path="/a.xml" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1356902374911" ignored="false" />
     <file path="/style.css" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1356825054362" ignored="false" />
     <file path="/opheliac.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1356936634921" ignored="false" />
@@ -31,13 +37,17 @@
     <file path="$PROJECT_DIR$/_site/opheliac/css/bootstrap.min.css" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793437043" ignored="false" />
     <file path="$PROJECT_DIR$/_site/js/bootstrap.min.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793437043" ignored="false" />
     <file path="$PROJECT_DIR$/_site/whiteteeth/css/bootstrap.css" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793437043" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/whiteteeth/js/bootstrap.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793437043" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/whiteteeth/js/bootstrap.min.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793437043" ignored="false" />
     <file path="$PROJECT_DIR$/_site/whiteteeth/js/bootstrap-collapse.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793437043" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/opheliac/js/bootstrap.min.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793437043" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793841934" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/about/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793841934" ignored="false" />
-    <file path="$PROJECT_DIR$/_site/posts/2012/02/03/javascript-the-programming-language-of-the-future/index.html" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357793841934" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/opheliac/js/bootstrap.min.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794689506" ignored="false" />
+    <file path="/a.less" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794584543" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/opheliac/js/jquery.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794689453" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/whiteteeth/js/application.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794689453" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/whiteteeth/js/jquery.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794689453" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/opheliac/js/forkit.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794689453" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/opheliac/js/jquery-1.8.3.min.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794689455" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/opheliac/css/docs.css" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794689455" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/js/jquery-1.8.3.min.js" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794689455" ignored="false" />
+    <file path="$PROJECT_DIR$/_site/whiteteeth/css/docs.css" changelist="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" time="1357794689506" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +109,16 @@
       <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="3" selection-start="36" selection-end="36" vertical-scroll-proportion="-0.65384614">
+            <state line="46" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="0.30769232">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="11" selection-start="771" selection-end="771" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -108,7 +127,7 @@
       <file leaf-file-name="default.html" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/_layouts/default.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="10" selection-start="862" selection-end="862" vertical-scroll-proportion="0.3765281">
+            <state line="40" column="0" selection-start="981" selection-end="981" vertical-scroll-proportion="0.5">
               <folding>
                 <element signature="n#style#0;n#img#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
@@ -124,6 +143,11 @@
     </FindUsagesManager>
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="Sahat Yalkabov" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitLogSettings">
@@ -135,10 +159,10 @@
     <option name="changedFiles">
       <list>
         <option value="$USER_HOME$/sahat.github.com4/_old/css/style.css" />
-        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/whiteteeth/index.html" />
         <option value="$USER_HOME$/Downloads/sparks.js-master/examples/webgl_particles_shapes.html" />
         <option value="$PROJECT_DIR$/opheliac/js/opheliac.js" />
+        <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/opheliac/index.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/_layouts/default.html" />
@@ -146,8 +170,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="960" />
-    <option name="width" value="960" />
+    <option name="x" value="898" />
+    <option name="width" value="1022" />
     <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -204,6 +228,34 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="opheliac" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sahat.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sahat.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sahat.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sahat.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="_layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -218,7 +270,7 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="options.lastSelected" value="preferences.sourceCode.HTML" />
     <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
@@ -299,28 +351,34 @@
       <created>1354237404405</created>
       <updated>1354237404405</updated>
     </task>
+    <task id="LOCAL-00001" summary="updated bootstrap and minified files">
+      <created>1357793934432</created>
+      <updated>1357793934432</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="960" y="0" width="960" height="1040" extended-state="0" />
+    <frame x="898" y="0" width="1022" height="1040" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3291714" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24832962" sideWeight="0.9895697" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23229167" sideWeight="0.6708286" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -364,7 +422,7 @@
     <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated bootstrap and minified files" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -377,6 +435,7 @@
     <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
     <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+    <MESSAGE value="updated bootstrap and minified files" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -427,11 +486,6 @@
         <state line="43" column="0" selection-start="550" selection-end="1049" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="148" column="42" selection-start="2537" selection-end="2537" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/whiteteeth/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="126" column="14" selection-start="3069" selection-end="3078" vertical-scroll-proportion="0.0" />
@@ -449,23 +503,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/css/bootstrap.min.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="740" column="34" selection-start="79759" selection-end="79763" vertical-scroll-proportion="0.010688836">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/opheliac/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="162" column="23" selection-start="4443" selection-end="4443" vertical-scroll-proportion="0.35574573">
+        <state line="5" column="0" selection-start="113" selection-end="113" vertical-scroll-proportion="0.104166664">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="11" selection-start="771" selection-end="771" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="3" selection-start="36" selection-end="36" vertical-scroll-proportion="-0.65384614">
+        <state line="46" column="0" selection-start="1457" selection-end="1457" vertical-scroll-proportion="0.30769232">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/_layouts/default.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="10" selection-start="862" selection-end="862" vertical-scroll-proportion="0.3765281">
+        <state line="40" column="0" selection-start="981" selection-end="981" vertical-scroll-proportion="0.5">
           <folding>
             <element signature="n#style#0;n#img#0;n#a#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>

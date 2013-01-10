@@ -54,7 +54,7 @@
         e.preventDefault()
       })
 
-    // button state demo
+    // button3d state demo
     $('#fat-btn')
       .click(function () {
         var btn = $(this)
