@@ -2,7 +2,7 @@
 layout: default
 title: Index
 ---
-<h4><i class="icon-comments"></i> Blog</h4>
+<h4><i class="glyphicon-list"></i> Blog</h4>
 <div class="posts">
   {% for post in site.categories.posts %}
   <h4><a href="{{ post.url }}">
@@ -12,8 +12,19 @@ title: Index
   {% endfor %}
 </div>
 
-<h4><i class="icon-beaker"></i> Projects</h4>
+<h4><i class="glyphicon-qrcode"></i> Projects</h4>
 <div class="posts">
+  <h4><a href="http://sahat.me/opheliac">
+    Kazlovesbats.com - Personal website for Alisson Eckfeldt
+  </a></h4>
+
+  <h4><a href="http://sahat.me/opheliac">
+    Audiostreamer - real-time synchronized audio playback across multiple connected clients
+  </a></h4>
+
+  <h4><a href="http://sahat.me/opheliac">
+    Apparelist - browse and compare items from multiple apparel stores
+  </a></h4>
 
   <h4><a href="http://sahat.me/opheliac">
     Emilie Autumn - Opheliac (audio-text visualization using HTML5 and CSS3)
@@ -27,28 +38,20 @@ title: Index
     Personal website for Conor Mccreedy</a></h4>
 
   <!-- Modal -->
-  <div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
+    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-content">
+      <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
       <h3 id="myModalLabel">Conor Mccreedy Website</h3>
-    </div>
-    <div class="modal-body">
-      <p><img class="img-polaroid" src="/assets/portfolio/conor-mccreedy-1.jpg" alt="Splash Screen"></p>
-      <p><img class="img-polaroid" src="/assets/portfolio/conor-mccreedy-2.jpg" alt="Home Page"></p>
-      <p><img class="img-polaroid" src="/assets/portfolio/conor-mccreedy-3.jpg" alt="Image Gallery"></p>
-    </div>
-    <div class="modal-footer">
-      <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
+      <div class="modal-body">
+        <p><img class="img-polaroid" src="/assets/portfolio/conor-mccreedy-1.jpg" alt="Splash Screen"></p>
+        <p><img class="img-polaroid" src="/assets/portfolio/conor-mccreedy-2.jpg" alt="Home Page"></p>
+        <p><img class="img-polaroid" src="/assets/portfolio/conor-mccreedy-3.jpg" alt="Image Gallery"></p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+      </div>
     </div>
   </div>
-
-</div>
-
-<h4><i class="icon-book"></i> Helpful Resources</h4>
-<div class="posts">
-  <h5><a href="http://blog.coldflake.com/posts/2012-12-30-Top-10-Unix-Command-Line-Utilities-2012.html">Top 10 Unix Command Line Utilities 2012</a></h5>
-  <h5><a href="http://cssdeck.com/labs/animated-clouds-background-pure-css3">Animated clouds background - Pure CSS3</a></h5>
-  <h5><a href="http://jeremykun.com/2013/01/04/probability-theory-a-primer/">Probability Theory — A Primer</a></h5>
-  <h5><a href="http://sass.codeschool.com/levels/1">Code School - Sass</a></h5>
-  <h5><a href="http://subtlepatterns.com/thumbnail-view/">Sublte Patterns - Free Background Textures</a></h5>
 </div>
