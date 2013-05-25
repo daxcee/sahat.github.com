@@ -1,59 +1,89 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Sahat Yalkabov</title>
-  <meta name="description" content="Personal Website">
-  <meta name="author" content="Sahat Yalkabov">
+  <head>
+    <meta charset="utf-8">
+    <title>Sahat Yalkabov &middot; Official</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Personal Website of Sahat Yalkabov">
+    <meta name="author" content="Sahat Yalkabov">
 
-  <link rel="stylesheet" href="/css/bootstrap.css" >
-  <link rel="stylesheet" href="/css/style.css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+      body {
+        padding-top: 20px;
+        padding-bottom: 40px;
+      }
 
-  <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
-  <!--[if lt IE 9]>
-  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-  <![endif]-->
-</head>
+      .container-narrow {
+        margin: 0 auto;
+        max-width: 700px;
+      }
+      .container-narrow > hr {
+        margin: 30px 0;
+      }
 
-<body>
+      .jumbotron {
+        margin: 60px 0;
+        text-align: center;
+      }
+      .jumbotron h1 {
+        font-size: 72px;
+        line-height: 1;
+      }
+      .jumbotron .btn {
+        font-size: 21px;
+        padding: 14px 24px;
+      }
 
-<div id="wrap">
-  <div class="container">
+      .marketing {
+        margin: 60px 0;
+      }
+      .marketing p + h4 {
+        margin-top: 28px;
+      }
+    </style>
+    <link href="/css/todc-bootstrap.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/assets/favicon.png">
+  </head>
 
-    <div class="page-header">
-      <a href="/"><h1>Sahat Yalkabov</h1></a>
-    </div>
+  <body>
 
-    <p class="lead">Computer Science undergraduate student from City College of New York.</p>
+    <div class="container-narrow">
 
-    {{ content }}
+      <div class="masthead">
+        <ul class="nav nav-pills pull-right">
+          {% if page.url == '/' %}
+            <li class="active"><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
 
-  </div>
-  <div id="push"></div>
-</div>
+          {% elsif page.url == '/about/' %}
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+          {% elsif page.url =='/contact/' %}
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li class="active"><a href="/contact">Contact</a></li>
+          {% endif %}
+        </ul>
+        <h3 class="muted">Sahat Yalkabov</h3>
+      </div>
 
-<div id="footer">
-  <div class="container">
-    <p class="muted credit">
-      <span>&copy; 2012. Some Rights Reserved.</span>
-    </p>
-  </div>
-</div>
+      <hr>
 
-<script src="/js/jquery.js"></script>
-<script src="/js/bootstrap.min.js"></script>
-<a href="https://github.com/sahat"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
-<script type="text/javascript">
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-17023058-2']);
-  _gaq.push(['_setDomainName', 'sahat.me']);
-  _gaq.push(['_trackPageview']);
+      {{ content }}
 
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-</script>
-</body>
+      <hr>
+
+      <div class="footer">
+        <p class="muted">2011-2013 &copy; Sahat Yalkabov</p>
+      </div>
+
+    </div> <!-- /container -->
+
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+    <script src="/js/bootstrap-modal.js"></script>
+  </body>
 </html>

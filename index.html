@@ -1,57 +1,63 @@
 ---
 layout: default
-title: Index
 ---
-<h4>Blog</h4>
-<div class="posts">
-  {% for post in site.categories.posts %}
-  <h4><a href="{{ post.url }}">
-    {{ post.title }}
-    <small>{{ post.date | date_to_string }}</small>
-  </a></h4>
-  {% endfor %}
+<div class="jumbotron">
+  <h1>JavaScript/Python Developer</h1>
+  <p class="lead">I am currently a computer science undergraduate student from the City College of New York, CUNY. Countdown until graduation:</p>
+  <div class="progress">
+    <div class="bar" style="width: 90%;"></div>
+  </div>
+  <a class="btn btn-large btn-success" href="http://github.com/sahat">Find me on GitHub</a>
 </div>
 
-<h4>Projects</h4>
-<div class="posts">
-  <h4><a href="http://kazlovesbats.com">
-    Personal website for Alisson Eckfeldt
-  </a></h4>
+<hr>
 
-  <h4><a href="http://seniorproject.heroku.com">
-    Audiostreamer - real-time synchronized audio playback across multiple connected clients
-  </a></h4>
+<div class="row-fluid marketing">
+  <div class="span6">
+    <h4><a href="http://kazlovesbats.com/">Alisson Eckfeldt's Personal Website</a></h4>
+    <p>Basic content aggregation via YouTube, Instagram and Tumblr client-side APIs.</p>
 
-  <h4><a href="http://apparelist.co">
-    Apparelist - browse and compare items from multiple apparel stores
-  </a></h4>
+    <h4><a href="http://seniorproject.heroku.com/">Audiostreamer (work in progress)</a></h4>
+    <p>Real-time synchronized audio playback across multiple connected web browser clients using Node.js and Socket.io.</p>
 
-  <h4><a href="http://sahat.me/opheliac">
-    Emilie Autumn - Opheliac (audio-text visualization using HTML5 and CSS3)
-  </a></h4>
+    <h4><a href="/opheliac">Emilie Autumn HTML5 Lyrics</a></h4>
+    <p>Audio-text visualization of Emilie Autumn's song <em>Opheliac</em> using jQuery and CSS3. Lyrics start after 57 seconds.</p>
+  </div>
 
-  <h4><a href="http://github.com/sahat/csc322/">
-    Recommendation Engine/Shopping Store in Node.js
-  </a></h4>
+  <div class="span6">
+    <h4><a href="http://www.apparelist.co/">Apparelist</a></h4>
+    <p>Browse and compare items from multiple clothing stores, e.g. Macys, Express, UNIQLO.</p>
 
-  <h4><a href="#myModal" data-toggle="modal">
-    Personal website for Conor Mccreedy</a></h4>
+    <h4><a href="http://github.com/sahat/csc322/">Game Recommendation Engine</a></h4>
+    <p>Final project for the Software Engineering course at the City College of New York. Written in Express.js, Redis and MongoDB.</p>
 
-  <!-- Modal -->
-    <div id="myModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-content">
-      <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-      <h3 id="myModalLabel">Conor Mccreedy Website</h3>
-      </div>
-      <div class="modal-body">
-        <p><img class="img-polaroid" src="/assets/portfolio/conor-mccreedy-1.jpg" alt="Splash Screen"></p>
-        <p><img class="img-polaroid" src="/assets/portfolio/conor-mccreedy-2.jpg" alt="Home Page"></p>
-        <p><img class="img-polaroid" src="/assets/portfolio/conor-mccreedy-3.jpg" alt="Image Gallery"></p>
-      </div>
-      <div class="modal-footer">
-        <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-      </div>
-    </div>
+    <h4><a href="#conor-mccreedy" data-toggle="modal">Conor Mccreedy's Personal Website</a></h4>
+    <p>Conor Mccreedy is an internationally known South African artist. Written in CodeIgniter PHP Web Framework.</p>
+  </div>
+</div>
+
+
+<div id="conor-mccreedy" class="modal hide fade" tabindex="-1" role="dialog" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h3>Conor Mccreedy</h3>
+  </div>
+  <div class="modal-body">
+    <p>I no longer maintain this website, but here are some screenshots of how it used to look in the late 2010 / early 2012.</p>
+    <p>
+      <img class="img-polaroid" src="/assets/portfolio/conor-mccreedy-1.jpg" alt="Splash Screen">
+      <em>Figure 1.</em> Splash Screen
+    </p>
+    <p>
+      <img class="img-polaroid" src="/assets/portfolio/conor-mccreedy-2.jpg" alt="Home Page">
+      <em>Figure 2.</em> Home Page
+    </p>
+    <p>
+      <img class="img-polaroid" src="/assets/portfolio/conor-mccreedy-3.jpg" alt="Image Gallery">
+      <em>Figure 3.</em> Image Gallery
+    </p>
+  </div>
+  <div class="modal-footer">
+    <button class="btn btn-primary" data-dismiss="modal" aria-hidden="true">Close</button>
   </div>
 </div>
