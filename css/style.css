@@ -1,3 +1,6 @@
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans|Raleway);
+
+
 * {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -39,11 +42,12 @@ a:focus {
     margin: 0;
 }
 .brand-title {
-    text-transform: uppercase;
+  font-family: 'Raleway';
+  text-transform: uppercase;
 }
 .brand-tagline {
-    font-weight: 300;
-    color: rgb(142, 142, 214);
+  font-family: 'Josefin Sans';
+  color: rgb(142, 142, 214);
 }
 
 .nav-list {
