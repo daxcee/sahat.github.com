@@ -1,62 +1,44 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>Sahat Yalkabov &middot; Official</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Personal Website of Sahat Yalkabov">
-    <meta name="author" content="Sahat Yalkabov">
-
-    <link href="/css/style.css" rel="stylesheet">
-    <link rel="shortcut icon" href="/assets/favicon.png">
-  </head>
-
-  <body>
-
-    <div class="container-narrow">
-
-      <div class="masthead">
-        <ul class="nav nav-pills pull-right">
-          {% if page.url == '/' %}
-            <li class="active"><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/gw2">Guild Wars 2</a></li>
-          {% elsif page.url == '/about/' %}
-            <li><a href="/">Home</a></li>
-            <li class="active"><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href="/gw2">Guild Wars 2</a></li>
-          {% elsif page.url =='/contact/' %}
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li class="active"><a href="/contact">Contact</a></li>
-            <li><a href="/gw2">Guild Wars 2</a></li>
-          {% elsif page.url =='/gw2/' %}
-            <li><a href="/">Home</a></li>
-            <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li class="active"><a href="/gw2">Guild Wars 2</a></li>
-          {% endif %}
+<head>
+  <meta charset="utf-8">
+  <title>Sahat Yalkabov - Official</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="My personal homepage">
+  <meta name="author" href="https://plus.google.com/100473780765122775330/posts">
+  <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.2.1/pure-min.css">
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="shortcut icon" href="/assets/favicon.png">
+  <script src="http://use.typekit.net/ajf8ggy.js"></script>
+  <script>try { Typekit.load(); } catch (e) {}</script>
+</head>
+<body>
+<div class="pure-g-r" id="layout">
+  <div class="sidebar pure-u">
+    <header class="header">
+      <hgroup>
+        <h1 class="brand-title">Sahat Yalkabov</h1>
+        <h2 class="brand-tagline">Personal Page</h2>
+      </hgroup>
+      <nav class="nav">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a class="pure-button" href="mailto:sahat@me.com">Email</a>
+          </li>
+          <li class="nav-item">
+            <a class="pure-button" href="http://github.com/sahat">GitHub</a>
+          </li>
         </ul>
-        <h3 class="muted">Sahat Yalkabov</h3>
-      </div>
-
-      <hr>
-
+      </nav>
+    </header>
+  </div>
+  <div class="pure-u-1">
+    <div class="content">
       {{ content }}
-
-      <hr>
-
-      <div class="footer">
-        <p class="muted">2011-2013 &copy; Sahat Yalkabov</p>
-        <div>Sendgrid</div>
-      </div>
-
-    </div> <!-- /container -->
-
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-    <script src="/js/bootstrap-modal.js"></script>
-  </body>
+    </div>
+  </div>
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<script src="/js/bootstrap-modal.js"></script>
+</body>
 </html>
