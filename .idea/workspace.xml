@@ -2,240 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="forgot to add bootstrap">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/dictionaries/Sahat.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/jsLinters/jshint.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/sahat.github.com.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/13.04.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/Evanescence.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/GuildWars2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/backbone-js-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/bitbucket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/eve-online.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/eve-online.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/express.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/fedora.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/github.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/gmail.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/hg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/icon-github.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/icon-html5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/jquery.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/jslogo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/komodo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/less-small.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/less.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/lithium.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/mongodb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/nodejs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/nova.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/nova1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/nova2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/pony.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/portfolio/conor-mccreedy-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/portfolio/conor-mccreedy-2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/portfolio/conor-mccreedy-3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/pycharm_logo.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/python.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/racket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/sleepless.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/top_languages.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/tumblr_mkii2qRVVq1r5nz7ho1_250.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/tumblr_mkii2qRVVq1r5nz7ho2_250.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/tumblr_mkii2qRVVq1r5nz7ho3_250.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/tumblr_mkii2qRVVq1r5nz7ho4_250.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/assets/ubuntu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/contact/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/css/bootstrap-responsive.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/css/bootstrap.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/css/bootstrap.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/css/docs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/css/forkit.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/img/amazon_logo_transparent.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/img/ea.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/img/flag.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/img/foreground.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/img/midground.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/img/opheliac-cover.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/js/RequestAnimationFrame.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/js/Track.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/js/forkit.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/js/jquery-1.8.3.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/js/jquery.jplayer.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/js/jquery.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/js/opheliac.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/js/player-graphics.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/opheliac/opheliac.mp3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/coldfusion/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/coldfusion/apparelist.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/coldfusion/apparelist.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/coldfusion/apparelist2.PNG" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/coldfusion/apple-touch-icon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/coldfusion/coldfusion.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/coldfusion/component.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/coldfusion/css/impress-demo.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/coldfusion/favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/coldfusion/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/coldfusion/js/impress.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/LICENSE" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/print/paper.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/print/pdf.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/reveal.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/reveal.min.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/beige.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/default.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/night.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/serif.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/simple.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/sky.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/source/beige.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/source/default.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/source/night.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/source/serif.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/source/simple.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/source/sky.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/template/mixins.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/template/settings.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/css/theme/template/theme.scss" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/grunt.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/index2.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/js/reveal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/js/reveal.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/lib/css/zenburn.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/lib/font/league_gothic-webfont.eot" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/lib/font/league_gothic-webfont.svg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/lib/font/league_gothic-webfont.ttf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/lib/font/league_gothic-webfont.woff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/lib/font/league_gothic_license" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/lib/js/classList.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/lib/js/head.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/lib/js/html5shiv.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/highlight/highlight.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/markdown/markdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/markdown/showdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/notes-server/client.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/notes-server/index.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/notes-server/notes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/notes/notes.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/notes/notes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/postmessage/example.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/postmessage/postmessage.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/print-pdf/print-pdf.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/remotes/remotes.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/plugin/zoom-js/zoom.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/presentations/senior-design-project/prototype.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/css/base.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/css/bootstrap-responsive.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/css/docs.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/css/styles.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/Implants.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/SebDent.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/SebSmile.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/TopJaw.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/Xray.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/bootstrap-mdo-sfmoma-01.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/bootstrap-mdo-sfmoma-02.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/bootstrap-mdo-sfmoma-03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/brian-2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/brian-3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/brian.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/bs-docs-bootstrap-features.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/bs-docs-masthead-pattern.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/bs-docs-responsive-illustrations.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/bs-docs-twitter-github.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/dentist.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/dentist5.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/donate.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/example-sites/8020select.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/example-sites/adoptahydrant.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/example-sites/breakingnews.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/example-sites/fleetio.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/example-sites/gathercontent.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/example-sites/jshint.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/example-sites/kippt.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/example-sites/soundready.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/bootstrap-example-carousel.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/bootstrap-example-fluid.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/bootstrap-example-hero.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/bootstrap-example-marketing-narrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/bootstrap-example-signin.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/bootstrap-example-starter.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/bootstrap-example-sticky-footer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/browser-icon-chrome.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/browser-icon-firefox.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/browser-icon-safari.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/slide-01.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/slide-02.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/examples/slide-03.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/fugier.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/glyphicons-halflings-white.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/glyphicons-halflings.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/grid-baseline-20px.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/history.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/jovanovic.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/less-logo-large.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/people.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/people2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/responsive-illustrations.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/sebastian.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/img/splash.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/application.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-affix.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-alert.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-button.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-carousel.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-collapse.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-dropdown.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-modal.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-popover.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-scrollspy.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-tab.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-tooltip.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-transition.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap-typeahead.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/bootstrap.min.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/google-code-prettify/prettify.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/google-code-prettify/prettify.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/jekyll/_site/whiteteeth/js/jquery.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/assets/main.js.gz" afterPath="$PROJECT_DIR$/jekyll/_site/assets/main.js.gz" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/feed.xml" afterPath="$PROJECT_DIR$/jekyll/_site/feed.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/index.html" afterPath="$PROJECT_DIR$/jekyll/_site/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/2013/11/08/apparelist/index.html" afterPath="$PROJECT_DIR$/jekyll/_site/2013/11/08/apparelist/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/2013/11/08/audiostreamer/index.html" afterPath="$PROJECT_DIR$/jekyll/_site/2013/11/08/audiostreamer/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/2013/11/08/cloudbucket/index.html" afterPath="$PROJECT_DIR$/jekyll/_site/2013/11/08/cloudbucket/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/2013/11/08/connor-mccreedy/index.html" afterPath="$PROJECT_DIR$/jekyll/_site/2013/11/08/connor-mccreedy/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/2013/11/08/csc322/index.html" afterPath="$PROJECT_DIR$/jekyll/_site/2013/11/08/csc322/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/2013/11/08/dressedtocode/index.html" afterPath="$PROJECT_DIR$/jekyll/_site/2013/11/08/dressedtocode/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/2013/11/08/kazlovesbats/index.html" afterPath="$PROJECT_DIR$/jekyll/_site/2013/11/08/kazlovesbats/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/2013/11/08/newedenfaces/index.html" afterPath="$PROJECT_DIR$/jekyll/_site/2013/11/08/newedenfaces/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/2013/11/08/opheliac/index.html" afterPath="$PROJECT_DIR$/jekyll/_site/2013/11/08/opheliac/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/2013/11/08/requirejs-library-skeleton/index.html" afterPath="$PROJECT_DIR$/jekyll/_site/2013/11/08/requirejs-library-skeleton/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/404/index.html" afterPath="$PROJECT_DIR$/jekyll/_site/404/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/jekyll/_site/assets/main.js" afterPath="$PROJECT_DIR$/jekyll/_site/assets/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/assets/main.css.gz" afterPath="$PROJECT_DIR$/src/_site/assets/main.css.gz" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/Rakefile" afterPath="$PROJECT_DIR$/src/_site/Rakefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_assets/stylesheets/_nav.scss" afterPath="$PROJECT_DIR$/src/_assets/stylesheets/_nav.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_assets/stylesheets/_responsive.scss" afterPath="$PROJECT_DIR$/src/_assets/stylesheets/_responsive.scss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/feed.xml" afterPath="$PROJECT_DIR$/src/_site/feed.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/assets/main.css" afterPath="$PROJECT_DIR$/src/_site/assets/main.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sahat.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -296,7 +69,35 @@
     <favorites_list name="sahat.github.com" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="4710">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_nav.scss" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/_nav.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="17" column="11" selection-start="331" selection-end="331" vertical-scroll-proportion="-9.166667" vertical-offset="35" max-vertical-offset="1365">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_responsive.scss" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/_responsive.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="122" column="15" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.77868855" vertical-offset="1355" max-vertical-offset="1965">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -314,8 +115,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$USER_HOME$/echo_server.js" />
-        <option value="$PROJECT_DIR$/presentations/senior-design-project/index2.html" />
         <option value="$PROJECT_DIR$/_layouts/default.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/contact.html" />
@@ -330,6 +129,8 @@
         <option value="$PROJECT_DIR$/_config.yml" />
         <option value="$PROJECT_DIR$/_site/Gemfile.lock" />
         <option value="$PROJECT_DIR$/_layouts/base.html" />
+        <option value="$PROJECT_DIR$/src/_assets/stylesheets/_nav.scss" />
+        <option value="$PROJECT_DIR$/src/_assets/stylesheets/_responsive.scss" />
       </list>
     </option>
   </component>
@@ -384,6 +185,60 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sahat.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sahat.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sahat.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sahat.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stylesheets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sahat.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sahat.github.com" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="_assets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -403,10 +258,10 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="FullScreen" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -431,6 +286,14 @@
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -439,14 +302,6 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -489,15 +344,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="22" width="925" height="705" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24972972" sideWeight="0.6706949" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24972972" sideWeight="0.6706949" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -508,6 +362,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -536,6 +391,29 @@
         <breakpoints-dialog />
       </breakpoints-dialog>
     </breakpoint-manager>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4710">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/_nav.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="17" column="11" selection-start="331" selection-end="331" vertical-scroll-proportion="-9.166667" vertical-offset="35" max-vertical-offset="1365">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/_responsive.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="122" column="15" selection-start="2080" selection-end="2080" vertical-scroll-proportion="0.77868855" vertical-offset="1355" max-vertical-offset="1965">
+          <folding />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>
