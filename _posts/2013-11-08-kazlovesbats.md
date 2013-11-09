@@ -12,7 +12,7 @@ author:
   image: ks.png
 ---
 
-[Demo](http://kazlovesbats.com/) - [Source Code (Private)]
+[Demo](http://kazlovesbats.com/) - Source Code (Private)
 
 Allison Eckfeldt's personal website.
 Content aggregation is done with YouTube, Instagram and Tumblr APIs on client-side via JSONP.

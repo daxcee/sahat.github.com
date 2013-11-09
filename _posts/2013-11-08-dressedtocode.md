@@ -12,7 +12,7 @@ author:
   image: ks.png
 ---
 
-[Demo (Local)] - [Source Code](http://github.com/sahat/dressedtocode/)
+Demo (Local) - [Source Code](http://github.com/sahat/dressedtocode/)
 
 Shopbook is as responsive web app that allows people to create a contact list of
 family and friend, their sizes, favorite brands, occasions/birthdays and wish lists.
