@@ -78,9 +78,8 @@
 
 body.nav-hidden {
     .site-nav {
-        opacity: 0;
+        display:none;
         transition:all 0.35s ease;
-        -webkit-transform: translate3d(0px, 0, 0px);
     }
 }
 
