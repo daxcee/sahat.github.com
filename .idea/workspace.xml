@@ -2,170 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="forgot to add bootstrap">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_assets/javascripts/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/apparelist/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/audiostreamer/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/cloudbucket/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/connor-mccreedy/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/csc322/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/dressedtocode/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/kazlovesbats/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/newedenfaces/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/opheliac/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/requirejs-library-skeleton/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/404/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/CNAME" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/Gemfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/Rakefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/assets/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/assets/main.css.gz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/assets/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/assets/main.js.gz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/feed.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/blog-cover.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/ev.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/incorporated.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/ks.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/projects/apparelist.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/projects/audiostreamer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/projects/cloudbucket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/projects/csc322.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/projects/kazlovesbats.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/projects/new-eden-faces.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/projects/opheliac.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/images/projects/shopbook.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/13.04.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/Evanescence.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/GuildWars2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/backbone-js-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/bitbucket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/eve-online.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/eve-online.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/express.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/fedora.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/github.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/gmail.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/hg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/icon-github.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/icon-html5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/jquery.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/jslogo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/komodo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/less-small.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/less.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/lithium.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/mongodb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/nodejs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/nova.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/nova1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/nova2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/pony.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/portfolio/conor-mccreedy-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/portfolio/conor-mccreedy-2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/portfolio/conor-mccreedy-3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/pycharm_logo.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/python.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/racket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/sleepless.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/top_languages.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/tumblr_mkii2qRVVq1r5nz7ho1_250.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/tumblr_mkii2qRVVq1r5nz7ho2_250.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/tumblr_mkii2qRVVq1r5nz7ho3_250.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/tumblr_mkii2qRVVq1r5nz7ho4_250.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/old-assets/ubuntu.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/2013/11/08/apparelist/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/2013/11/08/audiostreamer/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/2013/11/08/cloudbucket/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/2013/11/08/connor-mccreedy/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/2013/11/08/csc322/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/2013/11/08/dressedtocode/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/2013/11/08/kazlovesbats/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/2013/11/08/newedenfaces/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/2013/11/08/opheliac/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/2013/11/08/requirejs-library-skeleton/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/404/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/CNAME" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/Gemfile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/Rakefile" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/assets/main.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/assets/main.css.gz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/assets/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/assets/main.js.gz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/feed.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/blog-cover.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/ev.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/incorporated.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/ks.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/projects/apparelist.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/projects/audiostreamer.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/projects/cloudbucket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/projects/csc322.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/projects/kazlovesbats.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/projects/new-eden-faces.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/projects/opheliac.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/images/projects/shopbook.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/index.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/13.04.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/Evanescence.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/GuildWars2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/backbone-js-logo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/bitbucket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/eve-online.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/eve-online.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/express.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/favicon.ico" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/favicon.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/fedora.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/github.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/gmail.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/hg.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/icon-github.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/icon-html5.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/jquery.jpeg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/jslogo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/komodo.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/less-small.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/less.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/lithium.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/mongodb.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/nodejs.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/nova.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/nova1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/nova2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/pony.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/portfolio/conor-mccreedy-1.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/portfolio/conor-mccreedy-2.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/portfolio/conor-mccreedy-3.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/pycharm_logo.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/python.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/racket.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/sleepless.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/top_languages.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/tumblr_mkii2qRVVq1r5nz7ho1_250.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/tumblr_mkii2qRVVq1r5nz7ho2_250.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/tumblr_mkii2qRVVq1r5nz7ho3_250.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/tumblr_mkii2qRVVq1r5nz7ho4_250.gif" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_sitr/old-assets/ubuntu.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_posts/2013-11-08-apparelist.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-08-apparelist.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_posts/2013-11-08-audiostreamer.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-08-audiostreamer.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_posts/2013-11-08-cloudbucket.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-08-cloudbucket.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_posts/2013-11-08-connor-mccreedy.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-08-connor-mccreedy.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_posts/2013-11-08-csc322.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-08-csc322.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_posts/2013-11-08-dressedtocode.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-08-dressedtocode.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_posts/2013-11-08-kazlovesbats.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-08-kazlovesbats.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_posts/2013-11-08-newedenfaces.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-08-newedenfaces.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_posts/2013-11-08-opheliac.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-08-opheliac.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_posts/2013-11-08-requirejs-library-skeleton.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-08-requirejs-library-skeleton.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_config.yml" afterPath="$PROJECT_DIR$/src/_config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_assets/stylesheets/_nav.scss" afterPath="$PROJECT_DIR$/src/_assets/stylesheets/_nav.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_includes/_scripts.html" afterPath="$PROJECT_DIR$/src/_includes/_scripts.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/main.js" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/main.js.gz" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/blog-cover2.jpg" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_layouts/base.html" afterPath="$PROJECT_DIR$/src/_layouts/base.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sahat.github.com.iws" />
@@ -228,91 +68,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2013-11-08-dressedtocode.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-dressedtocode.md">
+      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/_layouts/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-08-csc322.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-csc322.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-08-connor-mccreedy.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-connor-mccreedy.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-08-cloudbucket.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-cloudbucket.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-08-audiostreamer.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-audiostreamer.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-08-apparelist.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-apparelist.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_config.yml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/_config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="4" selection-start="89" selection-end="89" vertical-scroll-proportion="0.10619469" vertical-offset="0" max-vertical-offset="1980">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-08-kazlovesbats.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-kazlovesbats.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-08-newedenfaces.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-newedenfaces.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="96" selection-end="96" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-08-opheliac.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-opheliac.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="7" selection-start="92" selection-end="92" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+            <state line="44" column="108" selection-start="2723" selection-end="2723" vertical-scroll-proportion="0.36180905" vertical-offset="444" max-vertical-offset="1275">
               <folding />
             </state>
           </provider>
@@ -336,7 +95,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/_site/Gemfile.lock" />
         <option value="$PROJECT_DIR$/_layouts/base.html" />
         <option value="$PROJECT_DIR$/src/_assets/stylesheets/_responsive.scss" />
         <option value="$PROJECT_DIR$/src/_includes/_scripts.html" />
@@ -352,6 +110,7 @@
         <option value="$PROJECT_DIR$/src/_posts/2013-11-08-audiostreamer.md" />
         <option value="$PROJECT_DIR$/src/_posts/2013-11-08-apparelist.md" />
         <option value="$PROJECT_DIR$/src/_config.yml" />
+        <option value="$PROJECT_DIR$/src/_layouts/base.html" />
       </list>
     </option>
   </component>
@@ -434,25 +193,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="_posts" />
+              <option name="myItemId" value="_layouts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -475,10 +216,10 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="FullScreen" value="false" />
-    <property name="options.searchVisible" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -506,14 +247,6 @@
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
-      <method />
-    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -522,6 +255,14 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -611,9 +352,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24972972" sideWeight="0.6706949" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -640,65 +381,32 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/_article.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="231" column="9" selection-start="3953" selection-end="3954" vertical-scroll-proportion="-11.041667" vertical-offset="3200" max-vertical-offset="3810">
-          <folding />
-        </state>
+        <state line="231" column="9" selection-start="3953" selection-end="3954" vertical-scroll-proportion="-11.041667" vertical-offset="3200" max-vertical-offset="3810" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/_nav.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="33" selection-end="33" vertical-scroll-proportion="0.051107325" vertical-offset="0" max-vertical-offset="1230">
-          <folding />
-        </state>
+        <state line="2" column="0" selection-start="33" selection-end="33" vertical-scroll-proportion="0.051107325" vertical-offset="0" max-vertical-offset="1230" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/_responsive.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="114" column="18" selection-start="1962" selection-end="1962" vertical-scroll-proportion="0.60477" vertical-offset="1355" max-vertical-offset="1965">
-          <folding />
-        </state>
+        <state line="114" column="18" selection-start="1962" selection-end="1962" vertical-scroll-proportion="0.60477" vertical-offset="1355" max-vertical-offset="1965" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_includes/_scripts.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_layouts/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="69" selection-start="1484" selection-end="1484" vertical-scroll-proportion="0.36236933" vertical-offset="62" max-vertical-offset="1275">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-requirejs-library-skeleton.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-opheliac.md">
+    <entry file="file://$PROJECT_DIR$/src/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="7" selection-start="92" selection-end="92" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-newedenfaces.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="96" selection-end="96" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-kazlovesbats.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="102" selection-end="102" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <folding />
-        </state>
+        <state line="7" column="21" selection-start="167" selection-end="167" vertical-scroll-proportion="0.18584071" vertical-offset="0" max-vertical-offset="1980" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-dressedtocode.md">
@@ -736,16 +444,37 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-apparelist.md">
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-kazlovesbats.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="78" selection-end="78" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+        <state line="5" column="0" selection-start="102" selection-end="102" vertical-scroll-proportion="0.12077295" vertical-offset="0" max-vertical-offset="621">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_config.yml">
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-newedenfaces.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="4" selection-start="89" selection-end="89" vertical-scroll-proportion="0.10619469" vertical-offset="0" max-vertical-offset="1980">
+        <state line="5" column="0" selection-start="96" selection-end="96" vertical-scroll-proportion="0.12077295" vertical-offset="0" max-vertical-offset="621">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-opheliac.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="7" selection-start="92" selection-end="92" vertical-scroll-proportion="0.14492753" vertical-offset="0" max-vertical-offset="621">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-apparelist.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="20" column="31" selection-start="413" selection-end="413" vertical-scroll-proportion="0.49099836" vertical-offset="0" max-vertical-offset="611">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_layouts/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="108" selection-start="2723" selection-end="2723" vertical-scroll-proportion="0.36180905" vertical-offset="444" max-vertical-offset="1275">
           <folding />
         </state>
       </provider>
