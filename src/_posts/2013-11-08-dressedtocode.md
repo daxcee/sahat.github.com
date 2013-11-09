@@ -3,7 +3,6 @@ layout: post
 
 title: Shopbook
 subtitle: "Dressed To Code 2013 Hackathon"
-cover_image: blog-cover.jpg
 
 author:
   name: Sahat Yalkabov
@@ -20,4 +19,4 @@ Users import contacts from Facebook or add contacts on their own.
 
 Technology Stack: **Node.js, Facebook SDK**
 
-<div class="full zoomable"><img src="/images/projects/shopbook.png"></div>
+<div class="full"><img src="/images/projects/shopbook.png"></div>

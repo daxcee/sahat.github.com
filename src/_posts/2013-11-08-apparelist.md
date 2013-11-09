@@ -3,7 +3,6 @@ layout: post
 
 title: Apparelist
 subtitle: "Hearst Fashion Hackathon 2013"
-cover_image: blog-cover.jpg
 
 author:
   name: Sahat Yalkabov
@@ -19,4 +18,4 @@ e.g. Macys, Express, H&M, UNIQLO.
 
 Technology Stack: **Node.js, MongoDB**
 
-<div class="full zoomable"><img src="/images/projects/apparelist.png"></div>
+<div class="full"><img src="/images/projects/apparelist.png"></div>

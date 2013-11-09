@@ -3,7 +3,6 @@ layout: post
 
 title: Conor Mccreedy's Website
 subtitle: "An artist from South Africa"
-cover_image: blog-cover.jpg
 
 author:
   name: Sahat Yalkabov

@@ -3,7 +3,6 @@ layout: post
 
 title: Audiostreamer
 subtitle: "Real-time synchronized audio playback"
-cover_image: blog-cover.jpg
 
 author:
   name: Sahat Yalkabov
@@ -19,4 +18,4 @@ This allows you to boost the sound by playing the song on more than one device s
 
 Technology Stack: **Node.js, Socket.io**
 
-<div class="full zoomable"><img src="/images/projects/audiostreamer.png"></div>
+<div class="full"><img src="/images/projects/audiostreamer.png"></div>

@@ -3,7 +3,6 @@ layout: post
 
 title: Require.js Library Skeleton
 subtitle: "Starter project for a modular javascript library"
-cover_image: blog-cover.jpg
 
 author:
   name: Sahat Yalkabov

@@ -3,7 +3,6 @@ layout: post
 
 title: Allison Eckfeldt's Website
 subtitle: "Also known as kazlovesbats on YouTube"
-cover_image: blog-cover.jpg
 
 author:
   name: Sahat Yalkabov
@@ -19,4 +18,4 @@ Content aggregation is done with YouTube, Instagram and Tumblr APIs on client-si
 
 Technology Stack: **jQuery, Underscore**
 
-<div class="full zoomable"><img src="/images/projects/kazlovesbats.png"></div>
+<div class="full"><img src="/images/projects/kazlovesbats.png"></div>

@@ -3,7 +3,6 @@ layout: post
 
 title: CloudBucket
 subtitle: "The Capstone II Project"
-cover_image: blog-cover.jpg
 
 author:
   name: Sahat Yalkabov
@@ -25,4 +24,4 @@ not based on its file contents.
 Technology Stack: **Node.js, Python, MongoDB, AWS, jQuery, Grunt.js, Bower, Google OAuth 2.0,
 Google Books API, SkyBiometry API, Last.fm API, Musixmatch API**
 
-<div class="full zoomable"><img src="/images/projects/cloudbucket.png"></div>
+<div class="full"><img src="/images/projects/cloudbucket.png"></div>
