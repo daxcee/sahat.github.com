@@ -2,11 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="forgot to add bootstrap">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/main.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/main.js.gz" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/images/blog-cover2.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/assets/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_site/assets/main.css.gz" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_layouts/base.html" afterPath="$PROJECT_DIR$/src/_layouts/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/feed.xml" afterPath="$PROJECT_DIR$/src/_site/feed.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/index.html" afterPath="$PROJECT_DIR$/src/_site/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/apparelist/index.html" afterPath="$PROJECT_DIR$/src/_site/2013/11/08/apparelist/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/audiostreamer/index.html" afterPath="$PROJECT_DIR$/src/_site/2013/11/08/audiostreamer/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/cloudbucket/index.html" afterPath="$PROJECT_DIR$/src/_site/2013/11/08/cloudbucket/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/connor-mccreedy/index.html" afterPath="$PROJECT_DIR$/src/_site/2013/11/08/connor-mccreedy/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/csc322/index.html" afterPath="$PROJECT_DIR$/src/_site/2013/11/08/csc322/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/dressedtocode/index.html" afterPath="$PROJECT_DIR$/src/_site/2013/11/08/dressedtocode/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/kazlovesbats/index.html" afterPath="$PROJECT_DIR$/src/_site/2013/11/08/kazlovesbats/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/newedenfaces/index.html" afterPath="$PROJECT_DIR$/src/_site/2013/11/08/newedenfaces/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/opheliac/index.html" afterPath="$PROJECT_DIR$/src/_site/2013/11/08/opheliac/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/2013/11/08/requirejs-library-skeleton/index.html" afterPath="$PROJECT_DIR$/src/_site/2013/11/08/requirejs-library-skeleton/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_site/404/index.html" afterPath="$PROJECT_DIR$/src/_site/404/index.html" />
     </list>
     <ignored path="sahat.github.com.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -68,10 +79,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/_layouts/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="44" column="108" selection-start="2723" selection-end="2723" vertical-scroll-proportion="0.36180905" vertical-offset="444" max-vertical-offset="1275">
+            <state line="11" column="20" selection-start="830" selection-end="830" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="1275">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_scripts.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/_includes/_scripts.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="36" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.5276382" vertical-offset="0" max-vertical-offset="597">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_config.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/_config.yml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="101" column="25" selection-start="1954" selection-end="1954" vertical-scroll-proportion="0.0" vertical-offset="1346" max-vertical-offset="1980">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gemfile" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Gemfile">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
               <folding />
             </state>
           </provider>
@@ -146,7 +184,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -165,40 +202,9 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="_layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -216,10 +222,10 @@
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
-    <property name="FullScreen" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -247,6 +253,14 @@
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
       <method />
     </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <option name="VMOptions" />
       <option name="arguments" />
@@ -255,14 +269,6 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -305,14 +311,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="22" width="925" height="705" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24972972" sideWeight="0.6706949" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24972972" sideWeight="0.6706949" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -352,9 +358,9 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24972972" sideWeight="0.6706949" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -379,11 +385,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/_article.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="231" column="9" selection-start="3953" selection-end="3954" vertical-scroll-proportion="-11.041667" vertical-offset="3200" max-vertical-offset="3810" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/_nav.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="33" selection-end="33" vertical-scroll-proportion="0.051107325" vertical-offset="0" max-vertical-offset="1230" />
@@ -394,87 +395,80 @@
         <state line="114" column="18" selection-start="1962" selection-end="1962" vertical-scroll-proportion="0.60477" vertical-offset="1355" max-vertical-offset="1965" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_includes/_scripts.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-requirejs-library-skeleton.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="0" selection-start="114" selection-end="114" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="21" selection-start="167" selection-end="167" vertical-scroll-proportion="0.18584071" vertical-offset="0" max-vertical-offset="1980" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-dressedtocode.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="77" selection-end="77" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-csc322.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="72" selection-end="72" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-connor-mccreedy.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="90" selection-end="90" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-cloudbucket.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="73" selection-end="73" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-audiostreamer.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="89" selection-end="89" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-kazlovesbats.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="102" selection-end="102" vertical-scroll-proportion="0.12077295" vertical-offset="0" max-vertical-offset="621">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="102" selection-end="102" vertical-scroll-proportion="0.12077295" vertical-offset="0" max-vertical-offset="621" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-newedenfaces.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="96" selection-end="96" vertical-scroll-proportion="0.12077295" vertical-offset="0" max-vertical-offset="621">
-          <folding />
-        </state>
+        <state line="5" column="0" selection-start="96" selection-end="96" vertical-scroll-proportion="0.12077295" vertical-offset="0" max-vertical-offset="621" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-opheliac.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="7" selection-start="92" selection-end="92" vertical-scroll-proportion="0.14492753" vertical-offset="0" max-vertical-offset="621">
-          <folding />
-        </state>
+        <state line="6" column="7" selection-start="92" selection-end="92" vertical-scroll-proportion="0.14492753" vertical-offset="0" max-vertical-offset="621" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-apparelist.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="31" selection-start="413" selection-end="413" vertical-scroll-proportion="0.49099836" vertical-offset="0" max-vertical-offset="611">
+        <state line="20" column="31" selection-start="413" selection-end="413" vertical-scroll-proportion="0.49099836" vertical-offset="0" max-vertical-offset="611" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="634">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="25" selection-start="1954" selection-end="1954" vertical-scroll-proportion="0.0" vertical-offset="1346" max-vertical-offset="1980">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_layouts/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="108" selection-start="2723" selection-end="2723" vertical-scroll-proportion="0.36180905" vertical-offset="444" max-vertical-offset="1275">
+        <state line="11" column="20" selection-start="830" selection-end="830" vertical-scroll-proportion="-6.875" vertical-offset="0" max-vertical-offset="1275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_includes/_scripts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="36" selection-start="1313" selection-end="1313" vertical-scroll-proportion="0.5276382" vertical-offset="0" max-vertical-offset="597">
           <folding />
         </state>
       </provider>
