@@ -16,9 +16,9 @@ author:
 **Featured in JavaScript Weekly - Issue 155!**
 
 Skeleton project for building javascript libraries using Require.js module loader.
-Comes with Jasmine testing framework, Karma test runner and Grunt task runner.
+Comes with Jasmine and Mocha testing frameworks, Karma test runner and Grunt task runner.
 
-Technology Stack: **Require.js, Grunt.js, Jasmine, Karma, Bower**
+Technology Stack: **Require.js, Grunt.js, Bower, Jasmine, Mocha, Chai, Karma, Travis CI**
 
 <iframe src="http://ghbtns.com/github-btn.html?wmode=opaque&amp;user=sahat&amp;repo=requirejs-library&amp;type=watch&amp;count=true&amp;size=large"
   allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30">

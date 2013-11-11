@@ -2,21 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="forgot to add bootstrap">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/cover.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/stylesheets/main.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_assets/stylesheets/_animate.scss" afterPath="$PROJECT_DIR$/assets/stylesheets/_animate.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_assets/stylesheets/_article.scss" afterPath="$PROJECT_DIR$/assets/stylesheets/_article.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_assets/stylesheets/_base.scss" afterPath="$PROJECT_DIR$/assets/stylesheets/_base.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_assets/stylesheets/_bootstrap.scss" afterPath="$PROJECT_DIR$/assets/stylesheets/_bootstrap.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_assets/stylesheets/_icons.scss" afterPath="$PROJECT_DIR$/assets/stylesheets/_icons.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_assets/stylesheets/_nav.scss" afterPath="$PROJECT_DIR$/assets/stylesheets/_nav.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_assets/stylesheets/_responsive.scss" afterPath="$PROJECT_DIR$/assets/stylesheets/_responsive.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_assets/stylesheets/_syntax.scss" afterPath="$PROJECT_DIR$/assets/stylesheets/_syntax.scss" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_assets/stylesheets/main.scss" afterPath="$PROJECT_DIR$/assets/stylesheets/main.scss" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/images/blog-cover.jpg" afterPath="$PROJECT_DIR$/images/blog-cover.jpg" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/_config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/_layouts/base.html" afterPath="$PROJECT_DIR$/_layouts/base.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-apparelist.md" afterPath="$PROJECT_DIR$/_posts/2013-11-06-apparelist.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-audiostreamer.md" afterPath="$PROJECT_DIR$/_posts/2013-11-03-audiostreamer.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-cloudbucket.md" afterPath="$PROJECT_DIR$/_posts/2013-11-10-cloudbucket.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-connor-mccreedy.md" afterPath="$PROJECT_DIR$/_posts/2013-11-02-connor-mccreedy.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-csc322.md" afterPath="$PROJECT_DIR$/_posts/2013-11-04-csc322.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-dressedtocode.md" afterPath="$PROJECT_DIR$/_posts/2013-11-07-dressedtocode.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-newedenfaces.md" afterPath="$PROJECT_DIR$/_posts/2013-11-09-newedenfaces.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-opheliac.md" afterPath="$PROJECT_DIR$/_posts/2013-11-05-opheliac.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-requirejs-library-skeleton.md" afterPath="$PROJECT_DIR$/_posts/2013-11-11-requirejs-library-skeleton.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sahat.github.com.iws" />
@@ -79,91 +73,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Rakefile" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Rakefile">
+      <file leaf-file-name="2013-11-05-opheliac.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-11-05-opheliac.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="600">
+            <state line="11" column="3" selection-start="0" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/stylesheets/main.scss">
+      <file leaf-file-name="2013-11-09-newedenfaces.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-newedenfaces.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="405">
+            <state line="0" column="0" selection-start="0" selection-end="590" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_syntax.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/stylesheets/_syntax.scss">
+      <file leaf-file-name="2013-11-08-kazlovesbats.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-11-08-kazlovesbats.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="975">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/stylesheets/main.css">
+      <file leaf-file-name="2013-11-10-cloudbucket.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-11-10-cloudbucket.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="9690" max-vertical-offset="42015">
+            <state line="26" column="68" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_layouts/base.html">
+      <file leaf-file-name="2013-11-11-requirejs-library-skeleton.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-11-11-requirejs-library-skeleton.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="556" selection-end="1998" vertical-scroll-proportion="-1.24" vertical-offset="58" max-vertical-offset="1275">
+            <state line="18" column="89" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.html">
+      <file leaf-file-name="2013-11-07-dressedtocode.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-11-07-dressedtocode.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="59" selection-start="74" selection-end="80" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="900">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_config.yml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_config.yml">
+      <file leaf-file-name="2013-11-04-csc322.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-11-04-csc322.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="4" column="25" selection-start="101" selection-end="110" vertical-scroll-proportion="0.09819967" vertical-offset="0" max-vertical-offset="1710">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_nav.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/stylesheets/_nav.scss">
+      <file leaf-file-name="2013-11-02-connor-mccreedy.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-11-02-connor-mccreedy.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1230">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_responsive.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/stylesheets/_responsive.scss">
+      <file leaf-file-name="2013-11-03-audiostreamer.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-11-03-audiostreamer.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1965">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_base.scss" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/stylesheets/_base.scss">
+      <file leaf-file-name="2013-11-06-apparelist.md" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/_posts/2013-11-06-apparelist.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="4380">
+            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="542">
               <folding />
             </state>
           </provider>
@@ -187,8 +181,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/src/_assets/stylesheets/_nav.scss" />
-        <option value="$PROJECT_DIR$/src/_posts/2013-11-08-opheliac.md" />
         <option value="$PROJECT_DIR$/src/_posts/2013-11-08-requirejs-library-skeleton.md" />
         <option value="$PROJECT_DIR$/src/_posts/2013-11-08-newedenfaces.md" />
         <option value="$PROJECT_DIR$/src/_posts/2013-11-08-kazlovesbats.md" />
@@ -203,12 +195,13 @@
         <option value="$PROJECT_DIR$/_layouts/base.html" />
         <option value="$PROJECT_DIR$/index.html" />
         <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/_posts/2013-11-10-cloudbucket.md" />
+        <option value="$PROJECT_DIR$/_posts/2013-11-11-requirejs-library-skeleton.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-3" />
-    <option name="y" value="47" />
+    <option name="y" value="22" />
     <option name="width" value="925" />
     <option name="height" value="705" />
   </component>
@@ -266,21 +259,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="_posts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -393,7 +372,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-3" y="47" width="925" height="705" extended-state="0" />
+    <frame x="0" y="22" width="925" height="705" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -468,55 +447,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="634">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/stylesheets/_icons.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="735">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/stylesheets/_bootstrap.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="31605">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/stylesheets/_base.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4380">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/stylesheets/_nav.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1230">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/stylesheets/_responsive.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1965">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Rakefile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="634">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/stylesheets/main.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="634">
@@ -531,30 +461,100 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/stylesheets/main.css">
+    <entry file="file://$PROJECT_DIR$/_config.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="42015">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="556" selection-end="1998" vertical-scroll-proportion="-1.24" vertical-offset="58" max-vertical-offset="1275">
+        <state line="12" column="31" selection-start="302" selection-end="315" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1710">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="59" selection-start="74" selection-end="80" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="900">
+        <state line="3" column="59" selection-start="74" selection-end="80" vertical-scroll-proportion="0.078397214" vertical-offset="0" max-vertical-offset="900">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
+    <entry file="file://$PROJECT_DIR$/_layouts/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="4" column="25" selection-start="101" selection-end="110" vertical-scroll-proportion="0.09819967" vertical-offset="0" max-vertical-offset="1710">
+        <state line="8" column="0" selection-start="556" selection-end="1998" vertical-scroll-proportion="0.108013935" vertical-offset="58" max-vertical-offset="1275">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/stylesheets/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-16.204014" vertical-offset="9690" max-vertical-offset="42015">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-08-kazlovesbats.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-04-csc322.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="542">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-02-connor-mccreedy.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="588">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-03-audiostreamer.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="552">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-05-opheliac.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="3" selection-start="0" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-10-cloudbucket.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="68" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-newedenfaces.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="590" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-11-requirejs-library-skeleton.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="89" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-07-dressedtocode.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="565">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_posts/2013-11-06-apparelist.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="542">
           <folding />
         </state>
       </provider>
