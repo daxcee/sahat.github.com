@@ -24,4 +24,4 @@ not based on its file contents.
 Technology Stack: **Node.js, Python, MongoDB, AWS, jQuery, Grunt.js, Bower, Google OAuth 2.0,
 Google Books API, SkyBiometry API, Last.fm API, Musixmatch API**
 
-<div class="full"><img src="/images/projects/cloudbucket.png"></div>
+<div class="full"><img src="/images/projects/cloudbucket.png" height="744"></div>

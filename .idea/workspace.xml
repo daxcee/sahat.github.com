@@ -2,15 +2,59 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="forgot to add bootstrap">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-apparelist.md" afterPath="$PROJECT_DIR$/_posts/2013-11-06-apparelist.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-audiostreamer.md" afterPath="$PROJECT_DIR$/_posts/2013-11-03-audiostreamer.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-cloudbucket.md" afterPath="$PROJECT_DIR$/_posts/2013-11-10-cloudbucket.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-connor-mccreedy.md" afterPath="$PROJECT_DIR$/_posts/2013-11-02-connor-mccreedy.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-csc322.md" afterPath="$PROJECT_DIR$/_posts/2013-11-04-csc322.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-dressedtocode.md" afterPath="$PROJECT_DIR$/_posts/2013-11-07-dressedtocode.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-newedenfaces.md" afterPath="$PROJECT_DIR$/_posts/2013-11-09-newedenfaces.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-opheliac.md" afterPath="$PROJECT_DIR$/_posts/2013-11-05-opheliac.md" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-requirejs-library-skeleton.md" afterPath="$PROJECT_DIR$/_posts/2013-11-11-requirejs-library-skeleton.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/projects/cloudbucket.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/projects/kazlovesbats.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/projects/shopbook.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_posts/2013-10-08-incorporated.md" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_layouts/base.html" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/CNAME" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/README.md" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/_layouts/base.html" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/assets/stylesheets/main.css" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/feed.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/incorporated.jpg" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/projects/cloudbucket.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/projects/kazlovesbats.png" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/images/projects/shopbook.png" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/404.html" afterPath="$PROJECT_DIR$/src/404.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Gemfile" afterPath="$PROJECT_DIR$/src/Gemfile" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/Rakefile" afterPath="$PROJECT_DIR$/src/Rakefile" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_config.yml" afterPath="$PROJECT_DIR$/src/_config.yml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_includes/_disqus.html" afterPath="$PROJECT_DIR$/src/_includes/_disqus.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_includes/_scripts.html" afterPath="$PROJECT_DIR$/src/_includes/_scripts.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_includes/_social.html" afterPath="$PROJECT_DIR$/src/_includes/_social.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_layouts/post.html" afterPath="$PROJECT_DIR$/src/_layouts/post.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_plugins/_ext.rb" afterPath="$PROJECT_DIR$/src/_plugins/_ext.rb" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-02-connor-mccreedy.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-02-connor-mccreedy.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-03-audiostreamer.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-03-audiostreamer.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-04-csc322.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-04-csc322.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-05-opheliac.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-05-opheliac.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-06-apparelist.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-06-apparelist.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-07-dressedtocode.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-07-dressedtocode.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-08-kazlovesbats.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-08-kazlovesbats.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-09-newedenfaces.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-09-newedenfaces.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-10-cloudbucket.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-10-cloudbucket.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/_posts/2013-11-11-requirejs-library-skeleton.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-11-requirejs-library-skeleton.md" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/stylesheets/_animate.scss" afterPath="$PROJECT_DIR$/src/_assets/stylesheets/_animate.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/stylesheets/_article.scss" afterPath="$PROJECT_DIR$/src/_assets/stylesheets/_article.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/stylesheets/_base.scss" afterPath="$PROJECT_DIR$/src/_assets/stylesheets/_base.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/stylesheets/_bootstrap.scss" afterPath="$PROJECT_DIR$/src/_assets/stylesheets/_bootstrap.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/stylesheets/_icons.scss" afterPath="$PROJECT_DIR$/src/_assets/stylesheets/_icons.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/stylesheets/_nav.scss" afterPath="$PROJECT_DIR$/src/_assets/stylesheets/_nav.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/stylesheets/_responsive.scss" afterPath="$PROJECT_DIR$/src/_assets/stylesheets/_responsive.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/stylesheets/_syntax.scss" afterPath="$PROJECT_DIR$/src/_assets/stylesheets/_syntax.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/assets/stylesheets/main.scss" afterPath="$PROJECT_DIR$/src/_assets/stylesheets/main.scss" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/blog-cover.jpg" afterPath="$PROJECT_DIR$/src/images/blog-cover.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/cover.gif" afterPath="$PROJECT_DIR$/src/images/cover.gif" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/ev.jpg" afterPath="$PROJECT_DIR$/src/images/ev.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/ks.png" afterPath="$PROJECT_DIR$/src/images/ks.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/logo.png" afterPath="$PROJECT_DIR$/src/images/logo.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/projects/apparelist.png" afterPath="$PROJECT_DIR$/src/images/projects/apparelist.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/projects/audiostreamer.png" afterPath="$PROJECT_DIR$/src/images/projects/audiostreamer.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/projects/csc322.png" afterPath="$PROJECT_DIR$/src/images/projects/csc322.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/projects/new-eden-faces.png" afterPath="$PROJECT_DIR$/src/images/projects/new-eden-faces.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/images/projects/opheliac.png" afterPath="$PROJECT_DIR$/src/images/projects/opheliac.png" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/index.html" afterPath="$PROJECT_DIR$/src/index.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sahat.github.com.iws" />
@@ -73,91 +117,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="2013-11-05-opheliac.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-11-05-opheliac.md">
+      <file leaf-file-name="base.html" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/_layouts/base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="11" column="3" selection-start="0" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+            <state line="23" column="0" selection-start="1563" selection-end="1563" vertical-scroll-proportion="1.1129032" vertical-offset="0" max-vertical-offset="1170">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2013-11-09-newedenfaces.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-newedenfaces.md">
+      <file leaf-file-name="_config.yml" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/_config.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="590" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+            <state line="1" column="4" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1950">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2013-11-08-kazlovesbats.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-11-08-kazlovesbats.md">
+      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-10-cloudbucket.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-11-10-cloudbucket.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="26" column="68" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-11-requirejs-library-skeleton.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-11-11-requirejs-library-skeleton.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="89" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-07-dressedtocode.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-11-07-dressedtocode.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-04-csc322.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-11-04-csc322.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+            <state line="6" column="16" selection-start="77" selection-end="77" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="750">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="2013-11-02-connor-mccreedy.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-11-02-connor-mccreedy.md">
+        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-02-connor-mccreedy.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+            <state line="5" column="0" selection-start="90" selection-end="172" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="345">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2013-11-03-audiostreamer.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-11-03-audiostreamer.md">
+      <file leaf-file-name="2013-11-11-requirejs-library-skeleton.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-11-requirejs-library-skeleton.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+            <state line="21" column="0" selection-start="653" selection-end="893" vertical-scroll-proportion="-12.6" vertical-offset="0" max-vertical-offset="450">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="2013-11-06-apparelist.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/_posts/2013-11-06-apparelist.md">
+      <file leaf-file-name="2013-10-08-incorporated.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/_posts/2013-10-08-incorporated.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="542">
+            <state line="12" column="22" selection-start="310" selection-end="310" vertical-scroll-proportion="-7.2" vertical-offset="0" max-vertical-offset="1680">
               <folding />
             </state>
           </provider>
@@ -192,17 +200,24 @@
         <option value="$PROJECT_DIR$/src/_posts/2013-11-08-apparelist.md" />
         <option value="$PROJECT_DIR$/src/_config.yml" />
         <option value="$PROJECT_DIR$/src/_layouts/base.html" />
-        <option value="$PROJECT_DIR$/_layouts/base.html" />
-        <option value="$PROJECT_DIR$/index.html" />
-        <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/_includes/_scripts.html" />
         <option value="$PROJECT_DIR$/_posts/2013-11-10-cloudbucket.md" />
+        <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/_assets/stylesheets/_base.scss" />
+        <option value="$PROJECT_DIR$/index.html" />
+        <option value="$PROJECT_DIR$/_assets/stylesheets/main.scss" />
+        <option value="$PROJECT_DIR$/_posts/2013-10-08-incorporated.md" />
+        <option value="$PROJECT_DIR$/_posts/2013-11-02-connor-mccreedy.md" />
         <option value="$PROJECT_DIR$/_posts/2013-11-11-requirejs-library-skeleton.md" />
+        <option value="$PROJECT_DIR$/_layouts/post.html" />
+        <option value="$PROJECT_DIR$/_layouts/base.html" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="y" value="22" />
-    <option name="width" value="925" />
+    <option name="x" value="739" />
+    <option name="y" value="66" />
+    <option name="width" value="682" />
     <option name="height" value="705" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -249,20 +264,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="_posts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -277,7 +278,7 @@
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="appearance" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../newedenfaces" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/jekyll-incorporated-master" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
@@ -287,6 +288,7 @@
     <property name="FullScreen" value="false" />
     <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="LayoutCode.rearrangeEntriesSCSS" value="false" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -302,25 +304,17 @@
       <recent name="$PROJECT_DIR$/src/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Sahat\Dropbox\Projects\sahat.github.com\whiteteeth\img" />
-      <recent name="$PROJECT_DIR$/backbone" />
-      <recent name="$PROJECT_DIR$/opheliac/img" />
-      <recent name="$PROJECT_DIR$/opheliac/js" />
-      <recent name="$PROJECT_DIR$/opheliac/css" />
+      <recent name="$PROJECT_DIR$/src" />
+      <recent name="$PROJECT_DIR$/_posts" />
+      <recent name="$PROJECT_DIR$/_assets/stylesheets" />
+      <recent name="$PROJECT_DIR$/_includes" />
+      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index2.html">
     <configuration default="false" name="index2.html" type="JavascriptDebugType" factoryName="JavaScript Debug" singleton="true" temporary="true" uri="file://$PROJECT_DIR$/presentations/senior-design-project/index2.html">
       <RunnerSettings RunnerId="JavascriptDebugRunner" />
       <ConfigurationWrapper RunnerId="JavascriptDebugRunner" />
-      <method />
-    </configuration>
-    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
-      <option name="VMOptions" />
-      <option name="arguments" />
-      <option name="filePath" />
-      <option name="scope" value="ALL" />
-      <option name="testName" />
       <method />
     </configuration>
     <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
@@ -331,6 +325,21 @@
       <option name="saveOutputToFile" value="false" />
       <option name="showConsoleOnStdErr" value="false" />
       <option name="showConsoleOnStdOut" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
+      <option name="VMOptions" />
+      <option name="arguments" />
+      <option name="filePath" />
+      <option name="scope" value="ALL" />
+      <option name="testName" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
+      <setting name="configLocationType" value="CONFIG_FILE" />
+      <setting name="settingsFile" value="" />
+      <setting name="serverType" value="INTERNAL" />
+      <setting name="preferredDebugBrowser" value="CHROME" />
       <method />
     </configuration>
     <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" singleton="true" config-file="">
@@ -372,58 +381,38 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="925" height="705" extended-state="0" />
+    <frame x="739" y="66" width="682" height="705" extended-state="0" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24972972" sideWeight="0.6706949" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.33870968" sideWeight="0.6706949" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
     </layout>
-    <layout-to-restore>
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32930514" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24972972" sideWeight="0.6706949" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-    </layout-to-restore>
+  </component>
+  <component name="Vcs.Log.UiProperties">
+    <option name="RECENTLY_FILTERED_USERS">
+      <collection />
+    </option>
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -447,114 +436,302 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/assets/stylesheets/main.scss">
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-05-opheliac.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="634">
+        <state line="11" column="3" selection-start="0" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="405">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/stylesheets/_syntax.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="31" selection-start="302" selection-end="315" vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="1710">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="59" selection-start="74" selection-end="80" vertical-scroll-proportion="0.078397214" vertical-offset="0" max-vertical-offset="900">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_layouts/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="556" selection-end="1998" vertical-scroll-proportion="0.108013935" vertical-offset="58" max-vertical-offset="1275">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/stylesheets/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-16.204014" vertical-offset="9690" max-vertical-offset="42015">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-08-kazlovesbats.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-04-csc322.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="542">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-02-connor-mccreedy.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="588">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-03-audiostreamer.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="552">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-05-opheliac.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="3" selection-start="0" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-10-cloudbucket.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="68" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="480">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-09-newedenfaces.md">
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-09-newedenfaces.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="590" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-11-requirejs-library-skeleton.md">
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-kazlovesbats.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="89" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="450">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-07-dressedtocode.md">
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-10-cloudbucket.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="68" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-11-requirejs-library-skeleton.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="18" column="89" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-07-dressedtocode.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-04-csc322.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-02-connor-mccreedy.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-03-audiostreamer.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-06-apparelist.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-kazlovesbats.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="575">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-04-csc322.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="542">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-03-audiostreamer.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="552">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-05-opheliac.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="3" selection-start="0" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-09-newedenfaces.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="590" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-07-dressedtocode.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="565">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/_posts/2013-11-06-apparelist.md">
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-06-apparelist.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="542">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Rakefile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="615">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/404.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="611">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="634">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="0" selection-start="30" selection-end="30" vertical-scroll-proportion="0.023659306" vertical-offset="0" max-vertical-offset="634">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/ks.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/ev.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/projects/apparelist.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/projects/cloudbucket.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/cover.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/13.04.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/backbone-js-logo.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/favicon.ico">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/bitbucket.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/webstorm.jar!/resources/html5-schema/structural.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="18" selection-start="1012" selection-end="1012" vertical-scroll-proportion="0.33277592" vertical-offset="311" max-vertical-offset="2115">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/_icons.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.36363637" vertical-offset="196" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_includes/_scripts.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="13" selection-start="669" selection-end="669" vertical-scroll-proportion="0.19056262" vertical-offset="0" max-vertical-offset="585">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-10-cloudbucket.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="63" selection-start="1075" selection-end="1075" vertical-scroll-proportion="0.6806283" vertical-offset="0" max-vertical-offset="573">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/_syntax.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/_base.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="162" column="5" selection-start="3332" selection-end="3332" vertical-scroll-proportion="-0.5300546" vertical-offset="2721" max-vertical-offset="4455">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_assets/stylesheets/main.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="10" selection-start="278" selection-end="278" vertical-scroll-proportion="0.30054644" vertical-offset="0" max-vertical-offset="549">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/images/blog-cover.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="4" selection-start="9" selection-end="9" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1950">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-10-08-incorporated.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="22" selection-start="310" selection-end="310" vertical-scroll-proportion="-7.2" vertical-offset="0" max-vertical-offset="1680">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-02-connor-mccreedy.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="90" selection-end="172" vertical-scroll-proportion="-3.0" vertical-offset="0" max-vertical-offset="345">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_layouts/post.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="26" selection-start="837" selection-end="837" vertical-scroll-proportion="0.6271777" vertical-offset="0" max-vertical-offset="735">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-11-requirejs-library-skeleton.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="0" selection-start="653" selection-end="893" vertical-scroll-proportion="-12.6" vertical-offset="0" max-vertical-offset="450">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="16" selection-start="77" selection-end="77" vertical-scroll-proportion="-3.75" vertical-offset="0" max-vertical-offset="750">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_layouts/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="0" selection-start="1563" selection-end="1563" vertical-scroll-proportion="1.1129032" vertical-offset="0" max-vertical-offset="1170">
           <folding />
         </state>
       </provider>

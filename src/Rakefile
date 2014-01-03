@@ -5,7 +5,8 @@ require "bundler/setup"
 require "jekyll"
 
 
-GITHUB_REPONAME = "sahat/sahat.github.com"
+# Change your GitHub reponame eg. "kippt/jekyll-incorporated"
+GITHUB_REPONAME = ""
 
 
 namespace :site do
@@ -13,7 +14,7 @@ namespace :site do
   task :generate do
     Jekyll::Site.new(Jekyll.configuration({
       "source"      => ".",
-      "destination" => "_sitr"
+      "destination" => "_site"
     })).process
   end
 

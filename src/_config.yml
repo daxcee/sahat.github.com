@@ -2,12 +2,11 @@ inc:
   # Blog Information
   title:        "Sahat Yalkabov"
   subtitle:     "My Work"
-  cover_image:  cover.gif
   logo:         logo.png
   
   # Company information
   company:      Sahat Yalkabov
-  url:          http://sahat.me/
+  url:          http://sahat.github.io
   facebook:     NeverSleepNeverDie
   twitter:      false
   gplus:        '+SahatYalkabov'
@@ -17,33 +16,32 @@ inc:
   product_link: http://linkedin.com/in/sahatyalkabov
   github_link: https://github.com/sahat
   tagline:      'JavaScript <3'
-  
+
   # Comments
   disqus:
-    # Eg. "exampleblog" Set to false to disable comments
     shortname:  'sahat'
-  
+
   # Sharing settings
   sharing:
     twitter:    false
     facebook:   false
-    gplus:      false
-    hn:         false
-    
-  
- # Analytics     
+    gplus:      true
+    hn:         true
+
+
+ # Analytics
   analytics:
-    google: 
+    google:
       id:       'UA-17023058-2'
-      
-      
-  # Google Fonts
+
+
+ # Google Fonts
   # eg. 'Droid+Sans:400,700|Droid+Serif:400,700'
   google_font: 'Droid+Sans:400,700'
-  
+
   # Setup your fonts, colors etc at _assets/stylesheets/main.scss
 
-url:         http://sahat.me
+url:         http://incorporated.sendtoinc.com
 source:      .
 destination: ./_site
 plugins:     ./_plugins
@@ -107,3 +105,21 @@ kramdown:
 
 redcloth:
   hard_breaks: true
+
+#
+# jekyll-assets: see more at https://github.com/ixti/jekyll-assets
+#
+assets:
+
+  dirname: assets
+  baseurl: /assets/
+  sources:
+    - _assets/javascripts
+    - _assets/stylesheets
+    - _assets/images
+  js_compressor: uglifier
+  css_compressor: sass
+  cachebust: none
+  cache: false
+  gzip: [ text/css, application/javascript ]
+  debug: false
