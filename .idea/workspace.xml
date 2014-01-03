@@ -1,19 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/projects/coffeed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/projects/esoterik.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/images/projects/hackathon-starter.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_posts/2014-01-01-hackathon-starter.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_posts/2014-01-02-coffeed.md" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/_posts/2014-01-03-esoterik.md" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/_posts/2013-10-08-incorporated.md" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/images/projects/new-eden-faces.png" afterPath="$PROJECT_DIR$/src/images/projects/new-eden-faces.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_posts/2013-11-09-newedenfaces.md" afterPath="$PROJECT_DIR$/src/_posts/2013-11-09-newedenfaces.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_config.yml" afterPath="$PROJECT_DIR$/src/_config.yml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/_layouts/base.html" afterPath="$PROJECT_DIR$/src/_layouts/base.html" />
+    <list default="true" id="c9372b97-a610-4a8c-b9b2-3b99c5174a0e" name="Default" comment="Added 3 new projects, plus other small updates&#10;">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/projects/apparelist.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/projects/audiostreamer.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/blog-cover.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/projects/cloudbucket.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/projects/coffeed.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/cover.gif" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/projects/csc322.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/projects/esoterik.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/ev.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/projects/hackathon-starter.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/projects/kazlovesbats.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/ks.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/logo.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/main.css.gz" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/projects/new-eden-faces.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/projects/opheliac.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/images/projects/shopbook.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Gemfile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Rakefile" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2013/11/02/connor-mccreedy/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2013/11/03/audiostreamer/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2013/11/04/csc322/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2013/11/05/opheliac/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2013/11/06/apparelist/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2013/11/07/dressedtocode/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2013/11/08/kazlovesbats/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2013/11/09/newedenfaces/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2013/11/10/cloudbucket/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2013/11/11/requirejs-library-skeleton/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2014/01/01/hackathon-starter/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2014/01/02/coffeed/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/2014/01/03/esoterik/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/404/index.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/assets/main.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sahat.github.com.iws" />
@@ -75,89 +98,7 @@
     <favorites_list name="sahat.github.com" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="_config.yml" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_config.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="62" column="12" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.0" vertical-offset="676" max-vertical-offset="1950">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-09-newedenfaces.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-09-newedenfaces.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="183" selection-end="183" vertical-scroll-proportion="-7.2" vertical-offset="0" max-vertical-offset="390">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2013-11-03-audiostreamer.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-03-audiostreamer.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="390">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2014-01-02-coffeed.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2014-01-02-coffeed.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="7" selection-start="89" selection-end="89" vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="405">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2014-01-01-hackathon-starter.md" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2014-01-01-hackathon-starter.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="13" selection-start="199" selection-end="199" vertical-scroll-proportion="-7.8" vertical-offset="0" max-vertical-offset="540">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="2014-01-03-esoterik.md" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/_posts/2014-01-03-esoterik.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="22" selection-start="100" selection-end="100" vertical-scroll-proportion="0.18716578" vertical-offset="0" max-vertical-offset="561">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="12" selection-start="33" selection-end="33" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="750">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="post.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_layouts/post.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="26" selection-start="837" selection-end="837" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="735">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="base.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/_layouts/base.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="35" selection-start="1844" selection-end="1844" vertical-scroll-proportion="-8.333333" vertical-offset="295" max-vertical-offset="1170">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -256,114 +197,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="projects" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="_posts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="_layouts" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="sahat.github.com" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="_includes" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="PackagesPane" />
@@ -405,11 +238,11 @@
       <recent name="$PROJECT_DIR$/src/images" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/_posts" />
       <recent name="$PROJECT_DIR$/_assets/stylesheets" />
       <recent name="$PROJECT_DIR$/_includes" />
-      <recent name="$PROJECT_DIR$" />
     </key>
   </component>
   <component name="RunManager" selected="JavaScript Debug.index2.html">
@@ -482,19 +315,24 @@
       <created>1388741883949</created>
       <updated>1388741883949</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added 3 new projects, plus other small updates">
+      <created>1388746365154</created>
+      <updated>1388746365154</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="664" y="22" width="757" height="749" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3051519" sideWeight="0.6706949" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3051519" sideWeight="0.6706949" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -507,7 +345,6 @@
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30878186" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Runner" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -532,7 +369,8 @@
     <MESSAGE value="personal page redesign" />
     <MESSAGE value="forgot to add bootstrap" />
     <MESSAGE value="Updated Incorporated blog.&#10;Moved all source files into /src folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated Incorporated blog.&#10;Moved all source files into /src folder" />
+    <MESSAGE value="Added 3 new projects, plus other small updates" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added 3 new projects, plus other small updates" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -542,55 +380,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-05-opheliac.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="3" selection-start="0" selection-end="640" vertical-scroll-proportion="0.0" vertical-offset="165" max-vertical-offset="405" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-09-newedenfaces.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="590" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-08-kazlovesbats.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-10-cloudbucket.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="68" selection-start="1080" selection-end="1080" vertical-scroll-proportion="0.0" vertical-offset="390" max-vertical-offset="480" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-11-requirejs-library-skeleton.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="89" selection-start="561" selection-end="561" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="450" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-07-dressedtocode.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="405" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-04-csc322.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-02-connor-mccreedy.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="345" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-03-audiostreamer.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-06-apparelist.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="390" />
@@ -747,13 +536,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_config.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="12" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.0" vertical-offset="676" max-vertical-offset="1950">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2013-11-03-audiostreamer.md">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="552">
@@ -768,44 +550,113 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/tumblr_mkii2qRVVq1r5nz7ho2_250.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/tumblr_mkii2qRVVq1r5nz7ho4_250.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/tumblr_mkii2qRVVq1r5nz7ho3_250.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/pony.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/nova2.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/nova1.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/nova.jpg">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/nodejs.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/github.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/mongodb.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/old-assets/tumblr_mkii2qRVVq1r5nz7ho1_250.gif">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_posts/2014-01-03-esoterik.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="22" selection-start="100" selection-end="100" vertical-scroll-proportion="0.17298187" vertical-offset="0" max-vertical-offset="607">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2014-01-01-hackathon-starter.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="13" selection-start="199" selection-end="199" vertical-scroll-proportion="-7.8" vertical-offset="0" max-vertical-offset="540">
+        <state line="13" column="13" selection-start="199" selection-end="199" vertical-scroll-proportion="0.34150612" vertical-offset="0" max-vertical-offset="571">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_posts/2014-01-02-coffeed.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="7" selection-start="89" selection-end="89" vertical-scroll-proportion="-3.6" vertical-offset="0" max-vertical-offset="405">
+        <state line="6" column="7" selection-start="89" selection-end="89" vertical-scroll-proportion="0.1458671" vertical-offset="0" max-vertical-offset="617">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="62" column="12" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.38195488" vertical-offset="676" max-vertical-offset="1950">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="12" selection-start="33" selection-end="33" vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="750">
+        <state line="3" column="12" selection-start="33" selection-end="33" vertical-scroll-proportion="0.070202805" vertical-offset="0" max-vertical-offset="750">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_layouts/post.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="26" selection-start="837" selection-end="837" vertical-scroll-proportion="-15.0" vertical-offset="0" max-vertical-offset="735">
+        <state line="24" column="26" selection-start="837" selection-end="837" vertical-scroll-proportion="0.56162244" vertical-offset="0" max-vertical-offset="735">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/_layouts/base.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="35" selection-start="1844" selection-end="1844" vertical-scroll-proportion="-8.333333" vertical-offset="295" max-vertical-offset="1170">
+        <state line="33" column="35" selection-start="1844" selection-end="1844" vertical-scroll-proportion="0.3120125" vertical-offset="295" max-vertical-offset="1170">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/_posts/2014-01-03-esoterik.md">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="22" selection-start="100" selection-end="100" vertical-scroll-proportion="0.18716578" vertical-offset="0" max-vertical-offset="561">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5880">
           <folding />
         </state>
       </provider>
