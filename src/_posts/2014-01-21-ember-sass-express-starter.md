@@ -10,7 +10,7 @@ author:
   bio: Dev
   image: ks.png
 ---
-
+<img src="/images/projects/emberjs.png">
 [Source Code](https://github.com/sahat/ember-sass-express-starter)
 
 This project provides a starting point for your Ember apps with
