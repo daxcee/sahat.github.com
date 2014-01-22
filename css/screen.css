@@ -255,7 +255,6 @@ h2 {
 }
 section.post-content img {
   display: block;
-  margin: 0 auto;
   max-width: 100%;
 }
 section.preview.archive h2 {
