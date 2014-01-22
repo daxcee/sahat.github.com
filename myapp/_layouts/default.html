@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>{{ page.title }} - Sahat Yalkabov</title>
+    <meta name="viewport" content="width=device-width">
+
+    <link rel="stylesheet" href="/css/syntax.css">
+    <link rel="stylesheet" href="/css/screen.css">
+</head>
+<body>
+
+    <header id="site-head">
+        {% if site.logo %}<a id="blog-logo" href="/"><div class="bloglogo" style="background: url({{ site.logo }})"></div></a>{% endif %}
+        <h1 class="blog-title"><a href="http://github.com/sahat">{{ site.title }}</a></h1>
+        <nav>
+            <ul>
+                <li><a href="/">Blog</a></li>
+                <li><a href="/projects/">Projects</a></li>
+                <li><a href="/about/">About</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="content" role="main">
+        {{ content }}
+    </main>
+
+    <footer class="site-footer">
+        <div class="inner">
+            <section class="copyright">&copy; 2014 <a href="/">{{ site.title }}</a>. All rights reserved.</section>
+            <section>Vapor theme by <a href="http://sethlilly.com/">Seth Lilly</a></section>
+        </div>
+    </footer>
+</body>
+</html>
