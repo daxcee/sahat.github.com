@@ -3,8 +3,6 @@ description: 'Full Stack JavaScript Engineer'
 logo: http://bit.ly/1hLVeOW
 
 url: http://sahatyalkabov.com
-disqus: 'sahat'
-analytics: 'UA-17023058-2'
 
 markdown: redcarpet
 pygments: true
