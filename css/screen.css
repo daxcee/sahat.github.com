@@ -12,6 +12,7 @@
 
 /* === Core Styles === */
 body {
+  border-top: 5px solid #7f00ff;
   background-color: #ffffff;
   color: #7f8c8d;
   font-size: 15px;
