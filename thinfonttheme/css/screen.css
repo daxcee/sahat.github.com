@@ -1,30 +1,23 @@
 @import url(//fonts.googleapis.com/css?subset=latin,cyrillic-ext,latin-ext,cyrillic&family=Open+Sans+Condensed:300|Merriweather:400,300,300italic,400italic,700,700italic|Roboto+Slab:400,300);
 
-@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
-
-
-@font-face {
-  font-family: 'Adelle Thin';
-  src: url('../fonts/adelle_thin-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
 /* === Core Styles === */
 body {
-  border-top: 5px solid #7f00ff;
+  border-top: 2px solid #7f00ff;
   background-color: #ffffff;
-  color: #7f8c8d;
+  color: #000;
   font-size: 15px;
   font-weight: 100;
   line-height: 1.6em;
   margin: 0;
   padding: 0;
   -webkit-font-smoothing: subpixel-antialiased;
+
 }
+
 body * {
   max-height: 1000000em;
 }
+
 h1,
 h2,
 h3,
@@ -33,12 +26,14 @@ p,
 li,
 dt,
 dd {
-  font-family: "Adelle Thin", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
 }
+
 h1,
 .post-meta {
   text-align: center;
 }
+
 a,
 a:visited {
   color: #3498db;
@@ -46,27 +41,35 @@ a:visited {
   transition: color ease 0.7s;
   -webkit-transition: color ease 0.7s;
 }
+
 a:focus,
 a:hover {
   color: #02090e;
 }
+
 p,
 li,
 dt,
 dd {
   font-size: 18px;
-  font-weight: 100;
+  font-weight: 200;
   line-height: 30px;
 }
+
 dt {
   font-weight: 400;
 }
+
 li {
   padding-left: 0.8em;
 }
+
+code {
+  font-family: "Ubuntu Mono", "Droid Sans Mono", "Consolas", Courier, monospace;
+}
+
 pre {
-  font-family: "Consolas", Courier, monospace;
-  font-size: 1em;
+  font-size: 14px;
   line-height: 1.2em;
   padding: 1em;
   white-space: pre;
@@ -75,13 +78,15 @@ pre {
   white-space: -pre-wrap;
   white-space: -o-pre-wrap;
   word-wrap: break-word;
-  background-color: rgba(0, 0, 0, 0.05);
 }
+
 p code {
   font-family: "Consolas", Courier, monospace;
   font-size: .8em;
   line-height: 1.2em;
+  background-color: rgba(0, 0, 0, 0.05);
 }
+
 h1 {
   color: #151515;
   font-family: "Roboto Slab", "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
@@ -91,6 +96,7 @@ h1 {
   margin: 0;
   padding: 0;
 }
+
 #site-head,
 article,
 nav,
@@ -101,18 +107,22 @@ a.archive-link,
   max-width: 600px;
   width: 90%;
 }
+
 #site-head img {
   max-width: 100%;
 }
+
 article.preview {
   margin-bottom: 4em;
 }
+
 article.preview p.readmore {
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   margin-top: 1em;
   text-transform: uppercase;
   font-weight: 400;
 }
+
 /* === Header === */
 #blog-logo {
   display: block;
@@ -120,6 +130,7 @@ article.preview p.readmore {
   margin: 50px auto 0;
   text-align: center;
 }
+
 #blog-logo div.bloglogo {
   width: 100px;
   height: 100px;
@@ -128,10 +139,12 @@ article.preview p.readmore {
   background-position: center center !important;
   background-color: #ffffff;
 }
+
 h1.blog-title,
 h2.blog-description {
   text-align: center;
 }
+
 h1.blog-title {
   font-size: 48px;
   line-height: 52px;
@@ -139,6 +152,7 @@ h1.blog-title {
   margin-bottom: 30px;
   padding: 0;
 }
+
 h2.blog-description {
   border-bottom: 1px solid #ecf0f1;
   border-top: 1px solid #ecf0f1;
@@ -146,10 +160,12 @@ h2.blog-description {
   padding: .5em 1em;
   line-height: 1.2em;
 }
+
 header.article-header,
 header.page-header {
   margin-bottom: 3em;
 }
+
 /* === Body === */
 section.author,
 section.share {
@@ -157,23 +173,27 @@ section.share {
   text-align: left;
   text-transform: none;
 }
+
 section.share {
   margin-top: 1em;
   border-top: 1px solid #ecf0f1;
   padding-top: 1em;
   text-align: right;
 }
+
 section.author h4,
 section.author p,
 section.share p {
   padding: 0;
   margin: 0;
 }
+
 section.author h4 {
   font-family: "Roboto Slab", "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   font-weight: 400;
   margin-bottom: 4px;
 }
+
 section.author p.attr,
 section.share p.info {
   font-size: 16px;
@@ -181,17 +201,21 @@ section.share p.info {
   text-transform: uppercase;
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
 }
+
 section.author p.attr {
   margin-bottom: 2px;
 }
+
 section.share p.info {
   display: inline-block;
 }
+
 section.author p.bio {
   font-size: 16px;
   margin-left: 82px;
   line-height: 1.4em;
 }
+
 blockquote {
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   font-size: 1.6em;
@@ -203,6 +227,7 @@ blockquote {
   margin-left: 1em;
   padding-left: 1em;
 }
+
 blockquote p {
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   font-size: 1.6em;
@@ -211,6 +236,7 @@ blockquote p {
   font-style: italic;
   text-transform: uppercase;
 }
+
 .post-meta {
   color: #95a5a6;
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
@@ -220,12 +246,14 @@ blockquote p {
   margin-bottom: 1.2em;
   text-transform: uppercase;
 }
+
 .tags {
   font-family: "Roboto Slab", "Merriweather", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   font-weight: 400;
   font-size: 14px;
   color: #02090e;
 }
+
 div.authorimage {
   width: 70px;
   height: 70px;
@@ -235,12 +263,14 @@ div.authorimage {
   margin-right: 10px;
   float: left;
 }
+
 h1.post-title a,
 h1.blog-title a {
   color: #151515;
   transition: color ease 0.7s;
   -webkit-transition: color ease 0.7s;
 }
+
 h1.post-title a:focus,
 h1.post-title a:hover,
 h1.blog-title a:focus,
@@ -248,22 +278,27 @@ h1.blog-title a:hover {
   color: #3498db;
   text-decoration: none;
 }
+
 h2 {
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   margin-top: 2em;
   text-transform: uppercase;
   font-weight: 300;
 }
+
 section.post-content img {
   display: block;
   max-width: 100%;
 }
+
 section.preview.archive h2 {
   text-align: left;
 }
+
 section.author {
   overflow: hidden;
 }
+
 img.userimage {
   width: 70px;
   max-width: 70px;
@@ -272,11 +307,13 @@ img.userimage {
   margin-right: 10px;
   float: left;
 }
+
 em {
   font-style: normal;
   color: #02090e;
   border-bottom: 1px dashed;
 }
+
 /* === Footer === */
 footer {
   background: rgba(0, 0, 0, 0.05);
@@ -284,6 +321,7 @@ footer {
   padding: 2em 0;
   text-align: center;
 }
+
 footer section {
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
   font-weight: 300;
@@ -293,11 +331,13 @@ footer section {
   text-transform: uppercase;
   width: 90%;
 }
+
 footer.post-footer {
   background: none;
   border-top: 1px solid #ecf0f1;
   margin-top: 1em;
 }
+
 /* === Navigation and Pagination === */
 nav {
   border-bottom: 1px solid #ecf0f1;
@@ -305,6 +345,7 @@ nav {
   margin-bottom: 3em;
   text-align: center;
 }
+
 nav ul {
   list-style: none;
   margin: 0 auto;
@@ -313,6 +354,7 @@ nav ul {
   overflow: hidden;
   text-align: center;
 }
+
 nav li {
   display: inline-block;
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
@@ -324,20 +366,24 @@ nav li {
   text-transform: uppercase;
   width: 4em;
 }
+
 nav li a {
   display: block;
   padding: .5em 0;
 }
+
 nav li:first-child {
   margin-left: 0;
   margin-right: 0;
   text-align: right;
 }
+
 nav li:last-child {
   margin-left: 0;
   margin-right: 0;
   text-align: left;
 }
+
 a.archive-link {
   border-bottom: 1px solid #ecf0f1;
   border-top: 1px solid #ecf0f1;
@@ -351,6 +397,7 @@ a.archive-link {
   text-align: center;
   text-transform: uppercase;
 }
+
 .pagination {
   position: relative;
   width: 90%;
@@ -362,9 +409,11 @@ a.archive-link {
   text-align: center;
   padding: 0.5em 0;
 }
+
 .pagination a {
   color: #3498db;
 }
+
 .older-posts,
 .newer-posts {
   position: absolute;
@@ -374,32 +423,39 @@ a.archive-link {
   transition: color ease 0.7s;
   -webkit-transition: color ease 0.7s;
 }
+
 .older-posts {
   right: 0;
 }
+
 .page-number {
   display: inline-block;
   padding: 0;
   margin: 0;
 }
+
 .newer-posts {
   left: 0;
 }
+
 .older-posts:hover,
 .newer-posts:hover {
   color: #02090e;
   text-decoration: none;
 }
+
 /* === Extras === */
 .gist {
   margin-top: 1em;
   margin-bottom: 1em;
   border-collapse: collapse !important;
 }
+
 .gist .gist-file {
   font-family: "Consolas", Courier, monospace;
   border: 1px solid rgba(0, 0, 0, 0.05) !important;
 }
+
 .gist .gist-file .gist-meta {
   font-family: "Open Sans Condensed", "Open Sans", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif !important;
   font-weight: 300 !important;
@@ -408,31 +464,38 @@ a.archive-link {
   /* Hide GitHub attribution */
 
 }
+
 .gist .gist-file .gist-meta a:visited {
   color: #3498db !important;
 }
+
 .gist .gist-file .gist-data {
   background: #fdfdfd !important;
   border-bottom: none !important;
   /* Hide GitHub attribution */
 
 }
+
 .gist .gist-file .gist-data .line-numbers {
   border-right: none !important;
 }
+
 .gist .gist-file .gist-data .line-numbers,
 .gist .gist-file .gist-meta {
   background-color: rgba(0, 0, 0, 0.05) !important;
 }
+
 .gist .gist-file .gist-data .line-numbers,
 .gist .gist-file .gist-data .line-pre {
   line-height: 1.2em !important;
 }
+
 .hidden {
   text-indent: -9999px;
   visibility: hidden;
   display: none;
 }
+
 @font-face {
   font-family: 'icons';
   src: url('../fonts/icons.eot');
@@ -440,6 +503,7 @@ a.archive-link {
   font-weight: normal;
   font-style: normal;
 }
+
 .icon-ghost,
 .icon-feed,
 .icon-twitter,
@@ -455,50 +519,63 @@ a.archive-link {
   -webkit-font-smoothing: antialiased;
   text-decoration: none;
 }
+
 .icon-twitter,
 .icon-google-plus,
 .icon-facebook {
   padding-left: 0.5em;
 }
+
 .icon-ghost:before {
   content: "\e000";
 }
+
 .icon-feed:before {
   content: "\e001";
 }
+
 .icon-twitter:before {
   content: "\e002";
   font-size: 1.1em;
 }
+
 .icon-google-plus:before {
   content: "\e003";
 }
+
 .icon-facebook:before {
   content: "\e004";
 }
+
 .icon-ghost {
   font-size: 12px;
   position: relative;
   top: -1px;
 }
+
 /* === Media Queries === */
 @media only screen and (min-width: 320px) and (max-width: 500px) {
   footer section span.copyright {
     display: block;
   }
+
   nav li {
     width: auto;
   }
+
   .older-posts,
   .newer-posts {
     position: static;
   }
+
   .newer-posts {
     margin-bottom: 10px;
   }
+
   .older-posts {
     margin-top: 10px;
   }
+
   .page-number {
     display: block;
   }
