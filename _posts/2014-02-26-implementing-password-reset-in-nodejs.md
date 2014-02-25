@@ -775,7 +775,7 @@ Next, we send out an e-mail to the user using
 
 <img src="/images/blog/password-reset-4.png">
 
-You should receive an email that looks something like a screenshot below:
+You should receive an email that looks something like this:
 <img src="/images/blog/password-reset-8.png">
 
 Clicking on that link won't do anything since we have not implemented `/reset`
