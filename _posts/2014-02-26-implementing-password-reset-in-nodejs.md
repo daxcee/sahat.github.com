@@ -114,18 +114,20 @@ the above document, because they are set only after password reset is
 submitted. And since we haven't specified default values, those properties
 will not be set when creating a new user.
 
-
 Besides specifying a structure of documents, Mongoose schemas also define
 [instance methods](http://mongoosejs.com/docs/guide.html#methods)
 and [middleware](http://mongoosejs.com/docs/middleware.html). And that's
 exactly what we will use next.
 
-It would not be wise to store passwords of your users in plaintext. We are
-going to use Mongoose `pre('save')` middleware that gets executed before
-each `user.save()` call. What this code essentially does is hashes user's
-password automatically. Otherwise, without this middleware, you would
-need to do this manually in multiple places, e.g. account signup, password
-reset, account management.
+It would not be smart to store users' passwords in plaintext, clearly visible.
+If your database is compromised, you (or rather your users) are pretty much
+screwed. To avoid that, we will need to hash user's passwords. And that's where
+`bcrypt` comes in. Now, consider a scenario where you have a signup page,
+account management where users can update their password and a password reset
+page where users can set a new password. Do you really want to implement the
+same password hashing logic in all three places? Instead, let's use Mongoose
+middleware.
+
 
 ```
 userSchema.pre('save', function(next) {
@@ -768,6 +770,8 @@ Next, we send out an e-mail to the user using
 You should receive an email with a password reset link that looks something
 like *http://localhost:3000/reset/c9d5dea7d46182fa53c9e5bdc29cd26a2f79c286*.
 
+<img src="/images/blog/password-reset-8.png">
+
 Clicking on that link won't do anything since we have not implemented `/reset`
 route yet. Let's do that right now.
 
@@ -868,6 +872,8 @@ open for more than one hour (at which point token should no longer be valid).
 If the user is found, update his/her password and `$unset` *resetPasswordToken*
 and *resetPasswordExpires* fields. User is then immediately signed-in. Right
 after that an email is sent to the user notifying about the password change.
+
+<img src="/images/blog/password-reset-7.png">
 
 Upon a successful password reset you would be redirected to the home page with
 a success flash message:
