@@ -5,13 +5,16 @@ title: Implementing Password Reset in Node.js
 
 ---
 
+To see password reset in action, check out this
+[live demo](http://hackathonstarter.herokuapp.com/).
+
 In this tutorial, we'll go over how to create "forgot password" feature
 using Express, MongoDB, Passport and Nodemailer. We will build a complete
 application from scratch. This guide assumes as little possible, and thus
 covers some basics along the way.
 
 At the very least I assume you have already installed Node.js. So, let's
-begin by installing Express if you don't have it already:
+begin by installing Express if you don't have that already:
 
 ```
 sudo npm install -g express
@@ -28,7 +31,7 @@ To create a new Express project run the following command:
 express myapp --sessions
 ```
 
-<img src="/images/blog/Screenshot 2014-02-24 19.33.11.png">
+<img src="/images/blog/password-reset-1.png">
 
 Let's install NPM dependencies:
 
@@ -38,17 +41,18 @@ cd myapp && npm install
 
 We will be using *Nodemailer* for sending password reset emails,
 *Mongoose* for interacting with MongoDB and *Passport* for user authentication.
-Additionally we will require *bcrypt-nodejs* to hash user passwords.
+Additionally we will require *bcrypt-nodejs* to hash user passwords and *async*
+library to avoid dealing with nested callbacks by using `async.waterfall`.
 To install these packages, run:
 
 ```
-npm install mongoose nodemailer passport passport-local bcrypt-nodejs --save
+npm install async mongoose nodemailer passport passport-local bcrypt-nodejs --save
 ```
 
 **Note:** By passing `--save` flag, those packages will be automatically added
 to `package.json`.
 
-Add these four packages at the top of `app.js`:
+Add these five packages at the top of `app.js`:
 
 ```
 var mongoose = require('mongoose');
@@ -56,7 +60,8 @@ var nodemailer = require('nodemailer');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt-nodejs');
-
+var async = require('async');
+var crypto = require('crypto');
 ```
 
 From here on, we will be working entirely in the `app.js` file.
@@ -70,13 +75,16 @@ dependencies.
 ```
 var userSchema = new mongoose.Schema({
   username: { type: String, required, unique: true },
-  password: { type: String, required: true }
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+  resetPasswordToken: String,
+  resetPasswordExpires: Date
 });
 ```
 
-Each schema maps to a MongoDB collection. Each key - username and password,
-defines a property in our MongoDB documents. Besides specifying a structure of
-documents, they also define
+Each schema maps to a MongoDB collection. Each key - username, email and
+password, defines a property in our MongoDB documents.
+Besides specifying a structure of documents, they also define
 [instance methods](http://mongoosejs.com/docs/guide.html#methods)
 and [middleware](http://mongoosejs.com/docs/middleware.html). And that's
 exactly what we will use next.
@@ -236,6 +244,8 @@ var nodemailer = require('nodemailer');
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var bcrypt = require('bcrypt-nodejs');
+var async = require('async');
+var crypto = require('crypto');
 
 passport.use(new LocalStrategy(
   function(username, password, done) {
@@ -333,9 +343,322 @@ We are finally done with setting things up, so now we can move on to
 defining routes: `/login`, `/logout`, `/signup`. Later we will add a few
 more routes for resetting the password.
 
+Remove these two routes:
+
+```
+app.get('/', routes.index);
+app.get('/users', user.list);
+```
+
+And then add the following routes:
+
+```
+app.get('/', function(req, res){
+  res.render('index', {
+    title: 'Express',
+    user: req.user
+  });
+});
+
+app.get('/login', function(req, res) {
+  res.render('login', {
+    user: req.user
+  });
+});
+```
+
+The first route hasn't changed. It is in fact the same as `routes/index.js`,
+but I have included it here for the sake of consistency of keeping
+everything self-contained inside `app.js`. You may even delete the *routes*
+folder and remove `var routes` and `var user` require statements.
+
+Our `GET /login` route simply renders a page. When the login operation
+completes, `user` will be assigned to `req.user`. In order to check if user
+is signed-in or not, inside templates, we have to pass user: req.user
+explicitly. For instance, you may want to display **Login - Create Account**
+links to guests and **Logout** link to authenticated users.
+
+
+We will come back to that in a moment, but for now let's create a login
+template. Inside *views* folder create `login.jade` with the following:
+
+```
+extends layout
+
+block content
+  form(method='POST')
+    legend Login
+    .form-group
+      label(for='username') Username
+      input.form-control(type='text', name='username', autofocus)
+    .form-group
+      label(for='password') Password
+      input.form-control(type='password', name='password')
+    button.btn.btn-primary(type='submit') Login
+    a.btn.btn-link(href='/forgot') Forgot Password?
+```
+
+At this point let's switch over to `layout.jade` so we can add jQuery and
+Bootstrap libraries. In the `head` block add these three lines:
+
+```
+link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+```
+
+And since we are already here, let's also add Bootstrap NavBar in `layout.jade`.
+Place this code inside `body` tag, before `block content`:
+
+```
+.navbar.navbar-inverse.navbar-static-top(role='navigation')
+  .container
+    .navbar-header
+      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      a.navbar-brand(href='/') Project name
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li.active
+          a(href='/') Home
+        if user
+          li
+            a(href='/logout') Logout
+        else
+          li
+            a(href='/login') Login
+          li
+            a(href='/signup') Signup
+```
+
+Also, to make things nicer, wrap `block content` with `.container` element.
+This way your text will not be touching the page edges. Each page, e.g. login,
+forgot password, signup will be rendered inside this `block content`.
+
+Notice the *if-else* statement? Recall what I said earlier about passing
+user: req.user to a template. This basically allows us to display different
+content, depending on whether user is signed-in or not.
+
+```
+.container
+  block content
+```
+
+**Note:** Be careful with the indentation.
+
+Here is how your `layout.jade` should look at this point:
+
+```
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css')
+    script(src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js')
+    script(src='//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+  body
+    .navbar.navbar-inverse.navbar-static-top(role='navigation')
+      .container
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='/') Project name
+        .collapse.navbar-collapse
+          ul.nav.navbar-nav
+            li.active
+              a(href='/') Home
+            if user
+              li
+                a(href='/logout') Logout
+            else
+              li
+                a(href='/login') Login
+              li
+                a(href='/signup') Signup
+
+    .container
+      block content
+```
+
+Try visiting `/login` page and it should look much better now. If you are not
+using something like [nodemon](https://github.com/remy/nodemon), you will need
+to manually restart the node.js server before you see new changes.
+
+<img src="/images/blog/password-reset-2.png">
+
+If we try to submit a form right now, we will get an error because we haven't
+created `POST /login` route yet. Let's do that next.
+
+Back in `app.js` add the following route:
+
+```
+app.post('/login', function(req, res, next) {
+  passport.authenticate('local', function(err, user, info) {
+    if (err) return next(err)
+    if (!user) {
+      return res.redirect('/login')
+    }
+    req.logIn(user, function(err) {
+      if (err) return next(err);
+      return res.redirect('/');
+    });
+  })(req, res, next);
+});
+```
+
+**Note:** This code snippet was taken directly from [passport-local](https://github.com/jaredhanson/passport-local/blob/master/examples/express3-mongoose/app.js#L149)
+example.
+
+You now have a fully working login form, except there is no way to test it
+since we haven't created any users yet. This would be a good time to create a
+signup page.
+
+Add the following route to `app.js`:
+
+```
+app.get('/signup', function(req, res) {
+  res.render('signup', {
+    user: req.user
+  });
+});
+```
+
+In your *views* folder create `signup.jade` file with the following contents:
+
+```
+extends layout
+
+block content
+  form(method='POST')
+    legend Signup
+    .form-group
+      label(for='username') Username
+      input.form-control(type='text', name='username', autofocus)
+    .form-group
+      label(for='email') Email
+      input.form-control(type='text', name='email')
+    .form-group
+      label(for='password') Password
+      input.form-control(type='password', name='password')
+    .form-group
+      label(for='confirm') Confirm Password
+      input.form-control(type='password', name='confirm')
+    button.btn.btn-primary(type='submit') Signup
+```
+
+**Note:** Confirm Password currently does not do anything. In a real-world
+scenario you would of course compare it with `req.body.password` to see if they
+are equal.
+
+This is how `/signup` page would look if you followed along:
+
+<img src="/images/blog/password-reset-3.png">
+
+Just like with the login form, we will need to create a POST route to handle
+the form on the signup page.
+
+```
+app.post('/signup', function(req, res) {
+  var user = new User({
+      username: req.body.username,
+      email: req.body.email,
+      password: req.body.password
+    });
+
+  user.save(function(err) {
+    req.logIn(user, function(err) {
+      res.redirect('/');
+    });
+  });
+});
+```
+
+Here we create a new `User` object with the values passed in through the form.
+On a successful database save, user is immediately logged-in, then redirected
+to the home page.
+
+One last thing we are going to add is the logout route:
+
+```
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
+});
+```
+
+At this stage you have a basic, but fully functional application with
+**Home**, **Login** and **Signup** pages. We have everything but the password
+reset feature, which was the entire point of this tutorial.
+
+Create a new route in `app.js` and a corresponding template, `forgot.jade`:
+
+```
+app.get('/forgot', function(req, res) {
+  res.render('forgot', {
+    user: req.user
+  });
+});
+```
+
+```
+extends layout
+
+block content
+  form(method='POST')
+    legend Forgot Password
+    .form-group
+      label(for='email') Email
+      input.form-control(type='text', name='email', autofocus)
+    button.btn.btn-primary(type='submit') Reset Password
+```
+
+Before we proceed any further, let's add flash messages to notify users about
+success and error messages when they are filling out the form. Go ahead and
+run:
+```
+npm install express-flash --save
+```
+
+and then add it to `app.js`:
+
+```
+var flash = require('express-flash');
+```
+
+And finally add it with the rest of your Express middleware. I have placed it
+right after `express.sesson()`, although it will probably still work if you
+place it elsewhere.
+
+```
+app.use(flash());
+```
+
+To display flash messages, let's add this to the `.container` inside
+`layout.jade`, right before `block content`:
+
+```
+.container
+  if messages.error
+    .alert.alert-danger
+      div= messages.error
+  if messages.info
+    .alert.alert-info
+      div= messages.info
+  block content
+```
+
+
+Ok, so far so good. Now, it's going to get a little more complicated. Add the
+following route to handle the form on `/forgot` page:
 
 
 
 
-
-
+Source code for this tutorial is available on
+[GitHub](https://github.com/sahat/express-password-reset).
