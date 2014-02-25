@@ -2,15 +2,15 @@
 
 /* === Core Styles === */
 body {
-  border-top: 2px solid #7f00ff;
+  border-top: 3px solid #7f00ff;
   background-color: #ffffff;
-  color: #000;
+  /*color: #7f8c8d;*/
+  color: #333;
   font-size: 15px;
-  font-weight: 100;
+  font-weight: 200;
   line-height: 1.6em;
   margin: 0;
   padding: 0;
-  -webkit-font-smoothing: subpixel-antialiased;
 
 }
 
@@ -22,10 +22,20 @@ h1,
 h2,
 h3,
 h4,
-p,
 li,
 dt,
 dd {
+  font-family: "Adelle Thin", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
+}
+
+@font-face {
+  font-family: 'Adelle Thin';
+  src: url('../fonts/adelle_thin-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+p {
   font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
 }
 
@@ -51,9 +61,9 @@ p,
 li,
 dt,
 dd {
-  font-size: 18px;
-  font-weight: 200;
-  line-height: 30px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
 }
 
 dt {
@@ -65,23 +75,25 @@ li {
 }
 
 code {
-  font-family: "Ubuntu Mono", "Droid Sans Mono", "Consolas", Courier, monospace;
+  font-family: "Menlo", "Ubuntu Mono", "Droid Sans Mono", "Consolas", Courier, monospace;
 }
 
 pre {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.2em;
-  padding: 1em;
+  padding: 0;
   white-space: pre;
   white-space: pre-wrap;
   white-space: -moz-pre-wrap;
   white-space: -pre-wrap;
   white-space: -o-pre-wrap;
-  word-wrap: break-word;
+  /*word-wrap: break-word;*/
+  /*background: #1d1f21;*/
 }
 
 p code {
-  font-family: "Consolas", Courier, monospace;
+  font-family: "Ubuntu Mono", "Droid Sans Mono", "Consolas", Courier, monospace;
+  padding: 4px;
   font-size: .8em;
   line-height: 1.2em;
   background-color: rgba(0, 0, 0, 0.05);
