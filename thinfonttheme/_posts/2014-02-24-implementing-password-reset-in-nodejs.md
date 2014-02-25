@@ -5,16 +5,16 @@ title: Implementing Password Reset in Node.js
 
 ---
 
-In this tutorial, we'll go over how to create "forgot password" feature
+In this tutorial, we'll go over how to create "forgot your password" feature
 using Express, MongoDB, Passport and Nodemailer. We will build a complete
 application from scratch. This guide assumes as little possible, and thus
-covers some basics along the way.
+covers some basic stuff along the way.
 
 > To see password reset in action, check out this
 [live demo](http://hackathonstarter.herokuapp.com/).
 
 At the very least I assume you have already installed Node.js. So, let's
-begin by installing Express if you don't have that already:
+begin by installing Express, if you don't have that already:
 
 ```
 sudo npm install -g express
@@ -33,7 +33,10 @@ express myapp --sessions
 
 <img src="/images/blog/password-reset-1.png">
 
-Let's install NPM dependencies:
+**Note:** That `--sessions` flag adds sessions support. We could have also
+manually added it later, but might as well do it here and now.
+
+Next, install NPM dependencies:
 
 ```
 cd myapp && npm install
@@ -41,18 +44,21 @@ cd myapp && npm install
 
 We will be using *Nodemailer* for sending password reset emails,
 *Mongoose* for interacting with MongoDB and *Passport* for user authentication.
-Additionally we will require *bcrypt-nodejs* to hash user passwords and *async*
-library to avoid dealing with nested callbacks by using `async.waterfall`.
-To install these packages, run:
+Additionally we will require *bcrypt-nodejs* for hashing user passwords and
+*async* library to avoid dealing with nested callbacks by using
+`async.waterfall`.
+
+To install these node modules, run:
 
 ```
-npm install async mongoose nodemailer passport passport-local bcrypt-nodejs --save
+npm install --save async mongoose nodemailer passport passport-local bcrypt-nodejs
 ```
 
 **Note:** By passing `--save` flag, those packages will be automatically added
-to `package.json`.
+to `package.json`. I can't recall how many times I have installed packages
+locally, but then forgot to add them to `package.json`.
 
-Add these five packages at the top of `app.js`:
+Next, add those modules at the top of `app.js`:
 
 ```
 var mongoose = require('mongoose');
@@ -64,11 +70,17 @@ var async = require('async');
 var crypto = require('crypto');
 ```
 
-From here on, we will be working entirely in the `app.js` file.
+**Note:** We didn't have to install `crypto` library as it is part of Node.js.
+We will be using it for generating random token during a password reset.
 
-Since we are using Mongoose, we will first need to create a `User` model
-before we can do anything. But even before that, we need to have a Schema.
-Let's start by defining the `User` schema. Add this right after module
+From here on, we will be working entirely inside `app.js`, while  ocassionally
+switching to templates. I am only doing it for the purposes of this tutorial, in
+order to keep things simple. If you are building a mediums-sized application (or
+larger), it would be in your best interests to modularize your code.
+
+Since we are using Mongoose to work with MongoDB, we will first need to create
+a `User` model before we can do anything. But even before that, we need to have
+a Schema. Let's start by defining the `User` schema. Add this right after module
 dependencies.
 
 
@@ -82,9 +94,28 @@ var userSchema = new mongoose.Schema({
 });
 ```
 
-Each schema maps to a MongoDB collection. Each key - username, email,
-password, etc., defines a property in our MongoDB documents.
-Besides specifying a structure of documents, they also define
+Each schema maps to a MongoDB collection. And each key - username, email,
+password, etc., defines a property in our MongoDB documents. For example, this
+is how our User document would look in a database:
+
+```
+> db.users.findOne()
+{
+	"__v" : 0,
+	"_id" : ObjectId("530c17c1fb8c96752498e120"),
+	"email" : "sahat@me.com",
+	"password" : "$2a$05$ANZrgWJqVo9j1tqgCMwe2.LCFnU43bUAYW9rA3Nsx4WchPM.cELEi",
+	"username" : "sahat"
+}
+```
+
+**Note:** Properties `resetPasswordToken` and `resetPassword` are not part of
+the above document, because they are set only after password reset is
+submitted. And since we haven't specified default values, those properties
+will not be set when creating a new user.
+
+
+Besides specifying a structure of documents, Mongoose schemas also define
 [instance methods](http://mongoosejs.com/docs/guide.html#methods)
 and [middleware](http://mongoosejs.com/docs/middleware.html). And that's
 exactly what we will use next.
@@ -844,4 +875,4 @@ a success flash message:
 <img src="/images/blog/password-reset-6.png">
 
 That's all I have! I hope you enjoyed this tutorial. If you find any typos, grammar mistakes,
-code errors please send me an email at sahat[at]me.com and I will correct it.
+code errors, please send me an email at sahat[at]me.com.
