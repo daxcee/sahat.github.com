@@ -22,7 +22,6 @@ h1,
 h2,
 h3,
 h4,
-li,
 dt,
 dd {
   font-family: "Adelle Thin", "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
@@ -35,7 +34,7 @@ dd {
   font-style: normal;
 }
 
-p {
+p, li {
   font-family: "Helvetica Neue", Helvetica, Arial, "Nimbus L", sans-serif;
 }
 
@@ -75,10 +74,11 @@ li {
 }
 
 code {
-  font-family: "Menlo", "Ubuntu Mono", "Droid Sans Mono", "Consolas", Courier, monospace;
+  font-family: Menlo, Consolas, "Liberation Mono", Courier, monospace;
 }
 
 pre {
+  border: 1px solid #ddd;
   font-size: 12px;
   line-height: 1.2em;
   padding: 0;
