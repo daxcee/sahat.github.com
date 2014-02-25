@@ -5,13 +5,13 @@ title: Implementing Password Reset in Node.js
 
 ---
 
-To see password reset in action, check out this
-[live demo](http://hackathonstarter.herokuapp.com/).
-
 In this tutorial, we'll go over how to create "forgot password" feature
 using Express, MongoDB, Passport and Nodemailer. We will build a complete
 application from scratch. This guide assumes as little possible, and thus
 covers some basics along the way.
+
+> To see password reset in action, check out this
+[live demo](http://hackathonstarter.herokuapp.com/).
 
 At the very least I assume you have already installed Node.js. So, let's
 begin by installing Express if you don't have that already:
@@ -82,8 +82,8 @@ var userSchema = new mongoose.Schema({
 });
 ```
 
-Each schema maps to a MongoDB collection. Each key - username, email and
-password, defines a property in our MongoDB documents.
+Each schema maps to a MongoDB collection. Each key - username, email,
+password, etc., defines a property in our MongoDB documents.
 Besides specifying a structure of documents, they also define
 [instance methods](http://mongoosejs.com/docs/guide.html#methods)
 and [middleware](http://mongoosejs.com/docs/middleware.html). And that's
@@ -650,6 +650,9 @@ To display flash messages, let's add this to the `.container` inside
   if messages.info
     .alert.alert-info
       div= messages.info
+  if messages.success
+    .alert.alert-success
+      div= messages.success
   block content
 ```
 
@@ -657,8 +660,188 @@ To display flash messages, let's add this to the `.container` inside
 Ok, so far so good. Now, it's going to get a little more complicated. Add the
 following route to handle the form on `/forgot` page:
 
+```
+app.post('/forgot', function(req, res) {
+  async.waterfall([
+    function(done) {
+      crypto.randomBytes(20, function(err, buf) {
+        var token = buf.toString('hex');
+        done(err, token);
+      });
+    },
+    function(token, done) {
+      User.findOne({ email: req.body.email }, function(err, user) {
+        if (!user) {
+          req.flash('error', 'No account with that email address exists.');
+          return res.redirect('/forgot');
+        }
 
+        user.resetPasswordToken = token;
+        user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
 
+        user.save(function(err) {
+          done(err, token, user);
+        });
+      });
+    },
+    function(token, user, done) {
+      var smtpTransport = nodemailer.createTransport('SMTP', {
+        service: 'SendGrid',
+        auth: {
+          user: '!!! YOUR SENDGRID USERNAME !!!',
+          pass: '!!! YOUR SENDGRID PASSWORD !!!'
+        }
+      });
+      var mailOptions = {
+        to: user.email,
+        from: 'passwordreset@demo.com',
+        subject: 'Node.js Password Reset',
+        text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
+          'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
+          'http://' + req.headers.host + '/reset/' + token + '\n\n' +
+          'If you did not request this, please ignore this email and your password will remain unchanged.\n'
+      };
+      smtpTransport.sendMail(mailOptions, function(err) {
+        req.flash('info', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
+        done(err, 'done');
+      });
+    }
+  ], function(err) {
+    if (err) return next(err);
+    res.redirect('/forgot');
+  });
+});
+```
 
-Source code for this tutorial is available on
-[GitHub](https://github.com/sahat/express-password-reset).
+Here we are using [async](https://github.com/caolan/async) module to avoid
+nesting callbacks within callbacks within callbacks. We start out by randomly
+generating a token that looks like this -
+*94b422c1f87568a06a198da66fe2ef8cc963641d*. It doesn't mean anything, we only
+care that it is somewhat unique, i.e. no two exact password reset tokens at
+one time. We then pass that token down the *async.waterfall* to the next
+function that looks up a user by the provided e-mail address. If there is
+an account with such e-mail address, we set `resetPasswordToken` to that
+randomly generated token and set `resetPasswordExpires` 1 hour into the future.
+In other words, password reset link will be active only for 1 hour, afterwards
+that link becomes invalid.
+
+Next, we send out an e-mail to the user using
+[Nodemailer](https://github.com/andris9/Nodemailer) and
+[SendGrid](http://sendgrid.com/). If you prefer not to use SendGrid, change
+`service` string to any of the following: *Gmail*, *Mailgun*, *iCloud*,
+*Hotmail*. For a full list of service providers see
+[Nodemailer](https://github.com/andris9/Nodemailer) GitHub repo.
+
+<img src="/images/blog/password-reset-4.png">
+
+You should receive an email with a password reset link that looks something
+like *http://localhost:3000/reset/c9d5dea7d46182fa53c9e5bdc29cd26a2f79c286*.
+
+Clicking on that link won't do anything since we have not implemented `/reset`
+route yet. Let's do that right now.
+
+```
+app.get('/reset/:token', function(req, res) {
+  User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+    if (!user) {
+      req.flash('error', 'Password reset token is invalid or has expired.');
+      return res.redirect('/forgot');
+    }
+    res.render('reset', {
+      user: req.user
+    });
+  });
+});
+```
+
+It immediately checks if there exists a user with a given password reset
+token **and** that token has not expired yet. If user is found, it will display
+a page to setup a new password.
+
+And the `reset.jade` template:
+
+```
+extends layout
+
+block content
+  form(method='POST')
+    legend Reset Password
+    .form-group
+      label(for='password') New Password
+      input.form-control(type='password', name='password', value='', placeholder='New password', autofocus=true)
+    .form-group
+      label(for='confirm') Confirm Password
+      input.form-control(type='password', name='confirm', value='', placeholder='Confirm password')
+    .form-group
+      button.btn.btn-primary(type='submit') Update Password
+```
+
+This is what you would see in a case of a valid token:
+
+<img src="/images/blog/password-reset-5.png">
+
+And finally, we need to add a POST controller for the `/reset/:token` route. It
+is very similar to the `/forgot` route.
+
+```
+app.post('/reset/:token', function(req, res) {
+  async.waterfall([
+    function(done) {
+      User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+        if (!user) {
+          req.flash('error', 'Password reset token is invalid or has expired.');
+          return res.redirect('back');
+        }
+
+        user.password = req.body.password;
+        user.resetPasswordToken = undefined;
+        user.resetPasswordExpires = undefined;
+
+        user.save(function(err) {
+          req.logIn(user, function(err) {
+            done(err, user);
+          });
+        });
+      });
+    },
+    function(user, done) {
+      var smtpTransport = nodemailer.createTransport('SMTP', {
+        service: 'SendGrid',
+        auth: {
+          user: '!!! YOUR SENDGRID USERNAME !!!',
+          pass: '!!! YOUR SENDGRID PASSWORD !!!'
+        }
+      });
+      var mailOptions = {
+        to: user.email,
+        from: 'passwordreset@demo.com',
+        subject: 'Your password has been changed',
+        text: 'Hello,\n\n' +
+          'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n'
+      };
+      smtpTransport.sendMail(mailOptions, function(err) {
+        req.flash('success', 'Success! Your password has been changed.');
+        done(err);
+      });
+    }
+  ], function(err) {
+    res.redirect('/');
+  });
+});
+```
+
+We begin by checking if the password reset token is still valid. It is not
+unlikely that a user opens the link from their e-mail and leaves the browser
+open for more than one hour (at which point token should no longer be valid).
+
+If the user is found, update his/her password and `$unset` *resetPasswordToken*
+and *resetPasswordExpires* fields. User is then immediately signed-in. Right
+after that an email is sent to the user notifying about the password change.
+
+Upon a successful password reset you would be redirected to the home page with
+a success flash message:
+
+<img src="/images/blog/password-reset-6.png">
+
+That's all I have! I hope you enjoyed this tutorial. If you find any typos, grammar mistakes,
+code errors please send me an email at sahat[at]me.com and I will correct it.
