@@ -1,7 +1,7 @@
 ---
 layout: post
 
-title: Implementing Password Reset in Node.js
+title: How to implement Password Reset in Node.js
 
 ---
 
