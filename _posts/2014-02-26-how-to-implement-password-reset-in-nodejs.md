@@ -18,6 +18,8 @@ skip this step)
 sudo npm install -g express
 ```
 
+<a class="jsbin-embed" href="http://jsbin.com/iwovaj/73/embed">Simple Animation Tests</a><script src="http://static.jsbin.com/js/embed.js"></script>
+
 **Note:** Do not use `sudo` if you are on Windows.
 
 This installs Express globally, making it available from the command line.
