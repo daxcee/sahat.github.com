@@ -11,7 +11,7 @@ image:
 
 #### Angular.js, Node.js, MongoDB, Sass
 
-TV Show Tracker built for my talk at the [Node.js NYC Meetup](www.meetup.com/nodejs/).
+TV Show Tracker built for my talk at the [Node.js NYC Meetup](http://meetup.com/nodejs/).
 Using Express REST API on the back-end and Angular.js on the front-end.
 
 <div markdown="0">
