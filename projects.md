@@ -1,8 +1,11 @@
 ---
-layout: default
+layout: page
+permalink: /projects/
 title: Projects
+tags: [personal projects, code, open-source, demo]
+image:
+  feature: abstract-12.jpg
 ---
-
 <article>
     <section class="post-content">
 
