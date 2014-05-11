@@ -10,6 +10,8 @@ comments: true
 share: true
 ---
 
+#### Note: The following tutorial assumes you are using Express 3.x. I will update it to Express 4.0 as soon as I can.
+
 In this tutorial, we'll go over how to create "forgot your password" feature
 using Express, MongoDB, Passport and Nodemailer. We will build a complete
 application from scratch. This guide assumes as little possible, and thus
