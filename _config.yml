@@ -1,25 +1,19 @@
 title:            Sahat Yalkabov
-description:      Full Stack JavaScript Developer
+description:      Personal Website
 disqus_shortname: sahat
-#Your site's domain goes here. Leave localhost server or blank when working locally.
 url:              http://sahatyalkabov.com
 
-# Owner/author information
 owner:
   name:           Sahat Yalkabov
-  avatar:         rough_seas.gif
-  bio:            "Full Stack JavaScript Developer."
+  bio:            "I'm a full-stack JavaScript developer who loves writing code almost as much as gaming."
   email:          sahat@me.com
-  # Social networking links used in footer. Update and remove as you like.
   twitter:        EvNowAndForever
   facebook:       NeverSleepNeverDie
   github:         sahat
   linkedin:       sahatyalkabov
   instagram:      13reasons
-  # For Google Authorship https://plus.google.com/authorship
   google_plus:    https://plus.google.com/+SahatYalkabov
 
-# Analytics and webmaster tools stuff goes here
 google_analytics:   UA-17023058-2
 
 # Links to include in top navigation
