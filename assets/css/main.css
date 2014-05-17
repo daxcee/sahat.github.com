@@ -1,3 +1,5 @@
+@import url('http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic');
+
 /*! 
 // ===========================================================
 // HPSTR Jekyll Theme
@@ -373,7 +375,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: Menlo, Consolas, "Liberation Mono", Courier, monospace;
+  font-family: "Source Code Pro", Menlo, Consolas, "Liberation Mono", Courier, monospace;
 }
 
 p code,
@@ -416,9 +418,8 @@ pre::-webkit-scrollbar-thumb:horizontal {
   font-size: 12px;
   font-size: 0.75rem;
   line-height: 2.1667;
-  color: #d0d0d0;
-  background-color: #272822;
-  border: 1px solid #dbdbdb;
+  background-color: #f5f3ff;
+  border: 1px solid #d5d5e9;
   -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
@@ -430,391 +431,255 @@ pre::-webkit-scrollbar-thumb:horizontal {
   margin: 0;
 }
 
-.highlight .lineno {
-  padding-right: 24px;
-  color: #8f908a;
-}
-
-.highlight .hll {
-  background-color: #49483e;
-}
-
 .highlight .c {
-  color: #75715e;
+  font-style: italic;
+  color: #999988;
 }
 
 .highlight .err {
-  color: #960050;
-  background-color: #1e0010;
+  color: #a61717;
+  background-color: #e3d2d2;
 }
 
 .highlight .k {
-  color: #66d9ef;
-}
-
-.highlight .l {
-  color: #ae81ff;
-}
-
-.highlight .n {
-  color: #f8f8f2;
+  font-weight: bold;
 }
 
 .highlight .o {
-  color: #f92672;
-}
-
-.highlight .p {
-  color: #f8f8f2;
+  font-weight: bold;
 }
 
 .highlight .cm {
-  color: #75715e;
+  font-style: italic;
+  color: #999988;
 }
 
 .highlight .cp {
-  color: #75715e;
+  font-weight: bold;
+  color: #999999;
 }
 
 .highlight .c1 {
-  color: #75715e;
+  font-style: italic;
+  color: #999988;
 }
 
 .highlight .cs {
-  color: #75715e;
+  font-style: italic;
+  font-weight: bold;
+  color: #999999;
+}
+
+.highlight .gd {
+  color: #000000;
+  background-color: #ffdddd;
+}
+
+.highlight .gd .x {
+  color: #000000;
+  background-color: #ffaaaa;
 }
 
 .highlight .ge {
   font-style: italic;
 }
 
+.highlight .gr {
+  color: #aa0000;
+}
+
+.highlight .gh {
+  color: #999999;
+}
+
+.highlight .gi {
+  color: #000000;
+  background-color: #ddffdd;
+}
+
+.highlight .gi .x {
+  color: #000000;
+  background-color: #aaffaa;
+}
+
+.highlight .go {
+  color: #888888;
+}
+
+.highlight .gp {
+  color: #555555;
+}
+
 .highlight .gs {
   font-weight: bold;
 }
 
+.highlight .gu {
+  color: #aaaaaa;
+}
+
+.highlight .gt {
+  color: #aa0000;
+}
+
 .highlight .kc {
-  color: #66d9ef;
-}
-
-.highlight .kd {
-  color: #66d9ef;
-}
-
-.highlight .kn {
-  color: #f92672;
-}
-
-.highlight .kp {
-  color: #66d9ef;
-}
-
-.highlight .kr {
-  color: #66d9ef;
-}
-
-.highlight .kt {
-  color: #66d9ef;
-}
-
-.highlight .ld {
-  color: #e6db74;
-}
-
-.highlight .m {
-  color: #ae81ff;
-}
-
-.highlight .s {
-  color: #e6db74;
-}
-
-.highlight .na {
-  color: #a6e22e;
-}
-
-.highlight .nb {
-  color: #f8f8f2;
-}
-
-.highlight .nc {
-  color: #a6e22e;
-}
-
-.highlight .no {
-  color: #66d9ef;
-}
-
-.highlight .nd {
-  color: #a6e22e;
-}
-
-.highlight .ni {
-  color: #f8f8f2;
-}
-
-.highlight .ne {
-  color: #a6e22e;
-}
-
-.highlight .nf {
-  color: #a6e22e;
-}
-
-.highlight .nl {
-  color: #f8f8f2;
-}
-
-.highlight .nn {
-  color: #f8f8f2;
-}
-
-.highlight .nx {
-  color: #a6e22e;
-}
-
-.highlight .py {
-  color: #f8f8f2;
-}
-
-.highlight .nt {
-  color: #f92672;
-}
-
-.highlight .nv {
-  color: #f8f8f2;
-}
-
-.highlight .ow {
-  color: #f92672;
-}
-
-.highlight .w {
-  color: #f8f8f2;
-}
-
-.highlight .mf {
-  color: #ae81ff;
-}
-
-.highlight .mh {
-  color: #ae81ff;
-}
-
-.highlight .mi {
-  color: #ae81ff;
-}
-
-.highlight .mo {
-  color: #ae81ff;
-}
-
-.highlight .sb {
-  color: #e6db74;
-}
-
-.highlight .sc {
-  color: #e6db74;
-}
-
-.highlight .sd {
-  color: #e6db74;
-}
-
-.highlight .s2 {
-  color: #e6db74;
-}
-
-.highlight .se {
-  color: #ae81ff;
-}
-
-.highlight .sh {
-  color: #e6db74;
-}
-
-.highlight .si {
-  color: #e6db74;
-}
-
-.highlight .sx {
-  color: #e6db74;
-}
-
-.highlight .sr {
-  color: #e6db74;
-}
-
-.highlight .s1 {
-  color: #e6db74;
-}
-
-.highlight .ss {
-  color: #e6db74;
-}
-
-.highlight .bp {
-  color: #f8f8f2;
-}
-
-.highlight .vc {
-  color: #f8f8f2;
-}
-
-.highlight .vg {
-  color: #f8f8f2;
-}
-
-.highlight .vi {
-  color: #f8f8f2;
-}
-
-.highlight .il {
-  color: #ae81ff;
-}
-
-.CodeRay {
-  margin-bottom: 1.5em;
-  font-family: Menlo, Consolas, "Liberation Mono", Courier, monospace;
-  font-size: 12px;
-  font-size: 0.75rem;
-  line-height: 2.1667;
-  color: #d0d0d0;
-  -webkit-border-radius: 3px;
-     -moz-border-radius: 3px;
-          border-radius: 3px;
-}
-
-.CodeRay .code pre {
-  padding: 1em;
-  margin: 0;
-  background-color: #272822;
-  border: 1px solid #dbdbdb;
-}
-
-span.CodeRay {
-  padding: 2px;
-  white-space: pre;
-  border: 0;
-}
-
-table.CodeRay {
-  width: 100%;
-  padding: 2px;
-  border-collapse: collapse;
-}
-
-table.CodeRay td {
-  padding: 1em 0.5em;
-  vertical-align: top;
-}
-
-.CodeRay .line-numbers,
-.CodeRay .no {
-  color: #8f908a;
-  text-align: right;
-}
-
-.CodeRay .line-numbers a {
-  color: #8f908a;
-}
-
-.CodeRay .line-numbers tt {
   font-weight: bold;
 }
 
-.CodeRay .line-numbers .highlighted {
-  color: #ff0000;
+.highlight .kd {
+  font-weight: bold;
 }
 
-.CodeRay .line {
-  display: block;
-  float: left;
-  width: 100%;
+.highlight .kp {
+  font-weight: bold;
 }
 
-.CodeRay span.line-numbers {
-  padding: 0 24px 0 4px;
+.highlight .kr {
+  font-weight: bold;
 }
 
-.CodeRay .code {
-  width: 100%;
+.highlight .kt {
+  font-weight: bold;
+  color: #445588;
 }
 
-ol.CodeRay {
-  font-size: 10pt;
+.highlight .m {
+  color: #009999;
 }
 
-ol.CodeRay li {
-  white-space: pre;
+.highlight .s {
+  color: #dd1144;
 }
 
-.CodeRay .code pre {
-  overflow: auto;
+.highlight .na {
+  color: #008080;
 }
 
-.CodeRay .debug {
-  color: white ! important;
-  background: blue ! important;
+.highlight .nb {
+  color: #0086b3;
 }
 
-.CodeRay .doctype,
-.CodeRay .key,
-.CodeRay .instance-variable {
-  color: #f8f8f2;
+.highlight .nc {
+  font-weight: bold;
+  color: #445588;
 }
 
-.CodeRay .attribute-name {
-  color: #a6e22e;
+.highlight .no {
+  color: #008080;
 }
 
-.CodeRay .symbol,
-.CodeRay .integer,
-.CodeRay .float {
-  color: #ff658b;
+.highlight .ni {
+  color: #800080;
 }
 
-.CodeRay .string {
-  color: #2dc900;
+.highlight .ne {
+  font-weight: bold;
+  color: #990000;
 }
 
-.CodeRay .keyword {
-  color: #66d9ef;
+.highlight .nf {
+  font-weight: bold;
+  color: #990000;
 }
 
-.CodeRay .function,
-.CodeRay .class {
-  color: #a6e22e;
+.highlight .nn {
+  color: #555555;
 }
 
-.CodeRay .regexp,
-.CodeRay .constant,
-.CodeRay .tag {
-  color: #f92672;
+.highlight .nt {
+  color: #000080;
 }
 
-.CodeRay .modifier,
-.CodeRay .predefined-constant {
-  color: #ff84e4;
+.highlight .nv {
+  color: #008080;
 }
 
-.CodeRay .comment {
-  color: #75715e;
+.highlight .ow {
+  font-weight: bold;
 }
 
-.CodeRay .error {
-  color: #ecc;
+.highlight .w {
+  color: #bbbbbb;
 }
 
-.CodeRay .content {
-  color: #e6db74;
+.highlight .mf {
+  color: #009999;
 }
 
-.CodeRay .delimiter {
-  color: #e6db74;
+.highlight .mh {
+  color: #009999;
 }
 
-.CodeRay .inline {
-  color: #e6db74;
+.highlight .mi {
+  color: #009999;
+}
+
+.highlight .mo {
+  color: #009999;
+}
+
+.highlight .sb {
+  color: #dd1144;
+}
+
+.highlight .sc {
+  color: #dd1144;
+}
+
+.highlight .sd {
+  color: #dd1144;
+}
+
+.highlight .s2 {
+  color: #dd1144;
+}
+
+.highlight .se {
+  color: #dd1144;
+}
+
+.highlight .sh {
+  color: #dd1144;
+}
+
+.highlight .si {
+  color: #dd1144;
+}
+
+.highlight .sx {
+  color: #dd1144;
+}
+
+.highlight .sr {
+  color: #009926;
+}
+
+.highlight .s1 {
+  color: #dd1144;
+}
+
+.highlight .ss {
+  color: #990073;
+}
+
+.highlight .bp {
+  color: #999999;
+}
+
+.highlight .vc {
+  color: #008080;
+}
+
+.highlight .vg {
+  color: #008080;
+}
+
+.highlight .vi {
+  color: #008080;
+}
+
+.highlight .il {
+  color: #009999;
 }
 
 .clearfix {
