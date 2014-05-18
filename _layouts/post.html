@@ -1,42 +1,33 @@
-<!doctype html>
-<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
-<!--[if (IE 7)&!(IEMobile)]><html class="no-js lt-ie9 lt-ie8" lang="en"><![endif]-->
-<!--[if (IE 8)&!(IEMobile)]><html class="no-js lt-ie9" lang="en"><![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
+<!DOCTYPE html>
 <head>
 {% include head.html %}
 </head>
 
 <body id="post">
 
-{% include navigation.html %}
-
-{% if page.image.feature %}
-<div class="entry-header">
-  {% if page.image.credit %}<div class="image-credit">Image source: {% if page.image.creditlink %}<a href="{{ page.image.creditlink }}">{% endif %}{{ page.image.credit }}{% if page.image.creditlink %}</a>{% endif %}</div><!-- /.image-credit -->{% endif %}
-  <div class="entry-image">
-    <img src="/images/{{ page.image.feature }}" alt="{{ page.title }}">
-  </div><!-- /.entry-image -->
-</div><!-- /.entry-header -->
-{% endif %}
+<header data-animation="fadeInDownBig">
+  {% include navigation.html %}
+</header>
 
 <section class="content">
   <article>
-    <header class="header-title">
-      <div class="header-title-wrap">
-        {% if page.link %}
-          <h1 class="entry-title"><a href="{{ page.link }}">{{ page.title }}</a></h1>
-        {% else %}
-          <h1 class="entry-title"><a href="{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
-        {% endif %}
-        <h2>{{ page.date | date: "%B %d, %Y" }}</h2>
-      </div><!-- /.header-title-wrap -->
+
+    <header class="gradient-{{ page.gradient }}" data-animation="fadeInDownBig">
+      <div class="overlay" style="background-image: url(/images/{{ page.image }})" data-parallax="9"></div>
+      <div class="excerpt">
+      <span class="title">1 minute</span>
+      <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
+      <p>Wether you'd like to change the sites <b>title</b>, <b>description</b> and <b>contact email address</b> or just like to enable the <b>comment system</b> or <b>Google Analytics</b> — <i>all of it can be done in one single place</i>.</p>
+      <span class="meta">Published <strong>{{ page.date | date: "%B %d, %Y" }}</strong> in <strong>{{ page.categories }}</strong></span>
+      </div>
     </header>
+
     <div class="body">
       {{ content }}
 
       <footer>
         <div class="meta">
+
           <div class="author visible animated fadeInUp" data-animation="fadeInUp">
             <span class="title">Written by</span>
             <h4>{{ site.owner.name }}</h4>
@@ -46,7 +37,6 @@
               <li><a href="http://facebook.com/{{ site.owner.facebook }}" title="Facebook" class="icon facebook">Facebook</a></li>
               <li><a href="http://plus.google.com/{{ site.owner.google_plus }}" title="Google Plus" class="icon google">Google+</a></li>
               <li><a href="http://linkedin.com/in/{{ site.owner.linkedin }}" title="LinkedIn" class="icon linkedin">LinkedIn</a></li>
-              <li><a href="/feed.xml" title="RSS" class="icon rss">RSS</a></li>
             </ul>
           </div>
 
@@ -68,20 +58,15 @@
 
         <div class="pagination" data-animation="fadeInUp">
           {% if paginator.previous_page %}
-          {% if paginator.previous_page == 1 %}
-          <a href="" class="btn">Previous</a>
-          {% else %}
+          {% unless paginator.previous_page == 1 %}
           <a href="/page{{ paginator.previous_page }}" title="Older" class="button older">Older</a>
-          {% endif %}
-          {% else %}
-          Previous
+          {% endunless %}
           {% endif %}
           {% if paginator.next_page %}
           <a href="/page{{ paginator.next_page }}" title="Newer" class="button newer">Newer</a>
-          {% else %}
-          Next
           {% endif %}
         </div>
+
       </footer>
     </div>
   </article>

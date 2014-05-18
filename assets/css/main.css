@@ -229,7 +229,9 @@ body > header .logo, body > header .toggle {
   position: absolute;
   top: 0;
   color: white;
-  line-height: 34px; }
+  line-height: 34px;
+  outline: none;
+}
 
 body > header .logo:after, body > header .toggle:after {
   content: "";
@@ -264,7 +266,9 @@ body > header .toggle {
   font-family: "Karla", sans-serif;
   font-size: 0.75rem;
   font-weight: 700;
-  text-transform: uppercase; }
+  text-transform: uppercase;
+  cursor: pointer;
+}
 
 body > header .toggle:after {
   right: 0;
