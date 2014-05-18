@@ -37,4 +37,9 @@ $(document).ready(function() {
 
   });
 
+  // Reading Time
+  $('article').readingTime({
+    readingTimeTarget: '.title'
+  });
+
 });

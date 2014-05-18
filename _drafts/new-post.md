@@ -7,6 +7,8 @@ gradient: 2
 image: demo.jpg
 ---
 
+https://github.com/michael-lynch/reading-time
+
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie ligula metus, id eleifend libero placerat at. Vestibulum eleifend, turpis vel tristique gravida, ipsum risus ornare ante, at tempor eros diam eget lacus. Quisque vehicula metus urna, id interdum eros tempor nec. Sed interdum commodo purus feugiat pulvinar. Etiam eget molestie nulla, vitae lacinia mauris. Vestibulum eu diam venenatis, sagittis orci id, dictum arcu. Suspendisse ut nibh tellus.
 
 Nullam lacinia vulputate est in interdum. Aenean vel lorem at est mollis adipiscing a at dolor. Pellentesque rhoncus tortor a convallis pretium. Ut ac varius massa. Aliquam dignissim tincidunt ante non tempor. Praesent suscipit, quam in volutpat auctor, nunc quam placerat ante, in pharetra orci ante quis lorem. Duis vestibulum posuere aliquam. Donec vulputate justo et massa auctor, ac blandit nisi semper.
