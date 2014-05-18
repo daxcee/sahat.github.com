@@ -17,7 +17,7 @@
       <div class="excerpt">
       <span class="title">1 minute</span>
       <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
-      <p>Wether you'd like to change the sites <b>title</b>, <b>description</b> and <b>contact email address</b> or just like to enable the <b>comment system</b> or <b>Google Analytics</b> — <i>all of it can be done in one single place</i>.</p>
+      <p>{{ page.excerpt }}</p>
       <span class="meta">Published <strong>{{ page.date | date: "%B %d, %Y" }}</strong> in <strong>{{ page.categories }}</strong></span>
       </div>
     </header>
@@ -28,7 +28,7 @@
       <footer>
         <div class="meta">
 
-          <div class="author visible animated fadeInUp" data-animation="fadeInUp">
+          <div class="author" data-animation="fadeInUp">
             <span class="title">Written by</span>
             <h4>{{ site.owner.name }}</h4>
             <p>{{ site.owner.bio }}</p>
@@ -40,7 +40,7 @@
             </ul>
           </div>
 
-          <div class="share visible animated fadeInUp" data-animation="fadeInUp">
+          <div class="share" data-animation="fadeInUp">
             <span class="title">Share</span>
             <ul>
               <li><a href="https://twitter.com/home?status={{ page.title }} {{ site.url }}{{ page.url }} via @EvNowAndForever" title="Tweet" class="icon twitter">Tweet</a></li>
