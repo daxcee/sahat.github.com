@@ -3,51 +3,37 @@
 {% include head.html %}
 </head>
 
-<body id="page" {% if page.image.feature %}class="feature"{% endif %}>
+<body id="page">
 
-{% include navigation.html %}
+<header data-animation="fadeInDownBig">
+  {% include navigation.html %}
+</header>
 
-{% if page.image.feature %}
-<div class="entry-header">
-  {% if page.image.credit %}<div class="image-credit">Image source: <a href="{{ page.image.creditlink }}">{{ page.image.credit }}</a></div><!-- /.image-credit -->{% endif %}
-  <div class="entry-image">
-    <img src="{{ site.url }}/images/{{ page.image.feature }}" alt="{{ page.title }}">
-  </div><!-- /.entry-image -->
-</div><!-- /.entry-header -->
-{% endif %}
+<section class="content">
+  <article>
 
-<div id="main" role="main">
-  <article class="entry">
-    <header class="header-title">
-      <div class="header-title-wrap">
-        <h1 class="entry-title">{{ page.title }}</h1>
-      </div><!-- /.header-title-wrap -->
+    <header class="gradient-{{ page.gradient }}" data-animation="fadeInDownBig">
+      <div class="overlay" style="background-image: url(/images/{{ page.image }})" data-parallax="9"></div>
+      <div class="excerpt">
+        <span class="title">1 minute</span>
+        <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
+        <p>{{ page.excerpt }}</p>
+      </div>
     </header>
-    <div class="entry-content">
+
+    <div class="body">
       {{ content }}
-      <footer class="entry-meta">
-        {% if page.modified %}{{ page.title }} was last modified on <span class="entry-date date modified"><time datetime="{{ page.modified }}">{{ page.modified }}</time></span>
-        <span class="author vcard fn">{{ site.owner.name }}</span>{% endif %}
-        {% if page.share %}<div class="social-share">
-          <ul class="socialcount socialcount-small inline-list" data-url="{{ site.url }}{{ page.url }}" data-share-text="{{ page.title }}">
-            <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}" title="Share on Facebook"><span class="count"><i class="icon-facebook-sign"></i> Like</span></a></li>
-            <li class="twitter"><a href="https://twitter.com/intent/tweet?text={{ site.url }}{{ page.url }}" title="Share on Twitter"><span class="count"><i class="icon-twitter-sign"></i> Tweet</span></a></li>
-            <li class="googleplus"><a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" title="Share on Google Plus"><span class="count"><i class="icon-google-plus-sign"></i> +1</span></a></li>
-          </ul>
-        </div><!-- /.social-share -->{% endif %}
-      </footer>
-    </div><!-- /.entry-content -->
-    {% if site.disqus_shortname and page.comments %}<section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}
+
+
+    </div>
   </article>
-</div><!-- /#main -->
+</section>
 
-<div class="footer-wrapper">
-  <footer role="contentinfo">
-    {% include footer.html %}
-  </footer>
-</div><!-- /.footer-wrapper -->
+<footer data-animation="fadeInUp">
+  {% include footer.html %}
+</footer>
 
-{% include scripts.html %}          
+{% include scripts.html %}
 
 </body>
 </html>
