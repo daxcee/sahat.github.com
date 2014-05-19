@@ -13,30 +13,6 @@ module.exports = function(grunt) {
         '!assets/js/scripts.min.js'
       ]
     },
-    recess: {
-      dist: {
-        options: {
-          compile: true,
-          compress: true
-        },
-        files: {
-          'assets/css/main.min.css': [
-            'assets/less/main.less'
-          ]
-        }
-      },
-      dev: {
-        options: {
-          compile: true,
-          compress: false
-        },
-        files: {
-          'assets/css/main.css': [
-            'assets/less/main.less'
-          ]
-        }
-      }
-    },
     uglify: {
       dist: {
         files: {
@@ -106,10 +82,9 @@ module.exports = function(grunt) {
   // Register tasks
   grunt.registerTask('default', [
     'clean',
-    'recess',
     'uglify',
-//    'imagemin',
-//    'svgmin'
+    'imagemin',
+    'svgmin'
   ]);
   grunt.registerTask('dev', [
     'watch'

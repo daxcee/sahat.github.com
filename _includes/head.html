@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>{% if page.title %}{{ page.title }} &#8211; {% endif %}{{ site.title }}</title>
+<title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
 <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}{{ site.description }}{% endif %}">
 
 <!-- Twitter Cards -->
@@ -27,7 +27,6 @@
 
 <!-- Styles -->
 <link rel="stylesheet" href="/assets/css/main.css">
-<link rel="stylesheet" href="/assets/css/animate.css">
 
 <!-- Icons -->
 <link rel="shortcut icon" href="/favicon.png">

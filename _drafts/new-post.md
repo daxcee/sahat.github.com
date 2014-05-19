@@ -2,12 +2,9 @@
 layout: post
 title: New Post
 excerpt: "Wether you'd like to change the sites <b>title</b>, <b>description</b> and <b>contact email address</b> or just like to enable the <b>comment system</b> or <b>Google Analytics</b> — <i>all of it can be done in one single place</i>."
-categories: tutorials
 gradient: 2
-image: demo.jpg
+image: home.jpg
 ---
-
-https://github.com/michael-lynch/reading-time
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla molestie ligula metus, id eleifend libero placerat at. Vestibulum eleifend, turpis vel tristique gravida, ipsum risus ornare ante, at tempor eros diam eget lacus. Quisque vehicula metus urna, id interdum eros tempor nec. Sed interdum commodo purus feugiat pulvinar. Etiam eget molestie nulla, vitae lacinia mauris. Vestibulum eu diam venenatis, sagittis orci id, dictum arcu. Suspendisse ut nibh tellus.
 

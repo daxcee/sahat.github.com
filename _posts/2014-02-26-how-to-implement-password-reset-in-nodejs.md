@@ -1,20 +1,12 @@
 ---
 layout: post
-title: How to Implement Password Reset in Node.js
-description: "Just about everything you'll need to style in the theme: headings, paragraphs, blockquotes, tables, code blocks, and more."
-modified: 2014-05-10
-tags: [node.js, forgot password, password reset, tutorial]
-image:
-  feature: abstract-5.jpg
-comments: true
-share: true
+title: How To Implement Password Reset In Node.js
+excerpt: "In this tutorial, we'll go over how to create a <strong>forgot your password</strong> feature using Express, MongoDB, Passport and Nodemailer. We will build a complete application from scratch. This guide assumes as little possible, and thus covers some basic stuff along the way."
+gradient: 1
+image: blog/password-reset-cover.jpg
 ---
 
-
-In this tutorial, we'll go over how to create "forgot your password" feature
-using Express, MongoDB, Passport and Nodemailer. We will build a complete
-application from scratch. This guide assumes as little possible, and thus
-covers some basic stuff along the way. To see password reset in action, check
+ To see password reset in action, check
 out this [Live Demo](http://hackathonstarter.herokuapp.com/).
 
 > Note: The following tutorial assumes you are using Express 3.x. I will update it to Express 4.0 as soon as I can.

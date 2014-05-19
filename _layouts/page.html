@@ -5,33 +5,28 @@
 
 <body id="page">
 
-<header data-animation="fadeInDownBig">
-  {% include navigation.html %}
-</header>
+{% include navigation.html %}
 
 <section class="content">
   <article>
 
-    <header class="gradient-{{ page.gradient }}" data-animation="fadeInDownBig">
-      <div class="overlay" style="background-image: url(/images/{{ page.image }})" data-parallax="9"></div>
+    <header class="gradient-{{ page.gradient }}">
+      <div class="overlay" style="background-image: url(/images/{{ page.image }})"></div>
       <div class="excerpt">
-        <span class="title">1 minute</span>
         <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
         <p>{{ page.excerpt }}</p>
+        <a href="https://twitter.com/EvNowAndForever" class="twitter-follow-button" data-show-count="false">Follow @EvNowAndForever</a>
+        <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
       </div>
     </header>
 
     <div class="body">
       {{ content }}
-
-
     </div>
   </article>
 </section>
 
-<footer data-animation="fadeInUp">
-  {% include footer.html %}
-</footer>
+{% include footer.html %}
 
 {% include scripts.html %}
 

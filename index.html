@@ -1,29 +1,14 @@
 ---
 layout: page
-title: Welcome....
-excerpt: "Wether you'd like to change the sites <b>title</b>, <b>description</b> and <b>contact email address</b> or just like to enable the <b>comment system</b> or <b>Google Analytics</b> — <i>all of it can be done in one single place</i>."
-gradient: 4
-image: demo.jpg
+title: Sahat Yalkabov
+excerpt: " You have to make the <strong>right choice</strong>. As long as you don't choose, everything remains possible. –– <a href='https://www.youtube.com/watch?v=mpi0qsp3v_w' target='_blank'>Mr. Nobody</a>"
+gradient: 5
+image: home.jpg
 ---
 
 {% for post in paginator.posts %}
   <div class="summary">
-    <h2><a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h2>
-    <small class="meta">{{ post.date | date: "%B %d, %Y" }}</small>
-    <p>
-      {{ post.excerpt }}
-      <a href="{{ post.url }}" title="Read More" class="more">Read More</a>
-    </p>
+    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
+    <span class="published">{{ post.date | date: "%B %d, %Y" }}</span>
   </div>
 {% endfor %}
-
-<div class="pagination" data-animation="fadeInUp">
-  {% if paginator.previous_page %}
-  {% unless paginator.previous_page == 1 %}
-  <a href="/page{{ paginator.previous_page }}" title="Older" class="button older">Older</a>
-  {% endunless %}
-  {% endif %}
-  {% if paginator.next_page %}
-  <a href="/page{{ paginator.next_page }}" title="Newer" class="button newer">Newer</a>
-  {% endif %}
-</div>
