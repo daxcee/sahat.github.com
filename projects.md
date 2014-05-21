@@ -14,7 +14,7 @@ This project uses [Express](http://expressjs.com) REST API on the back-end and [
 Both user accounts and shows are stored in [MongoDB](http://mongodb.org), while authentication sessions are 
 stored in [Redis](http://redislabs.com). The UI is created using [Bootstrap Sass](http://getbootstrap.com/css/#sass). The JavaScript and CSS
 concatenation & minification is done via [Gulp](http://gulpjs.com). Authentication is handled
-by [Passport.js](http://passportjs.org/).
+by [Passport.js](http://passportjs.org/). Email notifications are sent out two hours before the show starts via [SendGrid](http://sendgrid.com).
 
 <a href="https://github.com/sahat/tvshow-tracker/" class="btn">Source</a>
 
