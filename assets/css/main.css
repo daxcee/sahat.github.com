@@ -240,6 +240,10 @@ h5 {
 
 /* Gradients */
 
+.gradient-0 {
+  background-color: #000;
+}
+
 .gradient-1 {
   background-color: #a18cab;
   background-image: -o-linear-gradient(-40deg, #0e153a 10%, #4a4c7b 35%, #a18cab 65%, #f3c9d7 90%);
@@ -440,11 +444,11 @@ body > header nav ul li a:hover:active:after {
   background-position: 50% 0;
   background-repeat: no-repeat;
   background-size: cover;
-  opacity: 0.15;
-  -webkit-transition: opacity 0.35s ease-in-out;
-     -moz-transition: opacity 0.35s ease-in-out;
-       -o-transition: opacity 0.35s ease-in-out;
-          transition: opacity 0.35s ease-in-out;
+  opacity: 0.65;
+  -webkit-transition: opacity 0.3s ease-in-out;
+     -moz-transition: opacity 0.3s ease-in-out;
+       -o-transition: opacity 0.3s ease-in-out;
+          transition: opacity 0.3s ease-in-out;
 }
 
 .content article header:hover .overlay {
@@ -927,7 +931,7 @@ pre {
 
 pre,
 code {
-  overflow-x: scroll;
+  overflow-x: auto;
   font-family: monospace;
   font-size: 14px;
   color: #4b505a;
