@@ -6,35 +6,30 @@ gradient: 1
 image: blog/password-reset-cover.jpg
 ---
 
- To see password reset in action, check
-out this [Live Demo](http://hackathonstarter.herokuapp.com/).
+**May 25, 2014:** Updated tutorial for Express 4.x.
 
-> Note: The following tutorial assumes you are using Express 3.x. I will update it to Express 4.0 as soon as I can.
+---
 
+To see password reset in action, check
+out this [Live Demo](http://hackathonstarter.herokuapp.com/) from the
+[Hackathon Starter](github.com/sahat/hackathon-starter) project.
 
-Let's begin by installing Express. (If you already have Express installed, then
-skip this step)
+Let's begin by installing the Express application generator. That will allow
+us to create a new Express project skeleton from the command line.
 
 {% highlight bash %}
-sudo npm install -g express
+sudo npm install -g express-generator
 {% endhighlight %}
 
 **Note:** Do not use `sudo` if you are on Windows.
 
-This installs Express globally, making it available from the command line.
-We are going to use that command to create a new project.
-
 To create a new Express project run the following command:
 
 {% highlight bash %}
-express myapp --sessions
+express myapp
 {% endhighlight %}
 
-
 <img src="/images/blog/password-reset-1.png">
-
-**Note:** That `--sessions` flag adds sessions support. We could have also
-manually added it later, but might as well do it here and now.
 
 Next, install NPM dependencies:
 
@@ -42,26 +37,71 @@ Next, install NPM dependencies:
 cd myapp && npm install
 {% endhighlight %}
 
+Before proceeding any further, let's cleanup this project from all 
+that garbage created by the Express generator. 
 
-We will be using *Nodemailer* for sending password reset emails,
-*Mongoose* for interacting with MongoDB and *Passport* for user authentication.
-Additionally we will need *bcrypt-nodejs* for hashing user passwords and
-*async* library to avoid dealing with nested callbacks by using
-`async.waterfall`.
+Delete **bin** and **routes** folders, as well as **views/error.jade** template.
+Then replace **app.js** with the following contents:
 
-To install these node modules, run:
+{% highlight js %}
+var express = require('express');
+var path = require('path');
+var favicon = require('static-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+
+var app = express();
+
+// Middleware
+app.set('port', process.env.PORT || 3000);
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'jade');
+app.use(favicon());
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Routes
+app.get('/', function(req, res) {
+  res.render('index', { title: 'Express' });
+});
+
+app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + app.get('port'));
+});
+{% endhighlight %}
+
+If you run the app now, you should see the following *"Welcome to Express"* page.
+
+![](/images/blog/password-reset-1.5.png)
+
+We will be using [Nodemailer](https://github.com/andris9/Nodemailer) for sending password reset emails,
+[Mongoose](mongoosejs.com) for interacting with MongoDB and 
+[Passport](http://passportjs.com/) for user authentication.
+Additionally we will need [bcrypt-nodejs](https://www.npmjs.org/package/bcrypt-nodejs)
+for hashing user passwords and
+[async](https://github.com/caolan/async) library to avoid dealing with nested 
+callbacks by using with the help of `async.waterfall` method. Also, 
+as of Express 4.0+ you have to install [session](https://github.com/expressjs/session)
+middleware separately.
+
+To install these modules run the following command:
 
 {% highlight bash %}
-npm install --save async mongoose nodemailer passport passport-local bcrypt-nodejs
+npm install --save async express-session mongoose nodemailer passport passport-local bcrypt-nodejs
 {% endhighlight %}
 
 **Note:** By passing `--save` flag, those packages will be automatically added
 to `package.json`. I can't recall how many times I have installed packages
 locally, but then forgot to add them to `package.json`.
 
-Next, add those modules at the top of `app.js`:
+Next, add these modules at the top of `app.js`:
 
 {% highlight js %}
+var session = require('express-session')
 var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
 var passport = require('passport');
@@ -74,16 +114,21 @@ var crypto = require('crypto');
 **Note:** We didn't have to install `crypto` library as it is part of Node.js.
 We will be using it for generating random token during a password reset.
 
+Add the session middleware right after `app.use(cookieParser())`:
+
+{% highlight js %}
+app.use(session({ secret: 'session secret key' }));
+{% endhighlight %}
+
 From here on, we will be working entirely inside `app.js`, while  ocassionally
 switching to templates. I am only doing it for the purposes of this tutorial, in
 order to keep things simple. If you are building a mediums-sized application (or
 larger), it would be in your best interests to modularize your code.
 
-Since we are using Mongoose to work with MongoDB, we will first need to create
+Since we are using Mongoose to interact with MongoDB, we will first need to create
 a `User` model before we can do anything. But even before that, we need to have
-a Schema. Let's start by defining the `User` schema. Add this right after module
-dependencies.
-
+a Schema. Let's start by defining the `User` schema. Add this right after the
+module dependencies.
 
 {% highlight js %}
 var userSchema = new mongoose.Schema({
@@ -127,7 +172,7 @@ screwed. To avoid that, we will need to hash user's passwords. And that's where
 an account management page where users can update their existing password and
 a reset password page where users can set a new password. Do you really want
 to implement the same password hashing logic in all three places? Instead,
-let's use Mongoose middleware.
+you should use Mongoose middleware to hash a password on `save()`.
 
 
 {% highlight js %}
@@ -217,7 +262,7 @@ passport.use(new LocalStrategy(function(username, password, done) {
 [Passport | Configure](http://passportjs.org/guide/configure/) page.
 
 Next, we need to add the Passport middleware to our Express configuration. It is
-important that you place these two lines after `express.session()`. More often
+important that you place these two lines after `app.use(session({ secret: 'session secret key' }))`. More often
 than not, order matters when it comes to Express middleware.
 
 {% highlight js %}
@@ -228,27 +273,26 @@ app.use(passport.session());
 For example, this is how it would look all together:
 
 {% highlight js %}
+// Middleware
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(express.cookieParser());
-app.use(express.session({ secret: 'keyboard cat' }));
+app.use(favicon());
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(session({ secret: 'session secret key' }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 {% endhighlight %}
 
-And lastly, we need to add *serialize* and *deserialize* methods,
-then we are all set. You can read more about it on
+And lastly, we need to add *serialize* and *deserialize* passport methods.
+You can read more about it on
 [Passport | Configure](http://passportjs.org/guide/configure/) page, but
-essentially it allows you to stay signed-in when navigating between different
-routes within your application.
+essentially it allows you to stay logged-in when navigating between different
+pages within your application.
 
 Add this code before or after your *LocalStrategy*:
 
@@ -268,10 +312,12 @@ At this point your `app.js` should look, more or less, something like this:
 
 {% highlight js %}
 var express = require('express');
-var routes = require('./routes');
-var user = require('./routes/user');
-var http = require('http');
 var path = require('path');
+var favicon = require('static-favicon');
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
+var bodyParser = require('body-parser');
+var session = require('express-session')
 var mongoose = require('mongoose');
 var nodemailer = require('nodemailer');
 var passport = require('passport');
@@ -280,21 +326,19 @@ var bcrypt = require('bcrypt-nodejs');
 var async = require('async');
 var crypto = require('crypto');
 
-passport.use(new LocalStrategy(
-  function(username, password, done) {
-    User.findOne({ username: username }, function (err, user) {
-      if (err) return done(err);
-      if (!user) return done(null, false, { message: 'Incorrect username.' });
-      user.comparePassword(password, function(err, isMatch) {
-        if (isMatch) {
-          return done(null, user);
-        } else {
-          return done(null, false, { message: 'Incorrect password.' });
-        }
-      });
+passport.use(new LocalStrategy(function(username, password, done) {
+  User.findOne({ username: username }, function(err, user) {
+    if (err) return done(err);
+    if (!user) return done(null, false, { message: 'Incorrect username.' });
+    user.comparePassword(password, function(err, isMatch) {
+      if (isMatch) {
+        return done(null, user);
+      } else {
+        return done(null, false, { message: 'Incorrect password.' });
+      }
     });
-  }
-));
+  });
+}));
 
 passport.serializeUser(function(user, done) {
   done(null, user.id);
@@ -306,9 +350,8 @@ passport.deserializeUser(function(id, done) {
   });
 });
 
-
 var userSchema = new mongoose.Schema({
-  username: { type: String, required, unique: true },
+  username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
   resetPasswordToken: String,
@@ -334,7 +377,7 @@ userSchema.pre('save', function(next) {
 
 userSchema.methods.comparePassword = function(candidatePassword, cb) {
   bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
-    if(err) return cb(err);
+    if (err) return cb(err);
     cb(null, isMatch);
   });
 };
@@ -345,47 +388,36 @@ mongoose.connect('localhost');
 
 var app = express();
 
-// all environments
+// Middleware
 app.set('port', process.env.PORT || 3000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(expressValidator());
-app.use(express.methodOverride());
-app.use(express.cookieParser());
-app.use(express.session({ secret: 'keyboard cat' }));
+app.use(favicon());
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(session({ secret: 'session secret key' }));
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
 
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
+// Routes
+app.get('/', function(req, res) {
+  res.render('index', { title: 'Express' });
+});
 
-app.get('/', routes.index);
-app.get('/users', user.list);
-
-http.createServer(app).listen(app.get('port'), function(){
+app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
 {% endhighlight %}
 
-We are now done with the setting up stage, so let's move on to defining
-our routes: `/login`, `/logout`, `/signup`. Later we will add a few
-more routes for resetting a password.
+We are done with the configuration step, so let's move on to defining
+our routes: `/login`, `/logout`, `/signup`. We will add a few
+more routes for resetting a password shortly.
 
-Remove these two routes:
-
-{% highlight js %}
-app.get('/', routes.index);
-app.get('/users', user.list);
-{% endhighlight %}
-
-And then add the following routes:
+Update the `/` route to include `user: req.user` property and add the new
+`/login` route:
 
 {% highlight js %}
 app.get('/', function(req, res){
@@ -402,17 +434,11 @@ app.get('/login', function(req, res) {
 });
 {% endhighlight %}
 
-The first route hasn't changed. It is in fact the same as `routes/index.js`,
-but I have included it here for the sake of consistency of keeping
-everything self-contained inside `app.js`. You may even delete the **routes**
-folder and remove `var routes` and `var user` require statements.
-
 Our `GET /login` route simply renders a page. When the login operation
 completes, `user` will be assigned to `req.user`. To check if user
 is signed-in or not, inside templates, we have to pass `{ user: req.user }`
 explicitly. For instance, you may want to display **Login** and
 **Create Account** links to guests and **Logout** link to authenticated users.
-
 
 We will come back to that in a moment, but for now let's create a login
 template. Inside the **views** folder create `login.jade` with the following
@@ -434,11 +460,11 @@ block content
     a.btn.btn-link(href='/forgot') Forgot Password?
 {% endhighlight %}
 
-**Note:** If this is your first time working with Jade templates, I highly
-recommend this interactive
+**Note:** If this is your first time working with Jade templates, I 
+recommend to take a look at this interactive
 [Jade Syntax Documentation](http://naltatis.github.io/jade-syntax-docs/).
 
-At this point let's switch over to `layout.jade` so we can add jQuery and
+Let's switch over to `layout.jade` so we can add jQuery and
 Bootstrap libraries. Inside `head` block add these three lines:
 
 {% highlight jade %}
@@ -476,9 +502,9 @@ Place this code inside `body` tag, but before `block content`:
 
 Notice the *if/else* statement. Recall what I said earlier about passing
 `{ user: req.user }` to a template. This essentially allows us to display
-different content, depending on whether user is authenticated or not.
+different content, depending on whether `user` is defined or not.
 
-Also, to make things a little nicer, let's add some padding to our page content
+Also, to make things prettier, let's add some padding to our page content
 by wrapping `block content` with `.container` element.
 
 {% highlight jade %}
@@ -591,12 +617,12 @@ block content
 {% endhighlight %}
 
 **Note:** Confirm Password currently doesn't do anything. In a real-world
-scenario you would of course compare `req.body.confirm` with
+scenario you would compare `req.body.confirm` with
 `req.body.password` to see if they are equal. Take a look at
 [express-validator](https://github.com/ctavan/express-validator) if you are
 interested in learning more about data validation.
 
-This is how our `/signup` page would look like, if you followed along:
+This is how our `/signup` page would look like, if you followed along the tutorial:
 
 <img src="/images/blog/password-reset-3.png">
 
@@ -672,8 +698,8 @@ var flash = require('express-flash');
 {% endhighlight %}
 
 Finally, add the `flash()` function with the rest of your Express middleware.
-I have placed it right after `express.sesson()`, although it might still work
-if you place it elsewhere.
+I have placed it right after `app.use(session({ secret: 'session secret key' }))`, 
+although it might still work if you place it elsewhere.
 
 {% highlight js %}
 app.use(flash());
@@ -885,5 +911,5 @@ a success flash message:
 
 <img src="/images/blog/password-reset-6.png">
 
-That's all I have! I hope you enjoyed this tutorial. If you find any typos, grammar mistakes,
-code errors, please send me an email at sahat[at]me.com.
+That's all I have! I hope you enjoyed this tutorial. For questions & comments
+send me an email at sahat[at]me[dot]com.

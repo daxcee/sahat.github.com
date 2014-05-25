@@ -924,6 +924,11 @@ body > footer .copyright a {
 
 /* Syntax Highlighting */
 
+p > code {
+  padding: 2px 4px;
+  border: 1px solid #ccc;
+}
+
 pre {
   padding: 6px 10px;
   border: 1px solid #ccc;
