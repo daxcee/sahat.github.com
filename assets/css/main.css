@@ -495,16 +495,24 @@ body > header nav ul li a:hover:active:after {
   font-size: 0.875rem;
 }
 
+.content article header .excerpt {
+  text-shadow: 1px 1px 0px #333;
+  -webkit-transition: all 0.35s ease-in-out;
+     -moz-transition: all 0.35s ease-in-out;
+       -o-transition: all 0.35s ease-in-out;
+          transition: all 0.35s ease-in-out;
+}
+
 .content article header:hover .excerpt {
   opacity: 0.65;
   -webkit-transform: translate3d(0, 12px, 0);
      -moz-transform: translate3d(0, 12px, 0);
        -o-transform: translate3d(0, 12px, 0);
           transform: translate3d(0, 12px, 0);
-  -webkit-transition: all 0.4s ease-in-out;
-     -moz-transition: all 0.4s ease-in-out;
-       -o-transition: all 0.4s ease-in-out;
-          transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.35s ease-in-out;
+     -moz-transition: all 0.35s ease-in-out;
+       -o-transition: all 0.35s ease-in-out;
+          transition: all 0.35s ease-in-out;
 }
 
 .content article header .scroll {
@@ -885,10 +893,6 @@ body > header nav ul li a:hover:active:after {
 
 .teaser:hover .excerpt {
   opacity: 1;
-  -webkit-transform: translate3d(0, -6px, 0);
-     -moz-transform: translate3d(0, -6px, 0);
-       -o-transform: translate3d(0, -6px, 0);
-          transform: translate3d(0, -6px, 0);
   -webkit-transition: all 0.4s ease-in-out;
      -moz-transition: all 0.4s ease-in-out;
        -o-transition: all 0.4s ease-in-out;
