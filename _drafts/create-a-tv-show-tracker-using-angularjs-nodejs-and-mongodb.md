@@ -28,7 +28,7 @@ Remove <span class="fa fa-folder-open"></span> **views**, <span class="fa fa-fol
 
 Replace everything inside the `server.js` with the following code:
 
-{% highlight js %}
+{% highlight js linenos=table %}
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
@@ -49,7 +49,7 @@ app.listen(app.get('port'), function() {
 });
 {% endhighlight %}
 
-## Step 2: Bootstraping AngularJS Frontend
+## Step 2: AngularJS Frontend
 
 Download and extract the [Boostrap Sass](http://getbootstrap.com/getting-started/).
 
@@ -60,3 +60,46 @@ Copy all fonts from *vendor/assets/fonts/bootstrap* to <span class="fa fa-folder
 ![](/images/blog/tvshow-tracker-5.png)
 
 Download [this favicon](http://i.imgur.com/A38jRib.png) and place it inside <span class="fa fa-folder-open"></span> **public** directory. You don't really need it but it's a nice touch.
+
+ You will also need to download the following scripts and place them inside <span class="fa fa-folder-open"></span> **public/vendor**:
+
+- [angular.js]()
+- [angular-strap.js]()
+- [angular-strap.tpl.js]()
+- [angular-message.js]()
+- [angular-resource.js]()
+- [angular-route.js]()
+- [angular-cookies.js]()
+- [moment.min.js]()
+
+Create `index.html` in **public** directory with the following contents:
+
+{% highlight js linenos=table %}
+<!DOCTYPE html>
+<html ng-app="MyApp">
+<head>
+  <base href="/">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ShowTrackr</title>
+  <link rel="icon" type="image/png" href="favicon.png"/>
+  <link href="stylesheets/style.css" rel="stylesheet">
+</head>
+<body>
+
+<div ng-view></div>
+
+<script src="vendor/angular.js"></script>
+<script src="vendor/angular-strap.js"></script>
+<script src="vendor/angular-strap.tpl.js"></script>
+<script src="vendor/angular-messages.js"></script>
+<script src="vendor/angular-resource.js"></script>
+<script src="vendor/angular-route.js"></script>
+<script src="vendor/angular-cookies.js"></script>
+<script src="vendor/moment.min.js"></script>
+</body>
+</html>
+{% endhighlight %}
+
+
