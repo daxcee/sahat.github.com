@@ -929,11 +929,13 @@ body > footer .copyright a {
 p > code {
   padding: 0 3px;
   border: 1px solid #ddd;
+  border-radius: 3px;
 }
 
 pre {
   padding: 5px 10px;
   border: 1px solid #e5e5e5;
+  border-radius: 3px;
 }
 
 table {
