@@ -27,6 +27,10 @@ body {
   color: #222;
 }
 
+html {
+  -webkit-font-smoothing: antialiased;
+}
+
 ul li {
   list-style-type: square;
 }
@@ -953,8 +957,9 @@ table .highlight pre {
 pre,
 code {
   overflow-x: auto;
-  font-family: Monaco, Consolas, "Liberation Mono", Courier, monospace;
+  font-family: Menlo, Monaco, Consolas, "Ubuntu Mono", "Liberation Mono", Courier, monospace;
   font-size: 13px;
+  -webkit-font-smoothing: initial;
   background: #f8f8f8;
 }
 
