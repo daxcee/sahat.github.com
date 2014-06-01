@@ -55,7 +55,7 @@ Download and extract the [Boostrap Sass](http://getbootstrap.com/getting-started
 
 ![](/images/blog/tvshow-tracker-4.png)
 
-Copy all fonts from *vendor/assets/fonts/bootstrap* to <span class="fa fa-folder-open"></span> **public/fonts** directory and **bootstrap** from *vendor/assets/stylesheets* directory to <span class="fa fa-folder-open"></span> **public/stylesheets** directory.
+Copy all glyphicons from *vendor/assets/fonts/bootstrap* to <span class="fa fa-folder-open"></span> **public/fonts** directory and **bootstrap** from *vendor/assets/stylesheets* directory to <span class="fa fa-folder-open"></span> **public/stylesheets** directory.
 
 ![](/images/blog/tvshow-tracker-5.png)
 
@@ -426,5 +426,243 @@ Everything in the `style.scss` should be fairly straightforward. There are only 
 
 ## Step 3: AngularJS Routes and Templates
 
+Go back to `app.js` and add this line inside the *config* method to enable HTML5 pushState:
+
+{% highlight js %}
+$locationProvider.html5Mode(true);
+{% endhighlight %}
+
+What is [$locationProvider](https://docs.angularjs.org/api/ng/provider/$locationProvider) and where does it come from? It's a built-in AngularJS
+service for configuring application linking paths. Using this service you can
+enable [HTML5 pushState](http://html5demos.com/history) or change URL prefix from `#` 
+to something like `#!`, which you will need to do if you are planning to use *Disqus* comments in your AngularJS
+application. Simply by adding `$locationProvider` parameter to the *config's* callback
+function is enough to tell AngularJS to inject that service and make it available.
+
+{% highlight js %}
+angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'mgcrea.ngStrap'])
+  .config(function($locationProvider) {
+    $locationProvider.html5Mode(true);
 
 
+  });
+{% endhighlight %}
+
+But what happens when you try to minify this script with UglifyJS? The `$locationProvider` parameter will
+be changed to some obscure name and AngularJS won't know what to inject anymore.
+You can get around this problem by annotating the function with the names of the dependencies.
+
+{% highlight js %}
+angular.module('MyApp', ['ngCookies', 'ngResource', 'ngMessages', 'ngRoute', 'mgcrea.ngStrap'])
+  .config(['$locationProvider', function($locationProvider) {
+    $locationProvider.html5Mode(true);
+
+
+  }]);
+{% endhighlight %}
+
+Each string in the array is the name of the service to inject for the corresponding parameter.
+From now on forward I will be using this notation. 
+We are planning to minify and concatenate scripts after all.
+
+Next, we will need routes for the following pages:
+
+- **Home** - display a list of popular shows.
+- **Detail** - information about one particular TV show.
+- **Login** - user login form.
+- **Signup** - user signup form.
+- **Add** - add a new show form.
+
+Inject [$routeProvider](https://docs.angularjs.org/api/ngRoute/provider/$routeProvider)
+into *config* then add these routes:
+
+{% highlight js %}
+$routeProvider
+  .when('/', {
+    templateUrl: 'views/home.html',
+    controller: 'MainCtrl'
+  })
+  .when('/shows/:id', {
+    templateUrl: 'views/detail.html',
+    controller: 'DetailCtrl'
+  })
+  .when('/login', {
+    templateUrl: 'views/login.html',
+    controller: 'LoginCtrl'
+  })
+  .when('/signup', {
+    templateUrl: 'views/signup.html',
+    controller: 'SignupCtrl'
+  })
+  .when('/add', {
+    templateUrl: 'views/add.html',
+    controller: 'AddCtrl'
+  })
+  .otherwise({
+    redirectTo: '/'
+  });
+{% endhighlight %}
+
+![](/images/blog/tvshow-tracker-11.png)
+
+For each route there is a template and a controller. If you have a page with
+mostly static content then you don't even need to specify a controller. If you reload the
+page right now  and open Browser's *Developer Tools* you will see a **404 (Not Found)** error
+since we haven't created any 
+templates yet.
+
+Create a new file **home.html** in <span class="fa fa-folder-open"> **public/views** directory. This will be a 
+place for all AngularJS templates.
+
+{% highlight html %}
+<div class="jumbotron">
+  <div class="container">
+    <ul class="alphabet">
+      <li ng-repeat="char in alphabet">
+        <span ng-click="filterByAlphabet(char)">{{char}}</span>
+      </li>
+    </ul>
+    <ul class="genres">
+      <li ng-repeat="genre in genres">
+        <span ng-click="filterByGenre(genre)">{{genre}}</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      {{headingTitle}}
+      <div class="pull-right">
+        <input class="search" type="text" ng-model="query.name" placeholder="Search...">
+      </div>
+    </div>
+    <div class="panel-body">
+      <div class="row show-list">
+        <div class="col-xs-4 col-md-3" ng-repeat="show in shows | filter:query | orderBy:'rating':true">
+          <a href="/shows/{{show._id}}">
+            <img class="img-rounded" ng-src="{{show.poster}}" width="100%"/>
+          </a>
+          <div class="text-center">
+            <a href="/shows/{{show._id}}">{{show.name}}</a>
+            <p class="text-muted">Episodes: {{show.episodes.length}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+
+If you have used Bootstrap CSS framework before then everything should look 
+familiar to you. There are however some AngularJS directives here. The `ng-repeat`
+will iterate over an array of items specified in the controller for this page. 
+
+Let's take a look at this code snippet:
+
+{% highlight html %}
+<li ng-repeat="char in alphabet">
+  <span ng-click="filterByAlphabet(char)">{{char}}</span>
+</li>
+{% endhighlight %}
+
+It expects an array called `alphabet` defined in the `MainCtrl` controller.
+The `char` refers to each individual item in that array, an alphabet letter
+in this case. When you click on that letter it will run the `filterByAlphabet`
+function specified in the `MainCtrl` controller as well. Here we are passing the
+current letter in `filterByAlphabet(char)` otherwise how would it know which letter
+to filter by?
+
+The other `ng-repeat` displays a thumbnail and a name of each show:
+
+{% highlight html %}
+<div class="col-xs-4 col-md-3" ng-repeat="show in shows | filter:query | orderBy:'rating':true">
+  <a href="/shows/{{show._id}}">
+    <img class="img-rounded" ng-src="{{show.poster}}" width="100%"/>
+  </a>
+  <div class="text-center">
+    <a href="/shows/{{show._id}}">{{show.name}}</a>
+    <p class="text-muted">Episodes: {{show.episodes.length}}</p>
+  </div>
+</div>
+{% endhighlight %}
+
+In AngularJS you can also filter and sort your results. In this code above, thumbnails
+are sorted by the rating and filtered by the query you type into the Search box:
+
+{% highlight html %}
+<input class="search" type="text" ng-model="query.name" placeholder="Search...">
+{% endhighlight %}
+
+The reason it's `query.name` and not just `query` is because we want to filter only
+by the TV show name, not by its summary, rating, network, air time, etc.
+
+Next create a new file `main.js` in <span class="fa fa-folder-open"> **public/controllers** directory then add it to `index.html`:
+
+{% highlight html %}
+<script src="controllers/main.js"></script>
+{% endhighlight %}
+
+{% highlight js %}
+angular.module('MyApp')
+  .controller('MainCtrl', ['$scope', 'Show', function($scope, Show) {
+
+    $scope.alphabet = ['0-9', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J',
+      'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X',
+      'Y', 'Z'];
+
+    $scope.genres = ['Action', 'Adventure', 'Animation', 'Children', 'Comedy',
+      'Crime', 'Documentary', 'Drama', 'Family', 'Fantasy', 'Food',
+      'Home and Garden', 'Horror', 'Mini-Series', 'Mystery', 'News', 'Reality',
+      'Romance', 'Sci-Fi', 'Sport', 'Suspense', 'Talk Show', 'Thriller',
+      'Travel'];
+
+    $scope.headingTitle = 'Top 12 Shows';
+
+    $scope.shows = Show.query();
+
+    $scope.filterByGenre = function(genre) {
+      $scope.shows = Show.query({ genre: genre });
+      $scope.headingTitle = genre;
+    };
+
+    $scope.filterByAlphabet = function(char) {
+      $scope.shows = Show.query({ alphabet: char });
+      $scope.headingTitle = char;
+    };
+  }]);
+{% endhighlight %}
+
+Here are the `alphabet` and `genre` arrays that I just mentioned earlier when describing the `ng-repeat` directive.
+The `Show` service is injected automatically by AngularJS. We haven't created it yet, so if you trying
+reloading the page you will get this error: **Unknown provider: ShowProvider <- Show**.
+
+Go ahead and create the `show.js` in **public/services** directory and once again
+don't forget to add it to `index.html`:
+
+{% highlight html %}
+<script src="services/show.js"></script>
+{% endhighlight %}
+
+{% highlight js %}
+angular.module('MyApp')
+  .factory('Show', ['$resource', function($resource) {
+    return $resource('/api/shows/:_id');
+  }]);
+{% endhighlight %}
+
+The simplest service you will ever see thanks to the `angular-resource.js` module
+for doing all the heavy lifting for us. The [$resource](https://docs.angularjs.org/api/ngResource/service/$resource)
+service is the perfect companion for a RESTful backend. This is all we need to
+query *all shows* and an individual *show by id*. Refresh the page and if you
+see the **api/shows 404 (Not Found)** error then everything is working as expected for
+the time being.
+ 
+![](/images/blog/tvshow-tracker-12.png)
+
+ 
+Let us switch over back to the Express application to implement database
+schemas and API routes.
+
+## Step 4: Database Schemas
