@@ -770,3 +770,91 @@ Launch `mongod` - MongoDB server, then restart `server.js` to make sure
 everything is still working fine.
 
 ## Step 5: Express API Routes
+
+We are going to create two routes for now. One is for querying all shows and 
+another one for querying a single show by ID.
+
+Add these routes after the Express middlewares:
+
+{% highlight js %}
+app.get('/api/shows', function(req, res, next) {
+  var query = Show.find();
+  if (req.query.genre) {
+    query.where({ genre: req.query.genre });
+  } else if (req.query.alphabet) {
+    query.where({ name: new RegExp('^' + '[' + req.query.alphabet + ']', 'i') });
+  } else {
+    query.limit(12);
+  }
+  query.exec(function(err, shows) {
+    if (err) return next(err);
+    res.send(shows);
+  });
+});
+{% endhighlight %}
+
+Initially I had 3 different routes for finding the most popular shows on the home
+page, finding by genre and finding by letter. But they were essentially doing
+the same thing so I merged them into a single route and used Mongoose query builder
+to dynamically construct a database query.
+
+{% highlight js %}
+app.get('/api/shows/:id', function(req, res, next) {
+  Show.findById(req.params.id, function(err, show) {
+    if (err) return next(err);
+    res.send(show);
+  });
+});
+{% endhighlight %}
+
+You may have noticed the `next` parameter. If there an error it will be passed
+on to the error middleware and handled there as well. How you handle that error
+is up to you. A typical approach is to print a stack trace to the console and return
+only an error message to the user.
+
+Add this error middleware at the end of your routes. When an error occurs
+a stack trace is output in the console and JSON response is returned with
+the error message.
+
+{% highlight js %}
+app.use(function(err, req, res, next) {
+  console.error(err.stack);
+  res.send(500, { message: err.message });
+});
+{% endhighlight %}
+
+![](/images/blog/tvshow-tracker-13.png)
+
+![](/images/blog/tvshow-tracker-14.png)
+
+If you go to *Add*, *Login* or *Signup* pages right now and hit *Refresh* you will get
+a 404 error:
+
+{% highlight js %}
+Cannot GET /add
+{% endhighlight %}
+
+This is a common problem when you use HTML5 pushState on the client-side. To get
+around this problem we have to create a redirect route. Add this route *before*
+the error handler:
+
+{% highlight js %}
+app.get('*', function(req, res) {
+  res.redirect('/#' + req.originalUrl);
+});
+{% endhighlight %}
+
+It is very important that you add this route after all your other routes (excluding error handler)
+because we are using the `*` wild card that will match any route that you type.
+
+If you try going to `http://localhost:3000/asdf` this last route that we have just added will match it and you will be redirected to `http://localhost:3000/#asdf`.
+At that point AngularJS will try to match this URL with your routes defined in `$routeProvider`. Since
+we haven't defined a route that matches `/asdf` you will be redirected back to home page:
+ 
+{% highlight js %}
+.otherwise({
+ redirectTo: '/'
+});
+{% endhighlight %}
+
+## Step 6: Query and Parse The TVDB API
