@@ -666,3 +666,107 @@ Let us switch over back to the Express application to implement database
 schemas and API routes.
 
 ## Step 4: Database Schemas
+
+To install [mongoose](mongoosejs.com) and [bcryptjs](https://github.com/dcodeIO/bcrypt.js) run:
+
+{% highlight bash %}
+npm install --save mongoose bcryptjs
+{% endhighlight %}
+
+Then add these two lines with the rest of module dependencies:
+
+{% highlight js %}
+var mongoose = require('mongoose');
+var bcrypt = require('bcrypt');
+{% endhighlight %}
+
+Right below that, add the *Show* mongoose schema:
+{% highlight js %}
+var showSchema = new mongoose.Schema({
+  _id: Number,
+  name: String,
+  airsDayOfWeek: String,
+  airsTime: String,
+  firstAired: Date,
+  genre: [String],
+  network: String,
+  overview: String,
+  rating: Number,
+  ratingCount: Number,
+  status: String,
+  poster: String,
+  subscribers: [{
+    type: mongoose.Schema.Types.ObjectId, ref: 'User'
+  }],
+  episodes: [{
+      season: Number,
+      episodeNumber: Number,
+      episodeName: String,
+      firstAired: Date,
+      overview: String
+  }]
+});
+{% endhighlight %}
+
+A schema is just a representation of your data in MongoDB. This is where you
+can enforce a certain field to be of particular type. A field can also be required, unique,
+contain only certain characters.
+
+All the fields above are almost 1-to-1 match with the data response from the
+[TheTVDB.com API](http://thetvdb.com). Two things to note here:
+ 
+1. The default `_id` field has been overwritten with the numerical ID from *The TVDB*. There is no point in having both `_id` and `showId` fields.
+2. The `subscribers` field is an array of **User** ObjectIDs. We haven't created the User schema yet, but essentially it's just an array of references to **User** documents.
+
+Next, create the *User* schema:
+
+{% highlight js %}
+var userSchema = new mongoose.Schema({
+  email: { type: String, unique: true },
+  password: String
+});
+
+userSchema.pre('save', function(next) {
+  var user = this;
+  if (!user.isModified('password')) return next();
+  bcrypt.genSalt(10, function(err, salt) {
+    if (err) return next(err);
+    bcrypt.hash(user.password, salt, function(err, hash) {
+      if (err) return next(err);
+      user.password = hash;
+      next();
+    });
+  });
+});
+
+userSchema.methods.comparePassword = function(candidatePassword, cb) {
+  bcrypt.compare(candidatePassword, this.password, function(err, isMatch) {
+    if (err) return cb(err);
+    cb(null, isMatch);
+  });
+};
+{% endhighlight %}
+
+Here we are using [pre-save mongoose middleware](http://mongoosejs.com/docs/middleware.html) and comparePassword [instance
+method](http://mongoosejs.com/docs/guide.html#methods) for password validation.
+This code was taken directly from [passport-local](https://github.com/jaredhanson/passport-local) example.
+
+Now that we have schemas in place, we just have to creat mongoose models
+which we will use for querying MongoDB. Where a *schema* is just an abstract representation
+of the data, a *model* on the other hand is a concrete object with methods to query, remove, update and save data from/to MongoDB.
+
+{% highlight js %}
+var User = mongoose.model('User', userSchema);
+var Show = mongoose.model('Show', showSchema);
+{% endhighlight %}
+
+And finally in order to connect to the database:
+
+{% highlight js %}
+mongoose.connect('localhost');
+{% endhighlight %}
+
+Launch `mongod` - MongoDB server, then restart `server.js` to make sure
+everything is still working fine.
+
+## Step 5: Express API Routes
