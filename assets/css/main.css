@@ -242,6 +242,10 @@ h5 {
   background-color: #000;
 }
 
+.gradient-6 {
+  background: linear-gradient(#6585ed, #349cff), #6585ed;
+}
+
 .gradient-1 {
   background-color: #a18cab;
   background-image: -o-linear-gradient(-40deg, #0e153a 10%, #4a4c7b 35%, #a18cab 65%, #f3c9d7 90%);
@@ -1429,4 +1433,25 @@ button[disabled].secondary,
 .excerpt p a {
   color: #fff;
   text-decoration: underline;
+}
+
+.menu {
+  float: right;
+  font-family: "Karla", sans-serif;
+  font-size: .75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.menu li {
+  display: inline-block;
+}
+
+.menu li:not(:last-child) {
+  padding-right: 8px;
+}
+
+.menu li a {
+  color: #fff;
 }
