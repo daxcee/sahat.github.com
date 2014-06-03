@@ -515,6 +515,7 @@ Create a new file **home.html** in <span class="fa fa-folder-open"> **public/vie
 place for all AngularJS templates.
 
 {% highlight html %}
+{% raw %}
 <div class="jumbotron">
   <div class="container">
     <ul class="alphabet">
@@ -553,6 +554,7 @@ place for all AngularJS templates.
     </div>
   </div>
 </div>
+{% endraw %}
 {% endhighlight %}
 
 If you have used Bootstrap CSS framework before then everything should look 
@@ -562,9 +564,11 @@ will iterate over an array of items specified in the controller for this page.
 Let's take a look at this code snippet:
 
 {% highlight html %}
+{% raw %}
 <li ng-repeat="char in alphabet">
   <span ng-click="filterByAlphabet(char)">{{char}}</span>
 </li>
+{% endraw %}
 {% endhighlight %}
 
 It expects an array called `alphabet` defined in the `MainCtrl` controller.
@@ -577,6 +581,7 @@ to filter by?
 The other `ng-repeat` displays a thumbnail and a name of each show:
 
 {% highlight html %}
+{% raw %}
 <div class="col-xs-4 col-md-3" ng-repeat="show in shows | filter:query | orderBy:'rating':true">
   <a href="/shows/{{show._id}}">
     <img class="img-rounded" ng-src="{{show.poster}}" width="100%"/>
@@ -586,6 +591,7 @@ The other `ng-repeat` displays a thumbnail and a name of each show:
     <p class="text-muted">Episodes: {{show.episodes.length}}</p>
   </div>
 </div>
+{% endraw %}
 {% endhighlight %}
 
 In AngularJS you can also filter and sort your results. In this code above, thumbnails
@@ -940,8 +946,8 @@ Or you could use my API key for the purpose of this tutorial. The [xml2js](https
 to normalize all tags to lowercase and disable conversion to arrays when there is only one child element.
 
 The TV show name is *slugified* with underscores instead of dashes because that's what
-the TVDB API expects. For example if you pass in **The Breaking Bad** it will be converted
-to **the_breaking_bad**.
+the TVDB API expects. For example if you pass in **Breaking Bad** it will be converted
+to **breaking_bad**.
 
 I am using [async.waterfall](https://github.com/caolan/async#waterfalltasks-callback) to manage multiple asynchronous operations.
 Here is how it works:
@@ -974,3 +980,289 @@ var _ = require('lodash');
 {% endhighlight %}
 
 ## Step 7: Back to AngularJS
+
+Create a new template `add.html` in the <span class="fa fa-folder-open"></span> **views** directory:
+
+{% highlight html %}
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">Add TV Show</div>
+    <div class="panel-body">
+      <form method="post" ng-submit="addShow()" name="addForm" class="form-inline">
+        <div class="form-group">
+          <input class="form-control" type="text" name="showName" ng-model="showName" placeholder="Enter TV show name" autofocus>
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+
+When you hit the *Add* button, AngularJS will execute the `addShow()` function 
+defined in the `AddCtrl` controller because of this line:
+
+{% highlight html %}
+<form method="post" ng-submit="addShow()" name="addForm" class="form-inline">
+{% endhighlight %}
+
+![](/images/blog/tvshow-tracker-16.png)
+
+We also need to create a controller for this page:
+
+{% highlight html %}
+<script src="controllers/add.js"></script>
+{% endhighlight %}
+
+{% highlight js %}
+angular.module('MyApp')
+  .controller('AddCtrl', ['$scope', '$alert', '$http', function($scope, $alert, $http) {
+    $scope.addShow = function() {
+      $http.post('/api/shows', { showName: $scope.showName })
+        .success(function() {
+          $scope.showName = '';
+          $alert({
+            content: 'TV show has been added.',
+            placement: 'top-right',
+            type: 'success',
+            duration: 3
+          });
+        })
+    };
+  }]);
+{% endhighlight %}
+
+This controller sends a *POST* request to `/api/shows` with the TV show name - the route we have created in the previous step.
+If the request has been successfull, the form is cleared and a successful notification is shown.
+
+**Note:** The [$alert](http://mgcrea.github.io/angular-strap/#/alerts) is part of the [AngularStrap](mgcrea.github.io/angular-strap/) library.
+
+![](/images/blog/tvshow-tracker-17.png)
+
+Now, create another template `detail.html`:
+
+{% highlight html %}
+{% raw %}
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-body">
+      <div class="media">
+        <div class="pull-left">
+          <img class="media-object img-rounded" ng-src="{{show.poster}}">
+          <div class="text-center" ng-if="currentUser">
+            <div ng-show="!isSubscribed()">
+              <button ng-click="subscribe()" class="btn btn-block btn-success">
+                <span class="glyphicon glyphicon-plus"></span> Subscribe
+              </button>
+            </div>
+            <div ng-show="isSubscribed()">
+              <button ng-click="unsubscribe()" class="btn btn-block btn-danger">
+                <span class="glyphicon glyphicon-minus"></span> Unsubscribe
+              </button>
+            </div>
+          </div>
+          <div class="text-center" ng-show="!currentUser">
+            <a class="btn btn-block btn-primary" href="#/login">Login to Subscribe</a>
+          </div>
+        </div>
+        <div class="media-body">
+          <h2 class="media-heading">
+            {{show.name}}
+            <span class="pull-right text-danger">{{show.rating}}</span>
+          </h2>
+          <h4 ng-show="show.status === 'Continuing'">
+            <span class="glyphicon glyphicon-calendar text-danger"></span>
+            {{show.airsDayOfWeek}} <em>{{show.airsTime}}</em> on
+            {{show.network}}
+          </h4>
+          <h4 ng-show="show.status === 'Ended'">
+            Status: <span class="text-danger">Ended</span>
+          </h4>
+          <p>{{show.overview}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-info" ng-show="nextEpisode">
+    The next episode starts {{nextEpisode.firstAired | fromNow}}.
+  </div>
+
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <span class="glyphicon glyphicon-play"></span> Episodes
+    </div>
+    <div class="panel-body">
+      <div class="episode" ng-repeat="episode in show.episodes">
+        <h4>{{episode.episodeName}}
+        <small>Season {{episode.season}}, Episode {{episode.episodeNumber}}</small>
+        </h4>
+        <p>
+          <span class="glyphicon glyphicon-calendar"></span>
+          {{episode.firstAired | date: 'short'}}
+        </p>
+        <p>{{episode.overview}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+{% endraw %}
+{% endhighlight %}
+
+This template is a little more complicated so let's break it down.
+
+{% highlight html %}
+{% raw %}
+<div class="text-center" ng-if="currentUser">
+  <div ng-show="!isSubscribed()">
+    <button ng-click="subscribe()" class="btn btn-block btn-success">
+      <span class="glyphicon glyphicon-plus"></span> Subscribe
+    </button>
+  </div>
+  <div ng-show="isSubscribed()">
+    <button ng-click="unsubscribe()" class="btn btn-block btn-danger">
+      <span class="glyphicon glyphicon-minus"></span> Unsubscribe
+    </button>
+  </div>
+</div>
+{% endraw %}
+{% endhighlight %}
+
+A *subscribe/unsubscribe* button is shown only if the user is logged in. The
+`isSubscribed` function defined in the `DetailCtrl` that we haven't created yet simply
+checks if current user ID is in the `subscribers` array of current TV show. It returns either
+**true** or **false**. Depending on which value is returned, either green subscribe button
+or red unbscribe button is shown.
+
+If the user is not logged in then a different button  is shown:
+{% highlight html %}
+{% raw %}
+<div class="text-center" ng-show="!currentUser">
+  <a class="btn btn-block btn-primary" href="#/login">Login to Subscribe</a>
+</div>
+{% endraw %}
+{% endhighlight %}
+
+The main difference between [ng-show](https://docs.angularjs.org/api/ng/directive/ngShow) and [ng-if](https://docs.angularjs.org/api/ng/directive/ngIf)
+is that the former simply shows/hides a DOM element and the latter won't even insert a DOM element if the expression is false.
+For more detailed comparisson refer to this [StackOverflow post](http://stackoverflow.com/questions/19177732/what-is-the-difference-between-ng-if-and-ng-show-ng-hide). 
+
+In this code block I am using a custom filter `fromNow` that we are about to create shortly.
+It uses *moment.js* library to output a friendly date like *in 6 hours* or *in 5 days*.
+
+{% highlight html %}
+{% raw %}
+<div class="alert alert-info" ng-show="nextEpisode">
+  The next episode starts {{nextEpisode.firstAired | fromNow}}.
+</div>
+{% endraw %}
+{% endhighlight %}
+
+Create a new file `fromNow.js` in the <span class="fa fa-folder-open"></span> **public/filters** directory:
+
+{% highlight js %}
+angular.module('MyApp').
+  filter('fromNow', function() {
+    return function(date) {
+      return moment(date).fromNow();
+    }
+});
+{% endhighlight %}
+
+And as usual, do not forget to reference it in `index.html`:
+
+{% highlight html %}
+<script src="filters/fromNow.js"></script>
+{% endhighlight %}
+
+Next, we need to create the `DetailCtrl` controller:
+
+{% highlight html %}
+<script src="controllers/detail.js"></script>
+{% endhighlight %}
+
+{% highlight js %}
+angular.module('MyApp')
+  .controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', 'Show', 'Subscription',
+    function($scope, $rootScope, $routeParams, Show, Subscription) {
+      Show.get({ _id: $routeParams.id }, function(show) {
+        $scope.show = show;
+
+        $scope.isSubscribed = function() {
+          return $scope.show.subscribers.indexOf($rootScope.currentUser._id) !== -1;
+        };
+
+        $scope.subscribe = function() {
+          Subscription.subscribe(show, $rootScope.currentUser).success(function() {
+            $scope.show.subscribers.push($rootScope.currentUser._id);
+          });
+        };
+
+        $scope.unsubscribe = function() {
+          Subscription.unsubscribe(show, $rootScope.currentUser).success(function() {
+            var index = $scope.show.subscribers.indexOf($rootScope.currentUser._id);
+            $scope.show.subscribers.splice(index, 1);
+          });
+        };
+
+        $scope.nextEpisode = show.episodes.filter(function(episode) {
+          return new Date(episode.firstAired) > new Date();
+        })[0];
+      });
+    }]);
+{% endhighlight %}
+
+Remember our one-line `Show` service? By default it has the following methods:
+
+{% highlight js %}
+{ 'get':    {method:'GET'},
+  'save':   {method:'POST'},
+  'query':  {method:'GET', isArray:true},
+  'remove': {method:'DELETE'},
+  'delete': {method:'DELETE'} };
+{% endhighlight %}
+
+In other words, we use `Show.get()` to get a single show and `Show.query()` to get an array of shows.
+
+When we get a response back, we add the show to `$scope` in order to make it available to the
+`detail.html` template. We also define a few functions to handle subscribe and unsbuscribe actions.
+
+Notice the separation of concerns. I am not handling any HTTP requests inside any of the controllers.
+Sure it would be less lines of code to do everything inside a controller but it will quickly
+turn into a big pile of mess. AngularJS services, providers, factories are there for this reason.
+
+Here is how subscribe/unsubscribe action works:
+
+1. Current show and current user objects are passed to the `Subscription` service.
+2. Subscription service sends a *POST* request to either `/api/subscribe` or `/api/unsubscribe` with just the Show ID and User ID.
+3. Server reponds with *200 OK* after updating MongoDB documents.
+4. Current user is added or removed from the `subscribers` array of the current TV show to keep things in sync.
+
+The last thing we will do in this step is create the `Subscription` service.
+
+Create a new file `subscription.js` in <span class="fa fa-folder-open"></span> **services** directory:
+
+{% highlight html %}
+<script src="services/subscription.js"></script>
+{% endhighlight %}
+
+{% highlight js %}
+angular.module('MyApp')
+  .factory('Subscription', ['$http', function($http) {
+    return {
+      subscribe: function(show, user) {
+        return $http.post('/api/subscribe', { showId: show._id, userId: user._id });
+      },
+      unsubscribe: function(show, user) {
+        return $http.post('/api/unsubscribe', { showId: show._id, userId: user._id });
+      }
+    };
+  }]);
+{% endhighlight %}
+
+![](/images/blog/tvshow-tracker-18.png)
+
+We will create Express routes `/api/subscribe` and `/api/unsubscribe` in *Step 10*, after we implement client-side
+and server-side authentication.
+
+## Step 8: Client-side Authentication

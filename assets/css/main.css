@@ -930,6 +930,7 @@ body > footer .copyright a {
 
 /* Syntax Highlighting */
 
+li code,
 p > code {
   padding: 0 3px;
   border: 1px solid #ddd;
