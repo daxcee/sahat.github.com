@@ -1573,4 +1573,146 @@ Of course we cannot login or create a new account because we haven't implemented
 
 ## Step 9: Server-side Authentication
 
+Install the following dependencies:
+
+{% highlight bash %}
+npm install --save express-session passport passport-local
+{% endhighlight %}
+
+Then add them to your module dependencies:
+
+{% highlight js %}
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+{% endhighlight %}
+
+In order to setup to [Passport.js](http://passportjs.com) we have to configure four things:
+
+1. Passport *serialize* and *deserialize* methods
+2. Passport strategy
+3. Express session middleware
+4. Passport middleware
+
+Serialize and deserialize methods are used to keep you signed-in.
+{% highlight js %}
+passport.serializeUser(function(user, done) {
+  done(null, user.id);
+});
+
+passport.deserializeUser(function(id, done) {
+  User.findById(id, '-password', function(err, user) {
+    done(err, user);
+  });
+});
+{% endhighlight %}
+
+Passport comes with hundreds of different strategies for just about every third-party service out there.
+We will not be signing in with Facebook, Google or Twitter. Instead we will use Passport's *LocalStrategy*
+to sign in with username and password.
+
+{% highlight js %}
+passport.use(new LocalStrategy({ usernameField: 'email' }, function(email, password, done) {
+  User.findOne({ email: email }, function(err, user) {
+    if (err) return done(err);
+    if (!user) return done(null, false);
+    user.comparePassword(password, function(err, isMatch) {
+      if (err) return done(err);
+      if (isMatch) return done(null, user);
+      return done(null, false);
+    });
+  });
+}));
+{% endhighlight %}
+
+**Note:** This code snippet is almost identical to the one found on the
+[Passport | Configure](http://passportjs.org/guide/configure/) page. The main difference
+here is we override *username* field to be called *email* field.
+
+Add the following middlewares after `cookieParser()` middleware:
+
+{% highlight js %}
+app.use(session({ secret: 'keyboard cat' }));
+app.use(passport.initialize());
+app.use(passport.session());
+{% endhighlight %}
+
+![](/images/blog/tvshow-tracker-23.png)
+
+Also, add this function somewhere in the `server.js` that we will use shortly to protect our routes
+from unauthenticated requests.
+
+{% highlight js %}
+function ensureAuthenticated(req, res, next) {
+  if (req.isAuthenticated()) next();
+  else res.send(401);
+}
+{% endhighlight %}
+
+Next, we will reate `/login`, `/logout` and `/signup` routes.
+
+When a user tries to sign-in from our AngularJS application, 
+a *POST* request is sent with the following data:
+
+{% highlight js %}
+{
+  email: 'example@email.com',
+  password: '1234'
+}
+{% endhighlight %}
+
+This data is passed to the Passport LocalStrategy. If email is found and password is valid then
+a new cookie is created with the user object, additionally the user object is sent back to the client.
+
+{% highlight js %}
+app.post('/api/login', passport.authenticate('local'), function(req, res) {
+  res.cookie('user', JSON.stringify(req.user));
+  res.send(req.user);
+});
+{% endhighlight %}
+
+The signup route is pretty straightforward. In fact it is oversimplified for the purposes of this tutorial; there is no input validation.
+Take a look at [express-validator](https://github.com/ctavan/express-validator) for more details.
+
+{% highlight js %}
+app.post('/api/signup', function(req, res, next) {
+  var user = new User({
+    email: req.body.email,
+    password: req.body.password
+  });
+  user.save(function(err) {
+    if (err) return next(err);
+    res.send(200);
+  });
+});
+{% endhighlight %}
+
+Passport exposes a `logout()` function on `req` object that can be called from any route which
+terminates a login session. Invoking `logout()` will remove the `req.user` property and clear the login session.
+
+{% highlight js %}
+app.get('/api/logout', function(req, res, next) {
+  req.logout();
+  res.send(200);
+});
+{% endhighlight %}
+
+Finally, add this middleware after the *static* Express middleware. If user is authenticated it will
+create a new user cookie that will be consumed by our AngularJS authentication.
+
+{% highlight js %}  
+app.use(function(req, res, next) {
+  if (req.user) {
+    res.cookie('user', JSON.stringify(req.user));
+  }
+  next();
+});
+{% endhighlight %}
+
+Go ahead create a new account and try signing in. If you did everything correctly
+you will get *success* notification and you will see your email in the Navbar.
+
+![](/images/blog/tvshow-tracker-24.png)
+
+## Step 10: Subscription
 
