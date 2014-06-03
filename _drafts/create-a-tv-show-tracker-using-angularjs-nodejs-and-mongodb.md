@@ -148,7 +148,7 @@ Let's add an [AngularStrap Navbar](http://mgcrea.github.io/angular-strap/#/page-
 </div>
 {% endhighlight %}
 
-There is only one reason I am using [AngularStrap Navbar](http://mgcrea.github.io/angular-strap/#/page-one#navbars) instead of [Bootstrap Navbar](getbootstrap.com/components/#navbar) - the **active** class is applied automatically to `<li>` elements when you change routes. Plus you get many other awesome directives that integrate with AngualrJS such as *Alert*, *Typeahead*, *Tooltip*, *Tab* and many more.
+There is only one reason we are using [AngularStrap Navbar](http://mgcrea.github.io/angular-strap/#/page-one#navbars) instead of [Bootstrap Navbar](getbootstrap.com/components/#navbar) - the **active** class is applied automatically to `<li>` elements when you change routes. Plus you get many other awesome directives that integrate with AngualrJS such as *Alert*, *Typeahead*, *Tooltip*, *Tab* and many more.
 
 You could try running the app to make sure there aren't any errors but you won't see a Navbar because we haven't included Bootstrap stylesheets yet. We will be using [gulp](http://gulpjs.com) to compile Sass stylesheets.
 
@@ -1227,7 +1227,7 @@ In other words, we use `Show.get()` to get a single show and `Show.query()` to g
 When we get a response back, we add the show to `$scope` in order to make it available to the
 `detail.html` template. We also define a few functions to handle subscribe and unsbuscribe actions.
 
-Notice the separation of concerns. I am not handling any HTTP requests inside any of the controllers.
+Notice the separation of concerns. We are not handling any HTTP requests inside any of the controllers.
 Sure it would be less lines of code to do everything inside a controller but it will quickly
 turn into a big pile of mess. AngularJS services, providers, factories are there for this reason.
 
@@ -1266,3 +1266,311 @@ We will create Express routes `/api/subscribe` and `/api/unsubscribe` in *Step 1
 and server-side authentication.
 
 ## Step 8: Client-side Authentication
+
+Create a new template `login.html`:
+
+{% highlight html %}
+<div class="container">
+  <div class="row">
+    <div class="center-form panel">
+      <div class="panel-body">
+        <h2 class="text-center">Login</h2>
+
+        <form method="post" ng-submit="login()" name="loginForm">
+
+          <div class="form-group">
+            <input class="form-control input-lg" type="text" name="email"
+                   ng-model="email" placeholder="Email" required autofocus>
+          </div>
+
+          <div class="form-group">
+            <input class="form-control input-lg" type="password" name="password"
+                   ng-model="password" placeholder="Password" required>
+          </div>
+
+          <button type="submit" ng-disabled="loginForm.$invalid"
+                  class="btn btn-lg btn-block btn-success">Sign In
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+
+![](/images/blog/tvshow-tracker-19.png)
+
+Create another template `signup.html`:
+
+{% highlight html %}
+<div class="container">
+  <br/>
+
+  <div class="row">
+    <div class="center-form panel">
+      <form method="post" ng-submit="signup()" name="signupForm">
+        <div class="panel-body">
+          <h2 class="text-center">Sign up</h2>
+
+          <div class="form-group"
+               ng-class="{ 'has-success' : signupForm.email.$valid && signupForm.email.$dirty, 'has-error' : signupForm.email.$invalid && signupForm.email.$dirty }">
+            <input class="form-control input-lg" type="email" id="email"
+                   name="email" ng-model="email" placeholder="Email" required
+                   autofocus>
+
+            <div class="help-block text-danger" ng-if="signupForm.email.$dirty"
+                 ng-messages="signupForm.email.$error">
+              <div ng-message="required">Your email address is required.</div>
+              <div ng-message="email">Your email address is invalid.</div>
+            </div>
+          </div>
+
+          <div class="form-group"
+               ng-class="{ 'has-success' : signupForm.password.$valid && signupForm.password.$dirty, 'has-error' : signupForm.password.$invalid && signupForm.password.$dirty }">
+            <input class="form-control input-lg" type="password" name="password"
+                   ng-model="password" placeholder="Password" required>
+
+            <div class="help-block text-danger"
+                 ng-if="signupForm.password.$dirty"
+                 ng-messages="signupForm.password.$error">
+              <div ng-message="required">Password is required.</div>
+            </div>
+          </div>
+
+          <div class="form-group"
+               ng-class="{ 'has-success' : signupForm.confirmPassword.$valid && signupForm.confirmPassword.$dirty, 'has-error' : signupForm.confirmPassword.$invalid && signupForm.confirmPassword.$dirty }">
+            <input class="form-control input-lg" type="password"
+                   name="confirmPassword" ng-model="confirmPassword"
+                   repeat-password="password" placeholder="Confirm Password"
+                   required>
+
+            <div class="help-block text-danger my-special-animation"
+                 ng-if="signupForm.confirmPassword.$dirty"
+                 ng-messages="signupForm.confirmPassword.$error">
+              <div ng-message="required">You must confirm password.</div>
+              <div ng-message="repeat">Passwords do not match.</div>
+            </div>
+          </div>
+
+          <button type="submit" ng-disabled="signupForm.$invalid"
+                  class="btn btn-lg btn-block btn-primary">Create Account
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+{% endhighlight %}
+
+This template is a bit trickier than `login.html`. First, I am dynamically assigning `has-success` and `has-error` CSS classes depending on whether the form is valid or not.
+These CSS classes are part of the Bootstrap framework. Second, AngularJS is smart enough to use
+native HTML attributes such as `type="email"` and `required` for input validation.
+
+The *ngMessages* is a new feature in the *AngularJS 1.3 Beta 8*. Check out
+[How to use ngMessages in AngularJS](http://www.yearofmoo.com/2014/05/how-to-use-ngmessages-in-angularjs.html) for an in-depth overview of *ngMessages*.
+
+The only other thing that is worth mentioning is this directive:
+
+{% highlight html %}
+repeat-password="password"
+{% endhighlight %}
+
+It's a custom directive for checking that *Confirm Password* matches *Password* and vice versa.
+
+Create a new file `repeatPassword.js` in the <span class="fa fa-folder-open"></span> **public/directives** directory. Then add it to `index.html`:
+
+{% highlight html %}
+<script src="directives/repeatPassword.js"></script>
+{% endhighlight %}
+
+{% highlight js %}
+angular.module('MyApp')
+  .directive('repeatPassword', function() {
+    return {
+      require: 'ngModel',
+      link: function(scope, elem, attrs, ctrl) {
+        var otherInput = elem.inheritedData("$formController")[attrs.repeatPassword];
+
+        ctrl.$parsers.push(function(value) {
+          if (value === otherInput.$viewValue) {
+            ctrl.$setValidity('repeat', true);
+            return value;
+          }
+          ctrl.$setValidity('repeat', false);
+        });
+
+        otherInput.$parsers.push(function(value) {
+          ctrl.$setValidity('repeat', value === ctrl.$viewValue);
+          return value;
+        });
+      }
+    };
+  });
+{% endhighlight %}
+
+![](/images/blog/tvshow-tracker-20.png)
+
+Let's create controllers for `login.html` and `signup.html` templates:
+
+Here is the Signup controller:
+
+{% highlight html %}
+<script src="controllers/signup.js"></script>
+{% endhighlight %}
+
+{% highlight js %}
+angular.module('MyApp')
+  .controller('SignupCtrl', ['$scope', 'Auth', function($scope, Auth) {
+    $scope.signup = function() {
+      Auth.signup({
+        email: $scope.email,
+        password: $scope.password
+      });
+    };
+  }]);
+{% endhighlight %}
+
+And here is the Login controller:
+
+{% highlight html %}
+<script src="controllers/login.js"></script>
+{% endhighlight %}
+
+{% highlight js %}
+angular.module('MyApp')
+  .controller('LoginCtrl', ['$scope', 'Auth', function($scope, Auth) {
+    $scope.login = function() {
+      Auth.login({
+        email: $scope.email,
+        password: $scope.password
+      });
+    };
+  }]);
+{% endhighlight %}
+
+Both Login and Signup controllers use `Auth` service which we are about to create.
+
+Create a new service `auth.js` in the <span class="fa fa-folder-open"></span> **services** directory:
+
+{% highlight html %}
+<script src="services/auth.js"></script>
+{% endhighlight %}
+
+{% highlight js %}
+angular.module('MyApp')
+  .factory('Auth', ['$http', '$location', '$rootScope', '$cookieStore', '$alert',
+    function($http, $location, $rootScope, $cookieStore, $alert) {
+      $rootScope.currentUser = $cookieStore.get('user');
+      $cookieStore.remove('user');
+
+      return {
+        login: function(user) {
+          return $http.post('/api/login', user)
+            .success(function(data) {
+              $rootScope.currentUser = data;
+              $location.path('/');
+
+              $alert({
+                title: 'Cheers!',
+                content: 'You have successfully logged in.',
+                placement: 'top-right',
+                type: 'success',
+                duration: 3
+              });
+            })
+            .error(function() {
+              $alert({
+                title: 'Error!',
+                content: 'Invalid username or password.',
+                placement: 'top-right',
+                type: 'danger',
+                duration: 3
+              });
+            });
+        },
+        signup: function(user) {
+          return $http.post('/api/signup', user)
+            .success(function() {
+              $location.path('/login');
+
+              $alert({
+                title: 'Congratulations!',
+                content: 'Your account has been created.',
+                placement: 'top-right',
+                type: 'success',
+                duration: 3
+              });
+            })
+            .error(function(response) {
+              $alert({
+                title: 'Error!',
+                content: response.data,
+                placement: 'top-right',
+                type: 'danger',
+                duration: 3
+              });
+            });
+        },
+        logout: function() {
+          return $http.get('/api/logout').success(function() {
+            $rootScope.currentUser = null;
+            $cookieStore.remove('user');
+            $alert({
+              content: 'You have been logged out.',
+              placement: 'top-right',
+              type: 'info',
+              duration: 3
+            });
+          });
+        }
+      };
+    }]);
+{% endhighlight %}
+
+In the next section we will create an Express middleware that creates a *User* cookie on each request.
+The `$cookieStore` service grabs that cookie, saves it locally on `$rootScope` and removes the cookie (we don't want to be authenticated forever). 
+
+Unfortunately I haven't found a cleaner and more straightforward authentication implementation in AngularJS yet.
+This will do for now. If you know of a better way, let me know.
+
+![](/images/blog/tvshow-tracker-21.png)
+
+Go back to `index.html` and find this line:
+
+{% highlight html %}
+<li><a href="javascript:void(0)" ng-click="logout()">Logout</a></li>
+{% endhighlight %}
+
+We are using `javascript:void(0)` instead of `#`, that you would typically see used to represent a *dummy* or *null* URLs,
+because hashes are used for routes in AngularJS.
+
+Also, we are using the `logout()` function but we haven't created a controller to handle it.
+Since Navbar doesn't fall under any particular route in `$routeProvider` we have to assign the
+controller inline:
+
+{% highlight html %}
+<div ng-controller="NavbarCtrl" class="navbar navbar-default navbar-static-top" role="navigation" bs-navbar>
+{% endhighlight %}
+
+![](/images/blog/tvshow-tracker-22.png)
+
+Then create a controller `navbar.js`:
+
+{% highlight html %}
+<script src="controllers/navbar.js"></script>
+{% endhighlight %}
+
+{% highlight js %}
+angular.module('MyApp')
+  .controller('NavbarCtrl', ['$scope', 'Auth', function($scope, Auth) {
+    $scope.logout = function() {
+      Auth.logout();
+    };
+  }]);
+{% endhighlight %}
+
+Of course we cannot login or create a new account because we haven't implemented that yet on the server. Let's do that next!
+
+## Step 9: Server-side Authentication
+
+
