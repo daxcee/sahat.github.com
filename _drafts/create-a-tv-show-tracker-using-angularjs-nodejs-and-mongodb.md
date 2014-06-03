@@ -6,6 +6,11 @@ gradient: 3
 image: blog/tvshow-tracker-cover.jpg
 ---
 
+## TL;DR
+
+<a href="#" class="btn">Demo</a>
+<a href="https://github.com/sahat/tvshow-tracker/" class="btn">Source</a>
+
 Before proceeding further, I will assume you have already installed the following:
 
 - [Node.js](http://nodejs.org)
@@ -1753,3 +1758,73 @@ After a user subscribes to a show this is how a MongoDB document might look:
 ![](/images/blog/tvshow-tracker-25.png)
 
 ## Step 11: Email Notifications
+
+For sending email notifications we are going to need [agenda](https://github.com/rschmukler/agenda), [sugar.js](sugarjs.com) and [nodemailer](nodemailer.com).
+
+{% highlight bash %}
+npm install --save agenda sugar nodemailer
+{% endhighlight %}
+
+Then add them to the list of module dependencies:
+
+{% highlight js %}
+var agenda = require('agenda')({ db: { address: 'localhost:27017/test' } });
+var sugar = require('sugar');
+var nodemailer = require('nodemailer');
+{% endhighlight %}
+
+Next, we are going to create a new *agenda* task and run it on the server startup.
+
+{% highlight js %}
+agenda.define('send email alert', function(job, done) {
+  Show.findOne({ name: job.attrs.data }).populate('subscribers').exec(function(err, show) {
+    var emails = show.subscribers.map(function(user) {
+      return user.email;
+    });
+
+    var upcomingEpisode = show.episodes.filter(function(episode) {
+      return new Date(episode.firstAired) > new Date();
+    })[0];
+
+    var smtpTransport = nodemailer.createTransport('SMTP', {
+      service: 'SendGrid',
+      auth: { user: 'hslogin', pass: 'hspassword00' }
+    });
+
+    var mailOptions = {
+      from: 'Fred Foo ✔ <foo@blurdybloop.com>',
+      to: emails.join(','),
+      subject: show.name + ' is starting soon!',
+      text: show.name + ' starts in less than 2 hours on ' + show.network + '.\n\n' +
+        'Episode ' + upcomingEpisode.episodeNumber + ' Overview\n\n' + upcomingEpisode.overview
+    };
+
+    smtpTransport.sendMail(mailOptions, function(error, response) {
+      console.log('Message sent: ' + response.message);
+      smtpTransport.close();
+      done();
+    });
+  });
+});
+
+agenda.start();
+
+agenda.on('start', function(job) {
+  console.log("Job %s starting", job.attrs.name);
+});
+
+agenda.on('complete', function(job) {
+  console.log("Job %s finished", job.attrs.name);
+});
+{% endhighlight %}
+
+Go back to the `app.post('/api/shows')` route and add this code inside the `show.save()` callback, so that it can start the agenda task whenever a new show is added to the database:
+
+{% highlight js %}
+var alertDate = Date.create('Next ' + show.airsDayOfWeek + ' at ' + show.airsTime).rewind({ hour: 2});
+agenda.schedule(alertDate, 'send email alert', show.name).repeatEvery('1 week');
+{% endhighlight %}
+
+![](/images/blog/tvshow-tracker-26.png)
+
+## Step 12: Optimization
