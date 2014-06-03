@@ -858,3 +858,119 @@ we haven't defined a route that matches `/asdf` you will be redirected back to h
 {% endhighlight %}
 
 ## Step 6: Query and Parse The TVDB API
+
+To add a new TV show to the database we will create a separate route for it.
+
+{% highlight js %}
+app.post('/api/shows', function(req, res, next) {
+  var apiKey = '9EF1D1E7D28FDA0B';
+  var parser = xml2js.Parser({
+    explicitArray: false,
+    normalizeTags: true
+  });
+  var seriesName = req.body.showName
+    .toLowerCase()
+    .replace(/ /g, '_')
+    .replace(/[^\w-]+/g, '');
+  
+  async.waterfall([
+    function(callback) {
+      request.get('http://thetvdb.com/api/GetSeries.php?seriesname=' + seriesName, function(error, response, body) {
+        if (error) return next(error);
+        parser.parseString(body, function(err, result) {
+          var seriesId = result.data.series.seriesid || result.data.series[0].seriesid;
+          callback(err, seriesId);
+        });
+      });
+    },
+    function(seriesId, callback) {
+      request.get('http://thetvdb.com/api/' + apiKey + '/series/' + seriesId + '/all/en.xml', function(error, response, body) {
+        if (error) return next(error);
+        parser.parseString(body, function(err, result) {
+          var series = result.data.series;
+          var episodes = result.data.episode;
+          var show = new Show({
+            _id: series.id,
+            name: series.seriesname,
+            airsDayOfWeek: series.airs_dayofweek,
+            airsTime: series.airs_time,
+            firstAired: series.firstaired,
+            genre: series.genre.split('|').filter(Boolean),
+            network: series.network,
+            overview: series.overview,
+            rating: series.rating,
+            ratingCount: series.ratingcount,
+            runtime: series.runtime,
+            status: series.status,
+            poster: series.poster,
+            episodes: []
+          });
+          _.each(episodes, function(episode) {
+            show.episodes.push({
+              season: episode.seasonnumber,
+              episodeNumber: episode.episodenumber,
+              episodeName: episode.episodename,
+              firstAired: episode.firstaired,
+              overview: episode.overview
+            });
+          });
+          callback(err, show);
+        });
+      });
+    },
+    function(show, callback) {
+      var url = 'http://thetvdb.com/banners/' + show.poster;
+      request({ url: url, encoding: null }, function(error, response, body) {
+        show.poster = 'data:' + response.headers['content-type'] + ';base64,' + body.toString('base64');
+        callback(error, show);
+      });
+    }
+  ], function(err, show) {
+    if (err) return next(err);
+    show.save(function(err) {
+      if (err) return next(err);
+      res.send(200);
+    });
+  });
+});
+{% endhighlight %}
+
+You must first [obtain an API key](http://thetvdb.com/?tab=apiregister) from the TVDB.
+Or you could use my API key for the purpose of this tutorial. The [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) parser is configured
+to normalize all tags to lowercase and disable conversion to arrays when there is only one child element.
+
+The TV show name is *slugified* with underscores instead of dashes because that's what
+the TVDB API expects. For example if you pass in **The Breaking Bad** it will be converted
+to **the_breaking_bad**.
+
+I am using [async.waterfall](https://github.com/caolan/async#waterfalltasks-callback) to manage multiple asynchronous operations.
+Here is how it works:
+
+1. Get the *Show ID* given the *Show Name* and pass it on to the next function.
+2. Get the show information using the *Show ID* from previous step and pass the new `show` object on to the next function.
+3. Convert the poster image to *Base64*, assign it to `show.poster` and pass the `show` object to the final callback function.
+4. Save the `show` object to database.
+
+You may be surprised why are we storing Base64 images in MongoDB? The answer is I don't have
+an [Amazon S3](http://aws.amazon.com/s3/) account to store these images. And even if I did,
+it is *not for free*, so I wouldn't expect everyone to have an AWS account just to follow this tutorial.
+As a side effect, each image is about 30% larger in the Base64 form, but don't worry
+it is well within the *500 MB* limit of the [MognoLab free tier](https://mongolab.com/plans/pricing/) database.
+
+![](/images/blog/tvshow-tracker-15.png)
+
+Before moving on, don't forget to install and add these dependencies which are used 
+in the route we have just created:
+
+{% highlight bash %}
+npm install --save async request xml2js lodash
+{% endhighlight %}
+
+{% highlight js %}
+var async = require('async');
+var request = require('request');
+var xml2js = require('xml2js');
+var _ = require('lodash');
+{% endhighlight %}
+
+## Step 7: Back to AngularJS
