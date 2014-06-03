@@ -1716,3 +1716,40 @@ you will get *success* notification and you will see your email in the Navbar.
 
 ## Step 10: Subscription
 
+In this step we will implement two routes for subscribing and unsubscribing a show.
+
+{% highlight js %}
+app.post('/api/subscribe', ensureAuthenticated, function(req, res, next) {
+  Show.findById(req.body.showId, function(err, show) {
+    if (err) return next(err);
+    show.subscribers.push(req.body.userId);
+    show.save(function(err) {
+      if (err) return next(err);
+      res.send(200);
+    });
+  });
+});
+{% endhighlight %}
+
+{% highlight js %}
+app.post('/api/unsubscribe', ensureAuthenticated, function(req, res, next) {
+  Show.findById(req.body.showId, function(err, show) {
+    if (err) return next(err);
+    var index = show.subscribers.indexOf(req.body.userId);
+    show.subscribers.splice(index, 1);
+    show.save(function(err) {
+      if (err) return next(err);
+      res.send(200);
+    });
+  });
+});
+{% endhighlight %}
+
+We are using `ensureAuthenticated` middleware here to prevent unauthenticated users from accessing
+these route handlers.
+
+After a user subscribes to a show this is how a MongoDB document might look:
+
+![](/images/blog/tvshow-tracker-25.png)
+
+## Step 11: Email Notifications
