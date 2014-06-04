@@ -2144,6 +2144,11 @@ git push -u heroku master
 
 ## Step 14: Extra
 
+Congratulations on reaching this far. I hope you enjoyed this tutorial.
+Turns out this is also one of the longest blog posts I have ever written.
+For some people it would have been enough to just post the source code while others might appreciate
+detailed explanations each step of the way.
+
 There is a lot more that you can do with this project that I haven't done. If you 
 are interested in extending this project for fun or profit, consider the following:
 
@@ -2159,3 +2164,10 @@ are interested in extending this project for fun or profit, consider the followi
 - Resize thumbnails via [sharp](https://github.com/lovell/sharp) and optimize via [gulp-imagemin](https://www.npmjs.org/package/gulp-imagemin) then upload to Amazon S3
 - Add Redis database as a caching layer
 - Explore token-based authentication
+
+If, after reading this tutorial, some concepts are still not clear to you, don't give up, keep pushing yourself. I picked up
+AngularJS about 2 months ago and I learned JavaScript language through Node.js and Express web framework
+less than 2 years ago. I am where I am today only because of the countless number of hours writing code. There is no magic pill
+that will make you a JavaScript expert overnight. So keep on coding, keep on building new things with JavaScript - that really is the best way to learn.
+
+For questions and comments [send me an email](mailto:sahat@me.com). 
