@@ -8,8 +8,12 @@ image: blog/tvshow-tracker-cover.jpg
 
 ## TL;DR
 
+![](/images/blog/tvshow-tracker-32.png)
+
+<div style="text-align: center">
 <a href="#" class="btn">Demo</a>
 <a href="https://github.com/sahat/tvshow-tracker/" class="btn">Source</a>
+</div>
 
 Before proceeding further, I will assume you have already installed the following:
 
@@ -1828,3 +1832,330 @@ agenda.schedule(alertDate, 'send email alert', show.name).repeatEvery('1 week');
 ![](/images/blog/tvshow-tracker-26.png)
 
 ## Step 12: Optimization
+
+Just because you have a fast internet connection you shouldn't assume that
+others do as well. If you want to deliver the best possible user experience
+it is important that your application runs fast.
+
+Let's take a look at the *Network* tab in Google Chrome to see how many requests are we making
+and how many bytes are transferred when users visit our site.
+
+![](/images/blog/tvshow-tracker-27.png)
+
+Here is what we are going to do in this section:
+
+1. **Concatenate and minify the scripts**
+2. **Minify the stylesheet**
+3. **Cache AngularJS templates**
+4. **Enable gzip compression**
+5. **Enable static assets caching**
+
+We will use [gulp.js](http://gulpjs.com) for the first three tasks. Install the following gulp plugins:
+
+{% highlight bash %}
+npm install --save-dev gulp-csso gulp-uglify gulp-concat gulp-angular-templatecache
+{% endhighlight %}
+
+Then add them at the top with the rest of module dependecies:
+
+{% highlight js %}
+var csso = require('gulp-csso');
+var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
+var templateCache = require('gulp-angular-templatecache');
+{% endhighlight %}
+
+To minify CSS simply add `.pipe(csso())` after `.pipe(sass())`.
+Here is how your **sass** gulp task should look now:
+
+{% highlight js %}
+gulp.task('sass', function() {
+  gulp.src('public/stylesheets/style.scss')
+    .pipe(plumber())
+    .pipe(sass())
+    .pipe(csso())
+    .pipe(gulp.dest('public/stylesheets'));
+});
+{% endhighlight %}
+
+To concatenate and minify JavaScript files add the following task:
+
+{% highlight js %}
+gulp.task('compress', function() {
+  gulp.src([
+    'public/vendor/angular.js',
+    'public/vendor/*.js',
+    'public/app.js',
+    'public/services/*.js',
+    'public/controllers/*.js',
+    'public/filters/*.js',
+    'public/directives/*.js'
+  ])
+    .pipe(concat('app.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('public'));
+});
+{% endhighlight %}
+
+The reason we are passing an array of strings in this particular order is because 
+we need to concatenate them in the right order. It doesn't make sense to load `app.js` before
+`angular.js` is even loaded. That is why we first load AngularJS, then vendor fiiles, then
+main `app.js` file, then everything else. When you run this task a new file
+`app.min.js` is created.
+
+Add **compress** task to the **default** task:
+
+{% highlight js %}
+gulp.task('default', ['sass', 'compress', 'watch']);
+{% endhighlight %}
+
+And finally add a new watcher for the JavaScript files:
+gulp.task('watch', function() {
+  gulp.watch('public/stylesheets/*.scss', ['sass']);
+  gulp.watch(['public/**/*.js', '!public/app.min.js', '!public/vendor'], ['compress']);
+});
+
+Gulp will watch for all JavaScript files in the <span class="fa fa-folder-open"></span> **public**
+directory except for `app.min.js` or any files in the <span class="fa fa-folder-open"></span> **vendor**
+directory.
+
+Next, we are going to add a task for caching AngularJS templates. 
+
+Why do we need to cache AngularJS templates? If you haven't noticed yet, open the *Network*
+tab in Google Chrome and navigate between different pages in our ShowTrackr app. You will
+notice a separate HTTP request for template files: `add.html`, `login.html`, `signup.html`, etc.
+Your goal should always be to *minimize* the number of HTTP requests when building high-performance
+applications. This principle is especially true on mobile devices.
+
+Add the following task for caching AngularJS templates:
+
+{% highlight js %}
+gulp.task('templates', function() {
+  gulp.src('public/views/**/*.html')
+    .pipe(templateCache({ root: 'views', module: 'MyApp' }))
+    .pipe(gulp.dest('public'));
+});
+{% endhighlight %}
+
+This task will create a file `templates.js` in the <span class="fa fa-folder-open"></span> **public** directory
+that you have to include in the `index.html` in order for AngularJS to detect it. We will do that shortly.
+
+Don't forget to update the **default** task:
+
+{% highlight js %}
+gulp.task('default', ['sass', 'compress', 'templates', 'watch']);
+{% endhighlight %}
+
+Here is what your `gulpfile.js` should look like at this point:
+
+{% highlight js %}
+var gulp = require('gulp');
+var sass = require('gulp-sass');
+var csso = require('gulp-csso');
+var uglify = require('gulp-uglify');
+var concat = require('gulp-concat');
+var plumber = require('gulp-plumber');
+var templateCache = require('gulp-angular-templatecache');
+
+gulp.task('sass', function() {
+  gulp.src('public/stylesheets/style.scss')
+    .pipe(plumber())
+    .pipe(sass())
+    .pipe(csso())
+    .pipe(gulp.dest('public/stylesheets'));
+});
+
+gulp.task('compress', function() {
+  gulp.src([
+    'public/vendor/angular.js',
+    'public/vendor/*.js',
+    'public/app.js',
+    'public/services/*.js',
+    'public/controllers/*.js',
+    'public/filters/*.js',
+    'public/directives/*.js'
+  ])
+    .pipe(concat('app.min.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest('public'));
+});
+
+gulp.task('templates', function() {
+  gulp.src('public/views/**/*.html')
+    .pipe(templateCache({ root: 'views', module: 'MyApp' }))
+    .pipe(gulp.dest('public'));
+});
+
+gulp.task('watch', function() {
+  gulp.watch('public/stylesheets/*.scss', ['sass']);
+  gulp.watch(['public/**/*.js', '!public/app.min.js', '!public/vendor'], ['compress']);
+});
+
+gulp.task('default', ['sass', 'compress', 'templates', 'watch']);
+{% endhighlight %}
+
+The 3 out of 5 tasks are complete. Let's move on to gzip compression. Install the following Express middleware:
+
+{% highlight bash %}
+npm install --save compression
+{% endhighlight %}
+
+Add it to the list of module dependencies:
+
+{% highlight js %}
+var compress = require('compression')
+{% endhighlight %}
+
+And finally add the middleware. This middleware should be placed "high" within the stack to ensure all responses may be compressed.
+
+{% highlight js %}
+app.set('port', process.env.PORT || 3000);
+app.use(compress())
+app.use(logger('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
+app.use(cookieParser());
+app.use(session({ secret: 'keyboard cat' }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(function(req, res, next) {
+  if (req.user) {
+    res.cookie('user', JSON.stringify(req.user));
+  }
+  next();
+});
+{% endhighlight %}
+
+Enable static assets caching is pretty trivial. Update your static middleware with the following,
+where `maxAge` is the number in milliseconds:
+
+{% highlight js %}
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: 86400000 }));
+{% endhighlight %}
+
+**Note:** 86400000 milliseconds is equivalent to 1 day. You may want to create a separate variable
+such as `oneDay`, `oneWeek`, `oneMonth` instead of defining milliseconds directly in the middleware.
+
+Run `gulp` in the terminal and you should see two new files in the <span class="fa fa-folder-open"></span> **public** directory:
+
+![](/images/blog/tvshow-tracker-28.png)
+
+**Note:** Our *default* gulp.js task will continue watching for file changes
+after all tasks have been executed. If you don't like this behavior feel free
+to separate it out into two separate tasks `gulp build` and `gulp watch`.
+
+In `index.html` add these two scripts and comment/remove all other scripts:
+
+{% highlight html %}
+<script src="app.min.js"></script>
+<script src="templates.js"></script>
+{% endhighlight %}
+
+![](/images/blog/tvshow-tracker-29.png)
+
+Now if you check the *Network* tab again you should see much smaller number of requests and a smaller payload size.
+In terms of assets optimiation we did an excellent job but the biggest bottleneck in the system 
+is on the `GET /api/shows` request.
+
+![](/images/blog/tvshow-tracker-30.png)
+
+There are many other ways to optimize our application. For example it is not necessary for us to retrieve
+information about every single episode of every show because we don't see it until we view the detail page of that show.
+
+Also keep in mind we are storing images as *Base64* strings that are are fairly large in size and resolution (680x1000),
+not cached, not optimized.
+
+You could further improve performance by putting Redis database in front of the MongoDB for caching. Also take a look at the [Couchbase](http://www.couchbase.com/) database
+which seems to combine the best of both worlds. Couchbase seems to replace Redis, MongoDB and Riak all togther.
+
+Consider customizing the Bootstrap framework. If you are not using certain components such as *well*
+or *button-group*, remove it from `bootstrap.scss`. It is also worth taking a look at [gulp-uncss](https://github.com/ben-eb/gulp-uncss) for removing unused CSS.
+
+## Step 13: Deployment
+
+Create a new file `.gitignore` and add `node_modules` to it, since we don't
+want to commit that directory to Git.
+
+{% highlight bash %}
+touch .gitignore
+ 
+echo node_modules > .gitignore
+{% endhighlight %}
+
+Open `package.json` and update the `start` property to the following:
+
+{% highlight js %}
+"scripts": {
+  "start": "node server.js"
+},
+{% endhighlight %}
+
+Go to [mongolab.com](http://mongolab.com) and a create a new account. Then create
+a new single-node *Sandbox* database. It's *free*.
+
+![](/images/blog/tvshow-tracker-31.png)
+
+If you are too lazy to create a new account you can use my database that I have
+created for the purpose of the tutorial:
+
+{% highlight js %}
+mongodb://sahat:foobar@ds041178.mongolab.com:41178/showtrackrdemo
+{% endhighlight %}
+
+- Username: **sahat**
+- Password: **foobar**
+- Port: **41178**
+- Database: **showtrackrdemo**
+
+Update these two lines of code with the MongoDB URI above:
+
+**Agenda**
+{% highlight js %}
+var agenda = require('agenda')({ db: { address: 'mongodb://sahat:foobar@ds041178.mongolab.com:41178/showtrackrdemo' } });
+{% endhighlight %}
+
+**Mongoose**
+{% highlight js %}
+mongoose.connect('mongodb://sahat:foobar@ds041178.mongolab.com:41178/showtrackrdemo');
+{% endhighlight %}
+
+Turn your project into a Git repository:
+
+{% highlight bash %}
+git init
+git add .
+git commit -m 'Initial commit'
+{% endhighlight %}
+
+Create a new Heroku application:
+
+{% highlight bash %}
+heroku create
+{% endhighlight %}
+
+**Note:** You must have installed the [Heroku Toolbelt](https://toolbelt.heroku.com/)
+
+Deploy!
+
+{% highlight js %}
+git push -u heroku master
+{% endhighlight %}
+
+## Step 14: Extra
+
+There is a lot more that you can do with this project that I haven't done. If you 
+are interested in extending this project for fun or profit, consider the following:
+
+- User profile page with a list of subscribed shows
+- Dynamically update page `<title>` on each route
+- Create a personalized calendar view with subscribed shows
+- Create a calendar view that displays every show (time, date, network, episode overview)
+- Display a show's episodes in Bootstrap Tabs, grouped by seasons
+- Text message notifications
+- Add an admin role; only admins can add new TV shows
+- Display Twitter feed for each TV show
+- Create an AngularJS service for fetching and displaying latest news and gossip about a TV show
+- Resize thumbnails via [sharp](https://github.com/lovell/sharp) and optimize via [gulp-imagemin](https://www.npmjs.org/package/gulp-imagemin) then upload to Amazon S3
+- Add Redis database as a caching layer
+- Explore token-based authentication
