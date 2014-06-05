@@ -1606,21 +1606,22 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 {% endhighlight %}
 
-In order to setup to [Passport.js](http://passportjs.com) we have to configure four things:
+In order to setup [Passport.js](http://passportjs.com) we have to configure four things:
 
 1. Passport *serialize* and *deserialize* methods
 2. Passport strategy
 3. Express session middleware
 4. Passport middleware
 
-Serialize and deserialize methods are used to keep you signed-in.
+Serialize and deserialize methods are used to keep you signed-in. More details [here](http://passportjs.org/guide/configure/).
+
 {% highlight js %}
 passport.serializeUser(function(user, done) {
   done(null, user.id);
 });
 
 passport.deserializeUser(function(id, done) {
-  User.findById(id, '-password', function(err, user) {
+  User.findById(id, function(err, user) {
     done(err, user);
   });
 });
@@ -1648,7 +1649,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, function(email, passw
 [Passport | Configure](http://passportjs.org/guide/configure/) page. The main difference
 here is we override *username* field to be called *email* field.
 
-Add the following middlewares after `cookieParser()` middleware:
+Add Express Session and Passport middleware right after the `cookieParser()` middleware:
 
 {% highlight js %}
 app.use(session({ secret: 'keyboard cat' }));
@@ -1668,7 +1669,7 @@ function ensureAuthenticated(req, res, next) {
 }
 {% endhighlight %}
 
-Next, we will reate `/login`, `/logout` and `/signup` routes.
+Next, we will create `/login`, `/logout` and `/signup` routes.
 
 When a user tries to sign-in from our AngularJS application, 
 a *POST* request is sent with the following data:
@@ -1690,8 +1691,13 @@ app.post('/api/login', passport.authenticate('local'), function(req, res) {
 });
 {% endhighlight %}
 
-The signup route is pretty straightforward. In fact it is oversimplified for the purposes of this tutorial; there is no input validation.
-Take a look at [express-validator](https://github.com/ctavan/express-validator) for more details.
+Yes, I know it's a bad idea to send user's password over the network or to store it in a cookie, even if password is encryped.
+I have looked at so many different tutorials on AngularJS authentication and there is not a single approach that I like. It is either
+too complicated, too ugly or both. If I find a better solution I will update this tutorial but for now this will do. 
+
+The signup route should pretty straightforward. In fact I oversimplified it for the purposes of this tutorial. There is no input validation.
+If you need input validation then take a look at the [express-validator](https://github.com/ctavan/express-validator). You can see it
+being used through the [hackathon-starter](https://github.com/sahat/hackathon-starter) project.
 
 {% highlight js %}
 app.post('/api/signup', function(req, res, next) {
@@ -1716,8 +1722,8 @@ app.get('/api/logout', function(req, res, next) {
 });
 {% endhighlight %}
 
-Finally, add this middleware after the *static* Express middleware. If user is authenticated it will
-create a new user cookie that will be consumed by our AngularJS authentication.
+Finally, add the following custom middleware after the Express *static* middleware. If user is authenticated, this will
+create a new cookie that will be consumed by our AngularJS authentication service to read user information.
 
 {% highlight js %}  
 app.use(function(req, res, next) {
@@ -1728,14 +1734,14 @@ app.use(function(req, res, next) {
 });
 {% endhighlight %}
 
-Go ahead create a new account and try signing in. If you did everything correctly
-you will get *success* notification and you will see your email in the Navbar.
+Go ahead create a new account and try logging in. If you did everything correctly
+you should get a *success* notification and you will see your email address in the Navbar.
 
 ![](/images/blog/tvshow-tracker-24.png)
 
 ## Step 10: Subscription
 
-In this step we will implement two routes for subscribing and unsubscribing a show.
+In this step we will implement two routes for subscribing and unsubscribing to/from a show.
 
 {% highlight js %}
 app.post('/api/subscribe', ensureAuthenticated, function(req, res, next) {
@@ -1767,9 +1773,12 @@ app.post('/api/unsubscribe', ensureAuthenticated, function(req, res, next) {
 We are using `ensureAuthenticated` middleware here to prevent unauthenticated users from accessing
 these route handlers.
 
-After a user subscribes to a show this is how a MongoDB document might look:
+When users subscribe to a show this is how its MongoDB document may look:
 
 ![](/images/blog/tvshow-tracker-25.png)
+
+Again, we are not storing actual users inside `subscribers` array, only *ObjectId* references to those users.
+When we need to "expand" those user objects we are going to use [populate](http://mongoosejs.com/docs/populate.html) method provided by Mongoose.
 
 ## Step 11: Email Notifications
 
@@ -1787,7 +1796,7 @@ var sugar = require('sugar');
 var nodemailer = require('nodemailer');
 {% endhighlight %}
 
-Next, we are going to create a new *agenda* task and run it on the server startup.
+Next, we are going to create a new *agenda* task:
 
 {% highlight js %}
 agenda.define('send email alert', function(job, done) {
@@ -2045,7 +2054,7 @@ gulp.task('watch', function() {
 gulp.task('default', ['sass', 'compress', 'templates', 'watch']);
 {% endhighlight %}
 
-The 3 out of 5 tasks are complete. Let's move on to gzip compression. Install the following Express middleware:
+3 out of 5 tasks are complete. Let's move on to gzip compression. Install the following Express middleware:
 
 {% highlight bash %}
 npm install --save compression
@@ -2114,7 +2123,7 @@ is on the `GET /api/shows` request.
 There are many other ways to optimize our application. For example it is not necessary for us to retrieve
 information about every single episode of every show because we don't see it until we view the detail page of that show.
 
-Also keep in mind we are storing images as *Base64* strings that are are fairly large in size and resolution (680x1000),
+Also keep in mind we are storing images as *Base64* strings that are are fairly large in size and resolution (680 x 1000),
 not cached, not optimized.
 
 You could further improve performance by putting Redis database in front of the MongoDB for caching. Also take a look at the [Couchbase](http://www.couchbase.com/) database
@@ -2147,8 +2156,8 @@ a new single-node *Sandbox* database. It's *free*.
 
 ![](/images/blog/tvshow-tracker-31.png)
 
-If you are too lazy to create a new account you can use my database that I have
-created for the purpose of the tutorial:
+If you don't feel like creating a new account you can use my database that I have
+created just for this tutorial:
 
 {% highlight js %}
 mongodb://sahat:foobar@ds041178.mongolab.com:41178/showtrackrdemo
@@ -2198,7 +2207,7 @@ git push -u heroku master
 Congratulations on reaching this far. I hope you enjoyed this tutorial.
 Turns out this is also one of the longest blog posts I have ever written.
 For some people it would have been enough to just post the source code while others might appreciate
-detailed explanations each step of the way.
+the detailed explanations each step of the way.
 
 There is a lot more that you can do with this project that I haven't done. If you 
 are interested in extending this project for fun or profit, consider the following:
