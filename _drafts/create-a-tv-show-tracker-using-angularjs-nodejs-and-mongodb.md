@@ -1822,6 +1822,24 @@ agenda.on('complete', function(job) {
 });
 {% endhighlight %}
 
+It may not be immediately obvious how [Agenda](https://github.com/rschmukler/agenda) works so I will
+try to explain it here. Agenda is a job scheduling library for Node.js similar to [node-cron](https://github.com/ncb000gt/node-cron). We define an agenda job called
+*send email alert*. Here, we don't concern ourselves with when it runs. We only care what it does, i.e.
+what should happen when *send email alert* job is dispatched.
+
+When this job runs, name of the show will be passed in as an *optional* `data` object.
+
+Since we are not storing the entire user document in `subscribers` array (only references), we have to
+use Mongoose's [populate](http://mongoosejs.com/docs/populate.html) method. Once the show is found,
+we need a list of emails of all subscribers that have to be notified.
+
+We then find the upcoming episode so that we could include a brief summary of the next episode in the email message.
+
+And then it's just your standard Nodemailer boilerplate for sending emails. Here is how an email message
+might look like when *send email alert* job runs:
+
+![](/images/blog/tvshow-tracker-33.png)
+
 Go back to the `app.post('/api/shows')` route and add this code inside the `show.save()` callback, so that it can start the agenda task whenever a new show is added to the database:
 
 {% highlight js %}
@@ -1831,11 +1849,34 @@ agenda.schedule(alertDate, 'send email alert', show.name).repeatEvery('1 week');
 
 ![](/images/blog/tvshow-tracker-26.png)
 
+Now that we have defined an agenda task, we are going to schedule it as 
+soon as a new show is added.
+
+There is a minor problem - how do we know when to schedule it? Do we schedule
+**n** jobs for every episode of every shows or would it be better to schedule
+a recurring job for each show? I chose the latter approach of using a recurring job per show.
+
+The TVDB API gives us two pieces of information for each show: *air time* and *air day*, e.g. **9:00 PM** and **Tuesday**.
+Next challenge - how the heck do we construct a `Date` object from that?!
+
+[Sugar.js](http://sugarjs.com) to the rescue. *Sugar* overrides built-in objects such as Date to provide
+us with extra functionality. The code below creates a `Date` object from something like *Next Saturday at 8:00 PM* then *subtract two hours* from that.
+ 
+{% highlight js %}
+var alertDate = Date.create('Next ' + show.airsDayOfWeek + ' at ' + show.airsTime).rewind({ hour: 2});
+{% endhighlight %}
+
+When a new job is scheduled, Agenda will save that job to MongoDB for guaranteed persistence:
+
+![](/images/blog/tvshow-tracker-34.png)
+
+You can do so much more with Agenda so be sure to check out the [README](https://github.com/rschmukler/agenda) if you are interested in running cron jobs with Node.js.
+
 ## Step 12: Optimization
 
 Just because you have a fast internet connection you shouldn't assume that
 others do as well. If you want to deliver the best possible user experience
-it is important that your application runs fast.
+it is important that your application loads fast.
 
 Let's take a look at the *Network* tab in Google Chrome to see how many requests are we making
 and how many bytes are transferred when users visit our site.
@@ -2158,6 +2199,7 @@ are interested in extending this project for fun or profit, consider the followi
 - Create a calendar view that displays every show (time, date, network, episode overview)
 - Display a show's episodes in Bootstrap Tabs, grouped by seasons
 - Text message notifications
+- Customizable alert time (2 hours in advance, 1 day in advance, etc.)
 - Add an admin role; only admins can add new TV shows
 - Display Twitter feed for each TV show
 - Create an AngularJS service for fetching and displaying latest news and gossip about a TV show
@@ -2165,9 +2207,9 @@ are interested in extending this project for fun or profit, consider the followi
 - Add Redis database as a caching layer
 - Explore token-based authentication
 
-If, after reading this tutorial, some concepts are still not clear to you, don't give up, keep pushing yourself. I picked up
+If, after reading this tutorial, some concepts are still not clear to you, don't give up, keep pushing yourself, keep learning. I picked up
 AngularJS about 2 months ago and I learned JavaScript language through Node.js and Express web framework
-less than 2 years ago. I am where I am today only because of the countless number of hours writing code. There is no magic pill
+less than 2 years ago. I am where I am today only because of the countless number of hours of writing code. There is no magic pill
 that will make you a JavaScript expert overnight. So keep on coding, keep on building new things with JavaScript - that really is the best way to learn.
 
 For questions and comments [send me an email](mailto:sahat@me.com). 
