@@ -11,7 +11,7 @@ image: blog/tvshow-tracker-cover.jpg
 ![](/images/blog/tvshow-tracker-32.png)
 
 <div style="text-align: center">
-<a href="#" class="btn">Demo</a>
+<a href="http://polar-fjord-9424.herokuapp.com/" class="btn">Demo</a>
 <a href="https://github.com/sahat/tvshow-tracker/" class="btn">Source</a>
 </div>
 
@@ -431,7 +431,8 @@ Run the `gulp` command and refresh the browser.
 
 ![](/images/blog/tvshow-tracker-10.png)
 
-Everything in the `style.scss` should be fairly straightforward. There are only a few custom classes, everything else simply overrides the core Bootstrap classes.
+Everything in the `style.scss` should be very straightforward if you are not completely new to Bootstrap. 
+There are only a few custom classes, everything else simply overrides core Bootstrap classes to make it look prettier.
 
 ## Step 3: AngularJS Routes and Templates
 
@@ -2192,7 +2193,7 @@ Deploy!
 git push -u heroku master
 {% endhighlight %}
 
-## Step 14: Extra
+## Step 14: Closing Remarks
 
 Congratulations on reaching this far. I hope you enjoyed this tutorial.
 Turns out this is also one of the longest blog posts I have ever written.
