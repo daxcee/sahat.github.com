@@ -10,10 +10,7 @@ image: blog/tvshow-tracker-cover.jpg
 
 ![](/images/blog/tvshow-tracker-32.png)
 
-<div style="text-align: center">
-<a href="http://polar-fjord-9424.herokuapp.com/" class="btn">Demo</a>
 <a href="https://github.com/sahat/tvshow-tracker/" class="btn">Source</a>
-</div>
 
 Before proceeding further, I will assume you have already installed the following:
 
