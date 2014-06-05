@@ -789,7 +789,16 @@ everything is still working fine.
 We are going to create two routes for now. One is for querying all shows and 
 another one for querying a single show by ID.
 
-Add these routes after the Express middlewares:
+If we were going to implement all REST routes for `/api/shows` here is a table that outliens a route's responsibility.
+
+| Route          | POST (create)   | GET (read)        | PUT (update)      | DELETE (delete)   |
+| -------------- |:---------------:| -----------------:| -----------------:| -----------------:|
+| /api/shows     | Add a new show. | Get all shows.    | Update all shows. | Remove all shows. |
+| /api/shows/:id | N/A             | Get a show.       | Update a show.    | Delete a show.    |
+
+---
+
+Add these routes after Express middlewares:
 
 {% highlight js %}
 app.get('/api/shows', function(req, res, next) {
