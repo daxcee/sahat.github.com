@@ -16,7 +16,6 @@ stored in [Redis](http://redislabs.com). The UI is created using [Bootstrap Sass
 concatenation & minification is done via [Gulp](http://gulpjs.com). Authentication is handled
 by [Passport.js](http://passportjs.org/). Email notifications are sent out two hours before the show starts via [SendGrid](http://sendgrid.com).
 
-<a href="http://polar-fjord-9424.herokuapp.com/" class="btn">Demo</a>
 <a href="https://github.com/sahat/tvshow-tracker/" class="btn">Source</a>
 
 ![](/images/projects/showtrackr.png)
