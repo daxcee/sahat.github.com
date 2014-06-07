@@ -690,7 +690,7 @@ Then add these two lines with the rest of module dependencies:
 
 {% highlight js %}
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 {% endhighlight %}
 
 Right below that, add the *Show* mongoose schema:
@@ -1787,7 +1787,7 @@ When we need to "expand" those user objects we are going to use [populate](http:
 
 ## Step 11: Email Notifications
 
-For sending email notifications we are going to need [agenda](https://github.com/rschmukler/agenda), [sugar.js](sugarjs.com) and [nodemailer](nodemailer.com).
+For sending email notifications we are going to need [agenda](https://github.com/rschmukler/agenda), [sugar.js](http://sugarjs.com) and [nodemailer](http://nodemailer.com).
 
 {% highlight bash %}
 npm install --save agenda sugar nodemailer
