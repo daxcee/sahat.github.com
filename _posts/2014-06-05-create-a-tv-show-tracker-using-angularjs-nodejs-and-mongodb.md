@@ -690,7 +690,7 @@ Then add these two lines with the rest of module dependencies:
 
 {% highlight js %}
 var mongoose = require('mongoose');
-var bcrypt = require('bcrypt');
+var bcrypt = require('bcryptjs');
 {% endhighlight %}
 
 Right below that, add the *Show* mongoose schema:
