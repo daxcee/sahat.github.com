@@ -1032,21 +1032,29 @@ We also need to create a controller for this page:
 
 {% highlight js %}
 angular.module('MyApp')
-  .controller('AddCtrl', ['$scope', '$alert', '$http', function($scope, $alert, $http) {
+  .controller('AddCtrl', ['$scope', '$alert', 'Show', function($scope, $alert, Show) {
     $scope.addShow = function() {
-      $http.post('/api/shows', { showName: $scope.showName })
-        .success(function() {
-          $scope.showName = '';
-          $alert({
-            content: 'TV show has been added.',
-            placement: 'top-right',
-            type: 'success',
-            duration: 3
-          });
-        })
+      Show.save({ showName: $scope.showName }, function() {
+        $scope.showName = '';
+        $alert({
+          content: 'TV show has been added.',
+          placement: 'top-right',
+          type: 'success',
+          duration: 3
+        });
+      });
     };
   }]);
 {% endhighlight %}
+
+**June 7, 2014 Update:** Instead of making a `$http.post('/api/shows')` request directly from the controller,
+I have injected the `Show` service so we could use the `save()` method provided
+by `$resource` module. The code is now slightly cleaner (URL is no longer hard coded
+in the controller) and more consistent with the rest of the code. I should have done that in the first place since I am
+advocating for keeping `$http` out of the controllers and leave that job to
+services.
+
+---
 
 This controller sends a *POST* request to `/api/shows` with the TV show name - the route we have created in the previous step.
 If the request has been successfull, the form is cleared and a successful notification is shown.
