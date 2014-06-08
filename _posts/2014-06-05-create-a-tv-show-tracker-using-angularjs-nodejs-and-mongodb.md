@@ -798,8 +798,8 @@ And finally in order to connect to the database:
 mongoose.connect('localhost');
 {% endhighlight %}
 
-Launch `mongod` - MongoDB server, then restart `server.js` to make sure
-everything is still working fine.
+Launch `mongod` - MongoDB server, then restart `server.js` just to make sure
+our application still works.
 
 ## Step 5: Express API Routes
 
