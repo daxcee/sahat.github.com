@@ -174,8 +174,8 @@ npm install --save-dev gulp gulp-sass gulp-plumber
 
 **June 8, 2014 Update:** You can install global NPM modules (with the `-g` flag) from any command line path
 but if you are installing local NPM modules like in the *Step 2* above, you
-have to run `npm install` from anywhere within the project root directory or
-any of its subdirectories, just as long as you are somewhere within the project
+have to run `npm install` from anywhere within the project directory or
+any of its sub-directories, just as long as you are somewhere within the project
 directory.
 
 Passing the `--save-dev` flag will install and add packages to *devDependencies* in `package.json`.
@@ -436,7 +436,7 @@ em {
 
 **June 8, 2014 Update:**
 
-Run the `gulp` command from the project root directory and refresh the browser.
+Run the `gulp` command from the project directory and refresh the browser.
 
 **Note:** I typically have `node server.js` running in one terminal tab, `mongod` in another
 tab, `gulp` in a third tab and the last tab is used for general purpose commands
@@ -696,13 +696,16 @@ schemas and API routes.
 
 ## Step 4: Database Schemas
 
-To install [mongoose](mongoosejs.com) and [bcryptjs](https://github.com/dcodeIO/bcrypt.js) run:
+**June 8, 2014 Update:**
+
+To install [mongoose](mongoosejs.com) and [bcryptjs](https://github.com/dcodeIO/bcrypt.js)
+run the following command from the project directory:
 
 {% highlight bash %}
 npm install --save mongoose bcryptjs
 {% endhighlight %}
 
-Then add these two lines with the rest of module dependencies:
+Then add these two lines at the beginning of `server.js`:
 
 {% highlight js %}
 var mongoose = require('mongoose');
