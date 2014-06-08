@@ -2137,6 +2137,11 @@ which seems to combine the best of both worlds. Couchbase seems to replace Redis
 Consider customizing the Bootstrap framework. If you are not using certain components such as *well*
 or *button-group*, remove it from `bootstrap.scss`. It is also worth taking a look at [gulp-uncss](https://github.com/ben-eb/gulp-uncss) for removing unused CSS.
 
+**June 8, 2014 Update:**
+
+<blockquote class="twitter-tweet" lang="en"><p>The style.css went from 146kb to 11kb using gulp-uncss in the ShowTrackr app that I posted yesterday. <a href="https://twitter.com/search?q=%23nodejs&amp;src=hash">#nodejs</a> <a href="https://twitter.com/search?q=%23gulpjs&amp;src=hash">#gulpjs</a> <a href="http://t.co/UbDkTZ1EiR">pic.twitter.com/UbDkTZ1EiR</a></p>&mdash; Sahat Yalkabov (@EvNowAndForever) <a href="https://twitter.com/EvNowAndForever/statuses/475517494606987264">June 8, 2014</a></blockquote>
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 ## Step 13: Deployment
 
 Create a new file `.gitignore` and add `node_modules` to it, since we don't
