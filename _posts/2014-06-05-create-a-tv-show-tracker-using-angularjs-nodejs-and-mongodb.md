@@ -16,11 +16,15 @@ Before proceeding further, I will assume you have already installed the followin
 
 - [Node.js](http://nodejs.org)
 - [MongoDB](http://www.mongodb.org/downloads)
-- [Express Generator](https://github.com/expressjs/generator)
+- [express-generator](https://github.com/expressjs/generator)
 
 ## Step 1: New Express Project
 
-Run `express showtrackr` to create a new Express project. 
+**June 8, 2014 Update:** After installing [express-generator](https://github.com/expressjs/generator) we can
+quickly generate a minimal Express application using the `express` command.
+
+Run `express showtrackr` to create a new Express project, where *showtrackr* is
+the name of our app that we are going to build today.
 
 ![](/images/blog/tvshow-tracker-1.png)
 
