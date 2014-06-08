@@ -172,6 +172,12 @@ sudo npm install -g gulp
 npm install --save-dev gulp gulp-sass gulp-plumber
 {% endhighlight %}
 
+**June 8, 2014 Update:** You can install global NPM modules (with the `-g` flag) from any command line path
+but if you are installing local NPM modules like in the *Step 2* above, you
+have to run `npm install` from anywhere within the project root directory or
+any of its subdirectories, just as long as you are somewhere within the project
+directory.
+
 Passing the `--save-dev` flag will install and add packages to *devDependencies* in `package.json`.
 
 ![](/images/blog/tvshow-tracker-7.png)
