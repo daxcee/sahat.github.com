@@ -434,7 +434,13 @@ em {
 }
 {% endhighlight %}
 
-Run the `gulp` command and refresh the browser.
+**June 8, 2014 Update:**
+
+Run the `gulp` command from the project root directory and refresh the browser.
+
+**Note:** I typically have `node server.js` running in one terminal tab, `mongod` in another
+tab, `gulp` in a third tab and the last tab is used for general purpose commands
+such as `git add` or `git commit`.
 
 ![](/images/blog/tvshow-tracker-10.png)
 
