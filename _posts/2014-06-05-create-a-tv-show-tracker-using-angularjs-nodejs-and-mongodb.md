@@ -1329,6 +1329,28 @@ angular.module('MyApp')
     }]);
 {% endhighlight %}
 
+**June 9, 2014 Update:** The `nextEpisode` property is an object of an upcoming
+episode. If a Show is currently airing you will see an alert box with a date
+when the next episode starts. This `nextEpisode` property uses a built-in Javascript
+[filter()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter)
+method to find the next episode from today.
+
+The `filter()` method creates a new array with all elements that pass the test
+implemented by the provided callback function. The `show.episodes` is an Array
+of all episodes for a Show, we know that. A `filter()` method goes through each
+and every episode and checks if it passes the following condition `new Date(episode.firstAired) > new Date()` and
+if it passes, that episode will be added to a new Array. At the end we will have
+either an empty Array (no upcoming shows) or potentially multiple episodes in an
+Array (multiple upcoming episodes). We are only interested in the first upcoming
+episode. And so that explains `[0]` at the end of the `filter()` method. When all
+is done the `nex
+
+**Note:** You could also use a good old `for` loop to get a next episode, I just think it looks a lot
+cleaner and more elegant with `filter()`. I couldn't do a *one-liner* in this case
+but in many other cases it is certainly [possible](http://lodash.com/docs#filter).
+
+---
+
 Remember our one-line `Show` service? By default it has the following methods:
 
 {% highlight js %}
