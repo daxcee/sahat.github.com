@@ -919,6 +919,9 @@ app.post('/api/shows', function(req, res, next) {
       request.get('http://thetvdb.com/api/GetSeries.php?seriesname=' + seriesName, function(error, response, body) {
         if (error) return next(error);
         parser.parseString(body, function(err, result) {
+          if (!result.data.series) {
+            return res.send(404, { message: req.body.showName + ' was not found.' });
+          }
           var seriesId = result.data.series.seriesid || result.data.series[0].seriesid;
           callback(err, seriesId);
         });
@@ -969,12 +972,40 @@ app.post('/api/shows', function(req, res, next) {
   ], function(err, show) {
     if (err) return next(err);
     show.save(function(err) {
-      if (err) return next(err);
+      if (err) {
+        if (err.code == 11000) {
+          return res.send(409, { message: show.name + ' already exists.' });
+        }
+        return next(err);
+      }
       res.send(200);
     });
   });
 });
 {% endhighlight %}
+
+**June 8, 2014 Update:** I have added an error handling code for duplicate Shows
+in the `show.save()` method . Error code [11000](http://www.mongodb.org/about/contributors/error-codes/)
+refers to the *duplicate key error*. We cannot have duplicate `_id` fields in MongoDB.
+If you choose not to override `_id` and instead use another field such as
+`showId` then you would need to explicity set *unique* property like we did
+with the `userSchema` to avoid duplicate entries.
+
+Oh and there is nothing special about the code `409`. It's just a common HTTP
+status code to indicate some sort of conflict. For a full list of status codes
+check out [http://httpstatus.es](http://httpstatus.es/).
+
+This error message object will be processed and displayed in the next step when
+we create the *AddCtrl* controller for adding a new Show.
+
+I have also added a validation check to see if the `seriesid` exists. If it does
+not exist that means the TVDB API has no information on that show, so a `404`
+response is sent back to our AngularJS app with a message saying that a show
+was not found.
+
+![](/images/blog/tvshow-tracker-35.png)
+
+---
 
 You must first [obtain an API key](http://thetvdb.com/?tab=apiregister) from the TVDB.
 Or you could use my API key for the purpose of this tutorial. The [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) parser is configured
@@ -1087,7 +1118,7 @@ angular.module('MyApp')
           $scope.showName = '';
           $scope.addForm.$setPristine();
           $alert({
-            content: response.data,
+            content: response.data.message,
             placement: 'top-right',
             type: 'danger',
             duration: 3
