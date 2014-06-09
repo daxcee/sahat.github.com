@@ -1023,16 +1023,36 @@ Create a new template `add.html` in the <span class="fa fa-folder-open"></span> 
   <div class="panel panel-default">
     <div class="panel-heading">Add TV Show</div>
     <div class="panel-body">
-      <form method="post" ng-submit="addShow()" name="addForm" class="form-inline">
-        <div class="form-group">
-          <input class="form-control" type="text" name="showName" ng-model="showName" placeholder="Enter TV show name" autofocus>
+      <form class="form" method="post" ng-submit="addShow()" name="addForm">
+        <div class="form-group" ng-class="{ 'has-success' : addForm.showName.$valid && addForm.showName.$dirty, 'has-error' : addForm.showName.$invalid && addForm.showName.$dirty }">
+          <input class="form-control" type="text" name="showName" ng-model="showName" placeholder="Enter TV show name" required autofocus>
+          <div class="help-block text-danger" ng-if="addForm.showName.$dirty" ng-messages="addForm.showName.$error">
+            <div ng-message="required">TV show name is required.</div>
+          </div>
         </div>
-        <button class="btn btn-primary" type="submit">Add</button>
+        <button class="btn btn-primary" type="submit" ng-disabled="addForm.$invalid">Add</button>
       </form>
     </div>
   </div>
 </div>
 {% endhighlight %}
+
+**June 8, 2014 Update:** I have added form validation and error messages
+to be consistent with the form on the Signup page in *Step 8*.
+
+In a nutshell, we are using `ng-class` directive to dynamically add
+Bootstrap classes [has-success](http://getbootstrap.com/css/#forms-control-validation)
+and [has-error](http://getbootstrap.com/css/#forms-control-validation) depending
+on the state of the form. The reason for checking if the form field is `$dirty`, i.e.
+user interacted with it, is to avoid flagging it as invalid before a user even
+got a chance to enter any text.
+
+The `ng-disabled` is another useful directive provided by AngularJS that allows
+us to disable a button until form passes all validation rules. In this case
+it's just a `required` attribute on the `showName` field.
+
+
+---
 
 When you hit the *Add* button, AngularJS will execute the `addShow()` function 
 defined in the `AddCtrl` controller because of this line:
