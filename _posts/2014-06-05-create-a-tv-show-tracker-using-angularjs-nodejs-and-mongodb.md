@@ -1051,7 +1051,6 @@ The `ng-disabled` is another useful directive provided by AngularJS that allows
 us to disable a button until form passes all validation rules. In this case
 it's just a `required` attribute on the `showName` field.
 
-
 ---
 
 When you hit the *Add* button, AngularJS will execute the `addShow()` function 
@@ -1073,15 +1072,27 @@ We also need to create a controller for this page:
 angular.module('MyApp')
   .controller('AddCtrl', ['$scope', '$alert', 'Show', function($scope, $alert, Show) {
     $scope.addShow = function() {
-      Show.save({ showName: $scope.showName }, function() {
-        $scope.showName = '';
-        $alert({
-          content: 'TV show has been added.',
-          placement: 'top-right',
-          type: 'success',
-          duration: 3
+      Show.save({ showName: $scope.showName },
+        function() {
+          $scope.showName = '';
+          $scope.addForm.$setPristine();
+          $alert({
+            content: 'TV show has been added.',
+            placement: 'top-right',
+            type: 'success',
+            duration: 3
+          });
+        },
+        function(response) {
+          $scope.showName = '';
+          $scope.addForm.$setPristine();
+          $alert({
+            content: response.data,
+            placement: 'top-right',
+            type: 'danger',
+            duration: 3
+          });
         });
-      });
     };
   }]);
 {% endhighlight %}
@@ -1092,6 +1103,18 @@ by `$resource` module. The code is now slightly cleaner (URL is no longer hard c
 in the controller) and more consistent with the rest of the code. I should have done that in the first place since I am
 advocating for keeping `$http` out of the controllers and leave that job to
 services.
+
+**June 8, 2014 Update:** I have added a second callback function to the
+`Show.save()` method for handling errors. It's a convention you will see being used
+in AngularJS quite frequently. One such error could be if you type
+a Show name that does not exist on the TVDB. Another potential error is when a
+Show you are trying to add already exists in your database.
+
+I have also added the `$setPristine()` method to clear the form of any errors after
+adding a Show. Previously I only cleared the `showName` by setting it
+to an empty string but earlier today, after adding input validation and error messages
+to this form, we need to properly clear it by changing its state from `$dirty` to
+`$pristine`.
 
 ---
 
