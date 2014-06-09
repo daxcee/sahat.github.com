@@ -1008,7 +1008,7 @@ was not found.
 ---
 
 You must first [obtain an API key](http://thetvdb.com/?tab=apiregister) from the TVDB.
-Or you could use my API key for the purpose of this tutorial. The [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) parser is configured
+Or you could use my API key for the purposes of this tutorial. The [xml2js](https://github.com/Leonidas-from-XIV/node-xml2js) parser is configured
 to normalize all tags to lowercase and disable conversion to arrays when there is only one child element.
 
 The TV show name is *slugified* with underscores instead of dashes because that's what
