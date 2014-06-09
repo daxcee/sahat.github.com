@@ -534,7 +534,7 @@ page right now  and open Browser's *Developer Tools* you will see a **404 (Not F
 since we haven't created any 
 templates yet.
 
-Create a new file **home.html** in <span class="fa fa-folder-open"> **public/views** directory. This will be a 
+Create a new file **home.html** in <span class="fa fa-folder-open"></span> **public/views** directory. This will be a
 place for all AngularJS templates.
 
 {% highlight html %}
@@ -627,7 +627,7 @@ are sorted by the rating and filtered by the query you type into the Search box:
 The reason it's `query.name` and not just `query` is because we want to filter only
 by the TV show name, not by its summary, rating, network, air time, etc.
 
-Next create a new file `main.js` in <span class="fa fa-folder-open"> **public/controllers** directory then add it to `index.html`:
+Next create a new file `main.js` in <span class="fa fa-folder-open"></span> **public/controllers** directory then add it to `index.html`:
 
 {% highlight html %}
 <script src="controllers/main.js"></script>
