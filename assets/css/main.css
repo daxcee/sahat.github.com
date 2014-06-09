@@ -13,6 +13,38 @@ aside {
 
 /* Basic Styles */
 
+@font-face {
+  font-family: 'freight-text-book';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/freighttextbook-webfont.eot');
+  src: url('../fonts/freighttextbook-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/freighttextbook-webfont.woff') format('woff'), url('../fonts/freighttextbook-webfont.ttf') format('truetype'), url('../fonts/freighttextbook-webfont.svg#freighttext_book') format('svg');
+}
+
+@font-face {
+  font-family: 'freight-text-book';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../fonts/freighttextbold-webfont.eot');
+  src: url('../fonts/freighttextbold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/freighttextbold-webfont.woff') format('woff'), url('../fonts/freighttextbold-webfont.ttf') format('truetype'), url('../fonts/freighttextbold-webfont.svg#freight-text-book') format('svg');
+}
+
+@font-face {
+  font-family: 'freight-text-book';
+  font-style: italic;
+  font-weight: normal;
+  src: url('../fonts/freighttextbookitalic-webfont.eot');
+  src: url('../fonts/freighttextbookitalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/freighttextbookitalic-webfont.woff') format('woff'), url('../fonts/freighttextbookitalic-webfont.ttf') format('truetype'), url('../fonts/freighttextbookitalic-webfont.svg#freight-text-book') format('svg');
+}
+
+@font-face {
+  font-family: 'adelle';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../fonts/adelle_bold-webfont.eot');
+  src: url('../fonts/adelle_bold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/adelle_bold-webfont.woff') format('woff'), url('../fonts/adelle_bold-webfont.ttf') format('truetype'), url('../fonts/adelle_bold-webfont.svg#adelle') format('svg');
+}
+
 body,
 html {
   padding: 0;
@@ -23,7 +55,6 @@ html {
 body {
   position: relative;
   font: 400 16px/1.6 'Helvetica Neue', Helvetica, Arial;
-  line-height: 1.5;
   color: #222;
 }
 
@@ -161,8 +192,9 @@ h4,
 h5 {
   padding: 17px 0 8px;
   margin: 0;
+  font-family: 'adelle', 'Helvetica Neue', Arial, sans-serif;
+  font-weight: 700;
   line-height: 1;
-  color: #191a1a;
 }
 
 h1 {
@@ -299,7 +331,7 @@ h5 {
 article .body,
 .teaser .excerpt,
 footer {
-  width: 634px;
+  width: 700px;
   margin: 0 auto;
 }
 
@@ -534,7 +566,8 @@ body > header nav ul li a:hover:active:after {
 
 .content article .body {
   padding: 68px 0 34px;
-  line-height: 1.625;
+  font: 400 22px/1.5 'freight-text-book', Helvetica, Arial;
+  letter-spacing: 0.01rem;
 }
 
 .content article .body .more {
@@ -550,6 +583,7 @@ body > header nav ul li a:hover:active:after {
 
 .content article .body .summary {
   padding-bottom: 16px;
+  font: 400 16px/1.6 'Helvetica Neue', Helvetica, Arial;
 }
 
 .content article .body .summary:last-of-type {
@@ -932,15 +966,14 @@ body > footer .copyright a {
 
 li code,
 p > code {
-  padding: 0 5px;
+  padding: 1px 5px;
+  background: rgba(0, 0, 0, 0.05);
   border: 1px solid #ddd;
   border-radius: 3px;
-  box-shadow: 1px 1px #ddd;
 }
 
 pre {
   padding: 5px 10px;
-  border: 1px solid #e5e5e5;
   border-radius: 3px;
 }
 
@@ -962,13 +995,16 @@ table .highlight pre {
   color: rgba(0, 0, 0, 0.3);
 }
 
+pre {
+  background: rgba(0, 0, 0, 0.05);
+}
+
 pre,
 code {
   overflow-x: auto;
-  font-family: Menlo, Monaco, Consolas, "Ubuntu Mono", "Liberation Mono", Courier, monospace;
-  font-size: 13px;
-  -webkit-font-smoothing: initial;
-  background: #f8f8f8;
+  font-family: Monaco, 'Courier New', 'Courier', monospace;
+  font-size: 16px;
+  letter-spacing: 0.01rem;
 }
 
 .highlight .c {
