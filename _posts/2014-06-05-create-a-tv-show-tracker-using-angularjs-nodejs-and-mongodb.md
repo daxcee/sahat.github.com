@@ -698,7 +698,7 @@ schemas and API routes.
 
 **June 8, 2014 Update:**
 
-To install [mongoose](mongoosejs.com) and [bcryptjs](https://github.com/dcodeIO/bcrypt.js)
+To install [mongoose](http://mongoosejs.com) and [bcryptjs](https://github.com/dcodeIO/bcrypt.js)
 run the following command from the project directory:
 
 {% highlight bash %}
@@ -1726,7 +1726,7 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 {% endhighlight %}
 
-In order to setup [Passport.js](http://passportjs.com) we have to configure four things:
+In order to setup [Passport.js](http://passportjs.org) we have to configure four things:
 
 1. Passport *serialize* and *deserialize* methods
 2. Passport strategy
