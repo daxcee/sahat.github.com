@@ -2354,6 +2354,7 @@ are interested in extending this project for fun or profit, consider the followi
 - Resize thumbnails via [sharp](https://github.com/lovell/sharp) and optimize via [gulp-imagemin](https://www.npmjs.org/package/gulp-imagemin) then upload to Amazon S3
 - Add Redis database as a caching layer
 - Explore token-based authentication
+- Live validation of email availability during user signup
 
 If, after reading this tutorial, some concepts are still not clear to you, don't give up, keep pushing yourself, keep learning. I picked up
 AngularJS about 2 months ago and I learned JavaScript language through Node.js and Express web framework
