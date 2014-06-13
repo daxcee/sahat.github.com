@@ -1026,8 +1026,9 @@ Here is how it works:
 You may be surprised why are we storing Base64 images in MongoDB? The answer is I don't have
 an [Amazon S3](http://aws.amazon.com/s3/) account to store these images. And even if I did,
 it is *not for free*, so I wouldn't expect everyone to have an AWS account just to follow this tutorial.
-As a side effect, each image is about 30% larger in the Base64 form, but don't worry
-it is well within the *500 MB* limit of the [MognoLab free tier](https://mongolab.com/plans/pricing/) database.
+As a side effect, each image is about 30% larger in the Base64 form, but don't worry,
+it is well within the 500MB *free tier* limit provided by [MongoLab](https://mongolab.com/plans/pricing/)
+and [MongoHQ](https://www.mongohq.com/pricing/).
 
 ![](/images/blog/tvshow-tracker-15.png)
 
@@ -2277,7 +2278,10 @@ Open `package.json` and update the `start` property to the following:
 {% endhighlight %}
 
 Go to [mongolab.com](http://mongolab.com) and a create a new account. Then create
-a new single-node *Sandbox* database. It's *free*.
+a new single-node sandbox database. It's *free*.
+
+**Note:** As an alternative, you may also use [MongoHQ](https://www.mongohq.com/pricing/).
+Both *MongoLab* and *MongoHQ* offer a sandbox database with *500MB* of storage.
 
 ![](/images/blog/tvshow-tracker-31.png)
 
