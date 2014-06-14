@@ -2281,7 +2281,7 @@ Go to [mongolab.com](http://mongolab.com) and a create a new account. Then creat
 a new single-node sandbox database. It's *free*.
 
 **Note:** As an alternative, you may also use [MongoHQ](https://www.mongohq.com/pricing/).
-Both *MongoLab* and *MongoHQ* offer a sandbox database with *500MB* of storage.
+Both *MongoLab* and *MongoHQ* offer a sandbox database with 500MB of storage.
 
 ![](/images/blog/tvshow-tracker-31.png)
 
