@@ -2090,10 +2090,13 @@ gulp.task('default', ['sass', 'compress', 'watch']);
 {% endhighlight %}
 
 And finally add a new watcher for the JavaScript files:
+
+{% highlight js %}
 gulp.task('watch', function() {
   gulp.watch('public/stylesheets/*.scss', ['sass']);
   gulp.watch(['public/**/*.js', '!public/app.min.js', '!public/vendor'], ['compress']);
 });
+{% endhighlight %}
 
 Gulp will watch for all JavaScript files in the <span class="fa fa-folder-open"></span> **public**
 directory except for `app.min.js` or any files in the <span class="fa fa-folder-open"></span> **vendor**
