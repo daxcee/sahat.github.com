@@ -18,6 +18,9 @@ layout: default
         <h1 class="post-title">{{page.title}}</h1>
         <div class="cf post-meta-text">
           {{page.excerpt}}
+          <p>
+            Published on <strong>{{ page.date | date: "%B %d, %Y" }}</strong>
+          </p>
         </div>
         <center><a href="#topofpage" class="topofpage"><i class="fa fa-angle-down"></i></a></center>
       </div>
