@@ -810,10 +810,9 @@ If we were going to implement all REST routes for `/api/shows` here is a table t
 
 | Route          | POST    | GET       | PUT      | DELETE  |
 | -------------- |:---------------:| -----------------:| -----------------:| -----------------:|
-| **/api/shows**     | Add a new show | Get all shows  | Update all shows | Remove all shows |
-| **/api/shows/:id** | N/A             | Get a show   | Update a show   | Delete a show |
+| */api/shows*     | Add a new show | Get all shows  | Update all shows | Remove all shows |
+| */api/shows/:id* | N/A             | Get a show   | Update a show   | Delete a show |
 
----
 
 Add these routes after Express middlewares:
 
