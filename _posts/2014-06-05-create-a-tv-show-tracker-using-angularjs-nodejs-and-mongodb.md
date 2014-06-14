@@ -10,7 +10,7 @@ image: blog/tvshow-tracker-cover.jpg
 
 ![](/images/blog/tvshow-tracker-32.png)
 
-<a href="https://github.com/sahat/tvshow-tracker/" class="btn">Source</a>
+*[<i class="fa fa-github"></i> Source Code](https://github.com/sahat/tvshow-tracker)*
 
 Before proceeding further, I will assume you have already installed the following:
 
