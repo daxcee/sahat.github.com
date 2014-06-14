@@ -1,61 +1,95 @@
-<!DOCTYPE html>
-<head>
-{% include head.html %}
-</head>
+---
+layout: default
+---
 
-<body id="post">
+<div class="navigation">
+  <a href="/" class="logo" title="Site Logo">Sahat <strong>Yalkabov</strong></a>
+  <ul class="menu">
+    <li><a href="/projects" title="Projects">Projects</a></li>
+    <li><a href="https://github.com/sahat" title="GitHub">GitHub</a></li>
+  </ul>
+</div>
 
-{% include navigation.html %}
-
-<section class="content">
-  <article>
-
-    <header class="gradient-{{ page.gradient }}">
-      <div class="overlay" style="background-image: url(/images/{{ page.image }})"></div>
-      <div class="excerpt">
-      <span class="title"><span class="eta"></span> read</span>
-      <h1><a href="{{ page.url }}">{{ page.title }}</a></h1>
-      <p>{{ page.excerpt }}</p>
-      <span class="meta">Published on <strong>{{ page.date | date: "%B %d, %Y" }}</strong></span>
+<main class="content" role="main">
+  <article class="post">
+    <div class="article-image">
+      <div class="post-image-image" style="background-image: url(/images/{{page.image}})"></div>
+      <div class="post-meta">
+        <h1 class="post-title">{{page.title}}</h1>
+        <div class="cf post-meta-text">
+          {{page.excerpt}}
+        </div>
+        <center><a href="#topofpage" class="topofpage"><i class="fa fa-angle-down"></i></a></center>
       </div>
-    </header>
-
-    <div class="body">
-      {{ content }}
     </div>
 
-    <footer>
-      <div class="meta">
-
-        <div class="author">
-          <span class="title">Written by</span>
-          <h4>{{ site.owner.name }}</h4>
-          <p>{{ site.owner.bio }}</p>
-          <ul>
-            <li><a href="http://twitter.com/{{ site.owner.twitter }}" title="Twitter" class="icon twitter">Twitter</a></li>
-            <li><a href="http://facebook.com/{{ site.owner.facebook }}" title="Facebook" class="icon facebook">Facebook</a></li>
-            <li><a href="http://plus.google.com/{{ site.owner.google_plus }}" title="Google Plus" class="icon google">Google+</a></li>
-            <li><a href="http://linkedin.com/in/{{ site.owner.linkedin }}" title="LinkedIn" class="icon linkedin">LinkedIn</a></li>
-          </ul>
-        </div>
-
-        <div class="share">
-          <span class="title">Share</span>
-          <ul>
-            <li><a href="https://twitter.com/home?status={{ page.title }} {{ site.url }}{{ page.url }} via @EvNowAndForever" title="Tweet" class="icon twitter">Tweet</a></li>
-            <li><a href="https://www.facebook.com/sharer/sharer.php?u={{ page.url }}" title="Like" class="icon facebook">Like</a></li>
-            <li><a href="https://plus.google.com/share?url={{ page.url }}" title="+1" class="icon google">+1</a></li>
-          </ul>
-        </div>
-
+    <section class="post-content">
+      <div class="post-reading">
+        <span class="post-reading-time"></span> read
       </div>
+      <a name="topofpage"></a>
+      {{content}}
+    </section>
+
+    <footer class="post-footer">
+
+      <section class="share">
+        <a class="icon-twitter" href="https://twitter.com/home?status={{page.title}} {{site.url}}{{page.url}} via @EvNowAndForever"
+        onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+        </a>
+        <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{page.url}}"
+        onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+        </a>
+        <a class="icon-google-plus" href="https://plus.google.com/share?url={{site.url}}{{page.url}}"
+        onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+        </a>
+      </section>
+
     </footer>
+
   </article>
-</section>
 
-{% include footer.html %}
+</main>
 
-{% include scripts.html %}	        
+<script>
+  $(document).ready(function(){
 
-</body>
-</html>
+    $('.post-content').readingTime({
+      readingTimeTarget: '.post-reading-time'
+    });
+
+    var $window = $(window),
+      $image = $('.post-image-image');
+    $window.on('scroll', function() {
+      var top = $window.scrollTop();
+
+      if (top < 0 || top > 1500) { return; }
+      $image
+        .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
+        .css('opacity', 1-Math.max(top/700, 0));
+    });
+    $window.trigger('scroll');
+
+    var height = $('.article-image').height();
+    $('.post-content').css('padding-top', height + 'px');
+
+    $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 500);
+            return false;
+          }
+        }
+      });
+    });
+
+  });
+</script>

@@ -98,7 +98,7 @@ module.exports = function(grunt) {
     'clean',
     'recess',
     'uglify',
-    'imagemin'
+//    'imagemin'
   ]);
   grunt.registerTask('dev', [
     'watch'

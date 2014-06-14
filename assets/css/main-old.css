@@ -966,8 +966,8 @@ body > footer .copyright a {
 
 li code,
 p > code {
-  padding: 1px 5px;
-  background: rgba(0, 0, 0, 0.05);
+  padding: 0 5px 2px;
+  background: #f8f8f8;
   border: 1px solid #ddd;
   border-radius: 3px;
 }

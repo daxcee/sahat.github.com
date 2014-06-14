@@ -1,11 +1,12 @@
 title:            Sahat Yalkabov
-description:      Personal Website
+description:      "June '14: <a href='https://www.youtube.com/watch?v=Q2k-pGfWtQc'>Scarlet</a>"
 disqus_shortname: sahat
 url:              http://sahatyalkabov.com
+logo:             logo.jpg
 
 owner:
   name:           Sahat Yalkabov
-  bio:            "I'm a full-stack JavaScript developer from NYC. Hacker Schooler (Summer 2014). CCNY Class of 2014."
+  bio:            "I'm a full-stack JavaScript developer from NYC. Hacker School (Summer 2014). CCNY Class of 2014."
   email:          sahat@me.com
   twitter:        EvNowAndForever
   facebook:       NeverSleepNeverDie

@@ -1,14 +1,58 @@
 ---
-layout: page
+layout: default
 title: Sahat Yalkabov
 excerpt: "June '14: <a href='https://www.youtube.com/watch?v=Q2k-pGfWtQc'>Scarlet</a>"
 gradient: 6
 image: home.jpg
 ---
+<div class="navigation">
+  <a href="/" class="logo" title="Site Logo">Sahat <strong>Yalkabov</strong></a>
+  <ul class="menu">
+    <li><a href="/projects" title="Projects">Projects</a></li>
+    <li><a href="https://github.com/sahat" title="GitHub">GitHub</a></li>
+  </ul>
+</div>
 
-{% for post in paginator.posts %}
-  <div class="summary">
-    <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a>
-    <span class="published">{{ post.date | date: "%B %d, %Y" }}</span>
+<div class="teaserimage">
+  <div class="teaserimage-image" style="background-image: url(/images/{{page.image}})"></div>
+  <div class="excerpt">
+    <h1><a href="/index.html">Sahat Yalkabov</a></h1>
+    <p>June '14: <a href="https://www.youtube.com/watch?v=Q2k-pGfWtQc">Scarlet</a></p>
   </div>
-{% endfor %}
+</div>
+
+<main class="content" role="main">
+  <div class="cf frame">
+    {% for post in paginator.posts %}
+    <article class="{{post_class}}" itemscope itemtype="http://schema.org/BlogPosting" role="article">
+      <div class="article-item">
+        <header class="post-header">
+          <h2 class="post-title" itemprop="name"><a href="{{post.url}}" itemprop="url">{{post.title}}</a></h2>
+        </header>
+        <section class="post-excerpt" itemprop="description">
+          <p>{{post.excerpt}}</p>
+        </section>
+        <div class="post-meta"><time datetime="{{ post.date | date: "%B %d, %Y" }}">{{ post.date | date: "%B %d, %Y" }}</time></div>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</main>
+<script>
+  $(document).ready(function() {
+
+    var $window = $(window);
+    var $image = $('.teaserimage-image');
+
+    $window.on('scroll', function() {
+      var top = $window.scrollTop();
+
+      if (top < 0 || top > 1500) return;
+      $image
+        .css('transform', 'translate3d(0px, ' + top / 3 + 'px, 0px)')
+        .css('opacity', 1 - Math.max(top / 700, 0));
+    });
+    $window.trigger('scroll');
+
+  });
+</script>
