@@ -1298,6 +1298,12 @@ Next, we need to create the `DetailCtrl` controller:
 <script src="controllers/detail.js"></script>
 {% endhighlight %}
 
+**June 15, 2014 Update:** Both `subscribe()` and `unsubscribe()` methods
+below no longer pass `$rootScope.currentUser` to the *Subscription* service. It
+is not too difficult to fake that object and subscribe as someone else. Instead of
+passing the current user to the server, we can already use `req.user` object on
+server to get currently signed-in user.
+
 {% highlight js %}
 angular.module('MyApp')
   .controller('DetailCtrl', ['$scope', '$rootScope', '$routeParams', 'Show', 'Subscription',
@@ -1310,13 +1316,13 @@ angular.module('MyApp')
         };
 
         $scope.subscribe = function() {
-          Subscription.subscribe(show, $rootScope.currentUser).success(function() {
+          Subscription.subscribe(show).success(function() {
             $scope.show.subscribers.push($rootScope.currentUser._id);
           });
         };
 
         $scope.unsubscribe = function() {
-          Subscription.unsubscribe(show, $rootScope.currentUser).success(function() {
+          Subscription.unsubscribe(show).success(function() {
             var index = $scope.show.subscribers.indexOf($rootScope.currentUser._id);
             $scope.show.subscribers.splice(index, 1);
           });
@@ -1390,14 +1396,18 @@ angular.module('MyApp')
   .factory('Subscription', ['$http', function($http) {
     return {
       subscribe: function(show, user) {
-        return $http.post('/api/subscribe', { showId: show._id, userId: user._id });
+        return $http.post('/api/subscribe', { showId: show._id });
       },
       unsubscribe: function(show, user) {
-        return $http.post('/api/unsubscribe', { showId: show._id, userId: user._id });
+        return $http.post('/api/unsubscribe', { showId: show._id });
       }
     };
   }]);
 {% endhighlight %}
+
+**June 15, 2014 Update:** As I have mentioned above we no longer need to pass
+`{ userId: user._id }` to `/api/subscribe` and `/api/unsubsctibe`, just the show
+ID is enough since we already have access to a user on the server.
 
 ![](/images/blog/tvshow-tracker-18.png)
 
@@ -1867,7 +1877,7 @@ In this step we will implement two routes for subscribing and unsubscribing to/f
 app.post('/api/subscribe', ensureAuthenticated, function(req, res, next) {
   Show.findById(req.body.showId, function(err, show) {
     if (err) return next(err);
-    show.subscribers.push(req.body.userId);
+    show.subscribers.push(req.user.id);
     show.save(function(err) {
       if (err) return next(err);
       res.send(200);
@@ -1880,7 +1890,7 @@ app.post('/api/subscribe', ensureAuthenticated, function(req, res, next) {
 app.post('/api/unsubscribe', ensureAuthenticated, function(req, res, next) {
   Show.findById(req.body.showId, function(err, show) {
     if (err) return next(err);
-    var index = show.subscribers.indexOf(req.body.userId);
+    var index = show.subscribers.indexOf(req.user.id);
     show.subscribers.splice(index, 1);
     show.save(function(err) {
       if (err) return next(err);
@@ -1889,6 +1899,11 @@ app.post('/api/unsubscribe', ensureAuthenticated, function(req, res, next) {
   });
 });
 {% endhighlight %}
+
+**June 15, 2014 Update**: Using `req.user.id` of a currently signed-in user
+instead of a `req.body.userId` user object that was sent by in by the AngularJS app.
+As I have explained above, for security reasons we should not rely on a client
+because it is not to difficult to fake the value of `$routeScope.currentUser`.
 
 We are using `ensureAuthenticated` middleware here to prevent unauthenticated users from accessing
 these route handlers.
