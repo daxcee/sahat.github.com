@@ -783,7 +783,7 @@ Here we are using [pre-save mongoose middleware](http://mongoosejs.com/docs/midd
 method](http://mongoosejs.com/docs/guide.html#methods) for password validation.
 This code was taken directly from [passport-local](https://github.com/jaredhanson/passport-local) example.
 
-Now that we have schemas in place, we just have to creat mongoose models
+Now that we have schemas in place, we just have to create mongoose models
 which we will use for querying MongoDB. Where a *schema* is just an abstract representation
 of the data, a *model* on the other hand is a concrete object with methods to query, remove, update and save data from/to MongoDB.
 
