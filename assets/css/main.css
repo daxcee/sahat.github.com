@@ -289,7 +289,9 @@ ul li {
   height: 450px;
   position: relative;
   overflow: hidden;
-  background-color: black;
+  background-color: #000;
+  text-align: center;
+
 }
 
 .teaserimage .teaserimage-image {
@@ -305,21 +307,12 @@ ul li {
 }
 
 .teaserimage .excerpt {
-  position: absolute;
-  bottom: 90px;
-  left: 30px;
+  position: relative;
+  margin-top: 230px;
   z-index: 999;
-  -webkit-transition: opacity .35s ease-in-out;
-  -moz-transition: opacity .35s ease-in-out;
-  -o-transition: opacity .35s ease-in-out;
-  transition: opacity .35s ease-in-out;
-  text-shadow: 0px 1px 16px rgba(0, 0, 0, 0.5), 0px 0px 1px rgba(0, 0, 0, 0.5);
+  text-shadow: 0 1px 16px rgba(0, 0, 0, 0.5), 0 0 1px rgba(0, 0, 0, 0.5);
   color: #fff;
-}
-
-.teaserimage .excerpt h1 {
-  font-family: 'Helvetica Neue', Arial, sans-serif;
-  text-shadow: 0px 1px 16px rgba(0, 0, 0, 0.5), 0px 0px 1px rgba(0, 0, 0, 0.5);
+  font-family: 'Lato', Arial, sans-serif;
 }
 
 .teaserimage .excerpt a {
