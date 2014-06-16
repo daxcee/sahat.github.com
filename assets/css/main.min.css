@@ -17,24 +17,24 @@ aside {
   font-family: 'freight-text-book';
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/freighttextbook-webfont.eot');
-  src: url('../fonts/freighttextbook-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/freighttextbook-webfont.woff') format('woff'), url('../fonts/freighttextbook-webfont.ttf') format('truetype'), url('../fonts/freighttextbook-webfont.svg#freighttext_book') format('svg');
+  src: url('../fonts/custom-webfont.eot');
+  src: url('../fonts/custom-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/custom-webfont.woff') format('woff'), url('../fonts/custom-webfont.ttf') format('truetype'), url('../fonts/custom-webfont.svg#freighttext_book') format('svg');
 }
 
 @font-face {
   font-family: 'freight-text-book';
   font-style: normal;
   font-weight: bold;
-  src: url('../fonts/freighttextbold-webfont.eot');
-  src: url('../fonts/freighttextbold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/freighttextbold-webfont.woff') format('woff'), url('../fonts/freighttextbold-webfont.ttf') format('truetype'), url('../fonts/freighttextbold-webfont.svg#freight-text-book') format('svg');
+  src: url('../fonts/custombold-webfont.eot');
+  src: url('../fonts/custombold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/custombold-webfont.woff') format('woff'), url('../fonts/custombold-webfont.ttf') format('truetype'), url('../fonts/custombold-webfont.svg#freight-text-book') format('svg');
 }
 
 @font-face {
   font-family: 'freight-text-book';
   font-style: italic;
   font-weight: normal;
-  src: url('../fonts/freighttextbookitalic-webfont.eot');
-  src: url('../fonts/freighttextbookitalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/freighttextbookitalic-webfont.woff') format('woff'), url('../fonts/freighttextbookitalic-webfont.ttf') format('truetype'), url('../fonts/freighttextbookitalic-webfont.svg#freight-text-book') format('svg');
+  src: url('../fonts/customitalic-webfont.eot');
+  src: url('../fonts/customitalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/customitalic-webfont.woff') format('woff'), url('../fonts/customitalic-webfont.ttf') format('truetype'), url('../fonts/customkitalic-webfont.svg#freight-text-book') format('svg');
 }
 
 @font-face {
