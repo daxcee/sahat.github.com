@@ -450,7 +450,7 @@ ul li {
 
 .content article .post-excerpt {
   color: #666;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 300;
   line-height: 1.2;
   letter-spacing: -0.02em;
@@ -711,7 +711,7 @@ ul li {
 }
 
 .post .post-content h1, .post .post-content h2, .post .post-content h3 {
-  font-family: 'Helvetica Neue', Arial, Helvetica, sans-serif;
+  font-family: 'Source Sans Pro', 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
 
 .post .post-content h3, .post .post-content h4, .post .post-content h5, .post .post-content h6 {
