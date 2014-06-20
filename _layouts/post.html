@@ -26,10 +26,12 @@ layout: default
       </div>
     </div>
 
+    <div class="post-reading">
+      <span class="post-reading-time"></span> read
+    </div>
+
     <section class="post-content">
-      <div class="post-reading">
-        <span class="post-reading-time"></span> read
-      </div>
+
       <a name="topofpage"></a>
       {{content}}
     </section>
@@ -60,7 +62,8 @@ layout: default
 <script>
   $(document).ready(function(){
 
-    $('.post-content').readingTime({
+    $('.post').readingTime({
+      remoteTarget: '.post-content',
       readingTimeTarget: '.post-reading-time'
     });
 
