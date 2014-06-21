@@ -2119,10 +2119,10 @@ directory except for `app.min.js` or any files in the <span class="fa fa-folder-
 directory.
 
 **June 21, 2014 Update:** Added `gulp.watch` for templates in the
-<span class="fa fa-folder-open"></span> **public** directory. I have also added
-the string `'!public/templates.js'` in the *watcher* below, in order to avoid
+<span class="fa fa-folder-open"></span> **public/views** directory. I have also added
+the string `!public/templates.js` in the watcher below, in order to avoid
 running *compress* task right after re-compiling templates because
-`'public/**/*.js'` in the *compress* task will match any JavaScript file, yes
+`public/**/*.js` in the *compress* task will match any JavaScript file, yes
 including `templates.js`.
 
 Next, we are going to add a task for caching AngularJS templates. 
