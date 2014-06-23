@@ -2,7 +2,7 @@
 layout: post
 title: "Hacker School: Week 1"
 excerpt: "A blog post about my NYC Hacker School experience -- Week 1."
-image: blog/hacker-school-week-1.jpg
+image: blog/hacker-school-week-1-cover.jpg
 ---
 
 As some of you may already know, I was accepted into the [Hacker School](http://hackerschool.com)'s summer batch. It started on Monday, June 9th, just as I graduated from [The City College of New York](http://www.ccny.cuny.edu/) with B.S. in Comuter Science. Every week I will be blogging about my Hacker School experience and briefly talk about things I am currently working on.
