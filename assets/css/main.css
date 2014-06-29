@@ -450,20 +450,12 @@ ul li {
 }
 
 .content article .post-excerpt {
-  color: #666;
-  font-size: 20px;
-  font-weight: 300;
-  line-height: 1.2;
-  letter-spacing: -0.02em;
+  color: #333;
   font-family: 'Source Sans Pro', sans-serif;
 }
 
 .content article .post-excerpt p {
   margin-top: 0;
-}
-
-.content article .post-excerpt strong {
-  font-weight: 300;
 }
 
 .content article .post-meta {
