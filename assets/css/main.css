@@ -307,8 +307,9 @@ ul li {
 }
 
 .teaserimage .excerpt {
-  position: relative;
-  margin-top: 230px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
   z-index: 999;
   text-shadow: 0 1px 16px rgba(0, 0, 0, 0.5), 0 0 1px rgba(0, 0, 0, 0.5);
   color: #fff;
@@ -320,8 +321,8 @@ ul li {
   text-decoration: none;
 }
 
-.teaserimage .excerpt p a {
-  text-decoration: underline;
+.teaserimage .excerpt h4 a {
+  border-bottom: 1px solid;
 }
 
 .teaserimage .excerpt a:hover {
