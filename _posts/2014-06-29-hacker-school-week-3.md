@@ -53,6 +53,6 @@ months old at this point. Yes, I change my computers frequently.
 
 As this project becomes closer to completion I will write a detailed tutorial on
 how you can build it from scratch. For now you can take a look at the
-[source code](github.com/sahat/markdown) but be warned the code is a mess right
+[source code](https://github.com/sahat/markdown) but be warned the code is a mess right
 now. Starting tomorrow I will work on breaking apart React components into
 CommonJS modules.
