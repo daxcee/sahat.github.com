@@ -8,7 +8,7 @@ image: blog/hacker-school-week-4-cover.jpg
 Last week feels like forever ago. I had so many things on my mind lately that
 I no longer remember what I did last Monday or Tuesday.
 
----
+<hr>
 
 This July 4th weekend has been a blast: fireworks, swimming pool and sunbathing
 on the beach in the Ocean City, MD. It was a much needed break from the
@@ -70,3 +70,7 @@ That was last week; I am no longer struggling nearly as much with the *Surface
 Pro 3* and I have even grown to like the touch screen display. On a few ocassions
 when using Macbook Pro I tried to swipe the screen, only to realize that it is
 not touch sensitive.
+
+P.S. Today on July 7, 2014 is the **300th** day of consecutive GitHub contributions!
+
+![](/images/blog/hacker-school-week-4-2.png)
