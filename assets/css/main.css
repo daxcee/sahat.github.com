@@ -9,7 +9,7 @@
   font-style: normal;
   font-weight: normal;
   src: url('../fonts/custom-webfont.eot');
-  src: url('../fonts/custom-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/custom-webfont.woff') format('woff'), url('../fonts/custom-webfont.ttf') format('truetype'), url('../fonts/custom-webfont.svg#freighttext_book') format('svg');
+  src: url('../fonts/custom-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/custom-webfont.woff') format('woff'), url('../fonts/custom-webfont.ttf') format('truetype'), url('../fonts/custom-webfont.svg#custom') format('svg');
 }
 
 @font-face {
@@ -17,7 +17,7 @@
   font-style: normal;
   font-weight: bold;
   src: url('../fonts/custombold-webfont.eot');
-  src: url('../fonts/custombold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/custombold-webfont.woff') format('woff'), url('../fonts/custombold-webfont.ttf') format('truetype'), url('../fonts/custombold-webfont.svg#freight-text-book') format('svg');
+  src: url('../fonts/custombold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/custombold-webfont.woff') format('woff'), url('../fonts/custombold-webfont.ttf') format('truetype'), url('../fonts/custombold-webfont.svg#custom') format('svg');
 }
 
 @font-face {
@@ -28,7 +28,7 @@
   src: url('../fonts/custombolditalic-webfont.eot?#iefix') format('embedded-opentype'),
   url('../fonts/custombolditalic-webfont.woff') format('woff'),
   url('../fonts/custombolditalic-webfont.ttf') format('truetype'),
-  url('../fonts/custombolditalic-webfont.svg#freight-text-book') format('svg');
+  url('../fonts/custombolditalic-webfont.svg#custom') format('svg');
 }
 
 @font-face {
@@ -36,7 +36,7 @@
   font-style: italic;
   font-weight: normal;
   src: url('../fonts/customitalic-webfont.eot');
-  src: url('../fonts/customitalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/customitalic-webfont.woff') format('woff'), url('../fonts/customitalic-webfont.ttf') format('truetype'), url('../fonts/customkitalic-webfont.svg#freight-text-book') format('svg');
+  src: url('../fonts/customitalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/customitalic-webfont.woff') format('woff'), url('../fonts/customitalic-webfont.ttf') format('truetype'), url('../fonts/customkitalic-webfont.svg#custom') format('svg');
 }
 
 @font-face {
@@ -87,7 +87,7 @@
 }
 
 body {
-  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-family: 'custom', Georgia, serif;
   margin: 0;
   padding: 0;
   text-rendering: optimizeLegibility;
@@ -451,19 +451,13 @@ ul li {
 
 .content article .post-excerpt {
   color: #333;
-  font-family: 'Source Sans Pro', sans-serif;
-}
-
-.content article .post-excerpt p {
-  margin-top: 0;
-  color: #666;
+  line-height: 1.5;
 }
 
 .content article .post-meta {
-  font-size: 14px;
-  color: #b3b3b1;
-  line-height: 30px;
-  font-family: 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+  font-size: 0.9em;
+  letter-spacing: 0.1em;
 }
 
 .content article .post-meta a {
@@ -594,6 +588,10 @@ ul li {
   }
 }
 
+.article-item {
+  text-align: center;
+}
+
 .post .article-image .post-title {
   font-weight: 700;
   font-style: normal;
@@ -601,7 +599,8 @@ ul li {
   font-size: 2rem;
   line-height: 1.1;
   color: white;
-  margin-bottom: 16px;
+  margin: 10px 0;
+  margin-top: 0.2em;
   text-shadow: 0px 1px 16px rgba(0, 0, 0, 0.5), 0px 0px 1px rgba(0, 0, 0, 0.5);
 }
 
