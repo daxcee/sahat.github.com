@@ -130,6 +130,7 @@ ul li {
   background: none;
   border: none;
   outline: none;
+  font-family: "Helvetica Neue", sans-serif;
 }
 
 .navigation .logo:after,
@@ -454,7 +455,7 @@ ul li {
   line-height: 1.5;
 }
 
-.content article .post-meta {
+.content article .post-meta time {
   text-transform: uppercase;
   font-size: 0.9em;
   letter-spacing: 0.1em;
