@@ -6,7 +6,6 @@ excerpt: "A list of projects I have built over the the past few years. Most of m
 gradient: 2
 image: projects.jpg
 ---
-
 ## ShowTrackr
 
 This TV Show Tracker was built for my very first talk at the [Node.js NYC Meetup](http://meetup.com/nodejs/).

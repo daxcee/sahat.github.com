@@ -92,15 +92,33 @@ h2 {
   font-size: 18px;
 }
 
+a {
+  color: #36c;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
 .menu {
-  padding: 0;
-  margin-bottom: 40px;
+  padding: 0 0 20px;
 }
 
 .menu li {
   display: inline;
   margin-right: 15px;
   list-style-type: none;
+}
+
+.menu li a {
+  font-weight: bold;
+  color: #333;
+  text-decoration: underline;
+}
+
+.menu li a:hover {
+  color: #36c;
 }
 
 footer {
@@ -113,10 +131,6 @@ footer a {
   color: #999;
   text-decoration: underline;
 }
-
-/*****************************
-* Home
-******************************/
 
 aside {
   text-align: left;
@@ -133,9 +147,15 @@ aside img {
 
 main {
   text-align: left;
-  width: 640px;
+  width: 700px;
   margin-left: 224px
 }
+
+/*****************************
+* Home
+******************************/
+
+
 
 .posts {
   padding: 0;
@@ -169,7 +189,7 @@ main {
 * Media Queries
 ******************************/
 
-@media screen and (max-width: 905px) {
+@media screen and (max-width: 965px) {
   body {
     padding: 12px;
   }
@@ -201,10 +221,6 @@ main {
     clear: left;
     margin-left: 0;
     width: 100%;
-  }
-
-  .menu {
-    text-align: center;
   }
 }
 
@@ -263,21 +279,10 @@ pre a:only-of-type::before {
 
 
 
-a {
-  color: #36c;
-  text-decoration: none;
-}
 
-a:hover {
-  text-decoration: underline;
-}
 
-ul li {
-  list-style-type: square;
-}
 
 .content article {
-  padding: 20px 0;
   border-bottom: 1px solid #f2f2f0;
 }
 
