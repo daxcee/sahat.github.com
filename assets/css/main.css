@@ -79,16 +79,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-::-moz-selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
-::selection {
-  background: #b3d4fc;
-  text-shadow: none;
-}
-
 h1 {
   font-size: 24px;
   line-height: 32px;
@@ -98,18 +88,26 @@ h2 {
   font-size: 18px;
 }
 
-
-nav ul {
+.menu {
   padding: 0;
   margin-bottom: 40px;
 }
 
-nav ul li {
-  font-size: 18px;
-  font-weight: bold;
+.menu li {
   display: inline;
   margin-right: 15px;
   list-style-type: none;
+}
+
+footer {
+  margin-top: 48px;
+  font-size: 12px;
+  color: #999;
+}
+
+footer a {
+  color: #999;
+  text-decoration: underline;
 }
 
 /*****************************
@@ -199,6 +197,10 @@ main {
     clear: left;
     margin-left: 0;
     width: 100%;
+  }
+
+  .menu {
+    text-align: center;
   }
 }
 
