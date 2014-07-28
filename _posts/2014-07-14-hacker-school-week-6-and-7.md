@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Hacker School: Week 6 & 7"
+title: "Hacker School: Week 6 and 7"
 excerpt: A blog post about my NYC Hacker School experience -- Week 6 and Week 7.
 ---
 I did not write a blog post last week so I am combining both weeks into a single post.
