@@ -5,34 +5,12 @@ excerpt: "June '14: <a href='https://www.youtube.com/watch?v=Q2k-pGfWtQc'>Scarle
 gradient: 6
 image: home.jpg
 ---
-<aside>
-  <a href="/"><img src="https://avatars3.githubusercontent.com/u/544954?s=460" alt="Sahat Yalkabov"></a>
-  <section>
-    <h2>Sahat Yalkabov</h2>
-    <p>
-      Follow me on
-      <a href="https://twitter.com/EvNowAndForever">Twitter</a>,
-      <a href="http://www.linkedin.com/in/sahatyalkabov">LinkedIn</a>,
-      <a href="https://github.com/sahat">GitHub</a>,
-      or send me an <a href="mailto:sahat@me.com">email</a>.
-    </p>
-    <p>♪ <a href="https://www.youtube.com/watch?v=09bj7MvTgLE" target="_blank">A War Of Our Own</a></p>
-  </section>
-</aside>
-
-<main>
-  <ul class="menu">
-    <li><span class="ion-home"></span> <a href="/">Home</a></li>
-    <li><span class="ion-fork-repo"></span> <a href="/projects">Projects</a></li>
-  </ul>
-  <ol class="posts">
-    {% for post in paginator.posts %}
-    <li>
-      <a class="title" href="{{ post.url }}">{{post.title}}</a>
-      <div class="excerpt">{{post.excerpt}}</div>
-      <span class="date">{{ post.date | date: "%B %d, %Y" }}</span>
-    </li>
-    {% endfor %}
-  </ol>
-  {% include footer.html %}
-</main>
+<ol class="posts">
+  {% for post in paginator.posts %}
+  <li>
+    <a class="title" href="{{ post.url }}">{{post.title}}</a>
+    <div class="excerpt">{{post.excerpt}}</div>
+    <span class="date">{{ post.date | date: "%B %d, %Y" }}</span>
+  </li>
+  {% endfor %}
+</ol>

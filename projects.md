@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: default
 title: Projects
 permalink: /projects/
 excerpt: "A list of projects I have built over the the past few years. Most of my projects come with <strong>demo</strong> and <strong>source code</strong> links."
