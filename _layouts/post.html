@@ -7,62 +7,18 @@ layout: default
       <h1>{{page.title}}</h1>
       {{content}}
     </section>
-    <footer class="post-footer">
+    <div class="post-footer">
       <section class="share">
         <a class="icon-twitter" href="https://twitter.com/home?status={{page.title}} {{site.url}}{{page.url}} via @EvNowAndForever"
         onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
-        <span class="hidden">Twitter</span>
         </a>
         <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u={{site.url}}{{page.url}}"
         onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
-        <span class="hidden">Facebook</span>
         </a>
         <a class="icon-google-plus" href="https://plus.google.com/share?url={{site.url}}{{page.url}}"
         onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
-        <span class="hidden">Google+</span>
         </a>
       </section>
-    </footer>
+    </div>
   </article>
 </div>
-
-<script>
-  $(document).ready(function(){
-
-    $('.post').readingTime({
-      remoteTarget: '.post-content',
-      readingTimeTarget: '.post-reading-time'
-    });
-
-    var $window = $(window),
-      $image = $('.post-image-image');
-    $window.on('scroll', function() {
-      var top = $window.scrollTop();
-
-      if (top < 0 || top > 1500) { return; }
-      $image
-        .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
-        .css('opacity', 1-Math.max(top/700, 0));
-    });
-    $window.trigger('scroll');
-
-    var height = $('.article-image').height();
-    $('.post-content').css('padding-top', height + 'px');
-
-    $(function() {
-      $('a[href*=#]:not([href=#])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if (target.length) {
-            $('html,body').animate({
-              scrollTop: target.offset().top
-            }, 500);
-            return false;
-          }
-        }
-      });
-    });
-
-  });
-</script>
