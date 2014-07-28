@@ -5,7 +5,7 @@ excerpt: A blog post about my NYC Hacker School experience -- Week 4.
 image: blog/hacker-school-week-4-cover.jpg
 ---
 
-Last week feels like forever ago. I had so many things on my mind lately that
+Last week feels like a forever ago. I had so many things on my mind lately that
 I no longer remember what I did last Monday or Tuesday.
 
 <hr>
