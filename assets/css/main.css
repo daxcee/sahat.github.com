@@ -641,7 +641,7 @@ main {
   font-size: 16px;
   background-color: #f8f8f8;
   border: 1px solid #ddd;
-  font-family: Monaco, 'Courier New', 'Courier', monospace;
+  font-family: Monaco, Consolas, 'Courier New', 'Courier', monospace;
   border-radius: 3px;
   padding: 0 5px 2px;
   position: relative;
