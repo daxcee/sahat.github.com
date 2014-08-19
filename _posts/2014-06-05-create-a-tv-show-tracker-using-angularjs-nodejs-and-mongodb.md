@@ -6,6 +6,26 @@ gradient: 3
 image: blog/tvshow-tracker-cover.jpg
 ---
 
+<hr>
+
+### August 18, 2014: GitHub repository has just been updated. Here is a brief overview of the main changes:
+
+- Removed method-override, cookie-parser and express-session modules
+- JSON Web Token authentication replaced cookie-based approach
+- Login with Facebook
+- Login with Google
+- Use ngAnnotate instead of ngMin for AngularJS dependencies annotations
+- New alert notifications based on Google's Material Design
+- General UI tweaks and updates
+- Page transitions via ng-animate
+- Added unit tests along with a Karma configuration file
+- Password strength directive on the Signup page similar to Stripe and Dropbox
+- Email is already taken directive on the Signup page to provide live feedback
+- Use promises instead of callbacks for $resource.save method
+- Ionic fonts
+- Updated AngularJS to Beta 17
+- Lots of code refactoring and cleanup
+
 ## TL;DR
 
 ![](/images/blog/tvshow-tracker-32.png)
