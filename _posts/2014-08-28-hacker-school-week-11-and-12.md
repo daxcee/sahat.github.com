@@ -15,10 +15,10 @@ about my relocation to the beautiful California to be a part of **Yahoo! Inc**.
 I would also like to give shout-outs to *Brian Ruslim* for helping me out with
 JavaScript whenever I was
 stuck and for all those long lunch walks to *Prosperity Dumplings* in Chinatown,
-*Alice Chena* for all your great contributins to [Satellizer](https://github.com/sahat/satellizer),
-Marcus for his awesome code review feedback, and to many others: *Jorge*, *Carlos*,
-*Costa*, *Nick*, *Dana*. Additionally, I would like to thank all the facilitators
-for making Hacker School so awesome.
+*Alice Chen* for all your great contributins to [Satellizer](https://github.com/sahat/satellizer),
+Marcus for his awesome code review feedback, and to many others: *Jorge Izquierdo*, *Carlos Sánchez Serrano*,
+*Costa Michailidis*, *Nicholas Sweeting *, *Dana Sniezko*. Additionally, I would
+like to thank all the facilitators for making Hacker School so awesome.
 
 So, now that Hacker School is over, what's next? I am going to start packing bags
 as I am moving to the Bay Area in 2 days. As for my GitHub projects, I am going
