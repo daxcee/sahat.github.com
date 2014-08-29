@@ -13,11 +13,11 @@ could stay at Hacker School for a little bit longer, I am super excited
 about my relocation to the beautiful California to be a part of **Yahoo! Inc**.
 
 I would also like to give shout-outs to *Brian Ruslim* for helping me out with
-JavaScript whenever I was
-stuck and for all those long lunch walks to *Prosperity Dumplings* in Chinatown,
+whenever I was stuck with JavaScript, and for all those *long* lunch walks to *Prosperity Dumplings*
+in Chinatown where you can buy 10 delicious pork dumplings for $2.75,
 *Alice Chen* for all your great contributins to [Satellizer](https://github.com/sahat/satellizer),
-Marcus for his awesome code review feedback, and to many others: *Jorge Izquierdo*, *Carlos Sánchez Serrano*,
-*Costa Michailidis*, *Nicholas Sweeting *, *Dana Sniezko*. Additionally, I would
+*Marcus Malka* for your awesome code review feedback, and to many others: *Jorge Izquierdo*, *Carlos Sánchez Serrano*,
+*Costa Michailidis*, *Nicholas Sweeting*, *Dana Sniezko*. Additionally, I would
 like to thank all the facilitators for making Hacker School so awesome.
 
 So, now that Hacker School is over, what's next? I am going to start packing bags
@@ -32,4 +32,3 @@ in 2-3 weeks.
 
 **Coming Soon:** The next blog post will be about the architecture behind the Satellizer. We'll
 dive deep into the library to see how it works - on the server and the client.
-I will also go over why I built it
