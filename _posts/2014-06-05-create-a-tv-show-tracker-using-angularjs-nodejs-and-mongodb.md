@@ -6,9 +6,14 @@ gradient: 3
 image: blog/tvshow-tracker-cover.jpg
 ---
 
-<hr>
+## TL;DR
 
-### August 18, 2014: GitHub repository has just been updated. Here is a brief overview of the main changes:
+![](/images/blog/tvshow-tracker-32.png)
+
+*[<i class="fa fa-github"></i> Source Code](https://github.com/sahat/tvshow-tracker)*
+
+**August 18, 2014 Update**: GitHub repository code has been updated. Here is a
+brief overview of the main changes:
 
 - Removed method-override, cookie-parser and express-session modules
 - JSON Web Token authentication replaced cookie-based approach
@@ -25,12 +30,6 @@ image: blog/tvshow-tracker-cover.jpg
 - Ionic fonts
 - Updated AngularJS to Beta 17
 - Lots of code refactoring and cleanup
-
-## TL;DR
-
-![](/images/blog/tvshow-tracker-32.png)
-
-*[<i class="fa fa-github"></i> Source Code](https://github.com/sahat/tvshow-tracker)*
 
 Before proceeding further, I will assume you have already installed the following:
 
