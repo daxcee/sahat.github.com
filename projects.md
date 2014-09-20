@@ -6,6 +6,21 @@ excerpt: "A list of projects I have built over the the past few years. Most of m
 gradient: 2
 image: projects.jpg
 ---
+
+## Satellizer
+
+Satellizer is a simple to use, end-to-end, token-based authentication module for
+AngularJS with built-in support for Google, Facebook, LinkedIn, Twitter,
+Foursquare and GitHub authentication providers, as well as Email and Password
+sign-in method. You are not limited to the sign-in options above, in fact you
+can add any OAuth 1.0 or OAuth 2.0 provider by passing provider-specific
+information during the configuration step.
+
+<a href="https://satellizer.herokuapp.com/" class="btn">Demo</a>
+<a href="https://github.com/sahat/satellizer/" class="btn">Source</a>
+
+![](/images/projects/satellizer.png)
+
 ## ShowTrackr
 
 This TV Show Tracker was built for my very first talk at the [Node.js NYC Meetup](http://meetup.com/nodejs/).
