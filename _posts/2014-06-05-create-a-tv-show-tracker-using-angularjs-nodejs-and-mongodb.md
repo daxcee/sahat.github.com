@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Create a TV Show Tracker using AngularJS, Node.js and MongoDB
-excerpt: "This tutorial will show you how to build a REST API with <strong>Express</strong>, authentication and signup process with <strong>Passport</strong>, create and retrieve data from MongoDB using <strong>Mongoose</strong>. The front-end will be built using <strong>AngularJS</strong> and <strong>Bootstrap Sass</strong>. The last step involves using <strong>gulp.js</strong> to optimize your static assets."
+excerpt: "This tutorial will show you how to build a REST API with Express, authentication and signup process with Passport, create and retrieve data from MongoDB using Mongoose. The front-end will be built using AngularJS and Bootstrap Sass. The last step involves using gulp.js to optimize your static assets."
 gradient: 3
 image: blog/tvshow-tracker-cover.jpg
 ---
