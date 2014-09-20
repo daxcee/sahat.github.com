@@ -204,6 +204,7 @@ main {
     width: auto;
     overflow: hidden;
     margin-bottom: 24px;
+    text-align: center;
   }
 
   aside section {
@@ -226,6 +227,7 @@ main {
     clear: left;
     margin-left: 0;
     width: 100%;
+    text-align: center;
   }
 }
 
