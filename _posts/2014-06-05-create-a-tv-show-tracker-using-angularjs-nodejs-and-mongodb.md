@@ -86,6 +86,8 @@ Download and extract the [Boostrap Sass](http://getbootstrap.com/getting-started
 
 Copy all glyphicons from *assets/fonts/bootstrap* to <span class="fa fa-folder-open"></span> **public/fonts** directory and everything inside *assets/stylesheets* directory to <span class="fa fa-folder-open"></span> **public/stylesheets/bootstrap** directory.
 
+**December 4, 2014 Update:** Updated Bootstrap Sass path locations.
+
 ![](/images/blog/tvshow-tracker-5.png)
 
 Download [this favicon](http://i.imgur.com/A38jRib.png) and place it inside <span class="fa fa-folder-open"></span> **public** directory. You don't really need it but it's a nice touch.
@@ -95,10 +97,10 @@ Download [this favicon](http://i.imgur.com/A38jRib.png) and place it inside <spa
 - [angular.js](https://angularjs.org)
 - [angular-strap.js](https://github.com/mgcrea/angular-strap/tree/master/dist)
 - [angular-strap.tpl.js](https://github.com/mgcrea/angular-strap/tree/master/dist)
-- [angular-message.js](https://code.angularjs.org/1.3.0-beta.10/)
-- [angular-resource.js](https://code.angularjs.org/1.3.0-beta.10/)
-- [angular-route.js](https://code.angularjs.org/1.3.0-beta.10/)
-- [angular-cookies.js](https://code.angularjs.org/1.3.0-beta.10/)
+- [angular-message.js](https://code.angularjs.org/1.3.5/)
+- [angular-resource.js](https://code.angularjs.org/1.3.5/)
+- [angular-route.js](https://code.angularjs.org/1.3.5/)
+- [angular-cookies.js](https://code.angularjs.org/1.3.5/)
 - [moment.min.js](http://momentjs.com/)
 
 ![](/images/blog/tvshow-tracker-6.png)
