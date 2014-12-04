@@ -84,7 +84,7 @@ Download and extract the [Boostrap Sass](http://getbootstrap.com/getting-started
 
 ![](/images/blog/tvshow-tracker-4.png)
 
-Copy all glyphicons from *vendor/assets/fonts/bootstrap* to <span class="fa fa-folder-open"></span> **public/fonts** directory and **bootstrap** from *vendor/assets/stylesheets* directory to <span class="fa fa-folder-open"></span> **public/stylesheets** directory.
+Copy all glyphicons from *assets/fonts/bootstrap* to <span class="fa fa-folder-open"></span> **public/fonts** directory and everything inside *assets/stylesheets* directory to <span class="fa fa-folder-open"></span> **public/stylesheets/bootstrap** directory.
 
 ![](/images/blog/tvshow-tracker-5.png)
 
