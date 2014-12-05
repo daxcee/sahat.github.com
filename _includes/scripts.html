@@ -1,54 +1,16 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <script src="/assets/js/vendor/readingTime.min.js"></script>
 <script src="/assets/js/vendor/rrssb.min.js"></script>
+<script src="/assets/js/main.js"></script>
 
-<!-- Google Analytics-->
+<!-- Google Analytics -->
 <script>
   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
     (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
     m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-  ga('create', '{{ site.google_analytics }}', 'auto');  
+  ga('create', 'UA-17023058-2', 'auto');
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
-</script>
-
-<script>
-  $(document).ready(function(){
-    $('.post').readingTime({
-      remoteTarget: '.post-content',
-      readingTimeTarget: '.post-reading-time'
-    });
-
-    var $window = $(window);
-    var $image = $('.post-image-image');
-    var height = $('.article-image').height();
-
-    $window.on('scroll', function() {
-      var top = $window.scrollTop();
-      if (top < 0 || top > 1500) { return; }
-      $image
-        .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
-        .css('opacity', 1-Math.max(top/700, 0));
-    });
-
-    $window.trigger('scroll');
-    $('.post-content').css('padding-top', height + 'px');
-
-    $(function() {
-      $('a[href*=#]:not([href=#])').click(function() {
-        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-          var target = $(this.hash);
-          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-          if (target.length) {
-            $('html,body').animate({
-              scrollTop: target.offset().top
-            }, 500);
-            return false;
-          }
-        }
-      });
-    });
-  });
 </script>
