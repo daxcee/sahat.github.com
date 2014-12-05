@@ -1,17 +1,48 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html>
+<head>
+  {% include head.html %}
+</head>
+<body>
+
+<div class="navigation">
+  <a href="/" class="logo" title="Site Logo">Sahat <strong>Yalkabov</strong></a>
+  <ul class="menu">
+    <li><a href="/projects" title="Projects">Projects</a></li>
+    <li><a href="https://github.com/sahat" title="GitHub">GitHub</a></li>
+  </ul>
+</div>
+
 <div class="content" role="main">
   <article class="post">
+    <div class="article-image">
+      <div class="post-image-image" style="background-image: url(/images/{{page.image}})"></div>
+      <div class="post-meta">
+        <h1 class="post-title">{{page.title}}</h1>
+
+        <div class="cf post-meta-text">
+          {{page.excerpt}}
+          <p>Published on <strong>{{ page.date | date: "%B %d, %Y" }}</strong></p>
+        </div>
+        <center><a href="#topofpage" class="topofpage"><i class="fa fa-angle-down"></i></a></center>
+      </div>
+    </div>
+
+    <div class="post-reading">
+      <span class="post-reading-time"></span> read
+    </div>
+
     <section class="post-content">
-      <h1>{{page.title}}</h1>
+      <a name="topofpage"></a>
       {{content}}
     </section>
+
     <div class="post-footer">
       <section class="share">
         <ul class="rrssb-buttons clearfix">
           <li class="twitter">
-            <a href="https://twitter.com/home?status={{page.title}} {{site.url}}{{page.url}} via @EvNowAndForever" class="popup">
+            <a href="https://twitter.com/home?status={{page.title}} {{site.url}}{{page.url}} via @EvNowAndForever"
+               class="popup">
               <span class="icon">
                   <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                        width="28px" height="28px" viewBox="0 0 28 28" enable-background="new 0 0 28 28" xml:space="preserve">
@@ -68,3 +99,9 @@ layout: default
     </div>
   </article>
 </div>
+
+{% include footer.html %}
+
+{% include scripts.html %}
+</body>
+</html>

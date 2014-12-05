@@ -1,4 +1,5 @@
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="/assets/js/readingTime.min.js"></script>
 <script src="/assets/js/rrssb.min.js"></script>
 
 <script>
@@ -10,4 +11,43 @@
   ga('create', '{{ site.google_analytics }}', 'auto');  
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
+</script>
+
+<script>
+  $(document).ready(function(){
+    $('.post').readingTime({
+      remoteTarget: '.post-content',
+      readingTimeTarget: '.post-reading-time'
+    });
+
+    var $window = $(window);
+    var $image = $('.post-image-image');
+    var height = $('.article-image').height();
+
+    $window.on('scroll', function() {
+      var top = $window.scrollTop();
+      if (top < 0 || top > 1500) { return; }
+      $image
+        .css('transform', 'translate3d(0px, '+top/3+'px, 0px)')
+        .css('opacity', 1-Math.max(top/700, 0));
+    });
+
+    $window.trigger('scroll');
+    $('.post-content').css('padding-top', height + 'px');
+
+    $(function() {
+      $('a[href*=#]:not([href=#])').click(function() {
+        if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+          var target = $(this.hash);
+          target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+          if (target.length) {
+            $('html,body').animate({
+              scrollTop: target.offset().top
+            }, 500);
+            return false;
+          }
+        }
+      });
+    });
+  });
 </script>
