@@ -2,6 +2,7 @@
 layout: post
 title: "Hacker School: Week 11 and 12 (Final)"
 excerpt: End of Hacker School and start of Yahoo! adventures.
+image: blog/hacker-school-week-11-12-cover.jpg
 ---
 
 Today is my last day at Hacker School. It's hard to believe how fast the

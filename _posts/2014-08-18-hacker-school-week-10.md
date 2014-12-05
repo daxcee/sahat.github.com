@@ -2,6 +2,7 @@
 layout: post
 title: "Hacker School: Week 10"
 excerpt: A blog post about my NYC Hacker School experience -- Week 10.
+image: blog/hacker-school-week-10-cover.jpg
 ---
 
 ![Screenshot](https://lh4.googleusercontent.com/-0UUIecT-3N4/U-LQJkd75iI/AAAAAAAAEZY/YN3Oe-eUPGc/w1676-h1158-no/satellizer.png)

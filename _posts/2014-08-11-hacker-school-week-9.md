@@ -2,6 +2,7 @@
 layout: post
 title: "Hacker School: Week 9"
 excerpt: A blog post about my NYC Hacker School experience -- Week 9.
+image: blog/hacker-school-week-9-cover.jpg
 ---
 
 Last week I have been working intensely on the AngularJS authentication module.

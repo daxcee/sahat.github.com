@@ -2,6 +2,7 @@
 layout: post
 title: "Hacker School: Week 8"
 excerpt: A blog post about my NYC Hacker School experience -- Week 8.
+image: blog/hacker-school-week-8-cover.jpg
 ---
 
 It has been a very busy week for me as far as coding goes. I lost track how many
