@@ -79,7 +79,7 @@ If you run the app now, you should see the following *"Welcome to Express"* page
 ![](/images/blog/password-reset-1.5.png)
 
 We will be using [Nodemailer](https://github.com/andris9/Nodemailer) for sending password reset emails,
-[Mongoose](mongoosejs.com) for interacting with MongoDB and 
+[Mongoose](http://mongoosejs.com) for interacting with MongoDB and
 [Passport](http://passportjs.com/) for user authentication.
 Additionally we will need [bcrypt-nodejs](https://www.npmjs.org/package/bcrypt-nodejs)
 for hashing user passwords and
