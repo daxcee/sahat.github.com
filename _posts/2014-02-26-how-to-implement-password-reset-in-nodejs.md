@@ -12,7 +12,7 @@ image: blog/password-reset-cover.jpg
 
 To see password reset in action, check
 out this [Live Demo](http://hackathonstarter.herokuapp.com/) from the
-[Hackathon Starter](github.com/sahat/hackathon-starter) project.
+[Hackathon Starter](http://github.com/sahat/hackathon-starter) project.
 
 Let's begin by installing the Express application generator. That will allow
 us to create a new Express project skeleton from the command line.
