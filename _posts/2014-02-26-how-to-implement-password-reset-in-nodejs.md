@@ -727,7 +727,7 @@ Ok, so far so good. Now, it's going to get slightly more complicated. Add the
 following route to handle the form on `/forgot` page:
 
 {% highlight js %}
-app.post('/forgot', function(req, res) {
+app.post('/forgot', function(req, res, next) {
   async.waterfall([
     function(done) {
       crypto.randomBytes(20, function(err, buf) {
