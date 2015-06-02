@@ -640,6 +640,11 @@ main {
   hyphens: auto;
 }
 
+.post .post-content p .fa {
+  margin-left: 5px;
+  vertical-align: middle;
+}
+
 .post .post-content a {
   color: #1d7cf4;
   text-decoration: none;
@@ -1148,4 +1153,20 @@ table th {
 
 .teaserimage .excerpt a:hover {
   opacity: 0.65;
+}
+
+.admonition {
+  margin-bottom: 30px;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.admonition-title {
+  display: block;
+  font-weight: bold;
+}
+
+.admonition.note {
+  background: rgba(0, 120, 255, 0.1);
+  border: 1px solid rgba(0, 120, 255, 0.3);
 }
