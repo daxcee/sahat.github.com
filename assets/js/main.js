@@ -49,4 +49,7 @@ $(document).ready(function() {
       }
     });
   });
+
+  // Initialize magnific-popup
+  $('.magnific-popup').magnificPopup({ type:'image' });
 });

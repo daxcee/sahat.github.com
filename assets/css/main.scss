@@ -1,6 +1,8 @@
 ---
 ---
 
+@import "magnific";
+
 @import "reset";
 @import "variables";
 @import "utilities";
@@ -1169,4 +1171,15 @@ table th {
 .admonition.note {
   background: rgba(0, 120, 255, 0.1);
   border: 1px solid rgba(0, 120, 255, 0.3);
+}
+
+.magnific-popup {
+  outline: 0;
+}
+
+.magnific-popup img {
+  cursor: -webkit-zoom-in;
+  cursor: -moz-zoom-in;
+  cursor: zoom-in;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
