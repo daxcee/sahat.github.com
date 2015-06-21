@@ -2,6 +2,7 @@
 ---
 
 @import "magnific";
+@import "devicons";
 
 @import "reset";
 @import "variables";
@@ -1182,4 +1183,9 @@ table th {
   cursor: -moz-zoom-in;
   cursor: zoom-in;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+}
+
+i.fa {
+  margin-right: 5px;
+  vertical-align: middle;
 }
