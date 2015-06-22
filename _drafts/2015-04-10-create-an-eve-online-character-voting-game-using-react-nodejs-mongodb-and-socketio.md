@@ -44,7 +44,7 @@ Create a new directory **<i class="fa fa-folder-open"></i>newedenfaces**. Inside
 
 Open *package.json* and paste the following:
 
-{% highlight js %}
+```json
 {
   "name": "newedenfaces",
   "description": "Hot or Not for EVE Online",
@@ -95,7 +95,7 @@ Open *package.json* and paste the following:
   },
   "license": "MIT"
 }
-{% endhighlight %}
+```
 
 These are all the packages that we will be using for this project. I will briefly go over the purpose behind each package.
 
@@ -131,7 +131,7 @@ Run `npm install` in the Terminal to install the packages specified in *package.
 
 Open `server.js` and paste the following code. This is pretty much the most minimal Express application.
 
-{% highlight js %}
+```js
 var express = require('express');
 var path = require('path');
 var logger = require('morgan');
@@ -148,7 +148,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
-{% endhighlight %}
+```
 
 Next, create a new directory called **<i class="fa fa-folder-open"></i>public**. This is where we will place images, fonts, as well as compiled CSS and JavaScript files.
 
@@ -176,7 +176,7 @@ We will be using [Gulp](http://gulpjs.com/) and [Browserify](http://browserify.o
 
 Create a new file `gulpfile.js` and paste the following code:
 
-{% highlight js %}
+```js
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
@@ -292,7 +292,7 @@ gulp.task('watch', function() {
 
 gulp.task('default', ['styles', 'vendor', 'browserify-watch', 'watch']);
 gulp.task('build', ['styles', 'vendor', 'browserify']);
-{% endhighlight %}
+```
 
 Although the code should be more or less self-explanatory with those task names and code comments, let's just briefly go over each task:
 
@@ -325,7 +325,7 @@ In the **<i class="fa fa-folder-open"></i>stylesheets** directory create a new f
 
 Back in the root directory, create a new file *bower.json* and paste the following:
 
-{% highlight js %}
+```json
 {
   "name": "newedenfaces",
   "dependencies": {
@@ -335,7 +335,7 @@ Back in the root directory, create a new file *bower.json* and paste the followi
     "toastr": "^2.1.1"
   }
 }
-{% endhighlight %}
+```
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
@@ -370,13 +370,13 @@ The best way to learn ES6 is by showing an equivalent ES5 code for every ES6 exa
 
 **<i class="ion-archive"></i>Modules (Import)**
 
-{% highlight js %}
+```js
 // ES6
 import React from 'react';
 import {Route, DefaultRoute, NotFoundRoute} from 'react-router';
-{% endhighlight %}
+```
 
-{% highlight js %}
+```js
 // ES5
 var React = require('react');
 var Router = require('react-router');
@@ -384,7 +384,7 @@ var Router = require('react-router');
 var Route = Router.Route;
 var DefaultRoute = Router.DefaultRoute;
 var NotFoundRoute = Router.NotFoundRoute;
-{% endhighlight %}
+```
 
 Using the [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) in ES6 we can import a subset of a module which can be quite useful for modules like *react-router* and *underscore* where it exports more than one function.
 
@@ -394,23 +394,23 @@ For a detailed overview of the `import` statement see this [MDN page](https://de
 
 **<i class="ion-share"></i>Modules (Export)**
 
-{% highlight js %}
+```js
 // ES6
 function Add(x) {
   return x + x;
 }
 
 export default Add;
-{% endhighlight %}
+```
 
-{% highlight js %}
+```js
 // ES5
 function Add(x) {
   return x + x;
 }
 
 module.exports = Add;
-{% endhighlight %}
+```
 
 To learn more about ES6 modules, as well as different ways of importing and exporting functions from a module, check out [ECMAScript 6 modules](http://www.2ality.com/2014/09/es6-modules-final.html) and [Understanding ES6 Modules](http://www.sitepoint.com/understanding-es6-modules/).
 
@@ -418,7 +418,7 @@ To learn more about ES6 modules, as well as different ways of importing and expo
 
 ES6 classes are nothing more than a syntactic sugar over the existing prototype-based inheritance in JavaScript. As long as you remember that fact, the new `class` keyword will not seem like a foreign concept.
 
-{% highlight js %}
+```js
 // ES6
 class Box {
   constructor(length, width) {
@@ -433,9 +433,9 @@ class Box {
 let box = new Box(2, 2);
 
 box.calculateArea(); // 4
-{% endhighlight %}
+```
 
-{% highlight js %}
+```js
 // ES5
 function Box(length, width) {
   this.length = length;
@@ -449,16 +449,16 @@ Box.prototype.calculateArea = function() {
 var box = new Box(2, 2);
 
 box.calculateArea(); // 4
-{% endhighlight %}
+```
 
 With ES6 classes you can also use `extends` to create a subclass of an existing class:
 
-{% highlight js %}
+```js
 class MyComponent extends React.Component {
   // Now MyComponent class contains all React component methods
   // such as componentDidMount(), render() and etc.
 }
-{% endhighlight %}
+```
 
 For more information about ES6 classes visit [Classes in ECMAScript 6](http://www.2ality.com/2015/02/es6-classes-final.html) blog post.
 
@@ -473,13 +473,13 @@ For the most part there is no reason to use `var` anymore, so just use `let`.
 
 An arrow function expression has a shorter syntax compared to function expressions and lexically binds the `this` value.
 
-{% highlight js %}
+```js
 // ES6
 [1, 2, 3].map(n => n * 2); // [2, 4, 6]
 
 // ES5
 [1, 2, 3].map(function(n) { return n * 2; }); // [2, 4, 6]
-{% endhighlight %}
+```
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
@@ -490,7 +490,7 @@ Besides a shorter syntax, what else is it useful for?
 
 Consider the following example, straight from this project before I converted it to ES6.
 
-{% highlight js %}
+```js
 $.ajax({ type: 'POST', url: '/api/characters', data: { name: name, gender: gender } })
   .done(function(data) {
     this.setState({ helpBlock: data.message });
@@ -501,7 +501,7 @@ $.ajax({ type: 'POST', url: '/api/characters', data: { name: name, gender: gende
   .always(function() {
     this.setState({ name: '', gender: '' });
   }.bind(this));
-{% endhighlight %}
+```
 
 Every function expression above has its own `this` value. Without binding `this` we would not be able to call `this.setState` in the example above, because `this` would have been *undefined*.
 
@@ -509,7 +509,7 @@ Alternatively, we could have assigned `this` to a variable (typically `var self 
 
 In any case, here is an equivalent ES6 code using fat arrow functions which preserve `this` value:
 
-{% highlight js %}
+```js
 $.ajax({ type: 'POST', url: '/api/characters', data: { name: name, gender: gender } })
   .done((data) => {
     this.setState({ helpBlock: data.message });
@@ -520,18 +520,147 @@ $.ajax({ type: 'POST', url: '/api/characters', data: { name: name, gender: gende
   .always(() => {
     this.setState({ name: '', gender: '' });
   });
-{% endhighlight %}
+```
 
 Next, let's talk about React, what makes it so special and why should we use it.
 
-## 3. React Crash Course
+## 4. React Crash Course
+
+<i class="devicons devicons-react"></i> React is a JavaScript library for building web user interfaces. You could say it competes against <i class="devicons devicons-angular"></i> AngularJS, <i class="devicons devicons-ember"></i> Ember.js, <i class="devicons devicons-backbone"></i> Backbone and <i class="devicons devicons-webplatform"></i> Polymer despite being much smaller in scope. React is just the **V** in **MVC** (Model-View-Controller) architecture.
+
+So, what is so special about React?
+
+React components are written in a very declarative style. Unlike the "old way" using jQuery and such, you don't touch the DOM directly. React manages all UI updates for you when the underlying data changes.
+
+React is also very fast all thanks to the Virtual DOM and diffing algorithm under the hood. When the data changes, React calculates the minimum number of DOM manipulations needed then efficiently re-renders the component. For example, if there are 10,000 rendered items on a page and only 1 item changes, React will update just that DOM element, leaving 9,999 other items unchanged. That's why React can get away with re-rendering the entire component without being ridiculously wasteful.
+
+Other notable React features include:
+
+- **Composability**, i.e. make bigger, more complex components out of smaller components.
+- **Relatively easy to pick up** since there isn't that much to learn and it does not have a massive documentation like AngularJS and Ember.js.
+- **Server-side rendering**.
+- The most **helpful error and warning messages** in any JavaScript library.
+- **Components are self-contained**; markup and behavior live in the same place, making components very reusable.
+
+---
+
+Before going any further please watch this awesome video [React in 7 Minutes](https://egghead.io/lessons/react-react-in-7-minutes) by John Lindquist.
+
+While learning React, the biggest challenge for me was that it required a completely different thinking approach to building UIs. Which is why reading [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html) guide is an absolute must for anyone who is starting out with React.
+
+If we are to break apart New Eden Faces UI into components this is what it would look like:
+
+![](/images/blog/Screen Shot 2015-06-21 at 11.45.38 PM copy.png)
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+  Each component should try to adhere to the <em>single responsibility principle</em>. If you find yourself working on a component that does too many things, perhaps it's best to split it into sub-components. Having said that, I typically write monolithic components first, just to get it working, then refactor it by breaking it into smaller sub-components.
+</div>
+
+The top-level <span style='color: #FF4136'>App</span> component contains <span style='color: #0074D9'>Navbar</span>, <span style='color: #0074D9'>Homepage</span> and <span style='color: #0074D9'>Footer</span> components. <span style='color: #0074D9'>Homepage</span> component contains two <span style='color: #2ECC40'>Character</span> components.
+
+So, whenever you have a certain UI design in mind, start by breaking it apart from top-down and always be mindful of how your data propagates from parent to child, child to parent and between sibling components or you will quickly find yourself thinking *"WTF, how do I do this in React? This would have been so much simpler with jQuery... To hell with React."*.
+
+---
+
+All components in React have a `render()` method. It always returns a *single child* element. In other words, the following return block is invalid because it contains 3 child elements:
+
+```html
+render() {
+    return (
+      <li>Achura</li>
+      <li>Civire</li>
+      <li>Deteis</li>
+    );
+  }
+```
+
+The HTML markup above is actually called [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html). As far syntax goes, it is just slightly different from HTML, e.g. `className` instead of `class` to define CSS classes. You will learn more about it as we start building the app.
+
+The [`componentDidMount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount) method in React is the closest thing to [`$(document).ready`](https://learn.jquery.com/using-jquery-core/document-ready/) in jQuery. This method runs once, only on the client (not on the server) immediately after initial rendering of the component. This is where you would initialize third-party libraries and jQuery plugins, or connect to Socket.IO.
+
+You will be using [Ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) in the [`render`](https://facebook.github.io/react/docs/component-specs.html#render) method quite a lot: hiding an element when data is empty, conditionally using CSS classes depending on some value, hiding or showing certain elements based on the component's state and etc.
+
+```js
+render() {
+  let delta = this.props.delta ? (
+    <strong className={this.props.delta > 0 ? 'text-success' : 'text-danger'}>
+      {this.props.delta}
+    </strong>
+  ) : null;
+
+  return (
+    <div className='card'>
+      <div className='card-body'>
+        {delta}
+        {this.props.title}
+        {this.props.description}
+      </div>
+    </div>
+  );
+}
+```
+
+We have only scratched the surface of everything there is to React, but this should be enough to give you a general idea about it.
+
+React by itself is actually very simple and easy to grasp. However, it is when we start talking about [Flux](https://facebook.github.io/flux/) application architecture, things get a bit confusing.
+
+## 5. Flux Architecture Crash Course
+
+Have you seen this diagram before? Did it make any sense to you? It did not make any sense to me, no matter how many times I looked at it.
+
+![](/images/blog/flux-diagram.png)
+
+Now that I understand it better, I am actually really amazed by how such simple architecture can be presented in a such complicated manner. But to Facebook's credit, their [new diagrams](https://facebook.github.io/flux/docs/overview.html#structure-and-data-flow) are much better.
+
+<div class="admonition note">
+  <div class="admonition-title">Fun Fact</div>
+ When I first began writing this tutorial I decided not to use Flux in this project. I could not grasp it for the life of me, let alone teach it to others. But thankfully, I get to work on cool stuff at Yahoo! where I get to play and experiment with different technologies during my work hours.
+</div>
+
+Instead of rehashing the [Flux: Overview](https://facebook.github.io/flux/docs/overview.html), let's take a look at one of the real-world use cases in order to illustrate how Flux works:
+
+![](/images/blog/Screenshot 2015-06-22 02.18.48.png)
+
+1. On `componentDidLoad` (when the page you are looking at is rendered) three actions are fired:
+
+    ```js
+    OverviewActions.getSummary();
+    OverviewActions.getApps();
+    OverviewActions.getCompanies();
+    ```
+
+2. Each one of those actions make an AJAX request to the server to fetch the data.
+3. When data is fetched `getSummary()` fires a new action and passes the data along with it - `getSummarySuccess(data)`. Similarly, `getApps()` action will fire `getAppsSuccess(data)` and `getCompanies()` will fire `getCompaniesSuccess(data)` actions. *Action names are irrelevant, use whatever naming convention you want as long as it is descriptive.*
+
+    ```js
+    request
+      .get('/api/overview')
+      .end((err, res) => {
+        if (!res.ok) {
+         return this.actions.getOverviewFail();
+        }
+        this.actions.getOverviewSuccess(res.body);
+      });
+    ```
+
+4. Meanwhile, a store (a place where we keep the component state) is listening for those *"success"* events. For example, when `getSummarySuccess(data)` is fired, one of the the store methods `onGetSummarySuccess(data)` will be called, and at that point it will update the *summary data* in the store, which initially is just an empty array.
+5. As soon as the store is updated, component will know about it because each component will have a listener for a particular store. When that store is updated/changed, a component will set its own state to whatever is in the store.
+6. At this point component has all the data it needs and will render accordingly.
+7. When date range is updated from the dropdown, the whole process is repeated.
 
 
+
+**Flux TL;DR**
+
+Flux is really just a fancy term for **pub/sub** architecture, i.e. data always flows one way through the application and it is picked up along the way by various subscribers who are listening to it.
+
+## 7. 44
 
 
 Here is a more practical example in the context of React:
 
-{% highlight js %}
+```js
 // ES6
 class Hello extends React.Component {
   render() {
@@ -540,9 +669,9 @@ class Hello extends React.Component {
 }
 
 export default Hello;
-{% endhighlight %}
+```
 
-{% highlight js %}
+```js
 // ES5
 var Hello = React.createClass({
   render: function() {
@@ -551,11 +680,13 @@ var Hello = React.createClass({
 });
 
 module.exports = Hello;
-{% endhighlight %}
+```
 
-If you have used React before, there is something you need to keep in mind when creating React components using ES6 classes. Component methods no longer autobind `this` context. For example, when calling an internal component method that uses `this`, you have to `.bind(this)` explicitly. Previously, `React.createClass()` was doing it for us internally.
+If you have used React before, there is something you need to keep in mind when creating React components using ES6 classes. Component methods no longer autobind `this` context. For example, when calling an internal component method that uses `this`, you have to `.bind(this)` explicitly. Previously, `React.createClass()` was doing it for us internally:
 
-{% highlight js %}
+> **Autobinding**: When creating callbacks in JavaScript, you usually need to explicitly bind a method to its instance such that the value of **this** is correct. With React, every method is automatically bound to its component instance.
+
+```js
 class App extends React.Component {
 
   constructor(props) {
@@ -570,9 +701,7 @@ class App extends React.Component {
   }
 
   render() {
-    return 'Hello';
+    return null;
   }
 }
-{% endhighlight %}
-
-## 4. Flux Architecture Crash Course
+```
