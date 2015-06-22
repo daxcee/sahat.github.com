@@ -13,7 +13,7 @@ In this tutorial we are going to build a character voting game (inspired by *Fac
 ![](/images/blog/Screenshot 2015-03-31 23.05.36.png)
 
 <ul class="list-inline text-center">
-  <li><a href="#"><i class="fa fa-flash"></i> Live Demo</a></li>
+  <li><a href="#"><i class="ion-monitor"></i> Live Demo</a></li>
   <li><a href="#"><i class="fa fa-github"></i> Source Code</a></li>
 </ul>
 
@@ -339,7 +339,7 @@ Back in the root directory, create a new file *bower.json* and paste the followi
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
- <i class="devicons devicons-bower"></i>Bower is a package manager that lets you easily download JavaScript libraries, such as the ones specified above, via a command line instead of visiting each individual website, downloading, extracting and adding it to the project manually.
+Bower is a package manager that lets you easily download JavaScript libraries, such as the ones specified above, via a command line instead of visiting each individual website, downloading, extracting and adding it to the project manually.
 </div>
 
 Run `bower install` and wait for the components to be downloaded and installed into **<i class="fa fa-folder-open"></i>bower_components**. You can change that path via [.bowerrc](http://bower.io/docs/config/#directory), but for the purposes of this tutorial we will stick with the defaults.
@@ -360,13 +360,15 @@ Download the following background images and place them into **<i class="fa fa-f
  I have used the Gaussian blur in Adobe Photoshop in order to create that out of focus effect over 3 years ago when I first built the New Eden Faces project, but it should be totally possible to achieve this effect with only CSS.
 </div>
 
-Before we jump into building the React app, I have decided to dedicate the next two sections to ES6 and React. Since I can't cover everything, I will only be covering topics that you need to know specifically for this tutorial, no more and no less.
+Before we jump into building the React app, I have decided to dedicate the next three sections to ES6 and React basics. It may be too overwhelming trying to grasp everything at once. Personally, I had a very hard time following some React + Flux examples written in ES6 because I was learning the new syntax, a new framework and a completely unfamiliar app architecture all at the same time.
+
+Since I can't cover everything, I will only be covering topics that you need to know specifically for this tutorial.
 
 ## 3. ES6 Crash Course
 
-I assume that everyone is familiar with the current JavaScript (ES5). The best way to learn this is by showing an equivalent ES5 code for every ES6 snippet.
+The best way to learn ES6 is by showing an equivalent ES5 code for every ES6 example. Again, I will only be covering what you need to know for this tutorial. There are plenty of blog posts that go in great detail about the new ES6 features.
 
-**Modules**
+**<i class="ion-archive"></i>Modules (Import)**
 
 {% highlight js %}
 // ES6
@@ -384,28 +386,193 @@ var DefaultRoute = Router.DefaultRoute;
 var NotFoundRoute = Router.NotFoundRoute;
 {% endhighlight %}
 
-Using the [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) in ES6 we can import a subset of a module which can be quite handy for modules like *react-router* and *underscore* where it exports more than one function.
+Using the [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) in ES6 we can import a subset of a module which can be quite useful for modules like *react-router* and *underscore* where it exports more than one function.
 
 One thing to keep in mind is that ES6 imports are hoisted. All dependent modules will be loaded before any of the module code is executed. In other words, you can't conditionally load a module like with CommonJS. That threw me off a little when I tried to put the import statement inside the if-condition.
 
-To learn more about ES6 modules check out this [2ality blog post](http://www.2ality.com/2014/09/es6-modules-final.html). For a detailed overview of the `import` statement see this [MDN page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import).
+For a detailed overview of the `import` statement see this [MDN page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import).
 
-**Modules**
+**<i class="ion-share"></i>Modules (Export)**
+
+{% highlight js %}
+// ES6
+function Add(x) {
+  return x + x;
+}
+
+export default Add;
+{% endhighlight %}
+
+{% highlight js %}
+// ES5
+function Add(x) {
+  return x + x;
+}
+
+module.exports = Add;
+{% endhighlight %}
+
+To learn more about ES6 modules, as well as different ways of importing and exporting functions from a module, check out [ECMAScript 6 modules](http://www.2ality.com/2014/09/es6-modules-final.html) and [Understanding ES6 Modules](http://www.sitepoint.com/understanding-es6-modules/).
+
+**<i class="ion-cube"></i>Classes**
+
+ES6 classes are nothing more than a syntactic sugar over the existing prototype-based inheritance in JavaScript. As long as you remember that fact, the new `class` keyword will not seem like a foreign concept.
+
+{% highlight js %}
+// ES6
+class Box {
+  constructor(length, width) {
+    this.length = length;
+    this.width = width;
+  }
+  calculateArea() {
+    return this.length * this.width;
+  }
+}
+
+let box = new Box(2, 2);
+
+box.calculateArea(); // 4
+{% endhighlight %}
+
+{% highlight js %}
+// ES5
+function Box(length, width) {
+  this.length = length;
+  this.width = width;
+}
+
+Box.prototype.calculateArea = function() {
+  return this.length * this.width;
+}
+
+var box = new Box(2, 2);
+
+box.calculateArea(); // 4
+{% endhighlight %}
+
+With ES6 classes you can also use `extends` to create a subclass of an existing class:
+
+{% highlight js %}
+class MyComponent extends React.Component {
+  // Now MyComponent class contains all React component methods
+  // such as componentDidMount(), render() and etc.
+}
+{% endhighlight %}
+
+For more information about ES6 classes visit [Classes in ECMAScript 6](http://www.2ality.com/2015/02/es6-classes-final.html) blog post.
 
 
+**<i class="ion-social-javascript"></i>`var` vs `let`**
 
+The only difference between the two is that `var` is scoped to the nearest *function block* and `let` is scoped to the nearest *enclosing block*  - which could be a *function*, a *for-loop* or an *if-statement block*.
 
+For the most part there is no reason to use `var` anymore, so just use `let`.
 
+**<i class="ion-android-send"></i>Arrow Functions (Fat Arrow)**
 
+An arrow function expression has a shorter syntax compared to function expressions and lexically binds the `this` value.
 
+{% highlight js %}
+// ES6
+[1, 2, 3].map(n => n * 2); // [2, 4, 6]
 
+// ES5
+[1, 2, 3].map(function(n) { return n * 2; }); // [2, 4, 6]
+{% endhighlight %}
 
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+Parentheses around the single argument are optional, so it is up to you whether you want to enforce it or not. Some see it as a bad practice, others think it's fine.
+</div>
 
+Besides a shorter syntax, what else is it useful for?
 
+Consider the following example, straight from this project before I converted it to ES6.
 
+{% highlight js %}
+$.ajax({ type: 'POST', url: '/api/characters', data: { name: name, gender: gender } })
+  .done(function(data) {
+    this.setState({ helpBlock: data.message });
+  }.bind(this))
+  .fail(function(jqXhr) {
+    this.setState({ helpBlock: jqXhr.responseJSON.message });
+  }.bind(this))
+  .always(function() {
+    this.setState({ name: '', gender: '' });
+  }.bind(this));
+{% endhighlight %}
 
+Every function expression above has its own `this` value. Without binding `this` we would not be able to call `this.setState` in the example above, because `this` would have been *undefined*.
+
+Alternatively, we could have assigned `this` to a variable (typically `var self = this`), then used `self` instead of `this` inside the [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
+
+In any case, here is an equivalent ES6 code using fat arrow functions which preserve `this` value:
+
+{% highlight js %}
+$.ajax({ type: 'POST', url: '/api/characters', data: { name: name, gender: gender } })
+  .done((data) => {
+    this.setState({ helpBlock: data.message });
+  })
+  .fail((jqXhr) => {
+    this.setState({ helpBlock: jqXhr.responseJSON.message });
+  })
+  .always(() => {
+    this.setState({ name: '', gender: '' });
+  });
+{% endhighlight %}
+
+Next, let's talk about React, what makes it so special and why should we use it.
 
 ## 3. React Crash Course
 
-U
 
+
+
+Here is a more practical example in the context of React:
+
+{% highlight js %}
+// ES6
+class Hello extends React.Component {
+  render() {
+    return <div>Hello World!</div>;
+  }
+}
+
+export default Hello;
+{% endhighlight %}
+
+{% highlight js %}
+// ES5
+var Hello = React.createClass({
+  render: function() {
+    return <div>Hello World!</div>;
+  }
+});
+
+module.exports = Hello;
+{% endhighlight %}
+
+If you have used React before, there is something you need to keep in mind when creating React components using ES6 classes. Component methods no longer autobind `this` context. For example, when calling an internal component method that uses `this`, you have to `.bind(this)` explicitly. Previously, `React.createClass()` was doing it for us internally.
+
+{% highlight js %}
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = AppStore.getState();
+    this.onChange = this.onChange.bind(this);
+  }
+
+  onChange() {
+    // `this` will be undefined without binding it explicitly.
+    this.setState(AppStore.getState())
+  }
+
+  render() {
+    return 'Hello';
+  }
+}
+{% endhighlight %}
+
+## 4. Flux Architecture Crash Course
