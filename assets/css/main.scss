@@ -725,7 +725,8 @@ main {
   padding: 0;
   display: block;
   width: 15%;
-  margin: 30px auto;
+  margin: 42px auto;
+  margin-top: 0;
   border: 0px solid #dddddd;
   border-top: 1px solid #dddddd;
 }
@@ -1185,7 +1186,8 @@ table th {
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
 }
 
-i.fa {
+i.fa,
+i[class^='ion-'] {
   margin-right: 5px;
   vertical-align: middle;
 }
