@@ -365,11 +365,800 @@ Download the following background images and place them into **<i class="fa fa-f
  I have used the Gaussian blur in Adobe Photoshop in order to create that out of focus effect over 3 years ago when I first built the New Eden Faces project, but it should be totally possible to achieve this effect with only CSS.
 </div>
 
+Open *main.less* that we have just created and paste the following CSS styles:
+
+```css
+@import '../../bower_components/bootstrap/less/bootstrap';
+@import '../../bower_components/toastr/toastr';
+@import (less) '../../bower_components/magnific-popup/dist/magnific-popup.css';
+
+/*
+ * Bootstrap overrides.
+ */
+@body-bg: #f0f3f4;
+@text-color: #58666f;
+@font-family-base: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@link-color: #363f34;
+@link-hover-color: #141718;
+
+@navbar-default-bg: #fff;
+@navbar-default-link-color: #353f44;
+@navbar-default-link-hover-bg: #f6f7f7;
+@navbar-default-link-active-bg: #f6f7f7;
+
+@btn-default-color: #58666e;
+@btn-default-border: #dee5e7;
+
+@btn-primary-color: #fff;
+@btn-primary-bg: #7266bb;
+@btn-primary-border: #7266bb;
+
+@btn-success-color: #fff;
+@btn-success-bg: #27d24b;
+@btn-success-border: #27d24b;
+
+@btn-info-color: #fff;
+@btn-info-bg: #23b7f5;
+@btn-info-border: #23b7f5;
+
+@btn-warning-color: #fff;
+@btn-warning-bg: #fac732;
+@btn-warning-border: #fac732;
+
+@btn-danger-color: #fff;
+@btn-danger-bg: #f15051;
+@btn-danger-border: #f15051;
+
+@panel-default-border: #dee5e7;
+@panel-border-radius: 2px;
+@panel-default-heading-bg: #f6f8f8;
+
+@screen-sm: 800px;
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 220px;
+  -webkit-font-smoothing: antialiased;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  background-color: #3b3f51;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    text-decoration: none;
+  }
+}
+
+footer .thumb-md {
+  border: 1px solid rgba(255,255,255,.15);
+  transition: border .1s linear;
+
+  &:hover {
+    border-color: rgba(255,255,255,.3);
+  }
+}
+
+.badge-danger {
+  color: #fff;
+  background-color: #f05150;
+}
+
+.badge-up {
+  position: relative;
+  top: -10px;
+  padding: 2px 5px;
+}
+
+/*
+ * Character profile page styles.
+ */
+
+.profile {
+  color: #fff;
+  background-size: cover;
+}
+
+.profile.amarr {
+  background-image: url('/img/amarr_bg.jpg');
+}
+
+.profile.caldari {
+  background-image: url('/img/caldari_bg.jpg');
+}
+
+.profile.gallente {
+  background-image: url('/img/gallente_bg.jpg');
+}
+
+.profile.minmatar {
+  background-image: url('/img/minmatar_bg.jpg');
+}
+
+.profile footer {
+  color: #fff;
+  background: transparent;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+
+.profile .navbar-default {
+  background-color: transparent;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  box-shadow: none;
+}
+
+.profile .navbar-default .navbar-brand {
+  color: #fff;
+}
+
+
+.profile .form-control {
+  color: #fff;
+  background: rgba(255,255,255,.15);
+  border-color: rgba(255,255,255,.15);
+  border-right: 0;
+
+  &:focus {
+    border-color: rgba(255,255,255,.3);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.055),0 0 8px rgba(255,255,255,.3);
+  }
+}
+
+.profile .input-group-btn:last-child > .btn {
+  margin-left: 0;
+}
+
+.profile .btn-default {
+  color: #fff;
+  background-color: rgba(255,255,255,.15);
+  border-color: rgba(255,255,255,.15);
+  transition: background-color .3s;
+
+  &:focus,
+  &:hover {
+    color: #fff;
+    background-color: rgba(255,255,255,.3);
+  }
+}
+
+
+.profile .tri {
+  border-top-color: #fff;
+
+  &.invert {
+    border-bottom-color: #fff;
+  }
+}
+
+.profile .navbar-default .navbar-nav > .open > a,
+.profile .navbar-default .navbar-nav > .open > a:hover,
+.profile .navbar-default .navbar-nav > .open > a:focus {
+  background-color: rgba(255,255,255,.15);
+}
+
+.profile .navbar-default .navbar-nav > li > a:hover,
+.profile .navbar-default .navbar-nav > li > a:focus {
+  color: #fff;
+  background-color: rgba(255,255,255,.15);
+}
+
+.profile .navbar-default .navbar-nav > li > a {
+  color: #fff;
+}
+
+.profile footer .col-sm-5 {
+  border-right: 1px solid rgba(255,255,255,.15);
+}
+
+.table {
+  font-size: inherit;
+}
+
+.table > thead > tr > th {
+  padding: 8px 15px;
+  border-bottom: 1px solid #eaeef0;
+}
+
+.table > tbody > tr > td {
+  padding: 8px 15px;
+  border-top: 1px solid #eaeef0;
+}
+
+.table-striped > tbody > tr:nth-of-type(odd) {
+  background-color: #f9f9f9;
+}
+
+.list-group {
+  border-radius: 2px;
+}
+
+.list-group .list-group-item {
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+
+.list-group-item:hover,
+.list-group-item:focus {
+  background-color: #f6f8f8;
+}
+
+.thumb-md {
+  display: inline-block;
+  width: 64px;
+}
+
+.thumb-lg {
+  display: inline-block;
+  width: 96px;
+  margin-right: 15px;
+}
+
+.thumb-lg img {
+  height: auto;
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+.position {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ddd;
+  margin-right: 5px;
+  line-height: 96px;
+}
+
+.btn {
+  font-weight: 500;
+  border-radius: 2px;
+  outline: 0 !important;
+}
+
+.btn-addon i {
+  position: relative;
+  float: left;
+  width: 34px;
+  height: 34px;
+  margin: -6px -12px;
+  margin-right: 12px;
+  line-height: 34px;
+  text-align: center;
+  background-color: rgba(0,0,0,.1);
+  border-radius: 2px 0 0 2px;
+}
+
+.btn-addon i.pull-right {
+  margin-right: -12px;
+  margin-left: 12px;
+  border-radius: 0 2px 2px 0;
+}
+
+.btn-addon.btn-sm i.pull-right {
+  margin-right: -10px;
+  margin-left: 10px;
+}
+
+.btn-default {
+  box-shadow: 0 1px 1px rgba(91,91,91,.1);
+}
+
+.navbar {
+  border: 0;
+  box-shadow: 0 2px 2px rgba(0,0,0,.05), 0 1px 0 rgba(0,0,0,.05);
+}
+
+.navbar-default .navbar-brand {
+  margin-left: 40px;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dropdown-menu {
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+}
+
+.dropdown-submenu {
+  position: relative;
+}
+
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: 0;
+  margin-left: 1px;
+  border-radius: 0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-submenu > a:after {
+  display: block;
+  content: '';
+  float: right;
+  width: 0;
+  height: 0;
+  border: 5px solid transparent;
+  border-right-width: 0;
+  border-left-color: #353f44;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+
+.panel {
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.panel-default > .panel-heading {
+  color: #333;
+  font-weight: 700;
+  border-color: #edf2f2;
+}
+
+.dropdown-submenu.pull-left {
+  float: none;
+}
+
+.dropdown-submenu.pull-left > .dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+
+.form-control {
+  border-color: #cfdadc;
+  border-radius: 2px;
+
+  &:focus {
+    border-color: #24b7e4;
+    box-shadow: none;
+  }
+}
+
+.thumbnail {
+  background-color: #fff;
+  padding: 0;
+  border-radius: 2px;
+  border-color: #dee5e7;
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.thumbnail img {
+  padding: 6px;
+  border-radius: 2px 2px 0 0;
+  border: 0;
+  background-color: #fff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &:hover {
+    background-color: @btn-info-bg;
+  }
+  &:active {
+    position: relative;
+    top: 2px;
+  }
+}
+
+.form-control {
+  box-shadow: none;
+}
+
+label {
+  font-weight: normal;
+}
+
+.profile-img {
+  position: relative;
+  margin-bottom: 20px;
+  float: left;
+  width: 256px;
+  height: 256px;
+  box-shadow: 0 2px 25px rgba(0,0,0,.25);
+}
+
+.profile-info {
+  margin: 0 0 20px 286px;
+  max-width: 405px;
+  color: #fff;
+}
+
+.btn-transparent {
+  border: 1px solid white;
+  border-radius: 3px;
+  padding: 10px 20px;
+  color: #fff;
+  text-transform: uppercase;
+  cursor: pointer;
+  background-color: transparent;
+  box-shadow: none;
+  transition: background-color .3s;
+
+  &:focus,
+  &:hover {
+    color: #fff;
+    background-color: rgba(255,255,255,.3);
+  }
+}
+
+.profile-stats {
+  margin: 30px 0 30px 0;
+  padding: 20px 0;
+  border-top: 1px solid #2098ca;
+  border-bottom: 1px solid #2098ca;
+  border-top: 1px solid rgba(255,255,255,.15);
+  border-bottom: 1px solid rgba(255,255,255,.15)
+}
+
+@media (max-width: 510px) {
+  .profile-stats {
+    font-size: 12px
+  }
+}
+
+@media (max-width: 360px) {
+  .profile-stats {
+    padding: 10px 0
+  }
+}
+
+.profile-stats {
+  display: block;
+  color: #fff
+}
+
+.profile-stats ul {
+  list-style-type: none
+}
+
+.profile-stats li {
+  position: relative;
+  float: left;
+  width: 33.3%;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: center;
+  overflow: hidden
+}
+
+@media (max-width: 360px) {
+  .profile-stats li {
+    font-size: 10px
+  }
+}
+
+.profile-stats li .stats-number {
+  display: block;
+  margin-bottom: 15px;
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 40px
+}
+
+@media (max-width: 360px) {
+  .profile-stats li .stats-number {
+    margin-bottom: 5px;
+    font-size: 34px
+  }
+}
+
+.profile-stats li:first-child:after {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 50%;
+  right: 0;
+  margin-top: -27px;
+  width: 1px;
+  height: 55px;
+  background: rgba(255,255,255,.15)
+}
+
+.profile-stats li:last-child:before {
+  content: '';
+  position: absolute;
+  display: block;
+  top: 50%;
+  left: 0;
+  margin-top: -27px;
+  width: 1px;
+  height: 55px;
+  background: rgba(255,255,255,.15)
+}
+
+.profile-stats li.last-child:before {
+  background: #fff
+}
+
+.radio {
+  margin-bottom: 10px;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.radio-inline + .radio-inline {
+  margin-top: 10px;
+}
+
+.radio-inline,
+.checkbox-inline {
+  cursor: default;
+}
+
+.radio label {
+  display: inline-block;
+  cursor: pointer;
+  position: relative;
+  padding-left: 5px;
+  margin-right: 10px;
+}
+
+.radio label:before {
+  content: '';
+  display: inline-block;
+  width: 17px;
+  height: 17px;
+  margin-left: -20px;
+  position: absolute;
+  left: 0;
+  background-color: #fff;
+  border: 1px solid #d0d0d0;
+}
+
+.radio label:before {
+  bottom: 2.5px;
+  border-radius: 100px;
+  transition: border .2s 0s cubic-bezier(.45,.04,.22,1.30);
+}
+
+.radio input[type=radio]:checked + label:before {
+  border-width: 5px;
+}
+
+.radio input[type=radio] {
+  display: none;
+}
+
+.radio input[type=radio][disabled] + label {
+  opacity: .65;
+}
+
+.radio input[type=radio]:checked + label:before {
+  border-color: #10cebd;
+}
+
+.animated {
+  animation-fill-mode: both;
+  animation-duration: 1s;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fadeIn {
+  animation-name: fadeIn;
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+.fadeOut {
+  animation-name: fadeOut;
+}
+
+@keyframes flipInX {
+  0% {
+    transform: perspective(800px) rotate3d(1,0,0,90deg);
+    transition-timing-function: ease-in;
+    opacity: 0;
+  }
+
+  40% {
+    transform: perspective(800px) rotate3d(1,0,0,-20deg);
+    transition-timing-function: ease-in;
+  }
+
+  60% {
+    transform: perspective(800px) rotate3d(1,0,0,10deg);
+    opacity: 1;
+  }
+
+  80% {
+    transform: perspective(800px) rotate3d(1,0,0,-5deg);
+  }
+
+  100% {
+    transform: perspective(800px);
+  }
+}
+
+.flipInX {
+  backface-visibility: visible !important;
+  animation-name: flipInX;
+}
+
+@keyframes flipOutX {
+  0% {
+    transform: perspective(400px);
+  }
+
+  30% {
+    transform: perspective(400px) rotate3d(1,0,0,-20deg);
+    opacity: 1;
+  }
+
+  100% {
+    transform: perspective(400px) rotate3d(1,0,0,90deg);
+    opacity: 0;
+  }
+}
+
+.flipOutX {
+  animation-name: flipOutX;
+  backface-visibility: visible !important;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  16.666% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translate3d(0, 0, 0);
+  }
+
+  10%, 30%, 50%, 70%, 90% {
+    transform: translate3d(-10px, 0, 0);
+  }
+
+  20%, 40%, 60%, 80% {
+    transform: translate3d(10px, 0, 0);
+  }
+}
+
+.shake {
+  animation-name: shake;
+}
+
+  @tricolor: @link-color;
+  @triw: 10px;
+  @trih: @triw*0.9;
+
+.triangles {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  height: @trih * 3;
+  width: @triw * 3;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+
+.navbar-brand:hover .tri {
+  animation-play-state: paused;
+}
+
+.tri {
+  position: absolute;
+  animation: pulse 750ms ease-in infinite;
+  border-top: @trih solid @tricolor;
+  border-left: @triw/2 solid transparent;
+  border-right: @triw/2 solid transparent;
+  border-bottom: 0;
+
+  &.invert {
+    border-top: 0;
+    border-bottom: @trih solid @tricolor;
+    border-left: @triw/2 solid transparent;
+    border-right: @triw/2 solid transparent;
+  }
+  &:nth-child(1) {
+    left: @triw;
+  }
+  &:nth-child(2) {
+    left: @triw/2;
+    top: @trih;
+    animation-delay: -125ms;
+  }
+  &:nth-child(3) {
+    left: @triw;
+    top: @trih;
+  }
+  &:nth-child(4) {
+    left: @triw*1.5;
+    top: @trih;
+    animation-delay: -625ms;
+  }
+  &:nth-child(5) {
+    top: @trih*2;
+    animation-delay: -250ms;
+  }
+  &:nth-child(6) {
+    top: @trih*2;
+    left: @triw/2;
+    animation-delay: -250ms;
+  }
+  &:nth-child(7) {
+    top: @trih*2;
+    left: @triw;
+    animation-delay: -375ms;
+  }
+  &:nth-child(8) {
+    top: @trih*2;
+    left: @triw*1.5;
+    animation-delay: -500ms;
+  }
+  &:nth-child(9) {
+    top: @trih*2;
+    left: @triw*2;
+    animation-delay: -500ms;
+  }
+}
+```
+
+If you have used the [Bootstrap framework](http://getbootstrap.com/) at all, then everything above should be pretty familar to you.
+
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+  I have spent many hours designing this UI, tweaking fonts and colors, adding subtle transition effects, so if you get a chance, explore it in greater detail after you finish this tutorial.
+</div>
+
 Before we jump into building the React app, I have decided to dedicate the next three sections to ES6 and React basics. It may be too overwhelming trying to grasp everything at once. Personally, I had a very hard time following some React + Flux examples written in ES6 because I was learning the new syntax, a new framework and a completely unfamiliar app architecture all at the same time.
 
 Since I can't cover everything, I will only be covering topics that you need to know specifically for this tutorial.
 
-## Step 4*. ES6 Crash Course
+## Step 4. ES6 Crash Course
 
 The best way to learn ES6 is by showing an equivalent ES5 code for every ES6 example. Again, I will only be covering what you need to know for this tutorial. There are plenty of blog posts that go in great detail about the new ES6 features.
 
@@ -529,7 +1318,7 @@ $.ajax({ type: 'POST', url: '/api/characters', data: { name: name, gender: gende
 
 Next, let's talk about React, what makes it so special and why should we use it.
 
-## Step 5*. React Crash Course
+## Step 5. React Crash Course
 
 <i class="devicons devicons-react"></i> React is a JavaScript library for building web user interfaces. You could say it competes against <i class="devicons devicons-angular"></i> AngularJS, <i class="devicons devicons-ember"></i> Ember.js, <i class="devicons devicons-backbone"></i> Backbone and <i class="devicons devicons-webplatform"></i> Polymer despite being much smaller in scope. React is just the **V** in **MVC** (Model-View-Controller) architecture.
 
@@ -610,7 +1399,7 @@ We have only scratched the surface of everything there is to React, but this sho
 
 React by itself is actually very simple and easy to grasp. However, it is when we start talking about [Flux](https://facebook.github.io/flux/) application architecture, things get a bit confusing.
 
-## Step 6*. Flux Architecture Crash Course
+## Step 6. Flux Architecture Crash Course
 
 Have you seen this diagram before? Did it make any sense to you? It did not make any sense to me, no matter how many times I looked at it.
 
@@ -797,7 +1586,9 @@ import React from 'react';
 class Home extends React.Component {
   render() {
     return (
-      <div>Hello from Home Component</div>
+      <div className='alert alert-info'>
+        Hello from Home Component
+      </div>
     );
   }
 }
@@ -809,13 +1600,105 @@ This should be everything we have created so far. Perhaps now would be a good ti
 
 ![](/images/blog/Screenshot 2015-06-22 21.09.21.png)
 
-We just need to set up a couple more things on the back-end, then we can run the app.
+We just need to set up a couple more things on the back-end, then we can finally run the app.
 
 ## Step 8. React Routes (Server-Side)
 
+Open *server.js*, then "require" the following modules:
+
+```js
+var swig  = require('swig');
+var React = require('react');
+var Router = require('react-router');
+var routes = require('./app/routes');
+```
+
+Next, add this [Express middleware](http://expressjs.com/guide/using-middleware.html) somewhere in *server.js*:
+
+```js
+app.use(function(req, res) {
+  Router.run(routes, req.path, function(Handler) {
+    var html = React.renderToString(React.createElement(Handler));
+    var page = swig.renderFile('views/index.html', { html: html });
+    res.send(page);
+  });
+});
+```
+
+![](/images/blog/Screenshot 2015-06-22 22.01.53.png)
+
+This middleware function will be executed on every request to the server. The main difference between `Router.run` in *server.js* and `Router.run` in *main.js* is how the app renders.
+
+On the client-side, a rendered HTML markup gets inserted into `<div id="app"></div>`, whereas on the server-side a rendered HTML markup is sent to the *index.html* template where it is inserted into `<div id="app">{% raw %}{{ html|safe }}{% endraw %}</div>` by the [Swig](http://paularmstrong.github.io/swig/) template engine. *I chose Swig because I wanted to try something other than [Jade](http://jade-lang.com/) and [Handlebars](http://handlebarsjs.com/) this time*.
+
+But do we really need a separate template for this? Why not just render everything inside the *App* component? Yes, you could do it, as long as you are okay with [invalid HTML markup](https://validator.w3.org/) and not being able to include inline script tags like Google Analytics directly in the *App* component. But having said that, invalid markup is probably not relevant to SEO anymore and there are [workarounds](https://github.com/hzdg/react-google-analytics/blob/master/src/index.coffee) to include inline script tags in React components. So it's up to you, but for the purposes of this tutorial we will be using a Swig template.
+
+Create a new folder **<i class="fa fa-folder-open"></i>views** in the root directory, next to *package.json* and *server.js*. Then inside **<i class="fa fa-folder-open"></i>views**, create a new file *index.html*:
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>New Eden Faces</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,900"/>
+  <link rel="stylesheet" href="/css/main.css"/>
+</head>
+<body>
+<div id="app">{% raw %}{{ html|safe }}{% endraw %}</div>
+<script src="/js/vendor.js"></script>
+<script src="/js/vendor.bundle.js"></script>
+<script src="/js/bundle.js"></script>
+</body>
+</html>
+```
+
+Open two Terminal tabs. In one tab run `gulp` to build the React app, concatenate JS libraries and compile LESS stylesheets, and then start watching for file changes:
+![](/images/blog/Screenshot 2015-06-22 22.47.05.png)
+
+In another tab, run `npm run watch` to start the Node.js server and automatically restart the process on file changes:
+
+![](/images/blog/Screenshot 2015-06-22 22.50.23.png)
+
+Now visit [`http://localhost:3000`](http://localhost:3000) and you should see our React app render successfully:
+
+![](/images/blog/Screenshot 2015-06-22 22.53.01.png)
+
+We did an impressive amount of work just to display an empty page with a simple alert message! Fortunately for us, the most difficult part is behind. Now we can chillax and focus on building new React components and implementing the REST API endpoints. 
+
+Both `gulp` and `npm run watch` processes will take care of everything for us. We no longer need to worry about re-compiling the app after adding new React components or restarting the Express app after making changes to *server.js*.
 
 
-## 333. e
+## Step 9. Footer and Navbar Components
+
+Both *Navbar* and *Footer* components are both relatively simple. The *Footer* component fetches the Top 5 characters from the server. The *Navbar* component fetches the total character count and it also intializes Socket.IO even listeners to display how many users are currently online.
+
+
+## Step 10. Socket.IO - Real-time User Count
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 Here is a more practical example in the context of React:
