@@ -23,7 +23,7 @@ In the same spirit as [Create a TV Show Tracker using AngularJS, Node.js and Mon
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
-  This is a remake of the original <a href="http://newedenfaces.com">New Eden Faces</a> (2013) project, which was my first single-page application written in Backbone.js.
+  This is a remake of the original <a href="http://www.newedenfaces.com/">New Eden Faces</a> (2013) project, which was my first single-page application written in Backbone.js.
 </div>
 
 I usually try to make as few assumptions as possible, but having said that, you need to have at least some experience with client-side JavaScript frameworks and Node.js to follow along this tutorial.
@@ -149,6 +149,11 @@ app.listen(app.get('port'), function() {
   console.log('Express server listening on port ' + app.get('port'));
 });
 ```
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+ Although we will be building the React app in ES6, I have decided to use ES5 here because this back-end code is mostly unchanged from when I first built the original <a href="https://github.com/sahat/newedenfaces">New Eden Faces</a> project. Additionally, if you are using ES6 for the first time, then at least the Express app will still be familiar to you.
+</div>
 
 Next, create a new directory called **<i class="fa fa-folder-open"></i>public**. This is where we will place images, fonts, as well as compiled CSS and JavaScript files.
 
@@ -364,7 +369,7 @@ Before we jump into building the React app, I have decided to dedicate the next 
 
 Since I can't cover everything, I will only be covering topics that you need to know specifically for this tutorial.
 
-## 3. ES6 Crash Course
+## Step 4*. ES6 Crash Course
 
 The best way to learn ES6 is by showing an equivalent ES5 code for every ES6 example. Again, I will only be covering what you need to know for this tutorial. There are plenty of blog posts that go in great detail about the new ES6 features.
 
@@ -524,7 +529,7 @@ $.ajax({ type: 'POST', url: '/api/characters', data: { name: name, gender: gende
 
 Next, let's talk about React, what makes it so special and why should we use it.
 
-## 4. React Crash Course
+## Step 5*. React Crash Course
 
 <i class="devicons devicons-react"></i> React is a JavaScript library for building web user interfaces. You could say it competes against <i class="devicons devicons-angular"></i> AngularJS, <i class="devicons devicons-ember"></i> Ember.js, <i class="devicons devicons-backbone"></i> Backbone and <i class="devicons devicons-webplatform"></i> Polymer despite being much smaller in scope. React is just the **V** in **MVC** (Model-View-Controller) architecture.
 
@@ -605,7 +610,7 @@ We have only scratched the surface of everything there is to React, but this sho
 
 React by itself is actually very simple and easy to grasp. However, it is when we start talking about [Flux](https://facebook.github.io/flux/) application architecture, things get a bit confusing.
 
-## 5. Flux Architecture Crash Course
+## Step 6*. Flux Architecture Crash Course
 
 Have you seen this diagram before? Did it make any sense to you? It did not make any sense to me, no matter how many times I looked at it.
 
@@ -618,11 +623,11 @@ Now that I understand it better, I am actually really amazed by how such simple 
  When I first began writing this tutorial I decided not to use Flux in this project. I could not grasp it for the life of me, let alone teach it to others. But thankfully, I get to work on cool stuff at Yahoo! where I get to play and experiment with different technologies during my work hours.
 </div>
 
-Instead of rehashing the [Flux: Overview](https://facebook.github.io/flux/docs/overview.html), let's take a look at one of the real-world use cases in order to illustrate how Flux works:
+Instead of reiterating the [Flux: Overview](https://facebook.github.io/flux/docs/overview.html), let's take a look at one of the real-world use cases in order to illustrate how Flux works:
 
 ![](/images/blog/Screenshot 2015-06-22 02.18.48.png)
 
-1. On `componentDidLoad` (when the page you are looking at is rendered) three actions are fired:
+1. On `componentDidLoad` (when the page is rendered) three actions are fired:
 
     ```js
     OverviewActions.getSummary();
@@ -630,32 +635,187 @@ Instead of rehashing the [Flux: Overview](https://facebook.github.io/flux/docs/o
     OverviewActions.getCompanies();
     ```
 
-2. Each one of those actions make an AJAX request to the server to fetch the data.
-3. When data is fetched `getSummary()` fires a new action and passes the data along with it - `getSummarySuccess(data)`. Similarly, `getApps()` action will fire `getAppsSuccess(data)` and `getCompanies()` will fire `getCompaniesSuccess(data)` actions. *Action names are irrelevant, use whatever naming convention you want as long as it is descriptive.*
+2. Each one of those actions makes an AJAX request to the server to fetch the data.
+
+3. When the data is fetched, each action fires another *"success"* action and passes the data along with it:
 
     ```js
-    request
-      .get('/api/overview')
-      .end((err, res) => {
-        if (!res.ok) {
-         return this.actions.getOverviewFail();
-        }
-        this.actions.getOverviewSuccess(res.body);
-      });
+    getSummary() {
+      request
+        .get('/api/overview/summary')
+        .end((err, res) => {
+          this.actions.getSummarySuccess(res.body);
+        });
+    }
     ```
 
-4. Meanwhile, a store (a place where we keep the component state) is listening for those *"success"* events. For example, when `getSummarySuccess(data)` is fired, one of the the store methods `onGetSummarySuccess(data)` will be called, and at that point it will update the *summary data* in the store, which initially is just an empty array.
-5. As soon as the store is updated, component will know about it because each component will have a listener for a particular store. When that store is updated/changed, a component will set its own state to whatever is in the store.
-6. At this point component has all the data it needs and will render accordingly.
-7. When date range is updated from the dropdown, the whole process is repeated.
+4. Meanwhile, the *Overview* store (a place where we keep the state for *Overview* component) is listening for those *"success"* actions. When the `getSummarySuccess` action is fired, `onGetSummarySuccess` method in the *Overview* store is called and the store is updated:
 
+    ```js
+    class OverviewStore {
 
+      constructor() {
+        this.bindActions(OverviewActions);
+        this.summary = {};
+        this.apps = [];
+        this.companies = [];
+      }
 
-**Flux TL;DR**
+      onGetSummarySuccess(data) {
+        this.summary = data;
+      }
+
+      onGetAppsSuccess(data) {
+        this.apps = data;
+      }
+
+      onGetCompaniesSuccess(data) {
+        this.companies = data;
+      }
+    }
+    ```
+
+5. As soon as the store is updated, the *Overview* component will know about it because it has subscribed to the *Overview* store. When a store is updated/changed, a component will set its own state to whatever is in that store.
+
+    ```js
+    class Overview extends React.Component {
+
+      constructor(props) {
+        super(props);
+        this.state = OverviewStore.getState();
+        this.onChange = this.onChange.bind(this);
+      }
+
+      componentDidMount() {
+        OverviewStore.listen(this.onChange);
+      }
+
+      onChange() {
+        this.setState(OverviewStore.getState())
+      }
+
+      ...
+    }
+    ```
+
+6. At this point the *Overview* component has all the data it needs, which is then passed down to all children components.
+
+7. When the date range is updated from the dropdown menu, the whole process is repeated all over again.
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+ Action names are irrelevant, use whatever naming convention you want as long as it is descriptive.
+</div>
+
+Ignoring the *Dispatcher* for a moment, can you see the one-way flow outlined above?
+
+![](/images/blog/flux-simple-f8-diagram-1300w.png)
+
+**Flux Summary**
 
 Flux is really just a fancy term for **pub/sub** architecture, i.e. data always flows one way through the application and it is picked up along the way by various subscribers who are listening to it.
 
-## 7. 44
+---
+
+There are more than a dozen of Flux implementations at the time of writing. Out of them all, I only have experience with [RefluxJS](https://github.com/spoike/refluxjs) and [Alt](http://alt.js.org/) libraries. Between those two, personally I prefer Alt for its simplicity, excellent support from *@goatslacker* in Gitter chatroom, extremely easy enable server-side rendering, great documentation and the project is actively maintained.
+
+I strongly encourage you to go through the Alt's [Getting Started](http://alt.js.org/guide/) guide. It will take no more than 10 minutes to skim through it.
+ 
+ 
+## Step 7. React Routes (Client-Side)
+
+Create a new file *App.js* inside **<i class="fa fa-folder-open"></i>app/components** with the following contents:
+
+```js
+import React from 'react';
+import {RouteHandler} from 'react-router';
+
+class App extends React.Component {
+  render() {
+    return (
+      <div>
+        <RouteHandler />
+      </div>
+    );
+  }
+}
+
+export default App;
+```
+
+`RouteHandler` is a component that renders the active child route handler. It will render the following components: *Home*, *Top 100*, *Profile* or *Add Character*, depending on the URL.
+
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+It is similar to <a href="https://docs.angularjs.org/api/ngRoute/directive/ngView"><code>&lt;div ng-view&gt;&lt;/div&gt;</code></a> in AngularJS, which includes the rendered template of current route into the main layout.
+</div>
+
+Next, create another file called *routes.js* inside **<i class="fa fa-folder-open"></i>app** and paste the following:
+
+```js
+import React from 'react';
+import {Route, NotFoundRoute} from 'react-router';
+import App from './components/App';
+import Home from './components/Home';
+
+export default (
+  <Route handler={App}>
+    <Route path='/' handler={Home} />
+  </Route>
+);
+```
+
+The reason why we nested the routes this way is that we are going to add *Navbar* and *Footer* components into the *App* component, before and after the `RouteHandler` respectively. Unlike other components, *Navbar* and *Footer* do not change between the route transitions. (See outlined screenshot from **Step 5**)
+
+Lastly, we need to listen to the url and render the application. Create a new file *main.js* inside **<i class="fa fa-folder-open"></i>app** and paste the following:
+
+```js
+import React from 'react';
+import Router from 'react-router';
+import routes from './routes';
+
+Router.run(routes, Router.HistoryLocation, function(Handler) {
+  React.render(<Handler />, document.getElementById('app'));
+});
+```
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+The <em>main.js</em> is the entry point for our React application. We use it in <em>gulpfile.js</em> where Browserify will traverse the entire tree of dependencies and generate the final <em>bundle.js</em> file. You will rarely have to touch this file after the initial setup.
+</div>
+
+The [react-router](http://rackt.github.io/react-router/) runs the routes from *routes.js*, matches them against a URL, and then executes the callback, which in this case means rendering a React component into `<div id="app"></div>`. Which component? If we are on the `/` URL path, then `<Handler />` is *Home* component, because that is what we have specified in *routes.js*. We will add more routes shortly.
+
+Also, notice that we are using [`HistoryLocation`](http://rackt.github.io/react-router/#HistoryLocation) to enable HTML5 History API in order to make URLs look pretty. For example, it navigates to `http://localhost:3000/add` instead of  `http://localhost:3000/#add`. Since we are building an Isomorphic React application (rendered on the server and the client) we do not have to do any [wildcard redirects on the server](https://github.com/sahat/tvshow-tracker/blob/master/server.js#L343-L345) to enable this support.
+
+Let's create one last React component for this section. Create a new file *Home.js* inside **<i class="fa fa-folder-open"></i>app/components** with the following contents:
+
+```js
+import React from 'react';
+
+class Home extends React.Component {
+  render() {
+    return (
+      <div>Hello from Home Component</div>
+    );
+  }
+}
+
+export default Home;
+```
+
+This should be everything we have created so far. Perhaps now would be a good time to double check your code.
+
+![](/images/blog/Screenshot 2015-06-22 21.09.21.png)
+
+We just need to set up a couple more things on the back-end, then we can run the app.
+
+## Step 8. React Routes (Server-Side)
+
+
+
+## 333. e
 
 
 Here is a more practical example in the context of React:
