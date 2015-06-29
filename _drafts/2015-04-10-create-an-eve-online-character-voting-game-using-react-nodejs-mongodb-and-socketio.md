@@ -9,7 +9,7 @@ image: blog/create-an-eve-online-character-voting-game-using-react-nodejs-mongod
 ## Overview
 
 In this tutorial we are going to build a character voting game (inspired by *Facemash* and *Hot or Not*) for [EVE Online](http://www.eveonline.com/) - massively multiplayer online game. If you are not familiar with EVE Online, check out this [video](https://www.youtube.com/watch?v=e2X1MIR1KMs).
- 
+
 ![](/images/blog/Screenshot 2015-03-31 23.05.36.png)
 
 <ul class="list-inline text-center">
@@ -314,7 +314,7 @@ Although the code should be more or less self-explanatory with those task names 
 
 
 Next, let's shift focus to the project structure by creating files and folders that *gulpfile.js* expects.
- 
+
 ## Step 3. Project Structure
 
 In the **<i class="fa fa-folder-open"></i>public** directory create 4 new folders **<i class="fa fa-folder-open"></i>css**, **<i class="fa fa-folder-open"></i>js**, **<i class="fa fa-folder-open"></i>fonts** and **<i class="fa fa-folder-open"></i>img**. Also, download this [favicon.png](https://raw.githubusercontent.com/sahat/newedenfaces-react/master/public/favicon.png) and place it here as well.
@@ -1146,7 +1146,7 @@ label {
 }
 ```
 
-If you have used the [Bootstrap framework](http://getbootstrap.com/) at all, then everything above should be pretty familar to you.
+If you have used the [Bootstrap framework](http://getbootstrap.com/) at all, then everything above should be pretty familiar to you.
 
 
 <div class="admonition note">
@@ -1297,9 +1297,9 @@ $.ajax({ type: 'POST', url: '/api/characters', data: { name: name, gender: gende
   }.bind(this));
 ```
 
-Every function expression above has its own `this` value. Without binding `this` we would not be able to call `this.setState` in the example above, because `this` would have been *undefined*.
+Every function expression above creates its own `this` scope. Without binding `this` we would not be able to call `this.setState` in the example above, because `this` would have been *undefined*.
 
-Alternatively, we could have assigned `this` to a variable (typically `var self = this`), then used `self` instead of `this` inside the [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
+Alternatively, we could have assigned `this` to a variable, e.g. `var self = this` and then used `self.setState` instead of `this.setState` inside the [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
 
 In any case, here is an equivalent ES6 code using fat arrow functions which preserve `this` value:
 
@@ -1359,17 +1359,32 @@ So, whenever you have a certain UI design in mind, start by breaking it apart fr
 
 All components in React have a `render()` method. It always returns a *single child* element. In other words, the following return block is invalid because it contains 3 child elements:
 
-```html
+```js
 render() {
-    return (
-      <li>Achura</li>
-      <li>Civire</li>
-      <li>Deteis</li>
-    );
-  }
+  // Invalid JSX
+  return (
+    <li>Achura</li>
+    <li>Civire</li>
+    <li>Deteis</li>
+  );
+}
 ```
 
 The HTML markup above is actually called [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html). As far syntax goes, it is just slightly different from HTML, e.g. `className` instead of `class` to define CSS classes. You will learn more about it as we start building the app.
+
+When I first saw that syntax, I was immediately repulsed by it. I am used to returning booleans, numbers, strings, objects and functions in JavaScript, but certaintly not that. However, JSX is actually just a syntactic sugar. After fixing the markup above by wrapping it with a `<ul>` tag, here is what it would look like without JSX:
+
+```js
+render() {
+  return React.createElement('ul', null,
+    React.createElement('li', null, 'Achura'),
+    React.createElement('li', null, 'Civire'),
+    React.createElement('li', null, 'Deteis')
+  );
+}
+```
+
+I think you will agree that JSX is far more readable than plain JavaScript. Furthermore, [Babel](http://babeljs.io/) has a built-in support for JSX, so we don't need to do anything extra. If you have ever worked with AngularJS directives then you will appreciate working with self-contained components, instead of having two different files: *directive.js* (logic) and *template.html* (presentation).
 
 The [`componentDidMount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount) method in React is the closest thing to [`$(document).ready`](https://learn.jquery.com/using-jquery-core/document-ready/) in jQuery. This method runs once, only on the client (not on the server) immediately after initial rendering of the component. This is where you would initialize third-party libraries and jQuery plugins, or connect to Socket.IO.
 
@@ -1509,8 +1524,8 @@ Flux is really just a fancy term for **pub/sub** architecture, i.e. data always 
 There are more than a dozen of Flux implementations at the time of writing. Out of them all, I only have experience with [RefluxJS](https://github.com/spoike/refluxjs) and [Alt](http://alt.js.org/) libraries. Between those two, personally I prefer Alt for its simplicity, excellent support from *@goatslacker* in Gitter chatroom, extremely easy enable server-side rendering, great documentation and the project is actively maintained.
 
 I strongly encourage you to go through the Alt's [Getting Started](http://alt.js.org/guide/) guide. It will take no more than 10 minutes to skim through it.
- 
- 
+
+
 ## Step 7. React Routes (Client-Side)
 
 Create a new file *App.js* inside **<i class="fa fa-folder-open"></i>app/components** with the following contents:
@@ -1666,14 +1681,171 @@ Now visit [`http://localhost:3000`](http://localhost:3000) and you should see ou
 
 ![](/images/blog/Screenshot 2015-06-22 22.53.01.png)
 
-We did an impressive amount of work just to display an empty page with a simple alert message! Fortunately for us, the most difficult part is behind. Now we can chillax and focus on building new React components and implementing the REST API endpoints. 
+We did an impressive amount of work just to display an empty page with a simple alert message! Fortunately, the most difficult part is behind us. Now we can chillax and focus on building new React components and implementing the REST API endpoints.
 
 Both `gulp` and `npm run watch` processes will take care of everything for us. We no longer need to worry about re-compiling the app after adding new React components or restarting the Express app after making changes to *server.js*.
 
 
 ## Step 9. Footer and Navbar Components
 
-Both *Navbar* and *Footer* components are both relatively simple. The *Footer* component fetches the Top 5 characters from the server. The *Navbar* component fetches the total character count and it also intializes Socket.IO even listeners to display how many users are currently online.
+Both *Navbar* and *Footer* are relatively simple components. The *Footer* component fetches and displays the Top 5 characters. The *Navbar* component fetches and displays the total character count and initializes a Socket.IO event listener for tracking the number of online visitors.
+
+Create a new file *Footer.js* inside **<i class="fa fa-folder-open"></i>components** directory:
+
+```js
+import React from 'react';
+import {Link} from 'react-router';
+import FooterStore from '../stores/FooterStore'
+import FooterActions from '../actions/FooterActions';
+
+class Footer extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = FooterStore.getState();
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    FooterStore.listen(this.onChange);
+    FooterActions.getTopCharacters();
+  }
+
+  componentWillUnmount() {
+    FooterStore.unlisten(this.onChange);
+  }
+
+  onChange(state) {
+    this.setState(state);
+  }
+
+  render() {
+    let leaderboardCharacters = this.state.characters.map((character) => {
+      return (
+        <li key={character.characterId}>
+          <Link to={'/characters/' + character.characterId}>
+            <img className='thumb-md' src={'http://image.eveonline.com/Character/' + character.characterId + '_128.jpg'} />
+          </Link>
+        </li>
+      )
+    });
+
+    return (
+      <footer>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-sm-5'>
+              <h3 className='lead'><strong>Information</strong> and <strong>Copyright</strong></h3>
+              <p>Powered by <strong>Node.js</strong>, <strong>MongoDB</strong> and <strong>React</strong> with Flux architecture and server-side rendering.</p>
+              <p>You may view the <a href='https://github.com/sahat/newedenfaces-react'>Source Code</a> behind this project on GitHub.</p>
+              <p>© 2015 Sahat Yalkabov.</p>
+            </div>
+            <div className='col-sm-7 hidden-xs'>
+              <h3 className='lead'><strong>Leaderboard</strong> Top 5 Characters</h3>
+              <ul className='list-inline'>
+                {leaderboardCharacters}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    );
+  }
+}
+
+export default Footer;
+```
+
+Just this once, I will show an ES5-equivalent code for this component in case you are still not comfortable with the ES6 syntax. Also, see [Using Alt with ES5](http://alt.js.org/guides/es5/) guide for syntax differences when creating actions and creating stores.
+
+```js
+var React = require('react');
+var Link = require('react-router').Link;
+var FooterStore = require('../stores/FooterStore');
+var FooterActions = require('../actions/FooterActions');
+
+var Footer = React.createClass({
+
+  getInitialState: function() {
+    return FooterStore.getState();
+  }
+
+  componentDidMount: function() {
+    FooterStore.listen(this.onChange);
+    FooterActions.getTopCharacters();
+  }
+
+  componentWillUnmount: function() {
+    FooterStore.unlisten(this.onChange);
+  }
+
+  onChange: function(state) {
+    this.setState(state);
+  }
+
+  render() {
+    var leaderboardCharacters = this.state.characters.map(function(character) {
+      return (
+        <li key={character.characterId}>
+          <Link to={'/characters/' + character.characterId}>
+            <img className='thumb-md' src={'http://image.eveonline.com/Character/' + character.characterId + '_128.jpg'} />
+          </Link>
+        </li>
+      );
+    });
+
+    return (
+      <footer>
+        <div className='container'>
+          <div className='row'>
+            <div className='col-sm-5'>
+              <h3 className='lead'><strong>Information</strong> and <strong>Copyright</strong></h3>
+              <p>Powered by <strong>Node.js</strong>, <strong>MongoDB</strong> and <strong>React</strong> with Flux architecture and server-side rendering.</p>
+              <p>You may view the <a href='https://github.com/sahat/newedenfaces-react'>Source Code</a> behind this project on GitHub.</p>
+              <p>© 2015 Sahat Yalkabov.</p>
+            </div>
+            <div className='col-sm-7 hidden-xs'>
+              <h3 className='lead'><strong>Leaderboard</strong> Top 5 Characters</h3>
+              <ul className='list-inline'>
+                {leaderboardCharacters}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </footer>
+    );
+  }
+});
+
+module.exports = Footer;
+```
+
+If you can recall the previous section on Flux architecture then this should all be familiar to you. When component is loaded it sets the initial component state to whatever is in the *FooterStore* and initialzes a store listener, likewise when component is unloaded (e.g. navigated to a different page) that store listener is removed. When the store is updated, `onChange` function is called, which in turn updates the *Footer's* state.
+
+If by any chance you have used React before, there is something you need to keep in mind when creating React components using ES6 classes. Component methods no longer autobind `this` context. For example, when calling an internal component method that uses `this`, you need to bind `this` explicitly. Previously, `React.createClass()` was doing it for us internally:
+
+> **Autobinding**: When creating callbacks in JavaScript, you usually need to explicitly bind a method to its instance such that the value of **this** is correct. With React, every method is automatically bound to its component instance.
+
+That is why we have the following line in ES6, but not in ES5:
+
+```js
+this.onChange = this.onChange.bind(this);
+```
+
+You may or may not be familiar with the [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) method in JavaScript. Even if you have used it before, it may still be unclear how it works in the context of JSX. (Something that [React Tutorial](http://facebook.github.io/react/docs/tutorial.html#hook-up-the-data-model) regretfully does not explain well.)
+
+It is basically a *for-each* loop, similar to what you might see in [Jade](http://jade-lang.com/reference/iteration/) and [Handlebars](http://handlebarsjs.com/builtin_helpers.html#iteration), but here you can assign the results to a variable, which can then be used with JSX by wrapping it with curly braces. It's a very common pattern in React so you will be using it quite frequently.
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+  When rendering <a href="https://facebook.github.io/react/docs/multiple-components.html#dynamic-children">dynamic children</a>, such as <code>leaderboardCharacters</code> above, React requires that you use the <code>key</code> property to uniquely identify each child element.
+</div>
+
+The [`Link`](http://rackt.github.io/react-router/#Link) component will render a fully accesible anchor tag with the proper href. A [`Link`](http://rackt.github.io/react-router/#Link) also knows when the route it links to is active and automatically applies its "active" CSS class.
+
+---
+
+Navbar.
 
 
 ## Step 10. Socket.IO - Real-time User Count
@@ -1725,9 +1897,6 @@ var Hello = React.createClass({
 module.exports = Hello;
 ```
 
-If you have used React before, there is something you need to keep in mind when creating React components using ES6 classes. Component methods no longer autobind `this` context. For example, when calling an internal component method that uses `this`, you have to `.bind(this)` explicitly. Previously, `React.createClass()` was doing it for us internally:
-
-> **Autobinding**: When creating callbacks in JavaScript, you usually need to explicitly bind a method to its instance such that the value of **this** is correct. With React, every method is automatically bound to its component instance.
 
 ```js
 class App extends React.Component {
