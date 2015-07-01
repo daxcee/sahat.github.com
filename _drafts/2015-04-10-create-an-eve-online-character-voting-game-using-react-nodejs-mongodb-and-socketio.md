@@ -1,14 +1,14 @@
 ---
 layout: post
 title: Create a character voting game using React, Node.js, MongoDB and Socket.IO
-excerpt: "In this tutorial we are going to build a character voting game (inspired by Hot or Not) for EVE Online - a massively multiplayer online game."
+excerpt: "In this tutorial we are going to build a character voting game (inspired by Hot or Not) for EVE Online - a massively multiplayer online game. You will learn how to build a REST API with <strong>Node.js</strong>, save and retrieve data from <strong>MongoDB</strong>, track online visitors in real-time using <strong>Socket.IO</strong>, build a single-page app experience using <strong>React</strong> + <strong>Flux</strong> and then finally deploy it to the cloud."
 gradient: 1
 image: blog/create-an-eve-online-character-voting-game-using-react-nodejs-mongodb-and-socketio-cover.jpg
 ---
 
 ## Overview
 
-In this tutorial we are going to build a character voting game (inspired by *Facemash* and *Hot or Not*) for [EVE Online](http://www.eveonline.com/) - massively multiplayer online game. If you are not familiar with EVE Online, check out this [video](https://www.youtube.com/watch?v=e2X1MIR1KMs).
+In this tutorial we are going to build a character voting game (inspired by *Facemash* and *Hot or Not*) for [EVE Online](http://www.eveonline.com/) - massively multiplayer online game. If you are not familiar with EVE Online, see this [video](https://www.youtube.com/watch?v=e2X1MIR1KMs).
 
 ![](/images/blog/Screenshot 2015-03-31 23.05.36.png)
 
@@ -23,10 +23,10 @@ In the same spirit as [Create a TV Show Tracker using AngularJS, Node.js and Mon
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
-  This is a remake of the original <a href="http://www.newedenfaces.com/">New Eden Faces</a> (2013) project, which was my first single-page application written in Backbone.js.
+  This is a remake of the original <a href="http://www.newedenfaces.com/">New Eden Faces</a> (2013) project, which was my first ever single-page application written in Backbone.js.
 </div>
 
-I usually try to make as few assumptions as possible, but having said that, you need to have at least some experience with client-side JavaScript frameworks and Node.js to follow along this tutorial.
+Usually, I try to make as few assumptions as possible about a particular topic, which is why my tutorials are so lengthy, but having said that, you need to have at least some prior experience with client-side JavaScript frameworks and Node.js to get the most out of this tutorial. I will not be going over [Express](http://expressjs.com/) and [Mongoose](http://mongoosejs.com/) basics all over again because I have already covered it [here](http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) and [here](http://sahatyalkabov.com/build-an-instagram-clone-using-angularjs-satellizer-nodejs-and-mongodb/) and [here](https://github.com/sahat/hackathon-starter#how-it-works-mini-guides) and [here](http://sahatyalkabov.com/how-to-implement-password-reset-in-nodejs/).
 
 
 Before proceeding, you will need to download and install the following tools:
@@ -1062,9 +1062,31 @@ That is why we have the following line in ES6, but not in ES5:
 this.onChange = this.onChange.bind(this);
 ```
 
+Here is a more complete example on this issue:
+
+```js
+class App extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = AppStore.getState();
+    this.onChange = this.onChange; // Need to add `.bind(this)`.
+  }
+
+  onChange(state) {
+    // Object `this` will be undefined without binding it explicitly.
+    this.setState(state);
+  }
+
+  render() {
+    return null;
+  }
+}
+```
+
 You may or may not be familiar with the [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) method in JavaScript. Even if you have used it before, it may still be unclear how it works in the context of JSX. (Something that [React Tutorial](http://facebook.github.io/react/docs/tutorial.html#hook-up-the-data-model) regretfully does not explain well.)
 
-It is basically a *for-each* loop, similar to what you might see in [Jade](http://jade-lang.com/reference/iteration/) and [Handlebars](http://handlebarsjs.com/builtin_helpers.html#iteration), but here you can assign the results to a variable, which can then be used with JSX by wrapping it with curly braces. It's a very common pattern in React so you will be using it quite frequently.
+It is basically a *for-each* loop, similar to what you might see in [Jade](http://jade-lang.com/reference/iteration/) and [Handlebars](http://handlebarsjs.com/builtin_helpers.html#iteration), but here you can assign the results to a variable, which can then be used with JSX by wrapping it in curly braces. It's a very common pattern in React so you will be using it quite frequently.
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
@@ -1124,7 +1146,7 @@ getTopCharactersFail(payload) {
 }
 ```
 
-And lastly, we wrap the *FooterActions* class with [`alt.createActions`](http://alt.js.org/docs/createActions/#createActions) then export it.
+And lastly, we wrap the *FooterActions* class with [`alt.createActions`](http://alt.js.org/docs/createActions/#createActions) and then export it.
 
 **<i class="devicons devicons-react"></i> Store**
 
@@ -1145,6 +1167,7 @@ class FooterStore {
   }
 
   onGetTopCharactersFail(jqXhr) {
+    // Handle multiple response formats, fallback to HTTP status code number.
     toastr.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
   }
 }
@@ -1152,7 +1175,20 @@ class FooterStore {
 export default alt.createStore(FooterStore);
 ```
 
-Open *App.js* component add `<Footer />` right after the `<RouterHandler />` component:
+All instance variables of the store, i.e. values assigned to `this`, will become part of state. When *Footer* component initially calls `FooterStore.getState()` it receives the current state of the store specified in the constructor.
+
+[`bindActions`](http://alt.js.org/docs/createStore/#storemodelbindactions) is a magic Alt method which binds actions to their handlers defined in the store. For example, an action with the name `foo` will match an action handler method defined in the store named `onFoo` or just `foo` but not both. That is why for actions `getTopCharactersSuccess` and `getTopCharactersFail` defined in *FooterActions.js* we have corresponding store handlers called `onGetTopCharactersSuccess` and `onGetTopCharactersFail`.
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+  For more precise control over which actions the store listens to and what handlers those actions are bound to, see <a href="http://alt.js.org/docs/createStore/#storemodelbindlisteners"><code>bindListeners</code></a> method.
+</div>
+
+I hope it's pretty clear by now that when `getTopCharactersSuccess` action is fired, `onGetTopCharactersSuccess` handler function is executed and the store is updated with the new data that contains *Top 5 Characters*. And since we have initialized the store listener in *Footer* component, it will be notified that the store has been updated and the component will re-render accordingly.
+
+We will be using [Toastr](http://codeseven.github.io/toastr/demo.html) JavaScript library for notifications. Why not just use pure React notification component you may ask? While you may find some notification components built specifically for React, I personally think it is one of the few areas that should not be handled by React (*along with tooltips*). I think it is far easier to display a notification imperatively from any part of your application than having to declaratively render notification component based on the current state. I have built a notification component with React and Flux before, but frankly, it wasn't very intuitive to me.
+
+Open *App.js* component, then add `<Footer />` right after the `<RouterHandler />` component:
 
 ```html
 <div>
@@ -1163,6 +1199,8 @@ Open *App.js* component add `<Footer />` right after the `<RouterHandler />` com
 
 ![](/images/blog/Screenshot 2015-06-30 12.45.26.png)
 
+We will implement Express API endpoints and populate the database with characters shortly.
+
 ---
 
 Navbar.
@@ -1171,69 +1209,4 @@ Navbar.
 ## Step 10. Socket.IO - Real-time User Count
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-Here is a more practical example in the context of React:
-
-```js
-// ES6
-class Hello extends React.Component {
-  render() {
-    return <div>Hello World!</div>;
-  }
-}
-
-export default Hello;
-```
-
-```js
-// ES5
-var Hello = React.createClass({
-  render: function() {
-    return <div>Hello World!</div>;
-  }
-});
-
-module.exports = Hello;
-```
-
-
-```js
-class App extends React.Component {
-
-  constructor(props) {
-    super(props);
-    this.state = AppStore.getState();
-    this.onChange = this.onChange.bind(this);
-  }
-
-  onChange() {
-    // `this` will be undefined without binding it explicitly.
-    this.setState(AppStore.getState())
-  }
-
-  render() {
-    return null;
-  }
-}
-```
+## Step xx. Helpful Resources for React
