@@ -778,7 +778,7 @@ export default App;
 It is similar to <a href="https://docs.angularjs.org/api/ngRoute/directive/ngView"><code>&lt;div ng-view&gt;&lt;/div&gt;</code></a> in AngularJS, which includes the rendered template of current route into the main layout.
 </div>
 
-Next, create another file called *routes.js* inside **<i class="fa fa-folder-open"></i>app** and paste the following:
+Next, open *routes.js* inside **<i class="fa fa-folder-open"></i>app** and paste the following:
 
 ```js
 import React from 'react';
@@ -795,7 +795,7 @@ export default (
 
 The reason why we nested the routes this way is that we are going to add *Navbar* and *Footer* components into the *App* component, before and after the `RouteHandler` respectively. Unlike other components, *Navbar* and *Footer* do not change between the route transitions. (See outlined screenshot from **Step 5**)
 
-Lastly, we need to listen to the url and render the application. Create a new file *main.js* inside **<i class="fa fa-folder-open"></i>app** and paste the following:
+Lastly, we need to listen to the url and render the application. Open *main.js* inside **<i class="fa fa-folder-open"></i>app** that we created earlier and paste the following:
 
 ```js
 import React from 'react';
@@ -838,7 +838,15 @@ This should be everything we have created so far. Perhaps now would be a good ti
 
 ![](/images/blog/Screenshot 2015-06-22 21.09.21.png)
 
-We just need to set up a couple more things on the back-end, then we can finally run the app.
+One last thing, open *alt.js* in **<i class="fa fa-folder-open"></i>app** and paste the following code. I will explain its purpose in **Step 9** when we actually get to use it.
+
+```js
+import Alt from 'alt';
+
+export default new Alt();
+```
+
+Now we just need to set up a few more things on the back-end and then we can finally run the app.
 
 ## Step 8. React Routes (Server-Side)
 
@@ -1050,7 +1058,7 @@ var Footer = React.createClass({
 module.exports = Footer;
 ```
 
-If you can recall the previous section on Flux architecture then this should all be familiar to you. When component is loaded it sets the initial component state to whatever is in the *FooterStore* and initialzes a store listener, likewise when component is unloaded (e.g. navigated to a different page) that store listener is removed. When the store is updated, `onChange` function is called, which in turn updates the *Footer's* state.
+If you can recall the previous section on Flux architecture, then this should all be familiar to you. When component is loaded it sets the initial component state to whatever is in the *FooterStore* and initialzes a store listener, likewise when component is unloaded (e.g. navigated to a different page) that store listener is removed. When the store is updated, `onChange` function is called, which in turn updates the *Footer's* state.
 
 If by any chance you have used React before, there is something you need to keep in mind when creating React components using ES6 classes. Component methods no longer autobind `this` context. For example, when calling an internal component method that uses `this`, you need to bind `this` explicitly. Previously, `React.createClass()` was doing it for us internally:
 
@@ -1124,9 +1132,11 @@ class FooterActions {
 export default alt.createActions(FooterActions);
 ```
 
-We have three actions here - the one that fetches the data using [`jQuery.ajax()`](http://api.jquery.com/jquery.ajax/) and two that notify the store whether that action was successful or unsuccessful. In this particular case, it is not very useful to know when `getTopCharacters` action is fired. What we really want to know is if that action was successful (*update the store and re-render the component with new data*) or unsuccessful (*display an error notification*).
+First, notice that we import an instance of Alt (*alt.js* from **Step 7**), not the Alt module installed in **<i class="fa fa-folder-open"></i>node_modules**. It is an instance of Alt which instantiates [Flux dispatcher](http://facebook.github.io/flux/docs/dispatcher.html#content) and provides methods for creating Alt actions and stores. You can think of it as a glue between all of our stores and actions.
 
-Actions can be as complex or as simple as you need them to be. Some actions are "actions" themselves, where we don't care what they do or what they send, the fact that action was fired is all we need to know. For example, `ajaxInProgress` and `ajaxDone`.
+We have three actions here - the one that fetches the data using [`jQuery.ajax()`](http://api.jquery.com/jquery.ajax/) and two that notify the store whether that action was successful or unsuccessful. In this particular case, it is not very useful to know when `getTopCharacters` action is fired. What we really want to know is if that action was successful (*update the store, then re-render the component with new data*) or unsuccessful (*display an error notification*).
+
+Actions can be as complex or as simple as you need them to be. Some actions are "actions" themselves, where we don't care what they do or what they send, the fact that action was fired is all we need to know. For example, `ajaxInProgress` and `ajaxComplete` to notify a store when AJAX request is in progress or complete.
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
@@ -1134,7 +1144,7 @@ Actions can be as complex or as simple as you need them to be. Some actions are 
 </div>
 
 
-The two shorthand actions above and the following two actions are equivalent, so use either notation based on your preference:
+The two shorthand actions above created via `generateActions` and the following two actions are equivalent, so use either notation based on your preference:
 
 ```js
 getTopCharactersSuccess(payload) {
@@ -1146,7 +1156,7 @@ getTopCharactersFail(payload) {
 }
 ```
 
-And lastly, we wrap the *FooterActions* class with [`alt.createActions`](http://alt.js.org/docs/createActions/#createActions) and then export it.
+And lastly, we wrap the *FooterActions* class with [`alt.createActions`](http://alt.js.org/docs/createActions/#createActions) and then export it, so that we could import and use it in the *Footer* component.
 
 **<i class="devicons devicons-react"></i> Store**
 
@@ -1199,11 +1209,468 @@ Open *App.js* component, then add `<Footer />` right after the `<RouterHandler /
 
 ![](/images/blog/Screenshot 2015-06-30 12.45.26.png)
 
-We will implement Express API endpoints and populate the database with characters shortly.
+We will implement Express API endpoints and populate the database with characters shortly. Alright, let's move on to the *Navbar* component. Since I have already covered the basics behind Alt actions and stores, and how they fit in our app architecture, this will be a relatively short sub-section.
 
 ---
 
-Navbar.
+**<i class="devicons devicons-react"></i> Component**
+
+Create a new file *Navbar.js* inside **<i class="fa fa-folder-open"></i>components** directory:
+
+```js
+import React from 'react';
+import {Link} from 'react-router';
+import NavbarStore from '../stores/NavbarStore'
+import NavbarActions from '../actions/NavbarActions';
+
+class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = NavbarStore.getState();
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    NavbarStore.listen(this.onChange);
+    NavbarActions.getCharacterCount();
+
+    let socket = io.connect();
+
+    socket.on('onlineUsers', (data) => {
+      NavbarActions.updateOnlineUsers(data);
+    });
+
+    $(document).ajaxStart(() => {
+      NavbarActions.updateAjaxAnimation('fadeIn');
+    });
+
+    $(document).ajaxComplete(() => {
+      setTimeout(() => {
+        NavbarActions.updateAjaxAnimation('fadeOut');
+      }, 750);
+    });
+  }
+
+  componentWillUnmount() {
+    NavbarStore.unlisten(this.onChange);
+  }
+
+  onChange() {
+    this.setState(NavbarStore.getState());
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    let searchQuery = this.state.searchQuery.trim();
+
+    if (searchQuery) {
+      NavbarActions.findCharacter({
+        searchQuery: searchQuery,
+        searchFormNode: this.refs.searchForm.getDOMNode(),
+        router: this.context.router
+      });
+    }
+  }
+
+  render() {
+    return (
+      <nav className='navbar navbar-default navbar-static-top'>
+        <div className='navbar-header'>
+          <button type='button' className='navbar-toggle collapsed' data-toggle='collapse' data-target='#navbar'>
+            <span className='sr-only'>Toggle navigation</span>
+            <span className='icon-bar'></span>
+            <span className='icon-bar'></span>
+            <span className='icon-bar'></span>
+          </button>
+          <Link to='/' className='navbar-brand'>
+            <span ref='triangles' className={'triangles animated ' + this.state.ajaxAnimation}>
+              <div className='tri invert'></div>
+              <div className='tri invert'></div>
+              <div className='tri'></div>
+              <div className='tri invert'></div>
+              <div className='tri invert'></div>
+              <div className='tri'></div>
+              <div className='tri invert'></div>
+              <div className='tri'></div>
+              <div className='tri invert'></div>
+            </span>
+            NEF
+            <span className='badge badge-up badge-danger'>{this.state.onlineUsers}</span>
+          </Link>
+        </div>
+        <div id='navbar' className='navbar-collapse collapse'>
+          <form ref='searchForm' className='navbar-form navbar-left animated' onSubmit={this.handleSubmit.bind(this)}>
+            <div className='input-group'>
+              <input type='text' className='form-control' placeholder={this.state.totalCharacters + ' characters'} value={this.state.searchQuery} onChange={NavbarActions.updateSearchQuery} />
+              <span className='input-group-btn'>
+                <button className='btn btn-default' onClick={this.handleSubmit.bind(this)}><span className='glyphicon glyphicon-search'></span></button>
+              </span>
+            </div>
+          </form>
+          <ul className='nav navbar-nav'>
+            <li><Link to='/'>Home</Link></li>
+            <li><Link to='/stats'>Stats</Link></li>
+            <li className='dropdown'>
+              <a href='#' className='dropdown-toggle' data-toggle='dropdown'>Top 100 <span className='caret'></span></a>
+              <ul className='dropdown-menu'>
+                <li><Link to='/top'>Top Overall</Link></li>
+                <li className='dropdown-submenu'>
+                  <Link to='/top/caldari'>Caldari</Link>
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/top/caldari/achura'>Achura</Link></li>
+                    <li><Link to='/top/caldari/civire'>Civire</Link></li>
+                    <li><Link to='/top/caldari/deteis'>Deteis</Link></li>
+                  </ul>
+                </li>
+                <li className='dropdown-submenu'>
+                  <Link to='/top/gallente'>Gallente</Link>
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/top/gallente/gallente'>Gallente</Link></li>
+                    <li><Link to='/top/gallente/intaki'>Intaki</Link></li>
+                    <li><Link to='/top/gallente/jin-mei'>Jin-Mei</Link></li>
+                  </ul>
+                </li>
+                <li className='dropdown-submenu'>
+                  <Link to='/top/minmatar'>Minmatar</Link>
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/top/minmatar/brutor'>Brutor</Link></li>
+                    <li><Link to='/top/minmatar/sebiestor'>Sebiestor</Link></li>
+                    <li><Link to='/top/minmatar/vherokior'>Vherokior</Link></li>
+                  </ul>
+                </li>
+                <li className='dropdown-submenu'>
+                  <Link to='/top/amarr'>Amarr</Link>
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/top/amarr/amarr'>Amarr</Link></li>
+                    <li><Link to='/top/amarr/ni-kunni'>Ni-Kunni</Link></li>
+                    <li><Link to='/top/amarr/khanid'>Khanid</Link></li>
+                  </ul>
+                </li>
+                <li className='divider'></li>
+                <li><Link to='/shame'>Hall of Shame</Link></li>
+              </ul>
+            </li>
+            <li className='dropdown'>
+              <a href='#' className='dropdown-toggle' data-toggle='dropdown'>Female <span className='caret'></span></a>
+              <ul className='dropdown-menu'>
+                <li><Link to='/female'>All</Link></li>
+                <li className='dropdown-submenu'>
+                  <Link to='/female/caldari'>Caldari</Link>
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/female/caldari/achura'>Achura</Link></li>
+                    <li><Link to='/female/caldari/civire/'>Civire</Link></li>
+                    <li><Link to='/female/caldari/deteis'>Deteis</Link></li>
+                  </ul>
+                </li>
+                <li className='dropdown-submenu'>
+                  <Link to='/female/gallente'>Gallente</Link>
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/female/gallente/gallente'>Gallente</Link></li>
+                    <li><Link to='/female/gallente/intaki'>Intaki</Link></li>
+                    <li><Link to='/female/gallente/jin-mei'>Jin-Mei</Link></li>
+                  </ul>
+                </li>
+                <li className='dropdown-submenu'>
+                  <Link to='/female/minmatar'>Minmatar</Link>
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/female/minmatar/brutor'>Brutor</Link></li>
+                    <li><Link to='/female/minmatar/sebiestor'>Sebiestor</Link></li>
+                    <li><Link to='/female/minmatar/vherokior'>Vherokior</Link></li>
+                  </ul>
+                </li>
+                <li className='dropdown-submenu'>
+                  <Link to='/female/amarr'>Amarr</Link>
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/female/amarr/amarr'>Amarr</Link></li>
+                    <li><Link to='/female/amarr/ni-kunni'>Ni-Kunni</Link></li>
+                    <li><Link to='/female/amarr/khanid'>Khanid</Link></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li className='dropdown'>
+              <a href='#' className='dropdown-toggle' data-toggle='dropdown'>Male <span className='caret'></span></a>
+              <ul className='dropdown-menu'>
+                <li><Link to='/male'>All</Link></li>
+                <li className='dropdown-submenu'>
+                  <Link to='/male/caldari'>Caldari</Link>
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/male/caldari/achura'>Achura</Link></li>
+                    <li><Link to='/male/caldari/civire'>Civire</Link></li>
+                    <li><Link to='/male/caldari/deteis'>Deteis</Link></li>
+                  </ul>
+                </li>
+                <li className='dropdown-submenu'>
+                  <Link to='/male/gallente'>Gallente</Link>
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/male/gallente/gallente'>Gallente</Link></li>
+                    <li><Link to='/male/gallente/intaki'>Intaki</Link></li>
+                    <li><Link to='/male/gallente/jin-mei'>Jin-Mei</Link></li>
+                  </ul>
+                </li>
+                <li className='dropdown-submenu'>
+                  <Link to='/male/minmatar'>Minmatar</Link>
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/male/minmatar/brutor'>Brutor</Link></li>
+                    <li><Link to='/male/minmatar/sebiestor'>Sebiestor</Link></li>
+                    <li><Link to='/male/minmatar/vherokior'>Vherokior</Link></li>
+                  </ul>
+                </li>
+                <li className='dropdown-submenu'>
+                  <Link to='/male/amarr'>Amarr</Link>
+                  <ul className='dropdown-menu'>
+                    <li><Link to='/male/amarr/amarr'>Amarr</Link></li>
+                    <li><Link to='/male/amarr/ni-kunni'>Ni-Kunni</Link></li>
+                    <li><Link to='/male/amarr/khanid'>Khanid</Link></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li><Link to='/add'>Add</Link></li>
+          </ul>
+        </div>
+      </nav>
+    );
+  }
+}
+
+Navbar.contextTypes = {
+  router: React.PropTypes.func.isRequired
+};
+
+export default Navbar;
+```
+
+Ok, I'll admit, it is certainly possible to write most of the above markup dynamically with less lines of code by iterating through all races, then through all bloodlines, but to me writing out was the most straightforward approach.
+
+One thing you will probably notice right away is the class variable `contextTypes`. We need it for referencing an instance of the router, which in turn gives us access to current *path*, current *query parameters*, *route parameters* and *transitions* to other routes. We do not use it directly in the *Navbar* component but instead pass it as an argument to *Navbar* actions so it could navigate to a particular character profile page after fetching character data from the server.
+
+![](/images/blog/Screenshot 2015-07-02 17.06.40.png)
+
+`componentDidMount` is where we establish connection with Socket.IO and initialize [`ajaxStart`](https://api.jquery.com/ajaxStart/) and [`ajaxComplete`](http://api.jquery.com/ajaxcomplete/) event listeners used for fading in/out the loading indicator on AJAX requests, which is located next to the **NEF** logo.
+
+<style>
+.triangles {
+  display: inline-block;
+  height: 27px;
+  width: 30px;
+  transform: translate(-50%, -50%);
+}
+.navbar-brand:hover .tri {
+  animation-play-state: paused;
+}
+.tri {
+  position: absolute;
+  animation: pulse 750ms ease-in infinite;
+  border-top: 9px solid #363f34;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 0;
+}
+.tri.invert {
+  border-top: 0;
+  border-bottom: 9px solid #363f34;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+}
+.tri:nth-child(1) {
+  left: 10px;
+}
+.tri:nth-child(2) {
+  left: 5px;
+  top: 9px;
+  animation-delay: -125ms;
+}
+.tri:nth-child(3) {
+  left: 10px;
+  top: 9px;
+}
+.tri:nth-child(4) {
+  left: 15px;
+  top: 9px;
+  animation-delay: -625ms;
+}
+.tri:nth-child(5) {
+  top: 18px;
+  animation-delay: -250ms;
+}
+.tri:nth-child(6) {
+  top: 18px;
+  left: 5px;
+  animation-delay: -250ms;
+}
+.tri:nth-child(7) {
+  top: 18px;
+  left: 10px;
+  animation-delay: -375ms;
+}
+.tri:nth-child(8) {
+  top: 18px;
+  left: 15px;
+  animation-delay: -500ms;
+}
+.tri:nth-child(9) {
+  top: 18px;
+  left: 20px;
+  animation-delay: -500ms;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  16.666% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  16.666% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@-moz-keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  16.666% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+</style>
+
+<div class='text-center'>
+  <div class='triangles'>
+    <div class='tri invert'></div>
+    <div class='tri invert'></div>
+    <div class='tri'></div>
+    <div class='tri invert'></div>
+    <div class='tri invert'></div>
+    <div class='tri'></div>
+    <div class='tri invert'></div>
+    <div class='tri'></div>
+    <div class='tri invert'></div>
+  </div>
+</div>
+
+`handleSubmit` is a form submit handler that gets executed by pressing the *Enter* key or clicking the *<i class="fa fa-search"></i> (Search)* button. It essentially does some input cleanup and validation, then fires the `findCharacter` action. In addition to the search query and the router instance, we also pass a reference to the search field DOM Node so that we could display a shaking animation when a character name is not found.
+
+
+**<i class="devicons devicons-react"></i> Action**
+
+Let's create a new file *NavbarActions.js* in **<i class="fa fa-folder-open"></i>app/actions** directory:
+
+```js
+import alt from '../alt';
+
+class NavbarActions {
+  constructor() {
+    this.generateActions(
+      'updateOnlineUsers',
+      'updateAjaxAnimation',
+      'updateSearchQuery',
+      'getCharacterCountSuccess',
+      'getCharacterCountFail'
+    );
+  }
+
+  findCharacter(payload) {
+    $.ajax({
+      url: '/api/characters/search',
+      data: { name: payload.searchQuery }
+    })
+      .done((data) => {
+        payload.router.transitionTo('/characters/' + data.characterId);
+      })
+      .fail(() => {
+        payload.searchFormNode.classList.add('shake');
+        setTimeout(() => {
+          payload.searchFormNode.classList.remove('shake');
+        }, 1000);
+      });
+  }
+
+  getCharacterCount() {
+    $.ajax({ url: '/api/characters/count' })
+      .done((data) => {
+        this.actions.getCharacterCountSuccess(data)
+      })
+      .fail((jqXhr) => {
+        this.actions.getCharacterCountFail(jqXhr)
+      });
+  }
+}
+
+export default alt.createActions(NavbarActions);
+```
+
+Generated actions should pretty self-explanatory, but I will explain each one just in case:
+
+| Action                     | Description   |
+| -------------------------- |:-------------:|
+| `updateOnlineUsers`        | Sets online users count on Socket.IO event update. |
+| `updateAjaxAnimation`      | Adds "fadeIn" or "fadeOut" CSS class to the loading indicator. |
+| `updateSearchQuery`        | Update search query value on keypress. |
+| `getCharacterCountSuccess` | Returns total number of characters in the database. |
+| `getCharacterCountFail`    | Returns jQuery [`jqXhr`](http://api.jquery.com/jQuery.ajax/#jqXHR) object. |
+
+
+**<i class="devicons devicons-react"></i> Store**
+
+Create a new file *NavbarStore.js* in **<i class="fa fa-folder-open"></i>app/stores** directory:
+
+```js
+import alt from '../alt';
+import NavbarActions from '../actions/NavbarActions';
+
+class NavbarStore {
+  constructor() {
+    this.bindActions(NavbarActions);
+    this.totalCharacters = 0;
+    this.onlineUsers = 0;
+    this.searchQuery = '';
+    this.ajaxAnimation = '';
+  }
+
+  onUpdateOnlineUsers(data) {
+    this.onlineUsers = data.onlineUsers;
+  }
+
+  onUpdateAjaxAnimation(cssClass) {
+    this.ajaxAnimation = cssClass;
+  }
+
+  onUpdateSearchQuery(event) {
+    this.searchQuery = event.target.value;
+  }
+
+  onGetCharacterCountSuccess(data) {
+    this.totalCharacters = data.count;
+  }
+
+  onGetCharacterCountFail(jqXhr) {
+    toastr.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
+  }
+}
+
+export default alt.createStore(NavbarStore);
+```
+
+
 
 
 ## Step 10. Socket.IO - Real-time User Count
