@@ -559,6 +559,10 @@ Other notable React features include:
 - The most **helpful error and warning messages** in any JavaScript library.
 - **Components are self-contained**; markup and behavior live in the same place, making components very reusable.
 
+I really like this excerpt from the [React v0.14 Beta 1 blog post](http://facebook.github.io/react/blog/2015/07/03/react-v0.14-beta-1.html) announcement:
+
+> It's become clear that the beauty and essence of React has nothing to do with browsers or the DOM. We think the true foundations of React are simply ideas of components and elements: being able to describe what you want to render in a declarative way.
+
 ---
 
 Before going any further please watch this awesome video [React in 7 Minutes](https://egghead.io/lessons/react-react-in-7-minutes) by John Lindquist.
@@ -1618,15 +1622,19 @@ class NavbarActions {
 export default alt.createActions(NavbarActions);
 ```
 
-Generated actions should pretty self-explanatory, but I will explain each one just in case:
+All these actions should pretty self-explanatory, but I will explain each one for completeness:
 
 | Action                     | Description   |
 | -------------------------- |:-------------:|
 | `updateOnlineUsers`        | Sets online users count on Socket.IO event update. |
 | `updateAjaxAnimation`      | Adds "fadeIn" or "fadeOut" CSS class to the loading indicator. |
 | `updateSearchQuery`        | Update search query value on keypress. |
-| `getCharacterCountSuccess` | Returns total number of characters in the database. |
+| `getCharacterCount`        | Fetch total number of characters from the server. |
+| `getCharacterCountSuccess` | Returns total number of characters. |
 | `getCharacterCountFail`    | Returns jQuery [`jqXhr`](http://api.jquery.com/jQuery.ajax/#jqXHR) object. |
+| `findCharacter`            | Find a character by name. |
+
+The reason why we add the `shake` CSS class and then remove it one second later is so that we could repeat this animation, otherwise if we just keep on adding the `shake` it will not animate again.
 
 
 **<i class="devicons devicons-react"></i> Store**
@@ -1670,10 +1678,78 @@ class NavbarStore {
 export default alt.createStore(NavbarStore);
 ```
 
+Recall this line in the *Navbar* component that we created above:
 
+```html
+<input type='text' className='form-control' placeholder={this.state.totalCharacters + ' characters'} value={this.state.searchQuery} onChange={NavbarActions.updateSearchQuery} />
+```
 
+Since [`onChange`](https://facebook.github.io/react/docs/forms.html#interactive-props) handler returns and *event* object, we are using `event.target.value` to get the text field value inside `onUpdateSearchQuery` function.
+
+Open *App.js* component, then add `<Navbar />` right before the `<RouterHandler />` component:
+
+```html
+<div>
+  <Navbar />
+  <RouteHandler />
+  <Footer />
+</div>
+```
+
+![](/images/blog/Screenshot 2015-07-04 13.02.12.png)
+
+Since we haven't yet configured Socket.IO on the server or implemented any of the API routes, you will not see the total number of online visitors (*red circle*) or total characters (*placeholder text*).
 
 ## Step 10. Socket.IO - Real-time User Count
+
+Unlike the previous section, this one will be fairly short and focused specifically on server-side Socket.IO.
+
+Open *server.js* and find the following line:
+
+```js
+app.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + app.get('port'));
+});
+```
+
+Then replace it with the following code:
+
+```js
+/**
+ * Socket.io stuff.
+ */
+var server = require('http').createServer(app);
+var io = require('socket.io')(server);
+var onlineUsers = 0;
+
+io.sockets.on('connection', function(socket) {
+  onlineUsers++;
+
+  io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+
+  socket.on('disconnect', function() {
+    onlineUsers--;
+    io.sockets.emit('onlineUsers', { onlineUsers: onlineUsers });
+  });
+});
+
+server.listen(app.get('port'), function() {
+  console.log('Express server listening on port ' + app.get('port'));
+});
+```
+
+Open *index.html* in the **<i class="fa fa-folder-open"></i>views** directory and add the following line next to all other scripts:
+
+```html
+<script src="/socket.io/socket.io.js"></script>
+```
+
+![](/images/blog/Screenshot 2015-07-04 13.02.15.png)
+
+Refresh the browser and open http://localhost:3000 in multiple tabs to simulate multiple user connections, and you should see the number of visitors in the red circle next to the logo.
+
+![](/images/blog/Screenshot 2015-07-04 13.25.42.png)
+
 
 
 ## Step xx. Helpful Resources for React
