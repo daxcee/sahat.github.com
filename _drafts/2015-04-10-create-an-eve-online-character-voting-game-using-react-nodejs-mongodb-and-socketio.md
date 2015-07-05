@@ -643,6 +643,9 @@ React by itself is actually very simple and easy to grasp. However, it is when w
 
 ## Step 6. Flux Architecture Crash Course
 
+Flux is the application architecture that was developed at Facebook for building scalable client-side web applications.
+ It complements React's components by utilizing a unidirectional data flow. Flux is more of a pattern than a framework, however, we will be using a Flux library called [Alt](http://alt.js.org) to minimize writing boilerplate code.
+
 Have you seen this diagram before? Did it make any sense to you? It did not make any sense to me, no matter how many times I looked at it.
 
 ![](/images/blog/flux-diagram.png)
@@ -748,9 +751,16 @@ Flux is really just a fancy term for **pub/sub** architecture, i.e. data always 
 
 ---
 
-There are more than a dozen of Flux implementations at the time of writing. Out of them all, I only have experience with [RefluxJS](https://github.com/spoike/refluxjs) and [Alt](http://alt.js.org/) libraries. Between those two, personally I prefer Alt for its simplicity, excellent support from *@goatslacker* in Gitter chatroom, extremely easy enable server-side rendering, great documentation and the project is actively maintained.
+There are more than a dozen of Flux implementations at the time of writing. Out of them all, I only have experience with [RefluxJS](https://github.com/spoike/refluxjs) and [Alt](http://alt.js.org/) libraries. Between  two, I personally prefer Alt for its simplicity, great support by [*@goatslacker*](https://github.com/goatslacker), server-side rendering support, great documentation and the project is actively maintained at the time of writing.
 
 I strongly encourage you to go through the Alt's [Getting Started](http://alt.js.org/guide/) guide. It will take no more than 10 minutes to skim through it.
+
+If you are undecided on the Flux library, consider the following [comment](https://news.ycombinator.com/item?id=9833099) by *glenjamin* on Hacker News, in response to having a hard time figuring out which Flux library to use:
+
+> The dirty secret is: they're probably all fine.
+It's unlikely that you will choose a flux lib that will be the make or break point of your application.
+Even if a library stops being "maintained", most decent flux incarnations are really small (~100 LoC) - it's unlikely that there's some fatal flaw you'll be stuck with.
+In summary: redux is neat, but don't beat yourself up over choosing the perfect flux lib - just grab one that you like the look of and move on with building your application.
 
 
 ## Step 7. React Routes (Client-Side)
@@ -1738,7 +1748,7 @@ server.listen(app.get('port'), function() {
 });
 ```
 
-Open *index.html* in the **<i class="fa fa-folder-open"></i>views** directory and add the following line next to all other scripts:
+Open *index.html* in the **<i class="fa fa-folder-open"></i>views** directory and add the following line right next to other scripts:
 
 ```html
 <script src="/socket.io/socket.io.js"></script>
