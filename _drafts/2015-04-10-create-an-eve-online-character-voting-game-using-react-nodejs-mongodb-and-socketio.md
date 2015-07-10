@@ -17,8 +17,6 @@ In this tutorial we are going to build a character voting game (inspired by *Fac
   <li><a href="#"><i class="fa fa-github"></i> Source Code</a></li>
 </ul>
 
-
-
 In the same spirit as [Create a TV Show Tracker using AngularJS, Node.js and MongoDB](http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) and [Build an Instagram clone with AngularJS, Satellizer, Node.js and MongoDB](https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/) this is a full-stack JavaScript tutorial where we build a fully functioning app from the ground up.
 
 <div class="admonition note">
@@ -27,7 +25,6 @@ In the same spirit as [Create a TV Show Tracker using AngularJS, Node.js and Mon
 </div>
 
 Usually, I try to make as few assumptions as possible about a particular topic, which is why my tutorials are so lengthy, but having said that, you need to have at least some prior experience with client-side JavaScript frameworks and Node.js to get the most out of this tutorial. I will not be going over [Express](http://expressjs.com/) and [Mongoose](http://mongoosejs.com/) basics all over again because I have already covered it [here](http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) and [here](http://sahatyalkabov.com/build-an-instagram-clone-using-angularjs-satellizer-nodejs-and-mongodb/) and [here](https://github.com/sahat/hackathon-starter#how-it-works-mini-guides) and [here](http://sahatyalkabov.com/how-to-implement-password-reset-in-nodejs/).
-
 
 Before proceeding, you will need to download and install the following tools:
 
@@ -485,6 +482,8 @@ For more information about ES6 classes visit [Classes in ECMAScript 6](http://ww
 The only difference between the two is that `var` is scoped to the nearest *function block* and `let` is scoped to the nearest *enclosing block*  - which could be a *function*, a *for-loop* or an *if-statement block*.
 
 For the most part there is no reason to use `var` anymore, so just use `let`.
+
+Basically, `let` is block scoped, `var` is function scoped.
 
 **<i class="ion-android-send"></i>Arrow Functions (Fat Arrow)**
 
@@ -1758,8 +1757,218 @@ Open *index.html* in the **<i class="fa fa-folder-open"></i>views** directory an
 
 Refresh the browser and open http://localhost:3000 in multiple tabs to simulate multiple user connections, and you should see the number of visitors in the red circle next to the logo.
 
+
 ![](/images/blog/Screenshot 2015-07-04 13.25.42.png)
 
+At this point we are neither finished with the front-end nor have any working API endpoints. We could have focused on building just the front-end in the first half of the tutorial and then the back-end in the second half of the tutorial, or vice versa, but personally, I have never built a single app like that. I like having constant feedback and going back and forth between back-end and front-end during the development flow.
 
+We can't display any characters until they are added to the database. In order to add new characters to the database we need to build a UI for it and implement an API endpoint. That's what we will do next.
+
+## Step 11. Add Character Component
+
+Create a new file *AddCharacter.js* in **<i class="fa fa-folder-open"></i>app/components** directory:
+
+```js
+import React from 'react';
+import AddCharacterStore from '../stores/AddCharacterStore';
+import AddCharacterActions from '../actions/AddCharacterActions';
+
+class AddCharacter extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = AddCharacterStore.getState();
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    AddCharacterStore.listen(this.onChange);
+  }
+
+  componentWillUnmount() {
+    AddCharacterStore.unlisten(this.onChange);
+  }
+
+  onChange(state) {
+    this.setState(state);
+  }
+
+  handleSubmit(event) {
+    event.preventDefault();
+
+    var name = this.state.name.trim();
+    var gender = this.state.gender;
+
+    if (!name) {
+      AddCharacterActions.invalidName();
+      this.refs.nameTextField.getDOMNode().focus();
+    }
+
+    if (!gender) {
+      AddCharacterActions.invalidGender();
+    }
+
+    if (name && gender) {
+      AddCharacterActions.addCharacter(name, gender);
+    }
+  }
+
+  render() {
+    return (
+      <div className='container'>
+        <div className='row flipInX animated'>
+          <div className='col-sm-8'>
+            <div className='panel panel-default'>
+              <div className='panel-heading'>Add Character</div>
+              <div className='panel-body'>
+                <form onSubmit={this.handleSubmit.bind(this)}>
+                  <div className={'form-group ' + this.state.nameValidationState}>
+                    <label className='control-label'>Character Name</label>
+                    <input type='text' className='form-control' ref='nameTextField' value={this.state.name}
+                           onChange={AddCharacterActions.updateName} autoFocus/>
+                    <span className='help-block'>{this.state.helpBlock}</span>
+                  </div>
+                  <div className={'form-group ' + this.state.genderValidationState}>
+                    <div className='radio radio-inline'>
+                      <input type='radio' name='gender' id='female' value='Female' checked={this.state.gender === 'Female'}
+                             onChange={AddCharacterActions.updateGender}/>
+                      <label htmlFor='female'>Female</label>
+                    </div>
+                    <div className='radio radio-inline'>
+                      <input type='radio' name='gender' id='male' value='Male' checked={this.state.gender === 'Male'}
+                             onChange={AddCharacterActions.updateGender}/>
+                      <label htmlFor='male'>Male</label>
+                    </div>
+                  </div>
+                  <button type='submit' className='btn btn-primary'>Submit</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default AddCharacter;
+```
+
+You should start to see by now what all these components have in common:
+
+1. Set the initial component state to what's in the store.
+2. Add a store listener in `componentDidMount`, remove it in `componentWillUnmount`.
+3. Add `onChange` method which updates component's state whenever the store is updated.
+
+`handleSubmit` does exactly what you might think — handles the form submission for adding a new character. While it is true that we could have done form validation inside `addCharacter` action instead, however, doing so would also require us to pass the text field DOM reference, because when `nameTextField` is invalid, it needs to be "focused" so that a user can start typing again without having to click the text field.
+
+![](/images/blog/Screenshot 2015-07-10 01.23.19.png)
+
+In the next few sections we will implement the back-end code for adding a new character and saving it to database.
+
+## Step 12. Database Schemas
+
+Add the following lines at the beginning of *server.js*, next to all other module dependencies:
+
+```js
+var mongoose = require('mongoose');
+
+var Character = require('./models/character'); // we will create it next.
+```
+
+Next, add this code anywhere between module dependencies and Express middlewares. This will automatically establish a connection pool with MongoDB when we start the server. Note that the database hostname will be set in *config.js* to avoid hard-coding the value here.
+
+```js
+mongoose.connect(config.database);
+ // Optional, but helpful for local development.
+mongoose.connection.on('error', function() {
+  console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
+});
+```
+
+## Step 13. Add Character API Endpoint
+
+We will be using [EVE Online API](http://wiki.eve-id.net/APIv2_Page_Index) for fetching basic character information such as *Character ID*, *Race* and *Bloodline*.
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+  Character gender is not a public data; it requires an API key. In my opinion, what makes New Eden Faces so great is its open nature - a user does not need to be authenticated and anyone can add any other character to the roster. That is why we have two radio buttons for gender selection on the <em>Add Character</em> page. It does depend on user's honesty, however.
+</div>
+
+TODO: Add request and async dependencies
+
+Add the following Express route to *server.js*. Place it anywhere after the "static" middleware*, but before the "react" middleware. Also, from here on, this where you are going to place all Express routes that we are going to implement in the next few sections:
+
+```js
+/**
+ * POST /api/characters
+ * Adds new character to the database.
+ */
+app.post('/api/characters', function(req, res, next) {
+  var gender = req.body.gender;
+  var characterName = req.body.name;
+  var characterIdLookupUrl = 'https://api.eveonline.com/eve/CharacterID.xml.aspx?names=' + characterName;
+
+  var parser = new xml2js.Parser();
+
+  async.waterfall([
+    function(callback) {
+      request.get(characterIdLookupUrl, function(err, request, xml) {
+        if (err) return next(err);
+        parser.parseString(xml, function(err, parsedXml) {
+          if (err) return next(err);
+          try {
+            var characterId = parsedXml.eveapi.result[0].rowset[0].row[0].$.characterID;
+
+            Character.findOne({ characterId: characterId }, function(err, character) {
+              if (err) return next(err);
+
+              if (character) {
+                return res.status(409).send({ message: character.name + ' is already in the database.' });
+              }
+
+              callback(err, characterId);
+            });
+          } catch (e) {
+            return res.status(400).send({ message: 'XML Parse Error' });
+          }
+        });
+      });
+    },
+    function(characterId) {
+      var characterInfoUrl = 'https://api.eveonline.com/eve/CharacterInfo.xml.aspx?characterID=' + characterId;
+
+      request.get({ url: characterInfoUrl }, function(err, request, xml) {
+        if (err) return next(err);
+        parser.parseString(xml, function(err, parsedXml) {
+          if (err) return res.send(err);
+          try {
+            var name = parsedXml.eveapi.result[0].characterName[0];
+            var race = parsedXml.eveapi.result[0].race[0];
+            var bloodline = parsedXml.eveapi.result[0].bloodline[0];
+
+            var character = new Character({
+              characterId: characterId,
+              name: name,
+              race: race,
+              bloodline: bloodline,
+              gender: gender,
+              random: [Math.random(), 0]
+            });
+
+            character.save(function(err) {
+              if (err) return next(err);
+              res.send({ message: characterName + ' has been added successfully!' });
+            });
+          } catch (e) {
+            res.status(404).send({ message: characterName + ' is not a registered citizen of New Eden.' });
+          }
+        });
+      });
+    }
+  ]);
+});
+```
+
+![](/images/blog/Screenshot 2015-07-10 01.59.10.png)
 
 ## Step xx. Helpful Resources for React
