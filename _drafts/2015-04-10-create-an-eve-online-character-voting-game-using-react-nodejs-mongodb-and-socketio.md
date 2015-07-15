@@ -24,7 +24,7 @@ In the same spirit as [Create a TV Show Tracker using AngularJS, Node.js and Mon
   This is a remake of the original <a href="http://www.newedenfaces.com/">New Eden Faces</a> (2013) project, which was my first ever single-page application written in Backbone.js.
 </div>
 
-Usually, I try to make as few assumptions as possible about a particular topic, which is why my tutorials are so lengthy, but having said that, you need to have at least some prior experience with client-side JavaScript frameworks and Node.js to get the most out of this tutorial. I will not be going over [Express](http://expressjs.com/) and [Mongoose](http://mongoosejs.com/) basics all over again because I have already covered it [here](http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) and [here](http://sahatyalkabov.com/build-an-instagram-clone-using-angularjs-satellizer-nodejs-and-mongodb/) and [here](https://github.com/sahat/hackathon-starter#how-it-works-mini-guides) and [here](http://sahatyalkabov.com/how-to-implement-password-reset-in-nodejs/).
+Usually, I try to make as few assumptions as possible about a particular topic, which is why my tutorials are so lengthy, but having said that, you need to have at least some prior experience with client-side JavaScript frameworks and Node.js to get the most out of this tutorial.
 
 Before proceeding, you will need to download and install the following tools:
 
@@ -1760,7 +1760,7 @@ Refresh the browser and open http://localhost:3000 in multiple tabs to simulate 
 
 ![](/images/blog/Screenshot 2015-07-04 13.25.42.png)
 
-At this point we are neither finished with the front-end nor have any working API endpoints. We could have focused on building just the front-end in the first half of the tutorial and then the back-end in the second half of the tutorial, or vice versa, but personally, I have never built a single app like that. I like having constant feedback and going back and forth between back-end and front-end during the development flow.
+At this point we are neither finished with the front-end nor have any working API endpoints. We could have focused on building just the front-end in the first half of the tutorial and then the back-end in the second half of the tutorial, or vice versa, but personally, I have never built a single app like that. I typically go back and forth between back-end and front-end pieces of the application during my development flow.
 
 We can't display any characters until they are added to the database. In order to add new characters to the database we need to build a UI for it and implement an API endpoint. That's what we will do next.
 
@@ -1942,22 +1942,37 @@ Now let's import it back in *server.js*:
 var config = require('./config');
 ```
 
-Open a new Terminal tab and run `mongod`. If you are on Windows, you will need to open *mongod.exe* in the directory where you installed MongoDB.
+Open a new tab in Terminal and run `mongod`. If you are on Windows, you will need to open *mongod.exe* in the directory where you installed MongoDB.
 
 ![](/images/blog/Screenshot 2015-07-13 13.40.40.png)
 
-## Step 13. Add Character API Endpoint
+## Step 13. Express API Routes (1 of 2)
 
-We will be using [EVE Online API](http://wiki.eve-id.net/APIv2_Page_Index) for fetching basic character information such as *Character ID*, *Race* and *Bloodline*.
+In this section we will implement an Express route for fetching character information and storing it in database. We will be using [EVE Online API](http://wiki.eve-id.net/APIv2_Page_Index) for fetching *Character ID*, *Race* and *Bloodline* for a given character name.
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
   Character gender is not a public data; it requires an API key. In my opinion, what makes New Eden Faces so great is its open nature - a user does not need to be authenticated and anyone can add any other character to the roster. That is why we have two radio buttons for gender selection on the <em>Add Character</em> page. It does depend on user's honesty, however.
 </div>
 
-TODO: Add request and async dependencies
+Below is a table that outlines each route's responsibility. However, we will not be implementing all routes, because that is something you can do on your own if necessary.
 
-Add the following Express route to *server.js*. Place it anywhere after the "static" middleware*, but before the "react" middleware. Also, from here on, this where you are going to place all Express routes that we are going to implement in the next few sections:
+| Route          | POST    | GET       | PUT      | DELETE  |
+| -------------- |:---------------:| -----------------:| -----------------:| -----------------:|
+| */api/characters*     | Add a new character | Get random two characters  | Update wins/losses for two characters | Delete all characters |
+| */api/characters/:id* | N/A  | Get a character   | Update a character  | Delete a character |
+
+
+In *server.js* add the following dependencies at the top:
+
+```js
+var async = require('async');
+var request = require('request');
+```
+
+We will use [async.waterfall](https://github.com/caolan/async#waterfalltasks-callback) for managing multiple asynchronous operations and [request](https://github.com/request/request) module for making HTTP requests to the EVE Online API.
+
+Add our first route right after Express middlewares but before the "React middleware" that we created earlier in **Step 8. React Routes (Server-Side)**.
 
 ```js
 /**
@@ -2030,6 +2045,17 @@ app.post('/api/characters', function(req, res, next) {
 });
 ```
 
-![](/images/blog/Screenshot 2015-07-10 01.59.10.png)
+Here is a step-by-step breakdown of how it works:
+
+1. Get a *Character ID* from a *Character Name*.
+  ![](/images/blog/Screenshot 2015-07-14 19.39.00.png)
+2. Parse XML response.
+3. Query the database to check if this character is already in the database.
+4. Pass *Character ID* to the next function in the [`async.waterfall`](https://github.com/caolan/async#waterfall) stage.
+5. Get basic character information from a *Character ID*.
+  ![](/images/blog/Screenshot 2015-07-14 19.49.46.png)
+6. Parse XML response.
+7. Add a new character to the database.
+
 
 ## Step xx. Helpful Resources for React
