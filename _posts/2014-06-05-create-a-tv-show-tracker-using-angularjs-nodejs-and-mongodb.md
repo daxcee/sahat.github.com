@@ -827,7 +827,7 @@ our application still works.
 We are going to create two routes for now. One is for querying all shows and 
 another one for querying a single show by ID.
 
-If we were going to implement all REST routes for `/api/shows` here is a table that outliens a route's responsibility.
+If we were going to implement all REST routes for `/api/shows` here is a table that outlines a route's responsibility.
 
 | Route          | POST    | GET       | PUT      | DELETE  |
 | -------------- |:---------------:| -----------------:| -----------------:| -----------------:|
