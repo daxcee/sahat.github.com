@@ -1116,9 +1116,9 @@ It is basically a *for-each* loop, similar to what you might see in [Jade](http:
 
 The [`Link`](http://rackt.github.io/react-router/#Link) component will render a fully accesible anchor tag with the proper *href*. A [`Link`](http://rackt.github.io/react-router/#Link) also knows when the route it links to is active and automatically applies its "active" CSS class.
 
-**<i class="devicons devicons-react"></i> Action**
+**<i class="devicons devicons-react"></i> Actions**
 
-Next, we are going to create an action and a store for the *Footer*  component. Create a new file called *FooterActions.js* in **<i class="fa fa-folder-open"></i>app/actions** directory:
+Next, we are going to create actions and a store for the *Footer*  component. Create a new file called *FooterActions.js* in **<i class="fa fa-folder-open"></i>app/actions** directory:
 
 ```js
 import alt from '../alt';
@@ -1583,7 +1583,7 @@ One thing you will probably notice right away is the class variable `contextType
 `handleSubmit` is a form submit handler that gets executed by pressing the *Enter* key or clicking the *<i class="fa fa-search"></i> (Search)* button. It essentially does some input cleanup and validation, then fires the `findCharacter` action. In addition to the search query and the router instance, we also pass a reference to the search field DOM Node so that we could display a shaking animation when a character name is not found.
 
 
-**<i class="devicons devicons-react"></i> Action**
+**<i class="devicons devicons-react"></i> Actions**
 
 Let's create a new file *NavbarActions.js* in **<i class="fa fa-folder-open"></i>app/actions** directory:
 
@@ -1766,6 +1766,10 @@ We can't display any characters until they are added to the database. In order t
 
 ## Step 11. Add Character Component
 
+This component consists of a simple form with a text field, radio buttons and a submit button. Success and error messages will be displayed within [`help-block`](http://getbootstrap.com/css/#forms-help-text) under the text field.
+
+**<i class="devicons devicons-react"></i> Component**
+
 Create a new file *AddCharacter.js* in **<i class="fa fa-folder-open"></i>app/components** directory:
 
 ```js
@@ -1863,7 +1867,115 @@ You should start to see by now what all these components have in common:
 
 ![](/images/blog/Screenshot 2015-07-10 01.23.19.png)
 
+**<i class="devicons devicons-react"></i> Actions**
+
+Create a new file *AddCharacterActions.js* in **<i class="fa fa-folder-open"></i>app/actions** directory:
+
+```js
+import alt from '../alt';
+
+class AddCharacterActions {
+  constructor() {
+    this.generateActions(
+      'addCharacterSuccess',
+      'addCharacterFail',
+      'updateName',
+      'updateGender',
+      'invalidName',
+      'invalidGender'
+    );
+  }
+
+  addCharacter(name, gender) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/characters',
+      data: { name: name, gender: gender }
+    })
+      .done((data) => {
+        this.actions.addCharacterSuccess(data.message);
+      })
+      .fail((jqXhr) => {
+        this.actions.addCharacterFail(jqXhr.responseJSON.message);
+      });
+  }
+}
+
+export default alt.createActions(AddCharacterActions);
+```
+
+We are firing `addCharacterSuccess` action when character has been added to the database successfully and `addCharacterFail` when character could not be added, perhaps due to an invalid name or because it already exists in the database. Both `updateName` and `updateGender` actions are fired when the *Character Name* text field and *Gender* radio button is updated via `onChange`, respectively. And likewise, `invalidName` and `invalidGender` actions are fired when you a user submits the form without entering a name or selecting a gender.
+
+
+**<i class="devicons devicons-react"></i> Store**
+
+Create a new file *AddCharacterStore.js* in **<i class="fa fa-folder-open"></i>app/stores** directory:
+
+```js
+import alt from '../alt';
+import AddCharacterActions from '../actions/AddCharacterActions';
+
+class AddCharacterStore {
+  constructor() {
+    this.bindActions(AddCharacterActions);
+    this.name = '';
+    this.gender = '';
+    this.helpBlock = '';
+    this.nameValidationState = '';
+    this.genderValidationState = '';
+  }
+
+  onAddCharacterSuccess(successMessage) {
+    this.nameValidationState = 'has-success';
+    this.helpBlock = successMessage;
+  }
+
+  onAddCharacterFail(errorMessage) {
+    this.nameValidationState = 'has-error';
+    this.helpBlock = errorMessage;
+  }
+
+  onUpdateName(event) {
+    this.name = event.target.value;
+    this.nameValidationState = '';
+    this.helpBlock = '';
+  }
+
+  onUpdateGender(event) {
+    this.gender = event.target.value;
+    this.genderValidationState = '';
+  }
+
+  onInvalidName() {
+    this.nameValidationState = 'has-error';
+    this.helpBlock = 'Please enter a character name.';
+  }
+
+  onInvalidGender() {
+    this.genderValidationState = 'has-error';
+  }
+}
+
+export default alt.createStore(AddCharacterStore);
+```
+
+`nameValidationState` and `genderValidationState` refers to the [validation states](http://getbootstrap.com/css/#forms-control-validation) on form controls provided by Bootstrap.  
+
+`helpBlock` is a status message which gets displayed below the text field, e.g. *Character has been added successfully*.
+
+`onInvalidName` handler is fired when *Character Name* field is empty. If the name does not exist in EVE Online database it will be a different error message provided by `onAddCharacterFail` handler.
+
+Here is a quick demonstration of the entire flow from the moment you start typing a character's name:
+
+1. Fire `updateName` action, passing the *event* object as its payload.
+2. Call `onUpdateName` store handler.
+3. Update the state with the new name.
+
+![](/images/blog/Screenshot 2015-07-15 15.34.55.png)
+
 In the next few sections we will implement the back-end code for adding and saving new characters to the database.
+
+
 
 ## Step 12. Database Schema
 
@@ -2069,8 +2181,17 @@ Here is a step-by-step breakdown of how it works:
 6. Parse XML response.
 7. Add a new character to the database.
 
+Go to http://localhost:3000/add and add a few characters. Here are a few names for you:
+
+- Daishan Auergni
+- Deli Nayar
+- Celeste Taylor
+
+![](/images/blog/Screenshot 2015-07-15 14.05.53.png)
 
 ## Step xx. Helpful Resources for React
+
+- [<i class="fa fa-cloud-download"></i> characters.bson](https://dl.dropboxusercontent.com/u/14131013/characters.bson)
 
 ## Closing
 
