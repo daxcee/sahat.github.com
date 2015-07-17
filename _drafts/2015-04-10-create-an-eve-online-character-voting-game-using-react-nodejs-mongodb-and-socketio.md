@@ -1,20 +1,22 @@
 ---
 layout: post
-title: Create a character voting game using React, Node.js, MongoDB and Socket.IO
-excerpt: "In this tutorial we are going to build a character voting game (inspired by Hot or Not) for EVE Online - a massively multiplayer online game. You will learn how to build a REST API with <strong>Node.js</strong>, save and retrieve data from <strong>MongoDB</strong>, track online visitors in real-time using <strong>Socket.IO</strong>, build a single-page app experience using <strong>React</strong> + <strong>Flux</strong> and then finally deploy it to the cloud."
+title: Create a character voting app using React, Node.js, MongoDB and Socket.IO
+excerpt: "In this tutorial we are going to build a character voting app (inspired by Facemash) for EVE Online - a massively multiplayer online game. You will learn how to build a REST API with <strong>Node.js</strong>, save and retrieve data from <strong>MongoDB</strong>, track online visitors in real-time using <strong>Socket.IO</strong>, build a single-page app experience using <strong>React</strong> + <strong>Flux</strong> with server-side rendering and then finally deploy it to the cloud."
 gradient: 1
 image: bg/7.jpg
 ---
 
 ## Overview
 
-In this tutorial we are going to build a character voting game (inspired by *Facemash* and *Hot or Not*) for [EVE Online](http://www.eveonline.com/) - massively multiplayer online game. If you are not familiar with EVE Online, see this [video](https://www.youtube.com/watch?v=e2X1MIR1KMs).
+In this tutorial we are going to build a character voting app (inspired by *Facemash* and *Hot or Not*) for [EVE Online](http://www.eveonline.com/) - a massively multiplayer online game. Be sure to play this awesome soundtrack below to get yourself in the mood for this epicly long tutorial.
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/152471846&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 
-Also be sure to play the awesome soundtrack above to get yourself in the mood for this epicly long tutorial.
+While listening to this soundtrack imagine yourself mining asteroid belts in deep space while scanning your radar for pirates, researching propulsion system blueprints at the station's facility, manufacturing spaceship components for capital ships, placing buy & sell orders on the entirely player-driven market where supply and demand govern the game economics, hauling trade goods from a remote solar system in a massive freighter, flying blazingly fast interceptors ship with a microwarpdrive or powerful battleships armored to the teeth, extracting ore and minerals from planets, or fighting large-scale battles with thousands of players from multiple alliances. That's **EVE Online**.
 
-<!-- While listening to this track imagine yourself mining asteroid belts in deep space, researching weapon blueprints, manufacturing spaceship parts for massive capital ships, placing buy/sell orders on the completely open market, hauling goods from a remote system in a freighter, flying a blazingly fast interceptor with a microwarpdrive or a slow but powerful battleship armored to the teeth or extracting ore and minerals from planets. That is EVE Online for you and I have barely scratched the surface of what you can do in this game. Anyway, now that you are hopefully a little excited, let's proceed with the tutorial. -->
+Each player in EVE Online has a 3D avatar representing their character. This app is designed for ranking those avatars. Anyway, your goal here is to learn about Node.js and React, not EVE Online. But I will say this: "Having an interesting tutorial project is just as important, if not more so, than the main subject of the tutorial". The only reason I built the original [New Eden Faces](http://www.newedenfaces.com/) app is to learn <i class="devicons devicons-backbone"></i>Backbone.js and the only reason I built the [TV Show Tracker](https://github.com/sahat/tvshow-tracker) app is so that I could learn <i class="devicons devicons-angular"></i>AngularJS.
+
+One thing that I have learned — between screencasts, books and training videos, nothing is more effective than building a small project that you are passionate about to learn a new technology.
 
 ![](/images/blog/Screenshot 2015-03-31 23.05.36.png)
 
@@ -27,7 +29,7 @@ In the same spirit as [Create a TV Show Tracker using AngularJS, Node.js and Mon
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
-  This is a remake of the original <a href="http://www.newedenfaces.com/">New Eden Faces</a> (2013) project, which was my first ever single-page application written in Backbone.js.
+  This is a remake of the original <a href="http://www.newedenfaces.com/">New Eden Faces</a> (2013) project, which was my first ever single-page application written in Backbone.js. It has been running in production on <a href="https://www.openshift.com/">OpenShift</a> with Node.js 0.8.x for over 2 years now.
 </div>
 
 Usually, I try to make as few assumptions as possible about a particular topic, which is why my tutorials are so lengthy, but having said that, you need to have at least some prior experience with client-side JavaScript frameworks and Node.js to get the most out of this tutorial.
@@ -50,7 +52,7 @@ Open *package.json* and paste the following:
 ```json
 {
   "name": "newedenfaces",
-  "description": "Hot or Not for EVE Online",
+  "description": "Character voting app for EVE Online",
   "version": "1.0.0",
   "repository": {
     "type": "git",
@@ -2014,7 +2016,7 @@ While a schema is just an abstract representation of the data, a model on the ot
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
-  Why another tutorial using MongoDB? Why not use MySQL, PostgreSQL, CouchDB or even <a href="http://rethinkdb.com/">RethinkDB</a>? That's because I don't really care enough about the database layer for the types of apps I am building. I would rather focus on the front-end stack, because that is my primary interest, than deciding which database to use. MongoDB may not be the best database for all use cases, but it has worked well for me in the past 3 years.
+  Why yet another tutorial using MongoDB? Why not use MySQL, PostgreSQL, CouchDB or even <a href="http://rethinkdb.com/">RethinkDB</a>? That's because I don't really care enough about the database layer for the types of apps I am building. I would much rather focus on the front-end stack, because that's one of my primary interests, not databases. MongoDB may not best-suited for all use cases, but it's a decent general-purpose database and it has worked well for me in the past 3 years.
 </div>
 
 Most of these fields are pretty self-explanatory, but `random` and `voted` may need some context:
@@ -2205,11 +2207,11 @@ And then run this command to import the *characters* collection into MongoDB:
 $ mongorestore newedenfaces.bson
 ```
 
-Refresh the browser and you should see updated character count in the search field.
+You will not see updated character count in the search field just yet, since we haven't implemented an API endpoint for it. We will do that after the next section.
 
-Next, let's create the *Home* component - the initial page that displays 2 characters side by side.
+Next, let's create the *Home* component - initial page that displays 2 characters side by side.
 
-## Step 14. Home Component
+## Step 15. Home Component
 
 This is one of the simpler components whose only responsibility is to display 2 images and handle click events to know which one is the winning and which one is the losing character between the two.
 
@@ -2245,8 +2247,8 @@ class Home extends React.Component {
   }
 
   handleClick(character) {
-    var winner = character;
-    var loser = this.state.characters[1 - this.state.characters.indexOf(winner)];
+    var winner = character.characterId;
+    var loser = this.state.characters[1 - this.state.characters.indexOf(winner)].characterId;
     HomeActions.vote(winner, loser);
   }
 
@@ -2341,11 +2343,228 @@ function.bind(thisArg[, arg1[, arg2[, ...]]])
 
 To put it simply, we need to pass `this` context because we are referencing `this.state` inside `handleClick` method, we are passing a custom object containing character information that was clicked instead of the default *event* object.
 
-Inside `handleClick` method, the `character` parameter is our winning character, because that's the character that was clicked on. Since we only have two characters it is not that hard to figure out the losing character. We then pass `winer` and `loser`  objects to `HomeActions.vote` action.
+Inside `handleClick` method, the `character` parameter is our winning character, because that's the character that was clicked on. Since we only have two characters it is not that hard to figure out the losing character. We then pass both `winer` and `loser` *Character IDs* to the `HomeActions.vote` action.
 
-**<i class="devicons devicons-react"></i> Component**
+**<i class="devicons devicons-react"></i> Actions**
 
-Create a new file *Home.js* inside **<i class="fa fa-folder-open"></i>components** directory:
+Create a new file *HomeActions.js* inside **<i class="fa fa-folder-open"></i>actions** directory:
+
+```js
+import alt from '../alt';
+
+class HomeActions {
+  constructor() {
+    this.generateActions(
+      'getTwoCharactersSuccess',
+      'getTwoCharactersFail',
+      'voteFail'
+    );
+  }
+
+  getTwoCharacters() {
+    $.ajax({ url: '/api/characters' })
+      .done(data => {
+        this.actions.getTwoCharactersSuccess(data);
+      })
+      .fail(jqXhr => {
+        this.actions.getTwoCharactersFail(jqXhr.responseJSON.message);
+      });
+  }
+
+  vote(winner, loser) {
+    $.ajax({
+      type: 'PUT',
+      url: '/api/characters' ,
+      data: { winner: winner, loser: loser }
+    })
+      .done(() => {
+        this.actions.getTwoCharacters();
+      })
+      .fail((jqXhr) => {
+        this.actions.voteFail(jqXhr.responseJSON.message);
+      });
+  }
+}
+
+export default alt.createActions(HomeActions);
+```
+
+We do not need `voteSuccess` action here because `getTwoCharacters` already does exactly what we need. In other words, after a successful vote, we need to fetch two more random characters from the database.
+
+**<i class="devicons devicons-react"></i> Store**
+
+Create a new file *HomeStore.js* inside **<i class="fa fa-folder-open"></i>stores** directory:
+
+```js
+import alt from '../alt';
+import HomeActions from '../actions/HomeActions';
+
+class HomeStore {
+  constructor() {
+    this.bindActions(HomeActions);
+    this.characters = [];
+  }
+
+  onGetTwoCharactersSuccess(data) {
+    this.characters = data;
+  }
+
+  onGetTwoCharactersFail(errorMessage) {
+    toastr.error(errorMessage);
+  }
+
+  onVoteFail(errorMessage) {
+    toastr.error(errorMessage);
+  }
+}
+
+export default alt.createStore(HomeStore);
+```
+
+Next, let's implement the remaining Express routes for fetching and updating two characters in *Home* component, retrieving total characters count and more.
+<!-- And there you have it. Refresh the browser once again and you should see two character images on the home page. Try clicking on one of them. After clicking on one of the images you should see a new set of characters appear. -->
+
+## Step 14. Express API Routes (2 of 2)
+
+Switch back to *server.js*. I hope it is clear by now where you need to include all of the following routes - after Express middlewares but before the "React middleware".
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+  Understand that we are including all routes in <em>server.js</em> because it is convenient to do so for the purposes of this tutorial. In the dashboard project that I had to build at work, all routes were split into separate files inside the <strong><i class="fa fa-folder-open"></i> routes</strong> directory, furthermore all route handlers were split into separate files inside the <strong><i class="fa fa-folder-open"></i> controllers</strong> directory.
+</div>
+
+Let's start with the route for fetching two characters in the *Home* component.
+
+```js
+/**
+ * GET /api/characters
+ * Returns 2 random characters of the same gender that have not been voted yet.
+ */
+app.get('/api/characters', function(req, res, next) {
+  var choices = ['Female', 'Male'];
+  var randomGender = _.sample(choices);
+
+  Character.find({ random: { $near: [Math.random(), 0] } })
+    .where('voted', false)
+    .where('gender', randomGender)
+    .limit(2)
+    .exec(function(err, characters) {
+      if (err) return next(err);
+
+      if (characters.length === 2) {
+        return res.send(characters);
+      }
+
+      var oppositeGender = _.first(_.without(choices, randomGender));
+
+      Character
+        .find({ random: { $near: [Math.random(), 0] } })
+        .where('voted', false)
+        .where('gender', oppositeGender)
+        .limit(2)
+        .exec(function(err, characters) {
+          if (err) return next(err);
+
+          if (characters.length === 2) {
+            return res.send(characters);
+          }
+
+          Character.update({}, { $set: { voted: false } }, { multi: true }, function(err) {
+            if (err) return next(err);
+            res.send([]);
+          });
+        });
+    });
+});
+```
+Be sure to add the [Underscore.js](http://underscorejs.org) module at the top, since we are using it for [`_.sample()`](http://underscorejs.org/#sample), [`_.first()`](http://underscorejs.org/#first) and [`_.without()`](http://underscorejs.org/#without) functions:
+
+```js
+var _ = require('underscore');
+```
+
+I have tried to make this code as readable as possible, so it should be fairly easy to understand how it fetches two random characters. It will randomly select *Male* or *Female* gender and query the database for two characters. If we get back less than 2 characters, it will attempt another query with the opposite gender. For example, if we have 10 male characters and 9 of them have already been voted, displaying 1 character makes no sense. If don't get back 2 characters for either *Male* or *Female* gender, that means we have exhausted all unvoted characters and the vote count should be reset by setting `voted: false` for all characters.
+
+---
+
+This route is related to the previous one since it updates `wins` and `losses` fields of winning and losing characters respectively.
+
+```js
+/**
+ * PUT /api/characters
+ * Update winning and losing count for both characters.
+ */
+app.put('/api/characters', function(req, res, next) {
+  var winner = req.body.winner;
+  var loser = req.body.loser;
+
+  if (!winner || !loser) {
+    return res.status(400).send({ message: 'Voting requires two characters.' });
+  }
+
+  if (winner === loser) {
+    return res.status(400).send({ message: 'Cannot vote for and against the same character.' });
+  }
+
+  async.parallel([
+      function(callback) {
+        Character.findOne({ characterId: winner }, function(err, winner) {
+          callback(err, winner);
+        });
+      },
+      function(callback) {
+        Character.findOne({ characterId: loser }, function(err, loser) {
+          callback(err, loser);
+        });
+      }
+    ],
+    function(err, results) {
+      if (err) return next(err);
+
+      var winner = results[0];
+      var loser = results[1];
+
+      if (!winner || !loser) {
+        return res.status(404).send({ message: 'One of the characters no longer exists.' });
+      }
+
+      if (winner.voted || loser.voted) {
+        return res.status(200).end();
+      }
+
+      async.parallel([
+        function(callback) {
+          winner.wins++;
+          winner.voted = true;
+          winner.random = [Math.random(), 0];
+          winner.save(function(err) {
+            callback(err);
+          });
+        },
+        function(callback) {
+          loser.losses++;
+          loser.voted = true;
+          loser.random = [Math.random(), 0];
+          loser.save(function(err) {
+            callback(err);
+          });
+        }
+      ], function(err) {
+        if (err) return next(err);
+        res.status(200).end();
+      });
+    });
+});
+```
+
+Here we are using [`async.parallel`](https://github.com/caolan/async#paralleltasks-callback) to make two database queries simultaneously, since one query does not depend on another. However, because we have two separate MongoDB documents, that's two independent asynchronous operations, hence another `async.parallel`. Basically, we respond with a success only when both characters have finished updating and there were no errors.
+
+## Step 14. Character Profile Component
+
+## Step 15. Top 100 Component
+
+## Step 16. Stats Component
+
 
 
 ## Step xx. Helpful Resources for React
