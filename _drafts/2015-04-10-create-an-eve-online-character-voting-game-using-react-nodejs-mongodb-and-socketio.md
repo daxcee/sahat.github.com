@@ -3,12 +3,18 @@ layout: post
 title: Create a character voting game using React, Node.js, MongoDB and Socket.IO
 excerpt: "In this tutorial we are going to build a character voting game (inspired by Hot or Not) for EVE Online - a massively multiplayer online game. You will learn how to build a REST API with <strong>Node.js</strong>, save and retrieve data from <strong>MongoDB</strong>, track online visitors in real-time using <strong>Socket.IO</strong>, build a single-page app experience using <strong>React</strong> + <strong>Flux</strong> and then finally deploy it to the cloud."
 gradient: 1
-image: blog/create-an-eve-online-character-voting-game-using-react-nodejs-mongodb-and-socketio-cover.jpg
+image: bg/7.jpg
 ---
 
 ## Overview
 
 In this tutorial we are going to build a character voting game (inspired by *Facemash* and *Hot or Not*) for [EVE Online](http://www.eveonline.com/) - massively multiplayer online game. If you are not familiar with EVE Online, see this [video](https://www.youtube.com/watch?v=e2X1MIR1KMs).
+
+<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/152471846&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
+
+Also be sure to play the awesome soundtrack above to get yourself in the mood for this epicly long tutorial.
+
+<!-- While listening to this track imagine yourself mining asteroid belts in deep space, researching weapon blueprints, manufacturing spaceship parts for massive capital ships, placing buy/sell orders on the completely open market, hauling goods from a remote system in a freighter, flying a blazingly fast interceptor with a microwarpdrive or a slow but powerful battleship armored to the teeth or extracting ore and minerals from planets. That is EVE Online for you and I have barely scratched the surface of what you can do in this game. Anyway, now that you are hopefully a little excited, let's proceed with the tutorial. -->
 
 ![](/images/blog/Screenshot 2015-03-31 23.05.36.png)
 
@@ -2181,17 +2187,169 @@ Here is a step-by-step breakdown of how it works:
 6. Parse XML response.
 7. Add a new character to the database.
 
-Go to http://localhost:3000/add and add a few characters. Here are a few names for you:
+Go to http://localhost:3000/add then add a few characters. You could use some of the following names:
 
 - Daishan Auergni
-- Deli Nayar
+- CCP Falcon
 - Celeste Taylor
 
 ![](/images/blog/Screenshot 2015-07-15 14.05.53.png)
 
+Or better yet, download this MongoDB file dump that contains over 4000 characters and import it into your database. Please ignore "duplicate key errors" if you have already added some of the characters earlier.
+
+- [<i class="fa fa-cloud-download"></i> newedenfaces.bson](https://dl.dropboxusercontent.com/u/14131013/newedenfaces.bson)
+
+And then run this command to import the *characters* collection into MongoDB:
+
+```bash
+$ mongorestore newedenfaces.bson
+```
+
+Refresh the browser and you should see updated character count in the search field.
+
+Next, let's create the *Home* component - the initial page that displays 2 characters side by side.
+
+## Step 14. Home Component
+
+This is one of the simpler components whose only responsibility is to display 2 images and handle click events to know which one is the winning and which one is the losing character between the two.
+
+**<i class="devicons devicons-react"></i> Component**
+
+Create a new file *Home.js* inside **<i class="fa fa-folder-open"></i>components** directory:
+
+```js
+import React from 'react';
+import {Link} from 'react-router';
+import HomeStore from '../stores/HomeStore'
+import HomeActions from '../actions/HomeActions';
+
+class Home extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = HomeStore.getState();
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    HomeStore.listen(this.onChange);
+    HomeActions.getTwoCharacters();
+  }
+
+  componentWillUnmount() {
+    HomeStore.unlisten(this.onChange);
+  }
+
+  onChange(state) {
+    this.setState(state);
+  }
+
+  handleClick(character) {
+    var winner = character;
+    var loser = this.state.characters[1 - this.state.characters.indexOf(winner)];
+    HomeActions.vote(winner, loser);
+  }
+
+  render() {
+    var characterNodes = this.state.characters.map((character, index) => {
+      return (
+        <div key={character.characterId} className={index === 0 ? 'col-xs-6 col-sm-6 col-md-5 col-md-offset-1' : 'col-xs-6 col-sm-6 col-md-5'}>
+          <div className='thumbnail fadeInUp animated'>
+            <img onClick={this.handleClick.bind(this, character)} src={'http://image.eveonline.com/Character/' + character.characterId + '_512.jpg'}/>
+            <div className='caption text-center'>
+              <ul className='list-inline'>
+                <li><strong>Race:</strong> {character.race}</li>
+                <li><strong>Bloodline:</strong> {character.bloodline}</li>
+              </ul>
+              <h4>
+                <Link to={'/characters/' + character.characterId}><strong>{character.name}</strong></Link>
+              </h4>
+            </div>
+          </div>
+        </div>
+      );
+    });
+
+    return (
+      <div className='container'>
+        <h3 className='text-center'>Click on the portrait. Select your favorite.</h3>
+        <div className='row'>
+          {characterNodes}
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Home;
+```
+
+It is not really necessary to map over the `characters` array since we only have 2 characters to display, but it is one way to do it. Another way would be to create a separate markup for `characters[0]` and `characters[1]` like so:
+
+```js
+render() {
+    return (
+      <div className='container'>
+        <h3 className='text-center'>Click on the portrait. Select your favorite.</h3>
+        <div className='row'>
+          <div className='col-xs-6 col-sm-6 col-md-5 col-md-offset-1'>
+            <div className='thumbnail fadeInUp animated'>
+              <img onClick={this.handleClick.bind(this, characters[0])} src={'http://image.eveonline.com/Character/' + characters[0].characterId + '_512.jpg'}/>
+              <div className='caption text-center'>
+                <ul className='list-inline'>
+                  <li><strong>Race:</strong> {characters[0].race}</li>
+                  <li><strong>Bloodline:</strong> {characters[0].bloodline}</li>
+                </ul>
+                <h4>
+                  <Link to={'/characters/' + characters[0].characterId}><strong>{characters[0].name}</strong></Link>
+                </h4>
+              </div>
+            </div>
+          </div>
+          <div className='col-xs-6 col-sm-6 col-md-5'>
+            <div className='thumbnail fadeInUp animated'>
+              <img onClick={this.handleClick.bind(this, characters[1])} src={'http://image.eveonline.com/Character/' + characters[1].characterId + '_512.jpg'}/>
+              <div className='caption text-center'>
+                <ul className='list-inline'>
+                  <li><strong>Race:</strong> {characters[1].race}</li>
+                  <li><strong>Bloodline:</strong> {characters[1].bloodline}</li>
+                </ul>
+                <h4>
+                  <Link to={'/characters/' + characters[1].characterId}><strong>{characters[1].name}</strong></Link>
+                </h4>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    );
+  }
+  ```
+
+The first image is offset via `col-md-offset-1` Bootstrap CSS class so both images are perfectly center-aligned.
+
+Notice we are not just binding `this.handleClick` to a click event, but instead we do `{this.handleClick.bind(this, character)`. Simply passing an *event* object is not enough, it will not give us any useful information, unlike text field, checkbox or radio button group elements.
+
+From the [MSDN Documentation](https://msdn.microsoft.com/en-us/library/ff841995%28v=vs.94%29.ASPx?f=255&MSPPError=-2147217396):
+
+```js
+function.bind(thisArg[, arg1[, arg2[, ...]]])
+```
+
+- **thisArg (Required)** - An object to which the `this` keyword can refer inside the new function.
+- **arg1, arg2, ... (Optional)** - A list of arguments to be passed to the new function.
+
+To put it simply, we need to pass `this` context because we are referencing `this.state` inside `handleClick` method, we are passing a custom object containing character information that was clicked instead of the default *event* object.
+
+Inside `handleClick` method, the `character` parameter is our winning character, because that's the character that was clicked on. Since we only have two characters it is not that hard to figure out the losing character. We then pass `winer` and `loser`  objects to `HomeActions.vote` action.
+
+**<i class="devicons devicons-react"></i> Component**
+
+Create a new file *Home.js* inside **<i class="fa fa-folder-open"></i>components** directory:
+
+
 ## Step xx. Helpful Resources for React
 
-- [<i class="fa fa-cloud-download"></i> characters.bson](https://dl.dropboxusercontent.com/u/14131013/characters.bson)
 
 ## Closing
 
