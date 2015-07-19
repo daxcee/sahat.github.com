@@ -12,7 +12,7 @@ In this tutorial we are going to build a character voting app (inspired by *Face
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/152471846&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 
-While listening to this soundtrack imagine yourself mining asteroid belts in deep space while scanning your radar for pirates, researching propulsion system blueprints at the station's facility, manufacturing spaceship components for capital ships, placing buy & sell orders on the entirely player-driven market where supply and demand govern the game economics, hauling trade goods from a remote solar system in a massive freighter, flying blazingly fast interceptors ship with a microwarpdrive or powerful battleships armored to the teeth, extracting ore and minerals from planets, or fighting large-scale battles with thousands of players from multiple alliances. That's **EVE Online**.
+While listening to this soundtrack imagine yourself mining asteroid belts in deep space while keeping a lookout for pirates on the radar, researching propulsion system blueprints at the station's facility, manufacturing spaceship components for capital ships, placing buy & sell orders on the entirely player-driven market where supply and demand govern the game economics, hauling trade goods from a remote solar system in a massive freighter, flying blazingly fast interceptors ship with a microwarpdrive or powerful battleships armored to the teeth, extracting ore and minerals from planets, or fighting large-scale battles with thousands of players from multiple alliances. That's **EVE Online**.
 
 Each player in EVE Online has a 3D avatar representing their character. This app is designed for ranking those avatars. Anyway, your goal here is to learn about Node.js and React, not EVE Online. But I will say this: "Having an interesting tutorial project is just as important, if not more so, than the main subject of the tutorial". The only reason I built the original [New Eden Faces](http://www.newedenfaces.com/) app is to learn <i class="devicons devicons-backbone"></i>Backbone.js and the only reason I built the [TV Show Tracker](https://github.com/sahat/tvshow-tracker) app is so that I could learn <i class="devicons devicons-angular"></i>AngularJS.
 
@@ -2919,13 +2919,18 @@ class Character extends React.Component {
 
   componentDidMount() {
     CharacterStore.listen(this.onChange);
-    CharacterActions.getCharacter({ router: this.context.router });
+    CharacterActions.getCharacter(this.props.params.id);
 
-    $(this.refs.container.getDOMNode()).addClass('animated');
-
-    setTimeout(() => {
-      $(this.refs.container.getDOMNode()).removeClass('animated');
-    }, 750);
+    $('.magnific-popup').magnificPopup({
+      type: 'image',
+      mainClass: 'mfp-zoom-in',
+      closeOnContentClick: true,
+      midClick: true,
+      zoom: {
+        enabled: true,
+        duration: 300
+      }
+    });
   }
 
   componentWillUnmount() {
@@ -2933,18 +2938,9 @@ class Character extends React.Component {
     $(document.body).removeClass();
   }
 
-  componentDidUpdate() {
-    let prevPath = this.state.prevPath;
-    let currentPath = this.context.router.getCurrentPath();
-
-    if (prevPath !== currentPath) {
-      CharacterActions.getCharacter({ router: this.context.router });
-
-      $(this.refs.container.getDOMNode()).addClass('animated');
-
-      setTimeout(() => {
-        $(this.refs.container.getDOMNode()).removeClass('animated');
-      }, 750);
+  componentDidUpdate(prevProps) {
+    if (prevProps.params.id !== this.props.params.id) {
+      CharacterActions.getCharacter(this.props.params.id);
     }
   }
 
@@ -2954,11 +2950,10 @@ class Character extends React.Component {
 
   render() {
     return (
-      <div ref='container' className='container fadeIn'>
+      <div className='container'>
         <div className='profile-img'>
-          <a ref='avatar' className='magnific-popup'
-             href={'https://image.eveonline.com/Character/' + this.state.characterId + '_1024.jpg'}>
-            <img src={'https://image.eveonline.com/Character/' + this.state.characterId + '_256.jpg'}/>
+          <a ref='magnificPopup' className='magnific-popup' href={'https://image.eveonline.com/Character/' + this.state.characterId + '_1024.jpg'}>
+            <img src={'https://image.eveonline.com/Character/' + this.state.characterId + '_256.jpg'} />
           </a>
         </div>
         <div className='profile-info clearfix'>
@@ -2966,8 +2961,11 @@ class Character extends React.Component {
           <h4 className='lead'>Race: <strong>{this.state.race}</strong></h4>
           <h4 className='lead'>Bloodline: <strong>{this.state.bloodline}</strong></h4>
           <h4 className='lead'>Gender: <strong>{this.state.gender}</strong></h4>
-          <button className='btn btn-transparent' onClick={CharacterActions.report.bind(this, this.state.characterId)}
-                  disabled={this.state.isReported}>{this.state.isReported ? 'Reported' : 'Report Character'}</button>
+          <button className='btn btn-transparent'
+                  onClick={CharacterActions.report.bind(this, this.state.characterId)}
+                  disabled={this.state.isReported}>
+            {this.state.isReported ? 'Reported' : 'Report Character'}
+          </button>
         </div>
         <div className='profile-stats clearfix'>
           <ul>
@@ -2976,7 +2974,6 @@ class Character extends React.Component {
             <li><span className='stats-number'>{this.state.losses}</span> Losses</li>
           </ul>
         </div>
-
       </div>
     );
   }
@@ -2993,7 +2990,7 @@ On `componentDidMount` we add the `animated` CSS class and remove it 750 millise
 
 Since *Character* component has a full-page background image, during `componentWillUnmount` it is removed from the `<body>` tag so that users do not see it when navigating back to *Home* or *Add Character* components which do not have a background image. Ok it is removed during `componentWillUnmount`, but when is it added? In the store when character data is successfully fetched, but we will get to that shortly.
 
-One last thing that is worth mentioning is what's happening in `componentDidUpdate`. If we are transitioning from one character page to another character page, we are still within the *Character* component so it is never unmounted. And if it's not unmounted, `componentDidMount` and its adding and removing of the fade-in animation does not happen. So as long as we are in the same *Character* component and URL paths are different, e.g. **/characters/1807823526** and **/characters/467078888**, we basically repeat the same thing from `componentDidMount`.
+One last thing that is worth mentioning is what's happening in `componentDidUpdate`. If we are transitioning from one character page to another character page, we are still within the *Character* component, i.e. it is never unmounted. And if it isn't unmounted, `componentDidMount` with its adding and removing logic for the fade-in animation is not triggered. So in `componentDidUpdate` as long as we are in the same *Character* component and URL paths are different, e.g. **/characters/1807823526** and **/characters/467078888**, we basically repeat the same thing from `componentDidMount`.
 
 **<i class="devicons devicons-react"></i> Actions**
 
@@ -3012,16 +3009,13 @@ class CharacterActions {
     );
   }
 
-  getCharacter(payload) {
-    let characterId = payload.router.getCurrentParams().id;
-    let path = payload.router.getCurrentPath();
-
+  getCharacter(characterId) {
     $.ajax({ url: '/api/characters/' + characterId })
       .done((data) => {
-        this.actions.getCharacterSuccess({ data: data, path: path });
+        this.actions.getCharacterSuccess(data);
       })
       .fail((jqXhr) => {
-        this.actions.getCharacterFail(jqXhr.responseJSON.message);
+        this.actions.getCharacterFail(jqXhr);
       });
   }
 
@@ -3043,12 +3037,89 @@ class CharacterActions {
 export default alt.createActions(CharacterActions);
 ```
 
+Although we passed a router instance to actions, we don't use it directly here, but instead we pass it to the `getCharacterSuccess` action so it could transition to the new URL.
+
 **<i class="devicons devicons-react"></i> Store**
 
+Create a new file *CharacterStore.js* inside **<i class="fa fa-folder-open"></i>app/store** directory:
+
 ```js
+import {assign, contains} from 'underscore';
+import alt from '../alt';
+import CharacterActions from '../actions/CharacterActions';
+
+class CharacterStore {
+  constructor() {
+    this.bindActions(CharacterActions);
+    this.characterId = 0;
+    this.name = 'TBD';
+    this.race = 'TBD';
+    this.bloodline = 'TBD';
+    this.gender = 'TBD';
+    this.wins = 0;
+    this.losses = 0;
+    this.winLossRatio = 0;
+    this.isReported = false;
+  }
+
+  onGetCharacterSuccess(data) {
+    assign(this, data);
+    $(document.body).attr('class', 'profile ' + this.race.toLowerCase());
+    let localData = localStorage.getItem('NEF') ? JSON.parse(localStorage.getItem('NEF')) : {};
+    let reports = localData.reports || [];
+    this.isReported = contains(reports, this.characterId);
+    // If is NaN (from division by zero) then set it to "0"
+    this.winLossRatio = ((this.wins / (this.wins + this.losses) * 100) || 0).toFixed(1);
+  }
+
+  onGetCharacterFail(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+
+  onReportSuccess() {
+    this.isReported = true;
+    let localData = localStorage.getItem('NEF') ? JSON.parse(localStorage.getItem('NEF')) : {};
+    localData.reports = localData.reports || [];
+    localData.reports.push(this.characterId);
+    localStorage.setItem('NEF', JSON.stringify(localData));
+    toastr.warning('Character has been reported.');
+  }
+
+  onReportFail(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+}
+
+export default alt.createStore(CharacterStore);
 ```
 
+Here we are using two Underscore's helper functions [`assign`](http://underscorejs.org/#extendOwn) and [`contains`](http://underscorejs.org/#contains) to merge two objects and check if array contains a certain value, respectively.
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+  At the time of writing Babel.js does not support <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"><code>Object.assign</code></a> method and I find <code>contains</code> to be more readable than <code>Array.indexOf() > -1</code> for checking if an array contains some value.
+</div>
+
+As I have explained before, this component looks significantly different from all other components. Adding `profile` CSS class to `<body>` pretty much changes the entire look and feel due to how some CSS styles are nested in *main.less*. While the second CSS class, which could be either `caldari`, `gallente`, `minmatar`, `amarr` (case-sensitive) determine which background image to use. I would generally avoid messing with the DOM that is not part of the `render()` of that component, but this is a one-off exception. And lastly, inside `onGetCharacterSuccess` we check if the character has already been reported by the same user. If they have, the report button will be grayed out and disabled.
+
+If a character is being reported for the first time, it is saved to Local Storage under the *NEF* namespace. Since you cannot store objects and arrays in Local Storage, we have to [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) it first.
+
+![](/images/blog/Screenshot 2015-07-19 01.14.26.png)
+
+Refresh the browser, click on one of the characters and you should see the new profile page.
+
+![](/images/blog/Screenshot 2015-07-19 01.32.44.png)
+
+Up next is the *CharacterList* component for *Top 100* characters - filtered by gender, race, bloodline and overall. The *Hall of Shame* is also part of this component.
+
 ## Step 15. Top 100 Component
+
+**<i class="devicons devicons-react"></i> Component**
+
+**<i class="devicons devicons-react"></i> Actions**
+
+**<i class="devicons devicons-react"></i> Store**
+
 
 ## Step 16. Stats Component
 
