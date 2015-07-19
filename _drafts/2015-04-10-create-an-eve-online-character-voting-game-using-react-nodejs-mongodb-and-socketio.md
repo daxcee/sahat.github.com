@@ -3548,6 +3548,15 @@ You can see your app live at *http://&lt;app_name&gt;.herokuapp.com*, in my case
 
 ## Additional Resources
 
+Below is a list of resources that I found interesting or helpful during my own learning process.
+
+Link | Description
+---- | -----------
+[Elemental UI](http://elemental-ui.com/) | Beautiful UI toolkit for React containing buttons, forms, spinners, modals and other components.
+[Navigating the React Ecosystem](http://www.toptal.com/react/navigating-the-react-ecosystem) | Excellent blog post by Tomas Holas exploring ES6, Generators, Babel, React, React Router, Alt, Flux, React Forms, Typeahead and Calendar widgets. In many ways it complements this tutorial. Highly recommend.
+[A Quick Tour Of ES6](http://jamesknelson.com/es6-the-bits-youll-actually-use/) | Supplemental resource for learning more about new ES6 features. Very practical and easy to read blog post.
+
+
 ## In Closing
 
 Extend NEF to real hot or not clone
