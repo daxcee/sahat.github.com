@@ -25,7 +25,7 @@ One thing that I have learned — between screencasts, books and training videos
   <li><a href="#"><i class="fa fa-github"></i> Source Code</a></li>
 </ul>
 
-In the same spirit as [Create a TV Show Tracker using AngularJS, Node.js and MongoDB](http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) and [Build an Instagram clone with AngularJS, Satellizer, Node.js and MongoDB](https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/) this is a full-stack JavaScript tutorial where we build a fully functioning app from the ground up.
+In the same spirit as my previous tutorials ([TV Show Tracker](http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) and [Instagram Clone](https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/)) this is a full-stack JavaScript tutorial where we build a complete app from the ground up.
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
@@ -2430,10 +2430,12 @@ Switch back to *server.js*. I hope it is clear by now where you need to include 
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
-  Understand that we are including all routes in <em>server.js</em> because it is convenient to do so for the purposes of this tutorial. In the dashboard project that I had to build at work, all routes were split into separate files inside the <strong><i class="fa fa-folder-open"></i> routes</strong> directory, furthermore all route handlers were split into separate files inside the <strong><i class="fa fa-folder-open"></i> controllers</strong> directory.
+  Understand that we are including all routes in <em>server.js</em> because it is convenient to do so for the purposes of this tutorial. In the dashboard project that I had to build at work, all routes were split into separate files inside the <strong><i class="fa fa-folder-open"></i>routes</strong> directory, furthermore all route handlers were split into separate files inside the <strong><i class="fa fa-folder-open"></i>controllers</strong> directory.
 </div>
 
 Let's start with the route for fetching two characters in the *Home* component.
+
+**GET /api/characters**
 
 ```js
 /**
@@ -2486,6 +2488,8 @@ var _ = require('underscore');
 I have tried to make this code as readable as possible, so it should be fairly easy to understand how it fetches two random characters. It will randomly select *Male* or *Female* gender and query the database for two characters. If we get back less than 2 characters, it will attempt another query with the opposite gender. For example, if we have 10 male characters and 9 of them have already been voted, displaying 1 character makes no sense. If don't get back 2 characters for either *Male* or *Female* gender, that means we have exhausted all unvoted characters and the vote count should be reset by setting `voted: false` for all characters.
 
 ---
+
+**PUT /api/characters**
 
 This route is related to the previous one since it updates `wins` and `losses` fields of winning and losing characters respectively.
 
@@ -2559,17 +2563,499 @@ app.put('/api/characters', function(req, res, next) {
 
 Here we are using [`async.parallel`](https://github.com/caolan/async#paralleltasks-callback) to make two database queries simultaneously, since one query does not depend on another. However, because we have two separate MongoDB documents, that's two independent asynchronous operations, hence another `async.parallel`. Basically, we respond with a success only when both characters have finished updating and there were no errors.
 
-## Step 14. Character Profile Component
+---
+
+**GET /api/characters/count**
+
+MongoDB has a built-in [`count()`](http://docs.mongodb.org/manual/reference/method/db.collection.count/) method for returning the number of results that match the query.
+
+```js
+/**
+ * GET /api/characters/count
+ * Returns the total number of characters.
+ */
+app.get('/api/characters/count', function(req, res, next) {
+  Character.count({}, function(err, count) {
+    if (err) return next(err);
+    res.send({ count: count });
+  });
+});
+```
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+  You may notice we are starting to diverge from the RESTful API design pattern with this one-off route for returning total count. Unfortunately that's just a reality. I have never worked on a project where I could perfectly map out all URLs in a RESTful way. See <a href="https://blog.apigee.com/detail/restful_api_design_what_about_counts">this post</a> by Apigee.
+</div>
+
+---
+
+**GET/api/characters/search**
+
+Last I checked MongoDB does not support case-insensitive queries, which explains why we have to use a regex here. The next best thing you could do is to use the [`$regex`](http://docs.mongodb.org/manual/reference/operator/query/regex/) operator.
+
+```js
+/**
+ * GET /api/characters/search
+ * Looks up a character by name. (case-insensitive)
+ */
+app.get('/api/characters/search', function(req, res, next) {
+  var characterName = new RegExp(req.query.name, 'i');
+
+  Character.findOne({ name: characterName }, function(err, character) {
+    if (err) return next(err);
+
+    if (!character) {
+      return res.status(404).send({ message: 'Character not found.' });
+    }
+
+    res.send(character);
+  });
+});
+```
+
+---
+
+**GET /api/characters/:id**
+
+This route is used by the profile page (*Character* component that we will build next) as shown at the beginning of the tutorial.
+
+```js
+/**
+ * GET /api/characters/:id
+ * Returns detailed character information.
+ */
+app.get('/api/characters/:id', function(req, res, next) {
+  var id = req.params.id;
+
+  Character.findOne({ characterId: id }, function(err, character) {
+    if (err) return next(err);
+
+    if (!character) {
+      return res.status(404).send({ message: 'Character not found.' });
+    }
+
+    res.send(character);
+  });
+});
+```
+
+---
+
+**GET /api/characters/top**
+
+When I first built this project, I initially had around 7-9 almost identical routes for retrieving the Top 100 characters. After some code refactoring I ended up with just a single route below.
+
+```js
+/**
+ * GET /api/characters/top
+ * Return 100 highest ranked characters. Filter by gender, race and bloodline.
+ */
+app.get('/api/characters/top', function(req, res, next) {
+  var params = req.query;
+  var conditions = {};
+
+  _.each(params, function(value, key) {
+    conditions[key] = new RegExp('^' + value + '$', 'i');
+  });
+
+  Character
+    .find(conditions)
+    .sort('-wins') // Sort in descending order (highest wins on top)
+    .limit(100)
+    .exec(function(err, characters) {
+      if (err) return next(err);
+
+      // Sort by winning percentage
+      characters.sort(function(a, b) {
+        if (a.wins / (a.wins + a.losses) < b.wins / (b.wins + b.losses)) { return 1; }
+        if (a.wins / (a.wins + a.losses) > b.wins / (b.wins + b.losses)) { return -1; }
+        return 0;
+      });
+
+      res.send(characters);
+    });
+});
+```
+
+For example, if we are interested in the Top 100 male characters with Caldari race and Civire bloodline, this would be the URL path for it:
+
+> GET /api/characters/top?race=caldari&bloodline=civire&gender=male
+
+![](/images/blog/Screenshot 2015-07-17 18.16.21.png)
+
+If you are still having trouble understanding how we construct the `conditions` object, this documented code should clarify it:
+
+```js
+// Query params object
+req.query = {
+  race: 'caldari',
+  bloodline: 'civire',
+  gender: 'male'
+};
+
+var params = req.query;
+var conditions = {};
+
+// This each loop is equivalent...
+_.each(params, function(value, key) {
+  conditions[key] = new RegExp('^' + value + '$', 'i');
+});
+
+// To this code
+conditions.race = new RegExp('^' + params.race + '$', 'i'); // /caldari$/i
+conditions.bloodline = new RegExp('^' + params.bloodline + '$', 'i'); // /civire$/i
+conditions.gender = new RegExp('^' + params.gender + '$', 'i'); // /male$/i
+
+// Which ultimately becomes this...
+Character
+    .find({ race: /caldari$/i, bloodline: /civire$/i, gender: /male$/i })
+```
+
+After we retrieve characters with the highest number of wins, we are doing another sort by winning percentage, so that we don't end up with the oldest characters always being on top.
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+  Be careful with accepting user's input directly. Ideally we should have first checked for query params before blindly constructing the <code>conditions</code> object and passing it to MongoDB.
+</div>
+
+---
+
+**GET /api/characters/shame**
+
+Similar to the previous route, this one retrieves 100 characters with the most losses.
+
+```js
+/**
+ * GET /api/characters/shame
+ * Returns 100 lowest ranked characters.
+ */
+app.get('/api/characters/shame', function(req, res, next) {
+  Character
+    .find()
+    .sort('-losses')
+    .limit(100)
+    .exec(function(err, characters) {
+      if (err) return next(err);
+      res.send(characters);
+    });
+});
+```
+
+---
+
+**POST /api/report**
+
+Some characters do not have a valid avatar (gray silhouette) while other avatars are nearly pitch-black and shouldn't be added to the database in the first place. But since anyone can add everyone, sometimes you end up with those characters that need be removed. A character that has been reported by visitors at least 4 times will be removed from the database.
+
+```js
+/**
+ * POST /api/report
+ * Reports a character. Character is removed after 4 reports.
+ */
+app.post('/api/report', function(req, res, next) {
+  var characterId = req.body.characterId;
+
+  Character.findOne({ characterId: characterId }, function(err, character) {
+    if (err) return next(err);
+
+    if (!character) {
+      return res.status(404).send({ message: 'Character not found.' });
+    }
+
+    character.reports++;
+
+    if (character.reports > 4) {
+      character.remove();
+      return res.send({ message: character.name + ' has been deleted.' });
+    }
+
+    character.save(function(err) {
+      if (err) return next(err);
+      res.send({ message: character.name + ' has been reported.' });
+    });
+  });
+});
+```
+
+---
+
+**GET /api/stats**
+
+And last but not least, a route for character stats. Yes, it could be simplified with [`async.each`](https://github.com/caolan/async#each) or [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), but keep in mind when I first built New Eden Faces I was not familiar with either solutions. Most of the back-end code is unchanged since then. Although the code is verbose, at least it is explicit and very readable.
+
+```js
+/**
+ * GET /api/stats
+ * Returns characters statistics.
+ */
+app.get('/api/stats', function(req, res, next) {
+  async.parallel([
+      function(callback) {
+        Character.count({}, function(err, count) {
+          callback(err, count);
+        });
+      },
+      function(callback) {
+        Character.count({ race: 'Amarr' }, function(err, amarrCount) {
+          callback(err, amarrCount);
+        });
+      },
+      function(callback) {
+        Character.count({ race: 'Caldari' }, function(err, caldariCount) {
+          callback(err, caldariCount);
+        });
+      },
+      function(callback) {
+        Character.count({ race: 'Gallente' }, function(err, gallenteCount) {
+          callback(err, gallenteCount);
+        });
+      },
+      function(callback) {
+        Character.count({ race: 'Minmatar' }, function(err, minmatarCount) {
+          callback(err, minmatarCount);
+        });
+      },
+      function(callback) {
+        Character.count({ gender: 'Male' }, function(err, maleCount) {
+          callback(err, maleCount);
+        });
+      },
+      function(callback) {
+        Character.count({ gender: 'Female' }, function(err, femaleCount) {
+          callback(err, femaleCount);
+        });
+      },
+      function(callback) {
+        Character.aggregate({ $group: { _id: null, total: { $sum: '$wins' } } }, function(err, totalVotes) {
+            var total = totalVotes.length ? totalVotes[0].total : 0;
+            callback(err, total);
+          }
+        );
+      },
+      function(callback) {
+        Character
+          .find()
+          .sort('-wins')
+          .limit(100)
+          .select('race')
+          .exec(function(err, characters) {
+            if (err) return next(err);
+
+            var raceCount = _.countBy(characters, function(character) { return character.race; });
+            var max = _.max(raceCount, function(race) { return race });
+            var inverted = _.invert(raceCount);
+            var topRace = inverted[max];
+            var topCount = raceCount[topRace];
+
+            callback(err, { race: topRace, count: topCount });
+          });
+      },
+      function(callback) {
+        Character
+          .find()
+          .sort('-wins')
+          .limit(100)
+          .select('bloodline')
+          .exec(function(err, characters) {
+            if (err) return next(err);
+
+            var bloodlineCount = _.countBy(characters, function(character) { return character.bloodline; });
+            var max = _.max(bloodlineCount, function(bloodline) { return bloodline });
+            var inverted = _.invert(bloodlineCount);
+            var topBloodline = inverted[max];
+            var topCount = bloodlineCount[topBloodline];
+
+            callback(err, { bloodline: topBloodline, count: topCount });
+          });
+      }
+    ],
+    function(err, results) {
+      if (err) return next(err);
+
+      res.send({
+        totalCount: results[0],
+        amarrCount: results[1],
+        caldariCount: results[2],
+        gallenteCount: results[3],
+        minmatarCount: results[4],
+        maleCount: results[5],
+        femaleCount: results[6],
+        totalVotes: results[7],
+        leadingRace: results[8],
+        leadingBloodline: results[9]
+      });
+    });
+});
+```
+
+The last operation with the [`aggregate()`](http://docs.mongodb.org/manual/reference/method/db.collection.aggregate/) method is a bit more tricky. Admittedly, I had to get help with that part. In MongoDB, aggregations operations process data records and return computed results. In our case it computes the total number of casted votes by summing up all `wins` counts. Because this is a zero-sum game, the number of wins should be exactly the same as the number of losses, so we could have used `losses` counts here as well.
+
+---
+
+And we are all done here. At the end of the tutorial I will post some ideas for you to extend this project further with additional features.
+
+## Step 15. Character (Profile) Component
+
+In this section we will be creating the profile page for a character. Every character link we have in the app points to this component. It is a little different from other components primarily because of the following:
+
+1. It has a full page image background.
+2. Navigating from one character to another does not unmount the component and as a result of that the initial fade-in animation will not be repeated. You will see what I mean shortly.
+
+**<i class="devicons devicons-react"></i> Component**
+
+Create a new file *Character.js* inside **<i class="fa fa-folder-open"></i>app/components** with the following contents:
+
+```js
+import React from 'react';
+import CharacterStore from '../stores/CharacterStore';
+import CharacterActions from '../actions/CharacterActions'
+
+class Character extends React.Component {
+
+  constructor(props) {
+    super(props);
+    this.state = CharacterStore.getState();
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    CharacterStore.listen(this.onChange);
+    CharacterActions.getCharacter({ router: this.context.router });
+
+    $(this.refs.container.getDOMNode()).addClass('animated');
+
+    setTimeout(() => {
+      $(this.refs.container.getDOMNode()).removeClass('animated');
+    }, 750);
+  }
+
+  componentWillUnmount() {
+    CharacterStore.unlisten(this.onChange);
+    $(document.body).removeClass();
+  }
+
+  componentDidUpdate() {
+    let prevPath = this.state.prevPath;
+    let currentPath = this.context.router.getCurrentPath();
+
+    if (prevPath !== currentPath) {
+      CharacterActions.getCharacter({ router: this.context.router });
+
+      $(this.refs.container.getDOMNode()).addClass('animated');
+
+      setTimeout(() => {
+        $(this.refs.container.getDOMNode()).removeClass('animated');
+      }, 750);
+    }
+  }
+
+  onChange(state) {
+    this.setState(state);
+  }
+
+  render() {
+    return (
+      <div ref='container' className='container fadeIn'>
+        <div className='profile-img'>
+          <a ref='avatar' className='magnific-popup'
+             href={'https://image.eveonline.com/Character/' + this.state.characterId + '_1024.jpg'}>
+            <img src={'https://image.eveonline.com/Character/' + this.state.characterId + '_256.jpg'}/>
+          </a>
+        </div>
+        <div className='profile-info clearfix'>
+          <h2><strong>{this.state.name}</strong></h2>
+          <h4 className='lead'>Race: <strong>{this.state.race}</strong></h4>
+          <h4 className='lead'>Bloodline: <strong>{this.state.bloodline}</strong></h4>
+          <h4 className='lead'>Gender: <strong>{this.state.gender}</strong></h4>
+          <button className='btn btn-transparent' onClick={CharacterActions.report.bind(this, this.state.characterId)}
+                  disabled={this.state.isReported}>{this.state.isReported ? 'Reported' : 'Report Character'}</button>
+        </div>
+        <div className='profile-stats clearfix'>
+          <ul>
+            <li><span className='stats-number'>{this.state.winLossRatio}</span>Winning Percentage</li>
+            <li><span className='stats-number'>{this.state.wins}</span> Wins</li>
+            <li><span className='stats-number'>{this.state.losses}</span> Losses</li>
+          </ul>
+        </div>
+
+      </div>
+    );
+  }
+}
+
+Character.contextTypes = {
+  router: React.PropTypes.func.isRequired
+};
+
+export default Character;
+```
+
+On `componentDidMount` we add the `animated` CSS class and remove it 750 milliseconds later. As I have explained before, if we don't remove it, the next animation will not be played. Agreed, it may look a little hacky, so if you are interested in exploring some alternatives then [`ReactCSSTransitionGroup`](https://facebook.github.io/react/docs/animation.html) is probably worth looking into. We are also passing the router instance to `CharacterActions.getCharacter` action so we could navigate to the new URL at `/characters/<characterId>`.
+
+Since *Character* component has a full-page background image, during `componentWillUnmount` it is removed from the `<body>` tag so that users do not see it when navigating back to *Home* or *Add Character* components which do not have a background image. Ok it is removed during `componentWillUnmount`, but when is it added? In the store when character data is successfully fetched, but we will get to that shortly.
+
+One last thing that is worth mentioning is what's happening in `componentDidUpdate`. If we are transitioning from one character page to another character page, we are still within the *Character* component so it is never unmounted. And if it's not unmounted, `componentDidMount` and its adding and removing of the fade-in animation does not happen. So as long as we are in the same *Character* component and URL paths are different, e.g. **/characters/1807823526** and **/characters/467078888**, we basically repeat the same thing from `componentDidMount`.
+
+**<i class="devicons devicons-react"></i> Actions**
+
+Create a new file *CharacterActions.js* inside **<i class="fa fa-folder-open"></i>app/actions** directory:
+
+```js
+import alt from '../alt';
+
+class CharacterActions {
+  constructor() {
+    this.generateActions(
+      'reportSuccess',
+      'reportFail',
+      'getCharacterSuccess',
+      'getCharacterFail'
+    );
+  }
+
+  getCharacter(payload) {
+    let characterId = payload.router.getCurrentParams().id;
+    let path = payload.router.getCurrentPath();
+
+    $.ajax({ url: '/api/characters/' + characterId })
+      .done((data) => {
+        this.actions.getCharacterSuccess({ data: data, path: path });
+      })
+      .fail((jqXhr) => {
+        this.actions.getCharacterFail(jqXhr.responseJSON.message);
+      });
+  }
+
+  report(characterId) {
+    $.ajax({
+      type: 'POST',
+      url: '/api/report',
+      data: { characterId: characterId }
+    })
+      .done(() => {
+        this.actions.reportSuccess();
+      })
+      .fail((jqXhr) => {
+        this.actions.reportFail(jqXhr);
+      });
+  }
+}
+
+export default alt.createActions(CharacterActions);
+```
+
+**<i class="devicons devicons-react"></i> Store**
+
+```js
+```
 
 ## Step 15. Top 100 Component
 
 ## Step 16. Stats Component
 
+## Step 17. Deployment
 
+## Additional Resources
 
-## Step xx. Helpful Resources for React
-
-
-## Closing
+## In Closing
 
 Extend NEF to real hot or not clone
