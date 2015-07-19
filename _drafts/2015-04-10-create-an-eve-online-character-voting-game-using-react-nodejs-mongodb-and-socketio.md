@@ -3291,11 +3291,172 @@ class CharacterListStore {
 export default alt.createStore(CharacterListStore);
 ```
 
-There is not much to explain here, nothing you haven't seen already. So let's move on to the last component of our app.
+There is not much to explain here, nothing you have not seen already. So let's move on to the last component of our app.
 
 ## Step 16. Stats Component
 
+Our last component is really simple, it's just a table with general statistics such as the total number of characters by race, by gender, overall, total votes cast, leading race, leading bloodline, etc. I won't even need to explain any code because it is that simple.
 
+**<i class="devicons devicons-react"></i> Component**
+
+Create a new file *Stats.js* inside **<i class="fa fa-folder-open"></i>app/components** directory:
+
+```js
+import React from 'react';
+import StatsStore from '../stores/StatsStore'
+import StatsActions from '../actions/StatsActions';
+
+class Stats extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = StatsStore.getState();
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    StatsStore.listen(this.onChange);
+    StatsActions.getStats();
+  }
+
+  componentWillUnmount() {
+    StatsStore.unlisten(this.onChange);
+  }
+
+  onChange(state) {
+    this.setState(state);
+  }
+
+  render() {
+    return (
+      <div className='container'>
+        <div className='panel panel-default'>
+          <table className='table table-striped'>
+            <thead>
+            <tr>
+              <th colSpan='2'>Stats</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+              <td>Leading race in Top 100</td>
+              <td>{this.state.leadingRace.race} with {this.state.leadingRace.count} characters</td>
+            </tr>
+            <tr>
+              <td>Leading bloodline in Top 100</td>
+              <td>{this.state.leadingBloodline.bloodline} with {this.state.leadingBloodline.count} characters
+              </td>
+            </tr>
+            <tr>
+              <td>Amarr Characters</td>
+              <td>{this.state.amarrCount}</td>
+            </tr>
+            <tr>
+              <td>Caldari Characters</td>
+              <td>{this.state.caldariCount}</td>
+            </tr>
+            <tr>
+              <td>Gallente Characters</td>
+              <td>{this.state.gallenteCount}</td>
+            </tr>
+            <tr>
+              <td>Minmatar Characters</td>
+              <td>{this.state.minmatarCount}</td>
+            </tr>
+            <tr>
+              <td>Total votes cast</td>
+              <td>{this.state.totalVotes}</td>
+            </tr>
+            <tr>
+              <td>Female characters</td>
+              <td>{this.state.femaleCount}</td>
+            </tr>
+            <tr>
+              <td>Male characters</td>
+              <td>{this.state.maleCount}</td>
+            </tr>
+            <tr>
+              <td>Total number of characters</td>
+              <td>{this.state.totalCount}</td>
+            </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Stats;
+```
+
+**<i class="devicons devicons-react"></i> Actions**
+
+Create a new file *Stats.js* inside **<i class="fa fa-folder-open"></i>app/actions** directory:
+
+```js
+import alt from '../alt';
+
+class StatsActions {
+  constructor() {
+    this.generateActions(
+      'getStatsSuccess',
+      'getStatsFail'
+    );
+  }
+
+  getStats() {
+    $.ajax({ url: '/api/stats' })
+      .done((data) => {
+        this.actions.getStatsSuccess(data);
+      })
+      .fail((jqXhr) => {
+        this.actions.getStatsFail(jqXhr);
+      });
+  }
+}
+
+export default alt.createActions(StatsActions);
+```
+
+**<i class="devicons devicons-react"></i> Store**
+
+Create a new file *Stats.js* inside **<i class="fa fa-folder-open"></i>app/store** directory:
+
+```js
+import {assign} from 'underscore';
+import alt from '../alt';
+import StatsActions from '../actions/StatsActions';
+
+class StatsStore {
+  constructor() {
+    this.bindActions(StatsActions);
+    this.leadingRace = { race: 'Unknown', count: 0 };
+    this.leadingBloodline = { bloodline: 'Unknown', count: 0 };
+    this.amarrCount = 0;
+    this.caldariCount = 0;
+    this.gallenteCount = 0;
+    this.minmatarCount = 0;
+    this.totalVotes = 0;
+    this.femaleCount = 0;
+    this.maleCount = 0;
+    this.totalCount = 0;
+  }
+
+  onGetStatsSuccess(data) {
+    assign(this, data);
+  }
+
+  onGetStatsFail(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+}
+
+export default alt.createStore(StatsStore);
+```
+
+Refresh the browser and you should see the new *Stats* component:
+
+![](/images/blog/Screenshot 2015-07-19 14.53.00.png)
 
 ## Step 17. Deployment
 
