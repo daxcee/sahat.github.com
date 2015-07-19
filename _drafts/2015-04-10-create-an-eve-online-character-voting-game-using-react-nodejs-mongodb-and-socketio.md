@@ -3114,14 +3114,188 @@ Up next is the *CharacterList* component for *Top 100* characters - filtered by 
 
 ## Step 15. Top 100 Component
 
+This component uses Bootstrap's [Media Object](http://getbootstrap.com/components/#media) as its main interface. Here is what it looks like:
+
+![](/images/blog/Screenshot 2015-07-19 14.01.37.png)
+
 **<i class="devicons devicons-react"></i> Component**
+
+Create a new file *CharacterList.js* inside **<i class="fa fa-folder-open"></i>app/components** with the following contents:
+
+```js
+import React from 'react';
+import {Link} from 'react-router';
+import {isEqual} from 'underscore';
+import CharacterListStore from '../stores/CharacterListStore';
+import CharacterListActions from '../actions/CharacterListActions';
+
+class CharacterList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = CharacterListStore.getState();
+    this.onChange = this.onChange.bind(this);
+  }
+
+  componentDidMount() {
+    CharacterListStore.listen(this.onChange);
+    CharacterListActions.getCharacters(this.props.params);
+  }
+
+  componentWillUnmount() {
+    CharacterListStore.unlisten(this.onChange);
+  }
+
+  componentDidUpdate(prevProps) {
+    if (!isEqual(prevProps.params, this.props.params)) {
+      CharacterListActions.getCharacters(this.props.params);
+    }
+  }
+
+  onChange(state) {
+    this.setState(state);
+  }
+
+  render() {
+    let charactersList = this.state.characters.map((character, index) => {
+      return (
+        <div key={character.characterId} className='list-group-item animated fadeIn'>
+          <div className='media'>
+            <span className='position pull-left'>{index + 1}</span>
+            <div className='pull-left thumb-lg'>
+              <Link to={'/characters/' + character.characterId}>
+                <img className='media-object' src={'http://image.eveonline.com/Character/' + character.characterId + '_128.jpg'} />
+              </Link>
+            </div>
+            <div className='media-body'>
+              <h4 className='media-heading'>
+                <Link to={'/characters/' + character.characterId}>{character.name}</Link>
+              </h4>
+              <small>Race: <strong>{character.race}</strong></small>
+              <br />
+              <small>Bloodline: <strong>{character.bloodline}</strong></small>
+              <br />
+              <small>Wins: <strong>{character.wins}</strong> Losses: <strong>{character.losses}</strong></small>
+            </div>
+          </div>
+        </div>
+      );
+    });
+
+    return (
+      <div className='container'>
+        <div className='list-group'>
+          {charactersList}
+        </div>
+      </div>
+    );
+  }
+}
+
+CharacterList.contextTypes = {
+  router: React.PropTypes.func.isRequired
+};
+
+export default CharacterList;
+```
+
+Since our array of characters is already sorted by the winning percentage, we can use `index + 1` (1 through 100) to display the position number. It's a position only within that list, not globally across all characters.
 
 **<i class="devicons devicons-react"></i> Actions**
 
+Create a new file *CharacterListActions.js* inside **<i class="fa fa-folder-open"></i>app/actions** directory:
+
+```js
+import alt from '../alt';
+
+class CharacterListActions {
+  constructor() {
+    this.generateActions(
+      'getCharactersSuccess',
+      'getCharactersFail'
+    );
+  }
+
+  getCharacters(payload) {
+    let url = '/api/characters/top';
+    let params = {
+      race: payload.race,
+      bloodline: payload.bloodline
+    };
+
+    if (payload.category === 'female') {
+      params.gender = 'female';
+    } else if (payload.category === 'male') {
+      params.gender = 'male';
+    }
+
+    if (payload.category === 'shame') {
+      url = '/api/characters/shame';
+    }
+
+    $.ajax({ url: url, data: params })
+      .done((data) => {
+        this.actions.getCharactersSuccess(data);
+      })
+      .fail((jqXhr) => {
+        this.actions.getCharactersFail(jqXhr);
+      });
+  }
+}
+
+export default alt.createActions(CharacterListActions);
+```
+
+The `payload` contains react-router params that we specified in *routes.js*:
+
+```xml
+<Route path=':category' handler={CharacterList}>
+  <Route path=':race' handler={CharacterList}>
+    <Route path=':bloodline' handler={CharacterList} />
+  </Route>
+</Route>
+```
+
+For example, if we go to http://localhost:3000/female/gallente/intaki, then the `payload` object would contain the following data:
+
+```js
+{
+  category: 'female',
+  race: 'gallente',
+  bloodline: 'intaki'
+}
+```
+
 **<i class="devicons devicons-react"></i> Store**
 
+Create a new file *CharacterListStore.js* inside **<i class="fa fa-folder-open"></i>app/store** directory:
+
+```js
+import alt from '../alt';
+import CharacterListActions from '../actions/CharacterListActions';
+
+class CharacterListStore {
+  constructor() {
+    this.bindActions(CharacterListActions);
+    this.characters = [];
+  }
+
+  onGetCharactersSuccess(data) {
+    this.characters = data;
+  }
+
+  onGetCharactersFail(jqXhr) {
+    toastr.error(jqXhr.responseJSON.message);
+  }
+}
+
+export default alt.createStore(CharacterListStore);
+```
+
+There is not much to explain here, nothing you haven't seen already. So let's move on to the last component of our app.
 
 ## Step 16. Stats Component
+
+
 
 ## Step 17. Deployment
 
