@@ -1,16 +1,5 @@
 $(document).ready(function() {
 
-  // Menu Toggle
-  var navigation = $('nav');
-  var navigationToggle = $('.toggle');
-
-  navigation.hide();
-
-  navigationToggle.on('click', function() {
-    $(this).toggleClass('open');
-    navigation.fadeToggle('fast');
-  });
-
   // Reading Time
   $('article').readingTime();
 
@@ -36,7 +25,7 @@ $(document).ready(function() {
   $('.post-content').css('padding-top', height + 'px');
 
   $(function() {
-    $('a[href*=#]:not([href=#])').click(function() {
+    $('a[href*=#topofpage]').click(function() {
       if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
         var target = $(this.hash);
         target = target.length ? target : $('[name=' + this.hash.slice(1) +']');

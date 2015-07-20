@@ -513,7 +513,7 @@ main {
 }
 
 .post .article-image .post-meta-text {
-  color: rgba(255, 255, 255, 0.75);
+  color: rgba(255, 255, 255, 0.85);
   letter-spacing: -0.02em;
   font-weight: 400;
   font-style: normal;
@@ -1183,11 +1183,15 @@ table th {
   cursor: -webkit-zoom-in;
   cursor: -moz-zoom-in;
   cursor: zoom-in;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
 }
 
 i.fa,
 i[class^='ion-'] {
   margin-right: 5px;
+  vertical-align: middle;
+}
+
+i.devicons {
   vertical-align: middle;
 }
