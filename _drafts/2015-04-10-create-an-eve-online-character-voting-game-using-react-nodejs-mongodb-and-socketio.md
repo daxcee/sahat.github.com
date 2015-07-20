@@ -4,6 +4,7 @@ title: Create a character voting app using React, Node.js, MongoDB and Socket.IO
 excerpt: "In this tutorial we are going to build a character voting app (inspired by Facemash) for EVE Online - a massively multiplayer online game. You will learn how to build a REST API with <strong>Node.js</strong>, save and retrieve data from <strong>MongoDB</strong>, track online visitors in real-time using <strong>Socket.IO</strong>, build a single-page app experience using <strong>React</strong> + <strong>Flux</strong> with server-side rendering and then finally deploy it to the cloud."
 gradient: 1
 image: bg/7.jpg
+comments: true
 ---
 
 ## Overview
@@ -12,7 +13,7 @@ In this tutorial we are going to build a character voting app (inspired by *Face
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/152471846&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 
-While listening to this soundtrack imagine yourself mining asteroid belts in deep space while keeping a lookout for pirates on the radar, researching propulsion system blueprints at the station's facility, manufacturing spaceship components for capital ships, placing buy & sell orders on the entirely player-driven market where supply and demand govern the game economics, hauling trade goods from a remote solar system in a massive freighter, flying blazingly fast interceptors ship with a microwarpdrive or powerful battleships armored to the teeth, extracting ore and minerals from planets, or fighting large-scale battles with thousands of players from multiple alliances. That's **EVE Online**.
+While listening to this soundtrack imagine yourself mining asteroid belts in deep space while keeping a lookout for pirates on the radar, researching propulsion system blueprints at the station's facility, manufacturing spaceship components for capital ships, placing buy & sell orders on the entirely player-driven market where supply and demand govern the game economics, hauling trade goods from a remote solar system in a massive freighter, flying blazingly fast interceptors with a microwarpdrive or powerful battleships armored to the teeth, optimizing extraction efficiency of rare  minerals from planets, or fighting large-scale battles with thousands of players from multiple alliances. That's **EVE Online**.
 
 Each player in EVE Online has a 3D avatar representing their character. This app is designed for ranking those avatars. Anyway, your goal here is to learn about Node.js and React, not EVE Online. But I will say this: "Having an interesting tutorial project is just as important, if not more so, than the main subject of the tutorial". The only reason I built the original [New Eden Faces](http://www.newedenfaces.com/) app is to learn <i class="devicons devicons-backbone"></i>Backbone.js and the only reason I built the [TV Show Tracker](https://github.com/sahat/tvshow-tracker) app is so that I could learn <i class="devicons devicons-angular"></i>AngularJS.
 
@@ -3555,8 +3556,54 @@ Link | Description
 [Elemental UI](http://elemental-ui.com/) | Beautiful UI toolkit for React containing buttons, forms, spinners, modals and other components.
 [Navigating the React Ecosystem](http://www.toptal.com/react/navigating-the-react-ecosystem) | Excellent blog post by Tomas Holas exploring ES6, Generators, Babel, React, React Router, Alt, Flux, React Forms, Typeahead and Calendar widgets. In many ways it complements this tutorial. Highly recommend.
 [A Quick Tour Of ES6](http://jamesknelson.com/es6-the-bits-youll-actually-use/) | Supplemental resource for learning more about new ES6 features. Very practical and easy to read blog post.
-
+[Atomic CSS](http://acss.io/) | A radical new approach for styling your app. It takes time getting used to it, but when you do, its advantages are quite nice. You no longer have to abstract styles with CSS classes, instead you style React components with "atomic" classes inside your components.
 
 ## In Closing
 
-Extend NEF to real hot or not clone
+In my [previous](https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/) blog post that I published on December 9th, 2014 I said:
+
+> Congratulations on making it this far! It is now the longest blog post I have published to date. Funny, I said the exact same thing in my TV Show Tracker blog post.
+
+And now this post is even longer than my previous one with xx,xxx word count. I seriously did not expect it to be this long, nor was I trying to beat my old record. But at the very least I hope it was helpful and informative.
+
+If you liked this project, consider extending it or perhaps build a new app based on New Eden Faces. All this code is on [GitHub](github.com/sahat/newedenfaces-react) and it is completely free, so use or modify it however you want. Here are some ideas for you to work on:
+
+- Admin UI for resetting stats, swapping incorrect gender, deleting characters.
+- Email subscription for weekly stats similar to [Fitbit Weekly Progress Report](https://www.google.com/search?q=fitbit+weekly+progress+report&source=lnms&tbm=isch&sa=X&ved=0CAgQ_AUoAmoVChMItIX17r_oxgIVCVyICh2NUQhh&biw=964&bih=656).
+- Head-to-head matches between two characters.
+- Smarter matching algorithm, e.g. high winning characters matched with other high winning characters.
+- [List of all characters](http://www.newedenfaces.com/#browse) with pagination.
+- Store character images on Amazon S3 or MongoDB [GridFS](http://docs.mongodb.org/manual/core/gridfs/) to avoid hitting EVE Online API each time.
+- Image processing algorithm to reject [placeholder avatars](http://image.eveonline.com/Character/1_512.jpg) when adding a new character.
+- Automatically reset stats every X number of rounds.
+- Display voting history on the character profile page.
+
+As I have said at the beginning of this post, building a small project is the best way to learn anything. *Learning on demand* is what I call it. Personally I could never read a technical book from cover to cover
+
+If, after reading this tutorial, some concepts are still not clear to you, don't give up, keep pushing yourself, keep learning. I picked up AngularJS about 2 months ago and I learned JavaScript language through Node.js and Express web framework less than 2 years ago. I am where I am today only because of the countless number of hours of writing code. There is no magic pill that will make you a JavaScript expert overnight. So keep on coding, keep on building new things with JavaScript - that really is the best way to learn.
+
+From all the emails that I have received since publishing the [TV Show Tracker](sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) tutorial, I've learned that this blog attracts readers of all levels - from long-time JavaScript gurus to those who are just starting out with coding, as well as everyone in between.
+
+*If you are someone who is struggling with JavaScript:*
+
+- Trust me, I have been there before. Coming from the C++ and Java background that they teach you in school, I just didn't get all that asynchronous and callbacks bullshit. At one point I got so angry and frustrated that I thought I would never use JavaScript ever again.
+
+*If you are someone who is struggling with the new ES6 syntax:*
+
+- I used to loathe ES6. It did not look anything like the JavaScript I've grown to love in the past 2-3 years. Although ES6 is mostly just a syntactical sugar, it felt alien to me. Give it some time and you will grow to like it eventually. Whether someone likes it or not, that's the direction JavaScript is heading to.
+
+*If you are someone who is struggling with React:*
+
+- I remember using React for the first time and my initial thought was "What is HTML doing in my JavaScript? F that, I'll stick with AngularJS." But I don't think I need to convince you in 2015 why React is such a great library. A year ago - perhaps, but now just look at all the [sites using React](https://github.com/facebook/react/wiki/Sites-Using-React). React does require a new way of thinking for building apps, but once you get past that hurdle building apps in React is really fun and enjoyable. I have read a lot of React and Flux tutorials, but to be honest I did not fully understand it until I built my own project with it. I just want to reinforce that idea again - building a small project is the best way to learn any technology, not passively reading tutorials and books or watching screencasts and training videos.
+
+*If you are someone who is struggling with coding in general:*
+
+- You *must* learn how to persevere and deal with frustration that will no doubt arise along the way. Don't ever give up. If I gave up in 2009 I wouldn't have majored in Computer Science. If I gave up in 2012 I would've dropped out of college and never would have got my college degree. If I gave up on my Hacker School project in 2014 I would have never released [Satellizer](https://github.com/sahat/satellizer) which is currently being used all over the world by thousands of developers. There will always be struggle and frustration, especially with how fast this industry moves. Despite what you might think, I am not an expert, I still struggle just like you almost every day. It is extremely rare that I go to work and I know exactly what needs to be done - easy breezy. If that was usually the case, then I am not advancing and probably should look for a better job.
+
+*If you are a college student seeking advice:*
+
+- Start building your portfolio right now. Go create a GitHub account and start contributing to open-source projects or build some of your own projects. Do not expect the school to teach you all the skills required from you on the job market. Don't worry too much if you have a low GPA (mine was 2.9, thanks to double **F** in Chemistry and Differential Equations), just as long as you can compensate with a solid projects portfolio. Be sure to have a goal in life and work hard towards it. After graduating from a CUNY school last year, I am now living a dream life in Los Angeles and drive Tesla Model S (that I could only dream about last year), and it is not because I am an expert, really smart, very exceptional or lucky, no, it is because I wanted those things and I relentlessly worked hard to get it. 
+
+This is very likely my last tutorial until 2016. I would like to switch back to open-source development so I could create more projects like [Hackathon Starter](https://github.com/sahat/hackathon-starter) and [Satellizer](https://github.com/sahat/satellizer). Also I will be quite busy at work, especially now that I am on the [Yahoo Sports](http://sports.yahoo.com/) team, there will be tighter deadlines before major sports events.
+
+For questions, comments and general feedback send me an [email](mailto:sahat@me.com). Also due to the high volume of emails from my previous tutorials, I am enabling comments for this post so that other readers could potentially answer some of the questions.
