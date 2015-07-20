@@ -1283,8 +1283,8 @@ class Navbar extends React.Component {
     NavbarStore.unlisten(this.onChange);
   }
 
-  onChange() {
-    this.setState(NavbarStore.getState());
+  onChange(state) {
+    this.setState(state);
   }
 
   handleSubmit(event) {
@@ -1295,7 +1295,7 @@ class Navbar extends React.Component {
     if (searchQuery) {
       NavbarActions.findCharacter({
         searchQuery: searchQuery,
-        searchFormNode: this.refs.searchForm.getDOMNode(),
+        searchForm: this.refs.searchForm.getDOMNode(),
         router: this.context.router
       });
     }
@@ -1312,7 +1312,7 @@ class Navbar extends React.Component {
             <span className='icon-bar'></span>
           </button>
           <Link to='/' className='navbar-brand'>
-            <span ref='triangles' className={'triangles animated ' + this.state.ajaxAnimation}>
+            <span ref='triangles' className={'triangles animated ' + this.state.ajaxAnimationClass}>
               <div className='tri invert'></div>
               <div className='tri invert'></div>
               <div className='tri'></div>
@@ -1604,6 +1604,7 @@ Let's create a new file *NavbarActions.js* in **<i class="fa fa-folder-open"></i
 
 ```js
 import alt from '../alt';
+import {assign} from 'underscore';
 
 class NavbarActions {
   constructor() {
@@ -1612,7 +1613,9 @@ class NavbarActions {
       'updateAjaxAnimation',
       'updateSearchQuery',
       'getCharacterCountSuccess',
-      'getCharacterCountFail'
+      'getCharacterCountFail',
+      'findCharacterSuccess',
+      'findCharacterFail'
     );
   }
 
@@ -1622,13 +1625,11 @@ class NavbarActions {
       data: { name: payload.searchQuery }
     })
       .done((data) => {
-        payload.router.transitionTo('/characters/' + data.characterId);
+        assign(payload, data);
+        this.actions.findCharacterSuccess(payload);
       })
       .fail(() => {
-        payload.searchFormNode.classList.add('shake');
-        setTimeout(() => {
-          payload.searchFormNode.classList.remove('shake');
-        }, 1000);
+        this.actions.findCharacterFail(payload);
       });
   }
 
@@ -1675,15 +1676,26 @@ class NavbarStore {
     this.totalCharacters = 0;
     this.onlineUsers = 0;
     this.searchQuery = '';
-    this.ajaxAnimation = '';
+    this.ajaxAnimationClass = '';
+  }
+
+  onFindCharacterSuccess(payload) {
+    payload.router.transitionTo('/characters/' + payload.characterId);
+  }
+
+  onFindCharacterFail(payload) {
+    payload.searchForm.classList.add('shake');
+    setTimeout(() => {
+      payload.searchForm.classList.remove('shake');
+    }, 1000);
   }
 
   onUpdateOnlineUsers(data) {
     this.onlineUsers = data.onlineUsers;
   }
 
-  onUpdateAjaxAnimation(cssClass) {
-    this.ajaxAnimation = cssClass;
+  onUpdateAjaxAnimation(className) {
+    this.ajaxAnimationClass = className; //fadein or fadeout
   }
 
   onUpdateSearchQuery(event) {
@@ -1695,7 +1707,7 @@ class NavbarStore {
   }
 
   onGetCharacterCountFail(jqXhr) {
-    toastr.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
+    toastr.error(jqXhr.responseJSON.message);
   }
 }
 
