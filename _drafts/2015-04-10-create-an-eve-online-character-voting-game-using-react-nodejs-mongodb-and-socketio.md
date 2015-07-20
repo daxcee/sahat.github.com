@@ -3572,9 +3572,9 @@ In my [previous](https://hackhands.com/building-instagram-clone-angularjs-satell
 
 > Congratulations on making it this far! It is now the longest blog post I have published to date. Funny, I said the exact same thing in my TV Show Tracker blog post.
 
-And now this post is even longer than my previous one with xx,xxx word count. I seriously did not expect it to be this long, nor was I trying to beat my old record. But at the very least I hope it was helpful and informative.
+But now this post is even longer than my previous one. I seriously did not expect it to be this long, nor was I trying to beat my old record. But at least I hope it was helpful and informative.
 
-If you liked this project, consider extending it or perhaps build a new app based on New Eden Faces. All this code is on [GitHub](github.com/sahat/newedenfaces-react) and it is completely free, so use or modify it however you want. Here are some ideas for you to work on:
+If you liked this project, consider extending it or perhaps build a new app based on New Eden Faces. All this code is available on [GitHub](github.com/sahat/newedenfaces-react) and it is completely free, so use or modify it however you want. Here are some ideas for you to work on:
 
 - Admin UI for resetting stats, swapping incorrect gender, deleting characters.
 - Email subscription for weekly stats similar to [Fitbit Weekly Progress Report](https://www.google.com/search?q=fitbit+weekly+progress+report&source=lnms&tbm=isch&sa=X&ved=0CAgQ_AUoAmoVChMItIX17r_oxgIVCVyICh2NUQhh&biw=964&bih=656).
@@ -3586,11 +3586,7 @@ If you liked this project, consider extending it or perhaps build a new app base
 - Automatically reset stats every X number of rounds.
 - Display voting history on the character profile page.
 
-As I have said at the beginning of this post, building a small project is the best way to learn anything. *Learning on demand* is what I call it. Personally I could never read a technical book from cover to cover
-
-If, after reading this tutorial, some concepts are still not clear to you, don't give up, keep pushing yourself, keep learning. I picked up AngularJS about 2 months ago and I learned JavaScript language through Node.js and Express web framework less than 2 years ago. I am where I am today only because of the countless number of hours of writing code. There is no magic pill that will make you a JavaScript expert overnight. So keep on coding, keep on building new things with JavaScript - that really is the best way to learn.
-
-From all the emails that I have received since publishing the [TV Show Tracker](sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) tutorial, I've learned that this blog attracts readers of all levels - from long-time JavaScript gurus to those who are just starting out with coding, as well as everyone in between.
+From all the emails that I have received since publishing the [TV Show Tracker](sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) tutorial, I have learned that this blog attracts readers of all levels - from long-time JavaScript gurus to those who are just starting out with coding, as well as everyone in between.
 
 *If you are someone who is struggling with JavaScript:*
 
@@ -3606,11 +3602,11 @@ From all the emails that I have received since publishing the [TV Show Tracker](
 
 *If you are someone who is struggling with coding in general:*
 
-- You *must* learn how to persevere and deal with frustration that will no doubt arise along the way. Don't ever give up. If I gave up in 2009 I wouldn't have majored in Computer Science. If I gave up in 2012 I would've dropped out of college and never would have got my college degree. If I gave up on my Hacker School project in 2014 I would have never released [Satellizer](https://github.com/sahat/satellizer) which is currently being used all over the world by thousands of developers. There will always be struggle and frustration, especially with how fast this industry moves. Despite what you might think, I am not an expert, I still struggle just like you almost every day. It is extremely rare that I go to work and I know exactly what needs to be done - easy breezy™. If that was usually the case, then I am not advancing and probably should look for a better job.
+- You *must* learn how to persevere and deal with frustration that will no doubt arise along the way. Don't ever give up. If I gave up in 2009 I wouldn't have majored in Computer Science. If I gave up in 2012 I would've dropped out of college and never would have got my college degree. If I gave up on my Hacker School project in 2014 I would have never released [Satellizer](https://github.com/sahat/satellizer) which is currently being used all over the world by thousands of developers. There will always be struggle and frustration, especially with how fast this industry is moving. Despite what you might think, I am not an expert, I still struggle just like you almost every day. It is extremely rare that I go to work and know exactly what and how needs to be done - easy breezy. If that was typically the case, then I am not advancing anywhere and probably should look for a new job.
 
 *If you are a college student seeking advice:*
 
-- Start building your portfolio right now. Go create a GitHub account and start contributing to open-source projects or build some of your own projects. Do not expect the school to teach you all the skills required from you on the job market. Don't worry too much if you have a low GPA (mine was 2.9, thanks to double **F** in Chemistry and Differential Equations), just as long as you can compensate with a solid projects portfolio. Be sure to have a goal in life and work hard towards it. After graduating from a CUNY school last year, I am now living a dream life in Los Angeles and drive Tesla Model S (that I could only dream about last year), and it is not because I am an expert, really smart, very exceptional or lucky, no, it is because I wanted those things and I relentlessly worked hard to get it.
+- Start building your portfolio right now. Go create a GitHub account and start contributing to open-source projects or build some of your own projects. Do not expect the school to teach you all the skills required from you on the job market. Don't worry too much if you have a low GPA, just as long as you can compensate with a solid projects portfolio. Be sure to have a goal in life and work hard towards it. After graduating from a CUNY school last year, I am now living a dream life in Los Angeles and drive Tesla Model S (that I could only dream about last year), and it is not because I am an expert, really smart, very exceptional or lucky, no, it is because I wanted those things and I relentlessly worked hard to get it.
 
 This is very likely my last tutorial until 2016. I would like to switch back to open-source development so I could create more projects like [Hackathon Starter](https://github.com/sahat/hackathon-starter) and [Satellizer](https://github.com/sahat/satellizer).
 
