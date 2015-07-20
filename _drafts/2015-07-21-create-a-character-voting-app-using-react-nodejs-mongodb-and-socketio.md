@@ -2362,7 +2362,7 @@ function.bind(thisArg[, arg1[, arg2[, ...]]])
 
 To put it simply, we need to pass `this` context because we are referencing `this.state` inside `handleClick` method, we are passing a custom object containing character information that was clicked instead of the default *event* object.
 
-Inside `handleClick` method, the `character` parameter is our winning character, because that's the character that was clicked on. Since we only have two characters it is not that hard to figure out the losing character. We then pass both `winer` and `loser` *Character IDs* to the `HomeActions.vote` action.
+Inside `handleClick` method, the `character` parameter is our winning character, because that's the character that was clicked on. Since we only have two characters it is not that hard to figure out the losing character. We then pass both `winner` and `loser` *Character IDs* to the `HomeActions.vote` action.
 
 **<i class="devicons devicons-react"></i> Actions**
 
