@@ -13,7 +13,7 @@ In this tutorial we are going to build a character voting app (inspired by *Face
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/152471846&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 
-While listening to this soundtrack imagine yourself mining asteroid belts in deep space while keeping a lookout for pirates on the radar, researching propulsion system blueprints at the station's facility, manufacturing spaceship components for capital ships, placing buy & sell orders on the entirely player-driven market where supply and demand govern the game economics, hauling trade goods from a remote solar system in a massive freighter, flying blazingly fast interceptors with a microwarpdrive or powerful battleships armored to the teeth, optimizing extraction efficiency of rare  minerals from planets, or fighting large-scale battles with thousands of players from multiple alliances. That's **EVE Online**.
+While listening to this soundtrack, imagine yourself mining asteroid belts in deep space while keeping a lookout for pirates on the radar, researching propulsion system blueprints at the station's facility, manufacturing spaceship components for capital ships, placing buy & sell orders on the entirely player-driven market where supply and demand govern the game economics, hauling trade goods from a remote solar system in a massive freighter, flying blazingly fast interceptors with a microwarpdrive or powerful battleships armored to the teeth, optimizing extraction efficiency of rare  minerals from planets, or fighting large-scale battles with thousands of players from multiple alliances. That's **EVE Online**.
 
 Each player in EVE Online has a 3D avatar representing their character. This app is designed for ranking those avatars. Anyway, your goal here is to learn about Node.js and React, not EVE Online. But I will say this: "Having an interesting tutorial project is just as important, if not more so, than the main subject of the tutorial". The only reason I built the original [New Eden Faces](http://www.newedenfaces.com/) app is to learn <i class="devicons devicons-backbone"></i>Backbone.js and the only reason I built the [TV Show Tracker](https://github.com/sahat/tvshow-tracker) app is so that I could learn <i class="devicons devicons-angular"></i>AngularJS. To me, either one of these projects is far more interesting than a simple todo app that everyone seems to be using these days.
 
@@ -367,12 +367,9 @@ Similarly to **<i class="fa fa-folder-open"></i>node_modules**, you don't want t
 
 Copy all glyphicons fonts from **<i class="fa fa-folder-open"></i>bower_components/bootstrap/fonts** into **<i class="fa fa-folder-open"></i>public/fonts** directory.
 
-Download the following background images and place them into **<i class="fa fa-folder-open"></i>public/img** directory:
+Download and extract the following background images and place them into **<i class="fa fa-folder-open"></i>public/img** directory:
 
-- [amarr_bg.jpg](https://raw.githubusercontent.com/sahat/newedenfaces-react/master/public/img/amarr_bg.jpg)
-- [caldari_bg.jpg](https://raw.githubusercontent.com/sahat/newedenfaces-react/master/public/img/caldari_bg.jpg)
-- [gallente_bg.jpg](https://raw.githubusercontent.com/sahat/newedenfaces-react/master/public/img/gallente_bg.jpg)
-- [minmatar_bg.jpg](https://raw.githubusercontent.com/sahat/newedenfaces-react/master/public/img/minmatar_bg.jpg)
+- [Background Images.zip](/assets/Background Images.zip)
 
 <div class="admonition note">
   <div class="admonition-title">Fun Fact</div>
