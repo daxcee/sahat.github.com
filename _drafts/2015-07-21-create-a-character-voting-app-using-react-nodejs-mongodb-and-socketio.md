@@ -900,7 +900,7 @@ Now we just need to set up a few more things on the back-end and then we can fin
 
 ## Step 8. React Routes (Server-Side)
 
-Open *server.js*, then "require" the following modules:
+Open *server.js* and import the following modules by adding them at the top of the file:
 
 ```js
 var swig  = require('swig');
@@ -909,7 +909,7 @@ var Router = require('react-router');
 var routes = require('./app/routes');
 ```
 
-Next, add this [Express middleware](http://expressjs.com/guide/using-middleware.html) somewhere in *server.js*:
+Next, add the following [middleware](http://expressjs.com/guide/using-middleware.html) to in *server.js*, somewhere after existing Express middlewares:
 
 ```js
 app.use(function(req, res) {
@@ -925,11 +925,11 @@ app.use(function(req, res) {
 
 This middleware function will be executed on every request to the server. The main difference between `Router.run` in *server.js* and `Router.run` in *main.js* is how the app renders.
 
-On the client-side, a rendered HTML markup gets inserted into `<div id="app"></div>`, whereas on the server-side a rendered HTML markup is sent to the *index.html* template where it is inserted into `<div id="app">{% raw %}{{ html|safe }}{% endraw %}</div>` by the [Swig](http://paularmstrong.github.io/swig/) template engine. *I chose Swig because I wanted to try something other than [Jade](http://jade-lang.com/) and [Handlebars](http://handlebarsjs.com/) this time*.
+On the client-side, a rendered HTML markup gets inserted into `<div id="app"></div>`, while on the server a rendered HTML markup is sent to the *index.html* template where it is inserted into `<div id="app">{% raw %}{{ html|safe }}{% endraw %}</div>` by the [Swig](http://paularmstrong.github.io/swig/) template engine. *I chose Swig because I wanted to try something other than [Jade](http://jade-lang.com/) and [Handlebars](http://handlebarsjs.com/) this time*.
 
 But do we really need a separate template for this? Why not just render everything inside the *App* component? Yes, you could do it, as long as you are okay with [invalid HTML markup](https://validator.w3.org/) and not being able to include inline script tags like Google Analytics directly in the *App* component. But having said that, invalid markup is probably not relevant to SEO anymore and there are [workarounds](https://github.com/hzdg/react-google-analytics/blob/master/src/index.coffee) to include inline script tags in React components. So it's up to you, but for the purposes of this tutorial we will be using a Swig template.
 
-Create a new folder **<i class="fa fa-folder-open"></i>views** in the root directory, next to *package.json* and *server.js*. Then inside **<i class="fa fa-folder-open"></i>views**, create a new file *index.html*:
+Create a new folder **<i class="fa fa-folder-open"></i>views** in the project root directory  (next to *package.json* and *server.js*). Then inside **<i class="fa fa-folder-open"></i>views**, create a new file *index.html*:
 
 ```html
 <!DOCTYPE html>
@@ -951,18 +951,18 @@ Create a new folder **<i class="fa fa-folder-open"></i>views** in the root direc
 </html>
 ```
 
-Open two Terminal tabs. In one tab run `gulp` to build the React app, concatenate JS libraries and compile LESS stylesheets, and then start watching for file changes:
+Open two Terminal tabs. In one tab run `gulp` to build the app, concatenate vendor files, compile LESS stylesheets and watch for file changes:
 ![](/images/blog/Screenshot 2015-06-22 22.47.05.png)
 
 In another tab, run `npm run watch` to start the Node.js server and automatically restart the process on file changes:
 
 ![](/images/blog/Screenshot 2015-06-22 22.50.23.png)
 
-Now visit [`http://localhost:3000`](http://localhost:3000) and you should see our React app render successfully:
+Open [http://localhost:3000](http://localhost:3000) and you should see our React app render successfully:
 
 ![](/images/blog/Screenshot 2015-06-22 22.53.01.png)
 
-We did an impressive amount of work just to display an empty page with a simple alert message! Fortunately, the most difficult part is behind us. Now we can chillax and focus on building new React components and implementing the REST API endpoints.
+We did an impressive amount of work just to display an empty page with a simple alert message! Fortunately, the most difficult part is behind us. From here on we can relax and focus on building React components and implementing the REST API endpoints.
 
 Both `gulp` and `npm run watch` processes will take care of everything for us. We no longer need to worry about re-compiling the app after adding new React components or restarting the Express app after making changes to *server.js*.
 
@@ -987,7 +987,6 @@ import FooterStore from '../stores/FooterStore'
 import FooterActions from '../actions/FooterActions';
 
 class Footer extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = FooterStore.getState();
@@ -1044,7 +1043,7 @@ class Footer extends React.Component {
 export default Footer;
 ```
 
-Just this once, I will show an ES5-equivalent code for this component in case you are still not comfortable with the ES6 syntax. Also, see [Using Alt with ES5](http://alt.js.org/guides/es5/) guide for syntax differences when creating actions and creating stores.
+Just this once, I will show an ES5-equivalent code for this component in case you are still not comfortable with the new ES6 syntax. Also, see [Using Alt with ES5](http://alt.js.org/guides/es5/) guide for syntax differences when creating actions and creating stores.
 
 ```js
 var React = require('react');
@@ -1053,7 +1052,6 @@ var FooterStore = require('../stores/FooterStore');
 var FooterActions = require('../actions/FooterActions');
 
 var Footer = React.createClass({
-
   getInitialState: function() {
     return FooterStore.getState();
   }
@@ -1142,7 +1140,7 @@ class App extends React.Component {
 }
 ```
 
-You may or may not be familiar with the [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) method in JavaScript. Even if you have used it before, it may still be unclear how it works in the context of JSX. (Something that [React Tutorial](http://facebook.github.io/react/docs/tutorial.html#hook-up-the-data-model) regretfully does not explain well.)
+You may or may not be familiar with the [`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map) method in JavaScript. Even if you have used it before, it may still be unclear how it works in the context of JSX. (Something that [React Tutorial](http://facebook.github.io/react/docs/tutorial.html#hook-up-the-data-model) regretfully does not explain very well.)
 
 It is basically a *for-each* loop, similar to what you might see in [Jade](http://jade-lang.com/reference/iteration/) and [Handlebars](http://handlebarsjs.com/builtin_helpers.html#iteration), but here you can assign the results to a variable, which can then be used with JSX by wrapping it in curly braces. It's a very common pattern in React so you will be using it quite frequently.
 
@@ -1151,7 +1149,7 @@ It is basically a *for-each* loop, similar to what you might see in [Jade](http:
   When rendering <a href="https://facebook.github.io/react/docs/multiple-components.html#dynamic-children">dynamic children</a>, such as <code>leaderboardCharacters</code> above, React requires that you use the <code>key</code> property to uniquely identify each child element.
 </div>
 
-The [`Link`](http://rackt.github.io/react-router/#Link) component will render a fully accesible anchor tag with the proper *href*. A [`Link`](http://rackt.github.io/react-router/#Link) also knows when the route it links to is active and automatically applies its "active" CSS class.
+A [`Link`](http://rackt.github.io/react-router/#Link) component will render a fully accesible anchor tag with the proper *href*. It also knows when the route it links to is active and automatically applies its "active" CSS class. If you are using React Router, then you need to be using `Link` for internal navigation between routes.
 
 **<i class="devicons devicons-react"></i> Actions**
 
@@ -1194,7 +1192,7 @@ Actions can be as complex or as simple as you need them to be. Some actions are 
 </div>
 
 
-The two shorthand actions above created via `generateActions` and the following two actions are equivalent, so use either notation based on your preference:
+The two shorthand actions above created via `generateActions` and the following two simple actions are equivalent, so use either notation based on your preference:
 
 ```js
 getTopCharactersSuccess(payload) {
@@ -1204,13 +1202,19 @@ getTopCharactersSuccess(payload) {
 getTopCharactersFail(payload) {
   this.dispatch(payload);
 }
+
+// Equivalent to this...
+this.generateActions(
+  'getTopCharactersSuccess',
+  'getTopCharactersFail'
+);
 ```
 
 And lastly, we wrap the *FooterActions* class with [`alt.createActions`](http://alt.js.org/docs/createActions/#createActions) and then export it, so that we could import and use it in the *Footer* component.
 
 **<i class="devicons devicons-react"></i> Store**
 
-Next, create a new file called *FooterStore.js* in **<i class="fa fa-folder-open"></i>app/stores** directory:
+Next, create a new file called *FooterStore.js* inside **<i class="fa fa-folder-open"></i>app/stores** directory:
 
 ```js
 import alt from '../alt';
@@ -1235,20 +1239,26 @@ class FooterStore {
 export default alt.createStore(FooterStore);
 ```
 
-All instance variables of the store, i.e. values assigned to `this`, will become part of state. When *Footer* component initially calls `FooterStore.getState()` it receives the current state of the store specified in the constructor.
+All instance variables of the store, i.e. values assigned to `this`, will become part of the state. When *Footer* component initially calls `FooterStore.getState()` it receives the current state of the store specified in the constructor (initially just an empty array, and mapping over an empty array returns another empty array, hence nothing is rendered when the *Footer* component is first loaded).
 
-[`bindActions`](http://alt.js.org/docs/createStore/#storemodelbindactions) is a magic Alt method which binds actions to their handlers defined in the store. For example, an action with the name `foo` will match an action handler method defined in the store named `onFoo` or just `foo` but not both. That is why for actions `getTopCharactersSuccess` and `getTopCharactersFail` defined in *FooterActions.js* we have corresponding store handlers called `onGetTopCharactersSuccess` and `onGetTopCharactersFail`.
+[`bindActions`](http://alt.js.org/docs/createStore/#storemodelbindactions) is a magic Alt method which binds actions to their handlers defined in the store. For example, an action with the name `foo` will match an action handler method defined in the store named `onFoo` or just `foo` but not both. That is why for actions `getTopCharactersSuccess` and `getTopCharactersFail` defined in *FooterActions.js* we have corresponding store handlers called `onGetTopCharactersSuccess` and `onGetTopCharactersFail` in *FooterStore.js*.
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
   For more precise control over which actions the store listens to and what handlers those actions are bound to, see <a href="http://alt.js.org/docs/createStore/#storemodelbindlisteners"><code>bindListeners</code></a> method.
 </div>
 
-I hope it's pretty clear by now that when `getTopCharactersSuccess` action is fired, `onGetTopCharactersSuccess` handler function is executed and the store is updated with the new data that contains *Top 5 Characters*. And since we have initialized the store listener in *Footer* component, it will be notified that the store has been updated and the component will re-render accordingly.
+I hope it's pretty clear by now that when `getTopCharactersSuccess` action is fired, `onGetTopCharactersSuccess` handler function is executed and the store is updated with the new data that contains *Top 5 Characters*. And since we have initialized the store listener in the *Footer* component, it will be notified when the *FooterStore* has been updated and the component will re-render accordingly.
 
-We will be using [Toastr](http://codeseven.github.io/toastr/demo.html) JavaScript library for notifications. Why not just use pure React notification component you may ask? While you may find some notification components built specifically for React, I personally think it is one of the few areas that should not be handled by React (*along with tooltips*). I think it is far easier to display a notification imperatively from any part of your application than having to declaratively render notification component based on the current state. I have built a notification component with React and Flux before, but frankly, it wasn't very intuitive to me.
+We will be using [Toastr](http://codeseven.github.io/toastr/demo.html) JavaScript library for notifications. Why not just use pure React notification component you may ask? While you may find some notification components built specifically for React, I personally think it is one of the few areas that should not be handled by React (*along with tooltips*). I think it is far easier to display a notification imperatively from any part of your application than having to declaratively render notification component based on the current state. I have built a notification component with React and Flux before, but frankly it was a big pain dealing with hide/show states, animation and z-index positioning.
 
-Open *App.js* component, then add `<Footer />` right after the `<RouterHandler />` component:
+Open *App.js* inside **<i class="fa fa-folder-open"></i>app/components** and import the *Footer* component:
+
+```js
+import Footer from './Footer';
+```
+
+Then add `<Footer />` right after the `<RouterHandler />` component:
 
 ```html
 <div>
@@ -1257,15 +1267,17 @@ Open *App.js* component, then add `<Footer />` right after the `<RouterHandler /
 </div>
 ```
 
+Refresh the browser and you should see the new footer.
+
 ![](/images/blog/Screenshot 2015-06-30 12.45.26.png)
 
-We will implement Express API endpoints and populate the database with characters shortly. Alright, let's move on to the *Navbar* component. Since I have already covered the basics behind Alt actions and stores, and how they fit in our app architecture, this will be a relatively short sub-section.
+We will implement Express API endpoints and populate the database with characters shortly, but for now let's continue on to the *Navbar* component. Since I have already covered the basics behind Alt actions and stores, and how they fit in with our app architecture, this will be a shorter sub-section.
 
 ---
 
 **<i class="devicons devicons-react"></i> Component**
 
-Create a new file *Navbar.js* inside **<i class="fa fa-folder-open"></i>components** directory:
+Create a new file *Navbar.js* inside **<i class="fa fa-folder-open"></i>app/components** directory:
 
 ```js
 import React from 'react';
@@ -1492,9 +1504,9 @@ Navbar.contextTypes = {
 export default Navbar;
 ```
 
-Ok, I'll admit, it is certainly possible to write most of the above markup dynamically with less lines of code by iterating through all races, then through all bloodlines, but to me writing out was the most straightforward approach.
+Ok, I'll admit, it is certainly possible to write most of the above markup dynamically with less lines of code by iterating through all races, then through all bloodlines, but to me this was a more straightforward approach that required less thinking and more copy & paste work.
 
-One thing you will probably notice right away is the class variable `contextTypes`. We need it for referencing an instance of the router, which in turn gives us access to current *path*, current *query parameters*, *route parameters* and *transitions* to other routes. We do not use it directly in the *Navbar* component but instead pass it as an argument to *Navbar* actions so it could navigate to a particular character profile page after fetching character data from the server.
+One thing you will probably notice right away is the class variable `contextTypes`. We need it for referencing an instance of the router, which in turn gives us access to current *path*, current *query parameters*, *route parameters* and *transitions* to other routes. We do not use it directly in the *Navbar* component but instead pass it as an argument to *Navbar* actions so that it could navigate to a particular character profile page after fetching data from the server.
 
 ![](/images/blog/Screenshot 2015-07-02 17.06.40.png)
 
@@ -1622,7 +1634,7 @@ One thing you will probably notice right away is the class variable `contextType
 
 **<i class="devicons devicons-react"></i> Actions**
 
-Let's create a new file *NavbarActions.js* in **<i class="fa fa-folder-open"></i>app/actions** directory:
+Let's create a new file *NavbarActions.js* in the **<i class="fa fa-folder-open"></i>app/actions** directory:
 
 ```js
 import alt from '../alt';
@@ -1669,7 +1681,7 @@ class NavbarActions {
 export default alt.createActions(NavbarActions);
 ```
 
-All these actions should pretty self-explanatory, but I will explain each one for completeness:
+Most of these actions should be pretty self-explanatory, but if it is unclear, see brief descriptions below.
 
 | Action                     | Description   |
 | -------------------------- |:-------------:|
@@ -1686,7 +1698,7 @@ The reason why we add the `shake` CSS class and then remove it one second later 
 
 **<i class="devicons devicons-react"></i> Store**
 
-Create a new file *NavbarStore.js* in **<i class="fa fa-folder-open"></i>app/stores** directory:
+Create a new file *NavbarStore.js* in the **<i class="fa fa-folder-open"></i>app/stores** directory:
 
 ```js
 import alt from '../alt';
@@ -1744,7 +1756,13 @@ Recall this line in the *Navbar* component that we created above:
 
 Since [`onChange`](https://facebook.github.io/react/docs/forms.html#interactive-props) handler returns and *event* object, we are using `event.target.value` to get the text field value inside `onUpdateSearchQuery` function.
 
-Open *App.js* component, then add `<Navbar />` right before the `<RouterHandler />` component:
+Open **App.js** again and import the *Navbar* component:
+
+```js
+import Navbar from './Navbar';
+```
+
+Then add `<Navbar />` right before the `<RouterHandler />` component:
 
 ```html
 <div>
@@ -1756,11 +1774,11 @@ Open *App.js* component, then add `<Navbar />` right before the `<RouterHandler 
 
 ![](/images/blog/Screenshot 2015-07-04 13.02.12.png)
 
-Since we haven't yet configured Socket.IO on the server or implemented any of the API routes, you will not see the total number of online visitors (*red circle*) or total characters (*placeholder text*).
+Since we haven't yet configured Socket.IO on the server or implemented any of the API routes, you will not see the total number of online visitors (*red circle next to the logo*) or total characters (*search placeholder text*).
 
 ## Step 10. Socket.IO - Real-time User Count
 
-Unlike the previous section, this one will be fairly short and focused specifically on server-side Socket.IO.
+Unlike the previous section, this one will be fairly short and focused specifically on the server-side aspect of Socket.IO.
 
 Open *server.js* and find the following line:
 
@@ -1796,7 +1814,14 @@ server.listen(app.get('port'), function() {
 });
 ```
 
-Open *index.html* in the **<i class="fa fa-folder-open"></i>views** directory and add the following line right next to other scripts:
+In a nutshell, when a WebSocket connection is established, it increments the `onlineUsers` count (global variable) and broadcasts a message — *"Hey, I have this many online visitors now."*. When someone closes the browser and leaves, the `onlineUsers` count is decremented and it yet again broadcasts a message *"Hey, someone just left, I have this many online visitors now."*.
+
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+  If you have never used Socket.IO then <a href="http://socket.io/get-started/chat/">Chat application</a> tutorial is a great starting point.
+</div>
+
+Open *index.html* in the **<i class="fa fa-folder-open"></i>views** directory and add the following line right next with other scripts:
 
 ```html
 <script src="/socket.io/socket.io.js"></script>
@@ -1804,14 +1829,14 @@ Open *index.html* in the **<i class="fa fa-folder-open"></i>views** directory an
 
 ![](/images/blog/Screenshot 2015-07-04 13.02.15.png)
 
-Refresh the browser and open http://localhost:3000 in multiple tabs to simulate multiple user connections, and you should see the number of visitors in the red circle next to the logo.
+Refresh the browser and open http://localhost:3000 in multiple tabs to simulate multiple user connections. You should now see the total number of visitors in the red circle next to the logo.
 
 
 ![](/images/blog/Screenshot 2015-07-04 13.25.42.png)
 
-At this point we are neither finished with the front-end nor have any working API endpoints. We could have focused on building just the front-end in the first half of the tutorial and then the back-end in the second half of the tutorial, or vice versa, but personally, I have never built a single app like that. I typically go back and forth between back-end and front-end pieces of the application during my development flow.
+At this point we are neither finished with the front-end nor do we have any working API endpoints. We could have focused on building just the front-end in the first half of the tutorial and then the back-end in the second half of the tutorial, or vice versa, but personally, I have never built an app like that. I typically go back and forth between back-end and front-end parts of the application during my development flow.
 
-We can't display any characters until they are added to the database. In order to add new characters to the database we need to build a UI for it and implement an API endpoint. That's what we will do next.
+We can't display any characters until they are added to the database. In order to add new characters to the database we need to build a UI for it and implement an API endpoint. That's exactly what we will do next.
 
 ## Step 11. Add Character Component
 
