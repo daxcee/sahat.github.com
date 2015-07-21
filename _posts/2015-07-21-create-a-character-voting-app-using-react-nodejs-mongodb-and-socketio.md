@@ -3653,7 +3653,7 @@ If you liked this project, consider extending it or perhaps build a new app base
 - Automatically reset stats every X number of rounds.
 - Display voting history on the character profile page.
 
-From all the emails that I have received since publishing the [TV Show Tracker](sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) tutorial, I have learned that this blog attracts readers of all levels - from long-time JavaScript gurus to those who are just starting out with coding, as well as everyone in between.
+From all the emails that I have received since publishing the [TV Show Tracker](http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) tutorial, I have learned that this blog attracts readers of all levels - from long-time JavaScript gurus to those who are just starting out with coding, as well as everyone in between.
 
 *If you are someone who is struggling with JavaScript:*
 
