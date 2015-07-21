@@ -22,8 +22,7 @@ One thing that I have learned — between screencasts, books and training videos
 ![](/images/blog/Screenshot 2015-03-31 23.05.36.png)
 
 <ul class="list-inline text-center">
-  <li><a href="http://newedenfaces.herokuapp.com/"><i class="ion-monitor"></i> Live Demo</a></li>
-  <li><a href="https://github.com/sahat/newedenfaces-react"><i class="fa fa-github"></i> Source Code</a></li>
+  <li><a href="https://github.com/sahat/newedenfaces-react"><i class="ion-fork-repo"></i> Source Code</a></li>
 </ul>
 
 In the same spirit as my previous tutorials ([TV Show Tracker](http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) and [Instagram Clone](https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/)) this is a full-stack JavaScript tutorial where we build a complete app from the ground up.
@@ -3168,7 +3167,7 @@ Here we are using two Underscore's helper functions [`assign`](http://underscore
   At the time of writing Babel.js does not support <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"><code>Object.assign</code></a> method and I find <code>contains</code> to be more readable than <code>Array.indexOf() > -1</code> for checking if an array contains some value.
 </div>
 
-As I have explained before, this component looks significantly different from all other components. Adding `profile` CSS class to `<body>` pretty much changes the entire look and feel due to how some CSS styles are composed in *main.less*. While the second CSS class, which could be either `caldari`, `gallente`, `minmatar`, `amarr` (case-sensitive) determine which background image to use. I would generally avoid messing with the DOM that is not part of the `render()` of that component, but this is a one-off exception. And finally, inside the `onGetCharacterSuccess` handler we need to check if a character has already been reported by the same user. If they have, the report button will be grayed out and disabled. *Since it is fairly easy to get around this restriction, it's probably a good idea to do an IP check on the server if you do not wish to allow your users to report a character more than once.* 
+As I have explained before, this component looks significantly different from all other components. Adding `profile` CSS class to `<body>` pretty much changes the entire look and feel due to how some CSS styles are composed in *main.less*. While the second CSS class, which could be either `caldari`, `gallente`, `minmatar`, `amarr` (case-sensitive) determine which background image to use. I would generally avoid messing with the DOM that is not part of the `render()` of that component, but this is a one-off exception. And finally, inside the `onGetCharacterSuccess` handler we need to check if a character has already been reported by the same user. If they have, the report button will be grayed out and disabled. *Since it is fairly easy to get around this restriction, it's probably a good idea to do an IP check on the server if you do not wish to allow your users to report a character more than once.*
 
 If a character is being reported for the first time, it is saved to Local Storage under the *NEF* namespace. Since you cannot store objects and arrays in Local Storage, we have to [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) it first.
 
@@ -3528,11 +3527,11 @@ Refresh the browser and you should see the new *Stats* component:
 
 ## Step 19. Deployment
 
-Now that our project is complete we can finally deploy it. There are many hosting providers out there, but if you have followed any of my projects or tutorials then you should know why I like [Heroku](https://www.heroku.com/) so much.
+Now that our project is complete we can finally deploy it. There are many hosting providers out there, but if you have followed any of my projects or tutorials then you should know why I like [Heroku](https://www.heroku.com/) so much. Although deployment steps should not differ that much with other hosting providers.
 
-Let's start by creating *.gitignore* file in the top-level directory of the project. You can create either by typing `touch .gitignore` in the Terminal or using your IDE / Text Editor.
+Let's start by creating a *.gitignore* file in the top-level directory of the project. You can create it either by typing `touch .gitignore` in the Terminal or using your IDE / Text Editor.
 
-Add the following contents to *.gitignore*, most of it directly from the [gitignore](https://github.com/github/gitignore) repository on GitHub:
+Add the following contents to *.gitignore*, where most of it is directly from the [gitignore](https://github.com/github/gitignore) repository on GitHub:
 
 ```
 # Logs
@@ -3577,7 +3576,7 @@ public/js/*
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
-  We are only checking in source code files to Git, not compiled CSS and JavaScript generated by Gulp.
+  Remember, we are only checking in source code files to Git, not compiled CSS and JavaScript generated by Gulp.
 </div>
 
 You will also need to add the following line to *package.json*, inside the [`"scripts"`](https://github.com/sahat/newedenfaces-react/blob/master/package.json#L13) object:
@@ -3586,9 +3585,9 @@ You will also need to add the following line to *package.json*, inside the [`"sc
 "postinstall": "bower install && gulp build"
 ```
 
-Since we will not be checking in compiled CSS and JavaScript to the Git repository, or third-party libraries in **<i class="fa fa-folder-open"></i>bower_components**, we need this `postinstall` command so that Heroku could compile the app and download Bower packages after deployment, otherwise it would not have access to *main.css*, *vendor.js*, *vendor.bundle.js* and *bundle.js* inside the **<i class="fa fa-folder-open"></i>public** directory.
+Since we will not be checking in compiled CSS and JavaScript to the Git repository, or third-party libraries in **<i class="fa fa-folder-open"></i>bower_components**, we need this `postinstall` command so that Heroku could compile the app and download Bower packages after deployment, otherwise it will not have access to *main.css*, *vendor.js*, *vendor.bundle.js* and *bundle.js* files inside **<i class="fa fa-folder-open"></i>public** directory.
 
-Next, let's initialize a new Git repository inside **<i class="fa fa-folder-open"></i>newedenfaces** (top-level) directory:
+Next, let's initialize a new Git repository inside **<i class="fa fa-folder-open"></i>newedenfaces** directory:
 
 ```bash
 $ git init
@@ -3620,11 +3619,11 @@ Run the following command and we are all done!
 $ git push heroku master
 ```
 
-You can see your app live at *http://&lt;app_name&gt;.herokuapp.com*, in my case it is http://newedenfaces.herokuapp.com.
+You should now be able to see your app live at *http://&lt;app_name&gt;.herokuapp.com*.
 
 ## Step 20. Additional Resources
 
-Below is a list of resources that I found interesting or helpful during my own learning process.
+Below is a list of resources that I found interesting and/or helpful during my own learning phase of React, Flux and ES6.
 
 Link | Description
 ---- | -----------
