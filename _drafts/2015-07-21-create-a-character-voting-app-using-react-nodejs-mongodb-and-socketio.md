@@ -387,7 +387,7 @@ If you have used the [Bootstrap](http://getbootstrap.com/) CSS framework in the 
   I have spent many hours designing this UI, tweaking fonts and colors, adding subtle transition effects, so if you get a chance, explore it in greater detail after you finish this tutorial.
 </div>
 
-I don't know if you are aware of the latest [trend](https://speakerdeck.com/vjeux/react-css-in-js) to include styles directly inside React components, but I am not sure if I like this new practice. Perhaps when tooling gets better I will revisit this topic, until then I will use external stylesheets like I always have been.
+I don't know if you are aware of the latest [trend](https://speakerdeck.com/vjeux/react-css-in-js) to include styles directly inside React components, but I am not sure if I like this new practice. Perhaps when tooling gets better I will revisit this topic, until then I will use external stylesheets like I always have been. However, if you are interested in using modular CSS, check out [css-modulesify](https://github.com/css-modules/css-modulesify).
 
 Before we jump into building the React app, I have decided to dedicate the next three sections to ES6, React, Flux basics, otherwise it may be too overwhelming trying to learn everything at once. Personally, I had a very hard time following some React + Flux code examples written in ES6 because I was learning a new syntax, a new framework and a completely unfamiliar app architecture all at once.
 
@@ -415,9 +415,9 @@ var DefaultRoute = Router.DefaultRoute;
 var NotFoundRoute = Router.NotFoundRoute;
 ```
 
-Using the [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) in ES6 we can import a subset of a module which can be quite useful for modules like *react-router* and *underscore* where it exports more than one function.
+Using the ES6 [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) we can import a subset of a module which can be quite useful for modules like *react-router* and *underscore* where it exports more than one function.
 
-One thing to keep in mind is that ES6 imports are hoisted. All dependent modules will be loaded before any of the module code is executed. In other words, you can't conditionally load a module like with CommonJS. That threw me off a little when I tried to put the import statement inside the if-condition.
+One thing to keep in mind is that ES6 imports are hoisted. All dependent modules will be loaded before any of the module code is executed. In other words, you can't conditionally load a module like with CommonJS. That did throw me off a little when I tried to import a module inside an if-else condition.
 
 For a detailed overview of the `import` statement see this [MDN page](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import).
 
@@ -445,7 +445,7 @@ To learn more about ES6 modules, as well as different ways of importing and expo
 
 **<i class="ion-cube"></i>Classes**
 
-ES6 classes are nothing more than a syntactic sugar over the existing prototype-based inheritance in JavaScript. As long as you remember that fact, the new `class` keyword will not seem like a foreign concept.
+ES6 classes are nothing more than a syntactic sugar over the existing prototype-based inheritance in JavaScript. As long as you remember that fact, the `class` keyword will not seem like a foreign concept to you.
 
 ```js
 // ES6
@@ -480,7 +480,7 @@ var box = new Box(2, 2);
 box.calculateArea(); // 4
 ```
 
-With ES6 classes you can also use `extends` to create a subclass of an existing class:
+With ES6 classes you can also use `extends` to create a subclass from an existing class:
 
 ```js
 class MyComponent extends React.Component {
@@ -496,7 +496,23 @@ For more information about ES6 classes visit [Classes in ECMAScript 6](http://ww
 
 The only difference between the two is that `var` is scoped to the nearest *function block* and `let` is scoped to the nearest *enclosing block*  - which could be a *function*, a *for-loop* or an *if-statement block*.
 
-For the most part there is no reason to use `var` anymore, so just use `let`.
+Here is a good [example](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) showing the difference between `var` and `let`:
+
+```js
+var a = 5;
+var b = 10;
+
+if (a === 5) {
+  let a = 4; // The scope is inside the if-block
+  var b = 1; // The scope is inside the function
+
+  console.log(a);  // 4
+  console.log(b);  // 1
+}
+
+console.log(a); // 5
+console.log(b); // 1
+```
 
 Basically, `let` is block scoped, `var` is function scoped.
 
@@ -538,7 +554,7 @@ Every function expression above creates its own `this` scope. Without binding `t
 
 Alternatively, we could have assigned `this` to a variable, e.g. `var self = this` and then used `self.setState` instead of `this.setState` inside the [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
 
-In any case, here is an equivalent ES6 code using fat arrow functions which preserve `this` value:
+In any case, here is an equivalent ES6 code using fat arrow functions which preserve original `this` value:
 
 ```js
 $.ajax({ type: 'POST', url: '/api/characters', data: { name: name, gender: gender } })
@@ -557,23 +573,23 @@ Next, let's talk about React, what makes it so special and why should we use it.
 
 ## Step 5. React Crash Course
 
-<i class="devicons devicons-react"></i> React is a JavaScript library for building web user interfaces. You could say it competes against <i class="devicons devicons-angular"></i> AngularJS, <i class="devicons devicons-ember"></i> Ember.js, <i class="devicons devicons-backbone"></i> Backbone and <i class="devicons devicons-webplatform"></i> Polymer despite being much smaller in scope. React is just the **V** in **MVC** (Model-View-Controller) architecture.
+<i class="devicons devicons-react"></i> React is a JavaScript library for building web user interfaces. You could say it competes against <i class="devicons devicons-angular"></i> AngularJS, <i class="devicons devicons-ember"></i> Ember.js, <i class="devicons devicons-backbone"></i> Backbone and <i class="devicons devicons-webplatform"></i> Polymer despite being much smaller in scope. React is just the **V** in the **MVC** (Model-View-Controller) architecture.
 
 So, what is so special about React?
 
-React components are written in a very declarative style. Unlike the "old way" using jQuery and such, you don't touch the DOM directly. React manages all UI updates for you when the underlying data changes.
+React components are written in a very declarative style. Unlike the "old way" using jQuery and such, you don't interact with DOM directly. React manages all UI updates when the underlying data changes.
 
-React is also very fast all thanks to the Virtual DOM and diffing algorithm under the hood. When the data changes, React calculates the minimum number of DOM manipulations needed then efficiently re-renders the component. For example, if there are 10,000 rendered items on a page and only 1 item changes, React will update just that DOM element, leaving 9,999 other items unchanged. That's why React can get away with re-rendering the entire component without being ridiculously wasteful.
+React is also very fast thanks to the Virtual DOM and diffing algorithm under the hood. When the data changes, React calculates the minimum number of DOM manipulations needed, then efficiently re-renders the component. For example, if there are 10,000 rendered items on a page and only 1 item changes, React will update just that DOM element, leaving 9,999 other items unchanged. That's why React can get away with re-rendering the entire components without being ridiculously wasteful and slow.
 
-Other notable React features include:
+Other notable features of React include:
 
 - **Composability**, i.e. make bigger, more complex components out of smaller components.
 - **Relatively easy to pick up** since there isn't that much to learn and it does not have a massive documentation like AngularJS and Ember.js.
-- **Server-side rendering**.
-- The most **helpful error and warning messages** in any JavaScript library.
-- **Components are self-contained**; markup and behavior live in the same place, making components very reusable.
+- **Server-side rendering** allows us to easily build [Isomorphic JavaScript apps](https://medium.com/@mjackson/universal-javascript-4761051b7ae9).
+- The most **helpful error and warning messages** that I have seen in any JavaScript library.
+- **Components are self-contained**; markup and behavior ([and even styles](http://blog.vjeux.com/2014/javascript/react-css-in-js-nationjs.html)) live in the same place, making components very reusable.
 
-I really like this excerpt from the [React v0.14 Beta 1 blog post](http://facebook.github.io/react/blog/2015/07/03/react-v0.14-beta-1.html) announcement:
+I really like this excerpt from the [React v0.14 Beta 1 blog post](http://facebook.github.io/react/blog/2015/07/03/react-v0.14-beta-1.html) announcement that sums up nicely what React is all about:
 
 > It's become clear that the beauty and essence of React has nothing to do with browsers or the DOM. We think the true foundations of React are simply ideas of components and elements: being able to describe what you want to render in a declarative way.
 
@@ -581,28 +597,32 @@ I really like this excerpt from the [React v0.14 Beta 1 blog post](http://facebo
 
 Before going any further please watch this awesome video [React in 7 Minutes](https://egghead.io/lessons/react-react-in-7-minutes) by John Lindquist.
 
-While learning React, the biggest challenge for me was that it required a completely different thinking approach to building UIs. Which is why reading [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html) guide is an absolute must for anyone who is starting out with React.
+And while you are there, I highly recommend getting the **PRO** subscription ($24.99/month) to unlock over 94 React and [React Native](https://facebook.github.io/react-native/) video lessons. No, you will not become an expert just by watching these videos, but they are amazing at giving you short and straight to the point explanations on any particular topic. If you are on a budget, you can subscribe for 1 month, download all videos, then cancel your subscription at the end of the month. Subscribing not only gives you access to React lessons, but also to [TypeScript](https://egghead.io/technologies/typescript), [Angular 2](https://egghead.io/technologies/angular2), [D3](https://egghead.io/technologies/d3), [ECMAScript 6](https://egghead.io/technologies/es6), [Node.js](https://egghead.io/technologies/node) and more.
 
-If we are to break apart New Eden Faces UI into components this is what it would look like:
+While learning React, the biggest challenge for me was that it required a completely different thinking approach to building UIs. Which is why reading [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html) guide is absolutely a must for anyone who is starting out with React.
+
+In similar fashion to the *Product Table* from [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html), if we are to break apart New Eden Faces UI into components this is what it would look like:
 
 ![](/images/blog/Screen Shot 2015-06-21 at 11.45.38 PM copy.png)
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
-  Each component should try to adhere to the <em>single responsibility principle</em>. If you find yourself working on a component that does too many things, perhaps it's best to split it into sub-components. Having said that, I typically write monolithic components first, just to get it working, then refactor it by breaking it into smaller sub-components.
+  Each component should try to adhere to the <em>single responsibility principle</em>. If you find yourself working on a component that does too many things, perhaps it's best to split it into sub-components. Having said that, I typically write monolithic components first, just to get it working, then refactor it by splitting it into smaller sub-components.
 </div>
 
 The top-level <span style='color: #FF4136'>App</span> component contains <span style='color: #0074D9'>Navbar</span>, <span style='color: #0074D9'>Homepage</span> and <span style='color: #0074D9'>Footer</span> components. <span style='color: #0074D9'>Homepage</span> component contains two <span style='color: #2ECC40'>Character</span> components.
 
-So, whenever you have a certain UI design in mind, start by breaking it apart from top-down and always be mindful of how your data propagates from parent to child, child to parent and between sibling components or you will quickly find yourself thinking *"WTF, how do I do this in React? This would have been so much simpler with jQuery... To hell with React."*.
+So, whenever you have a certain UI design in mind, start by breaking it apart from top-down and always be mindful of how your data propagates from parent to child, child to parent and between sibling components or you will quickly find yourself thinking *"WTF, how do you do this in React? This would have been so much simpler with jQuery..."*.
+
+So, next time you decide to build a new app in React, before writing any code, do this hierarchy outline first. It will help you to visualize the relationships between multiple components and build them accordingly.
 
 ---
 
-All components in React have a `render()` method. It always returns a *single child* element. In other words, the following return block is invalid because it contains 3 child elements:
+All components in React have a `render()` method. It always returns a *single child* element. Conversly, the following return statement is invalid because it contains 3 child elements:
 
 ```js
 render() {
-  // Invalid JSX
+  // Invalid JSX,
   return (
     <li>Achura</li>
     <li>Civire</li>
@@ -611,9 +631,9 @@ render() {
 }
 ```
 
-The HTML markup above is actually called [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html). As far syntax goes, it is just slightly different from HTML, e.g. `className` instead of `class` to define CSS classes. You will learn more about it as we start building the app.
+The HTML markup above is actually called [JSX](https://facebook.github.io/react/docs/jsx-in-depth.html). As far syntax goes, it is just slightly different from HTML, for example `className` instead of `class` to define CSS classes. You will learn more about it as we start building the app.
 
-When I first saw that syntax, I was immediately repulsed by it. I am used to returning booleans, numbers, strings, objects and functions in JavaScript, but certaintly not that. However, JSX is actually just a syntactic sugar. After fixing the markup above by wrapping it with a `<ul>` tag, here is what it would look like without JSX:
+When I first saw that syntax, I was immediately repulsed by it. I am used to returning booleans, numbers, strings, objects and functions in JavaScript, but certaintly not that. However, JSX is actually just a syntactic sugar. After fixing the code above by wrapping it with a `<ul>` tag (must return a single element), here is what it looks like without JSX:
 
 ```js
 render() {
@@ -625,11 +645,13 @@ render() {
 }
 ```
 
-I think you will agree that JSX is far more readable than plain JavaScript. Furthermore, [Babel](http://babeljs.io/) has a built-in support for JSX, so we don't need to do anything extra. If you have ever worked with AngularJS directives then you will appreciate working with self-contained components, instead of having two different files: *directive.js* (logic) and *template.html* (presentation).
+I think you will agree that JSX is far more readable than plain JavaScript. Furthermore, [Babel](http://babeljs.io/) has a built-in support for JSX, so we don't need to do anything extra. If you have ever worked with AngularJS directives then you will appreciate working with React components, so instead of having two different files — *directive.js* (logic) and *template.html* (presentation), you have a single file containing both logic and presentation.
 
-The [`componentDidMount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount) method in React is the closest thing to [`$(document).ready`](https://learn.jquery.com/using-jquery-core/document-ready/) in jQuery. This method runs once, only on the client (not on the server) immediately after initial rendering of the component. This is where you would initialize third-party libraries and jQuery plugins, or connect to Socket.IO.
+The [`componentDidMount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount) method in React is the closest thing to [`$(document).ready`](https://learn.jquery.com/using-jquery-core/document-ready/) in jQuery. This method runs once ([only on the client](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount)) immediately after initial rendering of the component. This is where you would typically initialize third-party libraries and jQuery plugins, or connect to Socket.IO.
 
 You will be using [Ternary operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Conditional_Operator) in the [`render`](https://facebook.github.io/react/docs/component-specs.html#render) method quite a lot: hiding an element when data is empty, conditionally using CSS classes depending on some value, hiding or showing certain elements based on the component's state and etc.
+
+Consider the following example that conditionally sets the CSS class to <span style='color: #FF4136'>text-danger</span> or <span style='color: #2ECC40'>text-success</span> based on the props value.
 
 ```js
 render() {
@@ -641,19 +663,16 @@ render() {
 
   return (
     <div className='card'>
-      <div className='card-body'>
-        {delta}
-        {this.props.title}
-        {this.props.description}
-      </div>
+      {delta}
+      {this.props.title}
     </div>
   );
 }
 ```
 
-We have only scratched the surface of everything there is to React, but this should be enough to give you a general idea about it.
+We have only scratched the surface of everything there is to React, but this should be enough to give you a general idea about React as well as its benefits.
 
-React by itself is actually very simple and easy to grasp. However, it is when we start talking about [Flux](https://facebook.github.io/flux/) application architecture, things get a bit confusing.
+React on its own is actually really simple and easy to grasp. However, it is when we start talking about [Flux](https://facebook.github.io/flux/) architecture, things can get a little confusing.
 
 ## Step 6. Flux Architecture Crash Course
 
@@ -2917,7 +2936,7 @@ And we are all done here. At the end of the tutorial I will post some ideas for 
 In this section we will be creating the profile page for a character. Every character link we have in the app points to this component. It is a little different from other components primarily because of the following:
 
 1. It has a full page image background.
-2. Navigating from one character to another does not unmount the component and as a result of that the initial fade-in animation will not be repeated. You will see what I mean shortly.
+2. Navigating from one character to another does not unmount the component and as a result of that `getCharacter` action in `componentDidMount` is never called more than once.
 
 **<i class="devicons devicons-react"></i> Component**
 
@@ -3583,6 +3602,7 @@ Link | Description
 [Navigating the React Ecosystem](http://www.toptal.com/react/navigating-the-react-ecosystem) | Excellent blog post by Tomas Holas exploring ES6, Generators, Babel, React, React Router, Alt, Flux, React Forms, Typeahead and Calendar widgets. In many ways it complements this tutorial. Highly recommend.
 [A Quick Tour Of ES6](http://jamesknelson.com/es6-the-bits-youll-actually-use/) | Supplemental resource for learning more about new ES6 features. Very practical and easy to read blog post.
 [Atomic CSS](http://acss.io/) | A radical new approach for styling your app. It takes time getting used to it, but when you do, its advantages are quite nice. You no longer have to abstract styles with CSS classes, instead you style React components with "atomic" classes inside your components.
+[classnames](https://github.com/JedWatson/classnames) | A JavaScript utility for conditionally joining `classNames` together. It's a more elegant solution than using ternary operator and string concatenation.
 
 ## In Closing
 
