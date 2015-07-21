@@ -677,20 +677,20 @@ React on its own is actually really simple and easy to grasp. However, it is whe
 ## Step 6. Flux Architecture Crash Course
 
 Flux is the application architecture that was developed at Facebook for building scalable client-side web applications.
- It complements React's components by utilizing a unidirectional data flow. Flux is more of a pattern than a framework, however, we will be using a Flux library called [Alt](http://alt.js.org) to minimize writing boilerplate code.
+ It complements React's components by utilizing a unidirectional data flow. Flux is more of a pattern than a framework, however, we will be using a Flux library called [Alt](http://alt.js.org) to minimize writing the boilerplate code.
 
 Have you seen this diagram before? Did it make any sense to you? It did not make any sense to me, no matter how many times I looked at it.
 
 ![](/images/blog/flux-diagram.png)
 
-Now that I understand it better, I am actually really amazed by how such simple architecture can be presented in a such complicated manner. But to Facebook's credit, their [new diagrams](https://facebook.github.io/flux/docs/overview.html#structure-and-data-flow) are much better.
+Now that I understand it better, I am actually really amazed by how such simple architecture can be presented in a such complicated way. But to Facebook's credit, their [new Flux diagrams](https://facebook.github.io/flux/docs/overview.html#structure-and-data-flow) are much better than before.
 
 <div class="admonition note">
   <div class="admonition-title">Fun Fact</div>
- When I first began writing this tutorial I decided not to use Flux in this project. I could not grasp it for the life of me, let alone teach it to others. But thankfully, I get to work on cool stuff at Yahoo! where I get to play and experiment with different technologies during my work hours. Honestly, we could have easily built this app without Flux and it would have been less lines of code. We do not have any complex or nested components. But I think that showing a full-stack React app with server-side rendering and Flux architecture, to see how all pieces connect together, has a value in of itself.
+ When I first began writing this tutorial I decided not to use Flux in this project. I could not grasp it for the life of me, let alone teach it to others. But thankfully, I get to work on cool stuff at Yahoo where I get to play and experiment with different technologies during my work hours. Honestly, we could have built this app without Flux and it would have been less lines of code. We don't have here any complex or nested components. But I believe that showing a full-stack React app with server-side rendering and Flux architecture, to see how all pieces connect together, has a value in of itself.
 </div>
 
-Instead of reiterating the [Flux: Overview](https://facebook.github.io/flux/docs/overview.html), let's take a look at one of the real-world use cases in order to illustrate how Flux works:
+Instead of reiterating the [Flux  Overview](https://facebook.github.io/flux/docs/overview.html), let's take a look at one of the real-world use cases in order to illustrate how Flux works:
 
 ![](/images/blog/Screenshot 2015-06-22 02.18.48.png)
 
@@ -765,26 +765,26 @@ Instead of reiterating the [Flux: Overview](https://facebook.github.io/flux/docs
     }
     ```
 
-6. At this point the *Overview* component has all the data it needs, which is then passed down to all children components.
+6. At this point the *Overview* component has been updated with the new data.
 
-7. When the date range is updated from the dropdown menu, the whole process is repeated all over again.
+7. In screenshot above,when the date range is updated from the dropdown menu, the entire process is repeated all over again.
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
- Action names are irrelevant, use whatever naming convention you want as long as it is descriptive.
+ Action names do not matter, use whatever naming convention you want as long as it is descriptive and makes sense.
 </div>
 
-Ignoring the *Dispatcher* for a moment, can you see the one-way flow outlined above?
+Ignoring the *Dispatcher* for a moment, can you see the one-way flow outlined above? If not, it's alright, it will start making more sense as we start building the app.
 
 ![](/images/blog/flux-simple-f8-diagram-1300w.png)
 
 **Flux Summary**
 
-Flux is really just a fancy term for **pub/sub** architecture, i.e. data always flows one way through the application and it is picked up along the way by various subscribers who are listening to it.
+Flux is really just a fancy term for **pub/sub** architecture, i.e. data always flows one way through the application and it is picked up along the way by various subscribers (stores) who are listening to it.
 
 ---
 
-There are more than a dozen of Flux implementations at the time of writing. Out of them all, I only have experience with [RefluxJS](https://github.com/spoike/refluxjs) and [Alt](http://alt.js.org/) libraries. Between  two, I personally prefer Alt for its simplicity, great support by [*@goatslacker*](https://github.com/goatslacker), server-side rendering support, great documentation and the project is actively maintained at the time of writing.
+There are more than a dozen of Flux implementations at the time of this writing. Out of them all, I only have experience with [RefluxJS](https://github.com/spoike/refluxjs) and [Alt](http://alt.js.org/). Between the two, I personally prefer Alt for its simplicity, great support by [*@goatslacker*](https://github.com/goatslacker), server-side rendering support, great documentation and the project is actively maintained.
 
 I strongly encourage you to go through the Alt's [Getting Started](http://alt.js.org/guide/) guide. It will take no more than 10 minutes to skim through it.
 
@@ -795,6 +795,9 @@ It's unlikely that you will choose a flux lib that will be the make or break poi
 Even if a library stops being "maintained", most decent flux incarnations are really small (~100 LoC) - it's unlikely that there's some fatal flaw you'll be stuck with.
 In summary: redux is neat, but don't beat yourself up over choosing the perfect flux lib - just grab one that you like the look of and move on with building your application.
 
+---
+
+Now that we have covered some basics behind ES6, React and Flux, it is time to move on to building the application.
 
 ## Step 7. React Routes (Client-Side)
 
