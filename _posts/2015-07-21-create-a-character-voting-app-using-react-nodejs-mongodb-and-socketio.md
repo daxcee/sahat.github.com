@@ -2077,7 +2077,7 @@ module.exports = mongoose.model('Character', characterSchema);
 
 A schema is just a representation of your data in MongoDB. This is where you can enforce a certain field to be of particular type. A field can also be required, unique or contain only specified characters.
 
-While a schema is just an abstract representation of the data, a model on the other hand is a concrete object with methods to query, remove, update and save data from/to MongoDB.
+While a schema is just an abstract representation of the data, a model on the other hand is a more practical object with methods to query, remove, update and save data from/to MongoDB. Above, we create a `Character` model and immediately export it.
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
