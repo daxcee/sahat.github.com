@@ -3632,7 +3632,7 @@ Link | Description
 [A Quick Tour Of ES6](http://jamesknelson.com/es6-the-bits-youll-actually-use/) | Supplemental resource for learning more about new ES6 features. Very practical and easy to read blog post.
 [Atomic CSS](http://acss.io/) | A radical new approach for styling your app. It takes time getting used to it, but when you do, its advantages are quite nice. You no longer have to abstract styles with CSS classes, instead you style React components with "atomic" classes inside your components.
 [classnames](https://github.com/JedWatson/classnames) | A JavaScript utility for conditionally joining `classNames` together. It's a more elegant solution than using ternary operator and string concatenation.
-
+[Iso](https://github.com/goatslacker/iso) | Helper class for Alt that allows you to pass initial data from server to client.
 ## In Closing
 
 In my [previous](https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/) blog post that I published on December 9th, 2014 I said:
