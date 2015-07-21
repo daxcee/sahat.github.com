@@ -820,7 +820,7 @@ class App extends React.Component {
 export default App;
 ```
 
-`RouteHandler` is a component that renders the active child route handler. It will render the following components: *Home*, *Top 100*, *Profile* or *Add Character*, depending on the URL.
+`RouteHandler` is a component that renders the active child route handler. It will render one of the following components depending on the URL path: *Home*, *Top 100*, *Profile* or *Add Character*.
 
 
 <div class="admonition note">
@@ -843,9 +843,9 @@ export default (
 );
 ```
 
-The reason why we nested the routes this way is that we are going to add *Navbar* and *Footer* components into the *App* component, before and after the `RouteHandler` respectively. Unlike other components, *Navbar* and *Footer* do not change between the route transitions. (See outlined screenshot from **Step 5**)
+The reason for nesting routes this particular way is because we are going to place *Navbar* and *Footer* components, before and after the `RouteHandler`, inside the *App* component. Unlike other components, *Navbar* and *Footer* do not change between the route transitions. (See outlined screenshot from **Step 5**)
 
-Lastly, we need to listen to the url and render the application. Open *main.js* inside **<i class="fa fa-folder-open"></i>app** that we created earlier and paste the following:
+Lastly, we need to add a URL listener and render the application when it changes. Open *main.js* inside **<i class="fa fa-folder-open"></i>app** that we created earlier and paste the following:
 
 ```js
 import React from 'react';
@@ -859,12 +859,12 @@ Router.run(routes, Router.HistoryLocation, function(Handler) {
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
-The <em>main.js</em> is the entry point for our React application. We use it in <em>gulpfile.js</em> where Browserify will traverse the entire tree of dependencies and generate the final <em>bundle.js</em> file. You will rarely have to touch this file after the initial setup.
+The <em>main.js</em> is the entry point for our React application. We use it in <em>gulpfile.js</em> where Browserify will traverse the entire tree of dependencies and generate the final <em>bundle.js</em> file. You will rarely have to touch this file after its initial setup.
 </div>
 
-The [react-router](http://rackt.github.io/react-router/) runs the routes from *routes.js*, matches them against a URL, and then executes the callback, which in this case means rendering a React component into `<div id="app"></div>`. Which component? If we are on the `/` URL path, then `<Handler />` is *Home* component, because that is what we have specified in *routes.js*. We will add more routes shortly.
+[React Router](http://rackt.github.io/react-router/) bootstraps the routes from *routes.js* file, matches them against a URL, and then executes the appropriate callback handler, which in this case means rendering a React component into `<div id="app"></div>`. But how does it know which component to render? Well, for example, if we are on `/` URL path, then `<Handler />` renders the *Home* component, because that's what we have specified in *routes.js*. We will add more routes shortly.
 
-Also, notice that we are using [`HistoryLocation`](http://rackt.github.io/react-router/#HistoryLocation) to enable HTML5 History API in order to make URLs look pretty. For example, it navigates to `http://localhost:3000/add` instead of  `http://localhost:3000/#add`. Since we are building an Isomorphic React application (rendered on the server and the client) we do not have to do any [wildcard redirects on the server](https://github.com/sahat/tvshow-tracker/blob/master/server.js#L343-L345) to enable this support.
+Also, notice that we are using [`HistoryLocation`](http://rackt.github.io/react-router/#HistoryLocation) to enable HTML5 History API in order to make URLs look pretty. For example, it navigates to `http://localhost:3000/add` instead of  `http://localhost:3000/#add`. Since we are building an Isomorphic React application (rendered on the server and the client) we do not have to do any hacky [wildcard redirects on the server](https://github.com/sahat/tvshow-tracker/blob/master/server.js#L343-L345) to enable this support. It just works out of the box.
 
 Let's create one last React component for this section. Create a new file *Home.js* inside **<i class="fa fa-folder-open"></i>app/components** with the following contents:
 
@@ -884,7 +884,7 @@ class Home extends React.Component {
 export default Home;
 ```
 
-This should be everything we have created so far. Perhaps now would be a good time to double check your code.
+Below should be everything we have created up to this point. This would be a good time to double check your code.
 
 ![](/images/blog/Screenshot 2015-06-22 21.09.21.png)
 
