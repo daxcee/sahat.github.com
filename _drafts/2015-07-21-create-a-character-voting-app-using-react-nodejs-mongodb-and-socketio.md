@@ -2959,12 +2959,12 @@ The last operation with the [`aggregate()`](http://docs.mongodb.org/manual/refer
 
 And we are all done here. At the end of the tutorial I will post some ideas for you to extend this project further with additional features.
 
-## Step 15. Character (Profile) Component
+## Step 16. Character (Profile) Component
 
-In this section we will be creating the profile page for a character. Every character link we have in the app points to this component. It is a little different from other components primarily because of the following:
+In this section we are going to build the profile page for a character. It is slightly different from other components primarily because of the following:
 
 1. It has a full page image background.
-2. Navigating from one character to another does not unmount the component and as a result of that `getCharacter` action in `componentDidMount` is never called more than once.
+2. Navigating from one profile page to another profile page does not unmount the component, and as a result, the `getCharacter` action inside `componentDidMount` is never called more than once, i.e. it updates the URL but it does not fetch new data.
 
 **<i class="devicons devicons-react"></i> Component**
 
@@ -2976,7 +2976,6 @@ import CharacterStore from '../stores/CharacterStore';
 import CharacterActions from '../actions/CharacterActions'
 
 class Character extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = CharacterStore.getState();
@@ -3005,6 +3004,7 @@ class Character extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    // Fetch new charachter data when URL path changes
     if (prevProps.params.id !== this.props.params.id) {
       CharacterActions.getCharacter(this.props.params.id);
     }
@@ -3018,7 +3018,7 @@ class Character extends React.Component {
     return (
       <div className='container'>
         <div className='profile-img'>
-          <a ref='magnificPopup' className='magnific-popup' href={'https://image.eveonline.com/Character/' + this.state.characterId + '_1024.jpg'}>
+          <a className='magnific-popup' href={'https://image.eveonline.com/Character/' + this.state.characterId + '_1024.jpg'}>
             <img src={'https://image.eveonline.com/Character/' + this.state.characterId + '_256.jpg'} />
           </a>
         </div>
@@ -3052,11 +3052,15 @@ Character.contextTypes = {
 export default Character;
 ```
 
-On `componentDidMount` we add the `animated` CSS class and remove it 750 milliseconds later. As I have explained before, if we don't remove it, the next animation will not be played. Agreed, it may look a little hacky, so if you are interested in exploring some alternatives then [`ReactCSSTransitionGroup`](https://facebook.github.io/react/docs/animation.html) is probably worth looking into. We are also passing the router instance to `CharacterActions.getCharacter` action so we could navigate to the new URL at `/characters/<characterId>`.
+On `componentDidMount` we pass the current *Character ID* (from URL) to the `getCharacter` action and initialize the Magnific Popup lightbox plugin.
+<div class="admonition note">
+  <div class="admonition-title">Note</div>
+  I haven't had any success with using <code>ref="magnificPopup"</code> to initialize the plugin, that's why I left it as is. This might not be the best way, but it works.
+</div>
 
-Since *Character* component has a full-page background image, during `componentWillUnmount` it is removed from the `<body>` tag so that users do not see it when navigating back to *Home* or *Add Character* components which do not have a background image. Ok it is removed during `componentWillUnmount`, but when is it added? In the store when character data is successfully fetched, but we will get to that shortly.
+Since the *Character* component has a full-page background image, during `componentWillUnmount` it is removed from the `<body>` tag so that users do not see it when navigating back to *Home* or *Add Character* components which do not have a background image. But when is this background image added? In the store when a character data is successfully fetched.
 
-One last thing that is worth mentioning is what's happening in `componentDidUpdate`. If we are transitioning from one character page to another character page, we are still within the *Character* component, i.e. it is never unmounted. And if it isn't unmounted, `componentDidMount` with its adding and removing logic for the fade-in animation is not triggered. So in `componentDidUpdate` as long as we are in the same *Character* component and URL paths are different, e.g. **/characters/1807823526** and **/characters/467078888**, we basically repeat the same thing from `componentDidMount`.
+One last thing that is worth mentioning again is what's happening in `componentDidUpdate`. If we are transitioning from one character page to another character page, we are still within the *Character* component, i.e. it is never unmounted. And if it isn't unmounted, `componentDidMount` doesn't fetch new character data. So in `componentDidUpdate` — as long as we are in the same *Character* component and URL paths are different, e.g. transition from **/characters/1807823526** to **/characters/467078888**, it needs to fetch new character data.
 
 **<i class="devicons devicons-react"></i> Actions**
 
@@ -3102,8 +3106,6 @@ class CharacterActions {
 
 export default alt.createActions(CharacterActions);
 ```
-
-Although we passed a router instance to actions, we don't use it directly here, but instead we pass it to the `getCharacterSuccess` action so it could transition to the new URL.
 
 **<i class="devicons devicons-react"></i> Store**
 
@@ -3166,7 +3168,7 @@ Here we are using two Underscore's helper functions [`assign`](http://underscore
   At the time of writing Babel.js does not support <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign"><code>Object.assign</code></a> method and I find <code>contains</code> to be more readable than <code>Array.indexOf() > -1</code> for checking if an array contains some value.
 </div>
 
-As I have explained before, this component looks significantly different from all other components. Adding `profile` CSS class to `<body>` pretty much changes the entire look and feel due to how some CSS styles are nested in *main.less*. While the second CSS class, which could be either `caldari`, `gallente`, `minmatar`, `amarr` (case-sensitive) determine which background image to use. I would generally avoid messing with the DOM that is not part of the `render()` of that component, but this is a one-off exception. And lastly, inside `onGetCharacterSuccess` we check if the character has already been reported by the same user. If they have, the report button will be grayed out and disabled.
+As I have explained before, this component looks significantly different from all other components. Adding `profile` CSS class to `<body>` pretty much changes the entire look and feel due to how some CSS styles are composed in *main.less*. While the second CSS class, which could be either `caldari`, `gallente`, `minmatar`, `amarr` (case-sensitive) determine which background image to use. I would generally avoid messing with the DOM that is not part of the `render()` of that component, but this is a one-off exception. And finally, inside the `onGetCharacterSuccess` handler we need to check if a character has already been reported by the same user. If they have, the report button will be grayed out and disabled. *Since it is fairly easy to get around this restriction, it's probably a good idea to do an IP check on the server if you do not wish to allow your users to report a character more than once.* 
 
 If a character is being reported for the first time, it is saved to Local Storage under the *NEF* namespace. Since you cannot store objects and arrays in Local Storage, we have to [`JSON.stringify()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify) it first.
 
@@ -3178,7 +3180,7 @@ Refresh the browser, click on one of the characters and you should see the new p
 
 Up next is the *CharacterList* component for *Top 100* characters - filtered by gender, race, bloodline and overall. The *Hall of Shame* is also part of this component.
 
-## Step 15. Top 100 Component
+## Step 17. Top 100 Component
 
 This component uses Bootstrap's [Media Object](http://getbootstrap.com/components/#media) as its main interface. Here is what it looks like:
 
@@ -3359,7 +3361,7 @@ export default alt.createStore(CharacterListStore);
 
 There is not much to explain here, nothing you have not seen already. So let's move on to the last component in the app.
 
-## Step 16. Stats Component
+## Step 18. Stats Component
 
 Our last component is really simple, it's just a table with general statistics such as the total number of characters by race, by gender, overall, total votes cast, leading race, leading bloodline, etc. I won't even need to explain any code because it is that simple.
 
@@ -3524,7 +3526,7 @@ Refresh the browser and you should see the new *Stats* component:
 
 ![](/images/blog/Screenshot 2015-07-19 14.53.00.png)
 
-## Step 17. Deployment
+## Step 19. Deployment
 
 Now that our project is complete we can finally deploy it. There are many hosting providers out there, but if you have followed any of my projects or tutorials then you should know why I like [Heroku](https://www.heroku.com/) so much.
 
@@ -3620,7 +3622,7 @@ $ git push heroku master
 
 You can see your app live at *http://&lt;app_name&gt;.herokuapp.com*, in my case it is http://newedenfaces.herokuapp.com.
 
-## Additional Resources
+## Step 20. Additional Resources
 
 Below is a list of resources that I found interesting or helpful during my own learning process.
 
@@ -3638,7 +3640,7 @@ In my [previous](https://hackhands.com/building-instagram-clone-angularjs-satell
 
 > Congratulations on making it this far! It is now the longest blog post I have published to date. Funny, I said the exact same thing in my TV Show Tracker blog post.
 
-But now this post is even longer than my previous one. I seriously did not expect it to be this long, nor was I trying to beat my old record. But at least I hope it was helpful and informative.
+But now this post is even longer than my previous one. I seriously did not expect it to be this long, nor was I trying to beat my old record. But I do hope it was helpful and informative. If you learned at least something from this post then all this work was not for nothing.
 
 If you liked this project, consider extending it or perhaps build a new app based on New Eden Faces. All this code is available on [GitHub](github.com/sahat/newedenfaces-react) and it is completely free, so use or modify it however you want. Here are some ideas for you to work on:
 
@@ -3656,7 +3658,7 @@ From all the emails that I have received since publishing the [TV Show Tracker](
 
 *If you are someone who is struggling with JavaScript:*
 
-- Trust me, I have been there before. Coming from the C++ and Java background that they teach you in school, I just didn't get all that asynchronous and callbacks bullshit. At one point I got so angry and frustrated that I thought I would not use JavaScript ever again.
+- Trust me, I have been there before. Coming from the C++ and Java background that they teach you in school, I just didn't get all that asynchronous and callbacks bullshit. At one point I got so angry and frustrated that I thought I would never use JavaScript ever again. The trick was to stop pretending like you know JavaScript and instead learn it from the ground up with an open mind.
 
 *If you are someone who is struggling with the new ES6 syntax:*
 
