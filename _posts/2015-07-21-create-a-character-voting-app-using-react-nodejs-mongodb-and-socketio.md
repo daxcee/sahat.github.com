@@ -598,9 +598,11 @@ Before going any further please watch this awesome video [React in 7 Minutes](ht
 
 And while you are there, I highly recommend getting the **PRO** subscription ($24.99/month) to unlock over 94 React and [React Native](https://facebook.github.io/react-native/) video lessons. No, you will not become an expert just by watching these videos, but they are amazing at giving you short and straight to the point explanations on any particular topic. If you are on a budget, you can subscribe for 1 month, download all videos, then cancel your subscription at the end of the month. Subscribing not only gives you access to React lessons, but also to [TypeScript](https://egghead.io/technologies/typescript), [Angular 2](https://egghead.io/technologies/angular2), [D3](https://egghead.io/technologies/d3), [ECMAScript 6](https://egghead.io/technologies/es6), [Node.js](https://egghead.io/technologies/node) and more.
 
+As an alternative, consider this highly rated course on Udemy — [Build Web Apps with React JS and Flux](https://www.udemy.com/learn-and-understand-reactjs/?couponCode=89527) by Stephen Grider. It contains over 71 videos and 10 hours of content that covers React, Flux, React Router, Firebase, Imgur API and more.
+
 While learning React, the biggest challenge for me was that it required a completely different thinking approach to building UIs. Which is why reading [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html) guide is absolutely a must for anyone who is starting out with React.
 
-In similar fashion to the *Product Table* from [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html), if we are to break apart New Eden Faces UI into components this is what it would look like:
+In similar fashion to the *Product Table* from [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html), if we are to break apart the *New Eden Faces* UI into potential components, this is what it would look like:
 
 ![](/images/blog/Screen Shot 2015-06-21 at 11.45.38 PM copy.png)
 
@@ -3673,8 +3675,8 @@ From all the emails that I have received since publishing the [TV Show Tracker](
 
 *If you are a college student seeking advice:*
 
-- Start building your portfolio right now. Go create a GitHub account and start contributing to open-source projects or build some of your own projects. Do not expect the school to teach you all the skills required from you on the job market. Don't worry too much if you have a low GPA, as long as you can compensate with a solid portfolio and open-source contributions. Companies that place too much emphasis on your GPA and school prestige are probably not the companies you want to work for, unless that's your thing. Be sure to have a goal in life and work hard towards it. Everything that I have achieved to this date is not because I am an expert, or really bright, or very exceptional, or lucky, no, I am none of the above...it is because I wanted those things and I relentlessly worked hard to get it.
+- Start building your portfolio right now. Go create a GitHub account and start contributing to open-source projects or build some of your own projects. Do not expect the school to teach you all the skills required from you on the job market. Don't worry too much if you have a low GPA, as long as you can compensate with a solid portfolio and open-source contributions. Companies that place too much emphasis on your GPA and school prestige are probably not the companies you want to work for, unless that's your thing. Be sure to have a goal in life and work hard towards it. Everything that I have achieved to this date is not because I am gifted and talented, or really bright, or very exceptional, or very lucky, no I am none of the above. It is because I wanted those things and I relentlessly worked hard to get it.
 
-This is likely my last tutorial until 2016. I would like to switch back to open-source development so I could create more projects like [Hackathon Starter](https://github.com/sahat/hackathon-starter) and [Satellizer](https://github.com/sahat/satellizer).
+This is likely my last tutorial until 2016. I would like to switch back to building open-source apps and libraries so I could create more projects like [Hackathon Starter](https://github.com/sahat/hackathon-starter) and [Satellizer](https://github.com/sahat/satellizer).
 
 For questions, comments and general feedback send me an [email](mailto:sahat@me.com). Also due to the high volume of emails from my previous tutorials, I am enabling comments for this post so that other readers could potentially answer some of the questions.
