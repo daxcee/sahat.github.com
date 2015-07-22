@@ -57,6 +57,8 @@ Create a new directory **<i class="fa fa-folder-open"></i>newedenfaces**. Inside
 
 ![](/images/blog/Screenshot 2015-03-22 04.50.51.png)
 
+**July 22, 2015 Update:** I am using the default Terminal app in Mac OS X with [Monokai](https://github.com/stephenway/monokai.terminal) theme and [oh-my-fish](https://github.com/oh-my-fish/oh-my-fish) framework for the [Fish](http://fishshell.com/) shell.
+
 Open *package.json* and paste the following:
 
 ```json
