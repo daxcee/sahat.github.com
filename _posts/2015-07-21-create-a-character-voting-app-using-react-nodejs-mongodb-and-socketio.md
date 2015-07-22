@@ -7,6 +7,16 @@ image: bg/7.jpg
 comments: true
 ---
 
+<div style="float: right; margin-top: 4px;">
+
+  {% raw %}
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+  <iframe src="https://ghbtns.com/github-btn.html?user=sahat&type=follow&count=true" frameborder="0" scrolling="0" width="140px" height="20px"></iframe>
+  {% endraw %}
+
+  <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://sahatyalkabov.com/create-a-character-voting-app-using-react-nodejs-mongodb-and-socketio/" data-text="{{page.title}}" data-via="EvNowAndForever">Tweet</a>
+</div>
+
 ## Overview
 
 In this tutorial we are going to build a character voting app (inspired by *Facemash* and *Hot or Not*) for [EVE Online](http://www.eveonline.com/) - a massively multiplayer online game. Be sure to play this awesome soundtrack below to get yourself in the mood for this epicly long tutorial.
