@@ -845,7 +845,7 @@ Next, open *routes.js* inside **<i class="fa fa-folder-open"></i>app** and paste
 
 ```js
 import React from 'react';
-import {Route, NotFoundRoute} from 'react-router';
+import {Route} from 'react-router';
 import App from './components/App';
 import Home from './components/Home';
 
@@ -2051,6 +2051,25 @@ export default alt.createStore(AddCharacterStore);
 `helpBlock` is a status message which gets displayed below the text field, e.g. *Character has been added successfully*.
 
 `onInvalidName` handler is fired when *Character Name* field is empty. If the name does not exist in EVE Online database it will be a different error message provided by `onAddCharacterFail` handler.
+
+Finally, open *routes.js* and add a new route `/add` with the `AddCharacter` component handler:
+
+```js
+import React from 'react';
+import {Route} from 'react-router';
+import App from './components/App';
+import Home from './components/Home';
+import AddCharacter from './components/AddCharacter';
+
+export default (
+  <Route handler={App}>
+    <Route path='/' handler={Home} />
+    <Route path='/add' handler={AddCharacter} />
+  </Route>
+);
+```
+
+
 
 Here is a quick demonstration of the entire flow from the moment you start typing a character's name:
 
