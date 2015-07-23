@@ -3364,7 +3364,7 @@ class CharacterListActions {
 export default alt.createActions(CharacterListActions);
 ```
 
-The `payload` contains react-router params that we specified in *routes.js*:
+The `payload`, in this case, contains React Router params that we will specify in *routes.js* shortly:
 
 ```xml
 <Route path=':category' handler={CharacterList}>
@@ -3604,6 +3604,35 @@ class StatsStore {
 
 export default alt.createStore(StatsStore);
 ```
+
+Open *routes.js* and add our new route — `/stats`. Again, we have to place it before the `:category` route, so that it takes a higher precedence.
+
+```js
+import React from 'react';
+import {Route} from 'react-router';
+import App from './components/App';
+import Home from './components/Home';
+import AddCharacter from './components/AddCharacter';
+import Character from './components/Character';
+import CharacterList from './components/CharacterList';
+import Stats from './components/Stats';
+
+export default (
+  <Route handler={App}>
+    <Route path='/' handler={Home} />
+    <Route path='/add' handler={AddCharacter} />
+    <Route path='/characters/:id' handler={Character} />
+    <Route path='/shame' handler={CharacterList} />
+    <Route path='/stats' handler={Stats} />
+    <Route path=':category' handler={CharacterList}>
+      <Route path=':race' handler={CharacterList}>
+        <Route path=':bloodline' handler={CharacterList} />
+      </Route>
+    </Route>
+  </Route>
+);
+```
+
 
 Refresh the browser and you should see the new *Stats* component:
 
