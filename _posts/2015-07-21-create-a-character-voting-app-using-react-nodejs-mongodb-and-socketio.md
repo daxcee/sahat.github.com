@@ -3206,6 +3206,25 @@ If a character is being reported for the first time, it is saved to Local Storag
 
 ![](/images/blog/Screenshot 2015-07-19 01.14.26.png)
 
+Again, open *routes.js* and a new route for `/characters/:id`. This route uses a dynamic segment `id` that will match any valid *Character ID*. Also, don't forget to import the *Character* component.
+
+```js
+import React from 'react';
+import {Route} from 'react-router';
+import App from './components/App';
+import Home from './components/Home';
+import AddCharacter from './components/AddCharacter';
+import Character from './components/Character';
+
+export default (
+  <Route handler={App}>
+    <Route path='/' handler={Home} />
+    <Route path='/add' handler={AddCharacter} />
+    <Route path='/characters/:id' handler={Character} />
+  </Route>
+);
+```
+
 Refresh the browser, click on one of the characters and you should see the new profile page.
 
 ![](/images/blog/Screenshot 2015-07-19 01.32.44.png)
