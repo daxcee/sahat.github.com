@@ -3410,7 +3410,39 @@ class CharacterListStore {
 export default alt.createStore(CharacterListStore);
 ```
 
-There is not much to explain here, nothing you have not seen already. So let's move on to the last component in the app.
+Open *routes.js* and the following routes. All three nested routes use dynamic segments so we don't have to repeat ourselves multiple times. Make sure they are the last routes in the file, otherwise `:category` can override `/stats`, `/add` and `/shame` routes, because it will treat those routes as "categories" instead of being separate routes. Don't forget to import the *CharacterList* component.
+
+```js
+import React from 'react';
+import {Route} from 'react-router';
+import App from './components/App';
+import Home from './components/Home';
+import AddCharacter from './components/AddCharacter';
+import Character from './components/Character';
+import CharacterList from './components/CharacterList';
+
+export default (
+  <Route handler={App}>
+    <Route path='/' handler={Home} />
+    <Route path='/add' handler={AddCharacter} />
+    <Route path='/characters/:id' handler={Character} />
+    <Route path='/shame' handler={CharacterList} />
+    <Route path=':category' handler={CharacterList}>
+      <Route path=':race' handler={CharacterList}>
+        <Route path=':bloodline' handler={CharacterList} />
+      </Route>
+    </Route>
+  </Route>
+);
+```
+
+Here are all the valid values for dynamic segments above:
+
+- **`:category`** — *male, female, top*.
+- **`:race`** — *caldari, gallente, minmatar, amarr*.
+- **`:bloodline`** — *civire, deteis, achura, intaki, gallente, jin-mei, amarr, ni-kunni, khanid, brutor, sebiestor, vherokior*.
+
+As you can see, *routes.js* could have been much longer if we hard-coded all those routes instead of using dynamic segments.
 
 ## Step 18. Stats Component
 
