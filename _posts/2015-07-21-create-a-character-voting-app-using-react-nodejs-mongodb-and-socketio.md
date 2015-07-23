@@ -3752,7 +3752,7 @@ In my [previous](https://hackhands.com/building-instagram-clone-angularjs-satell
 
 > Congratulations on making it this far! It is now the longest blog post I have published to date. Funny, I said the exact same thing in my TV Show Tracker blog post.
 
-But now this post is even longer than my previous one. I seriously did not expect it to be this long, nor was I trying to beat my old record. But I do hope it was helpful and informative. If you learned at least something from this post then all this work was not for nothing.
+But now, this post is even longer than my previous one. I seriously didn't expect it to be this long, neither was I trying to beat my old record. But I do hope this tutorial has been helpful and informative. If you learned at least something from this post, then all this writing effort wasn't for nothing.
 
 If you liked this project, consider extending it or perhaps build a new app based on New Eden Faces. All this code is available on [GitHub](http://github.com/sahat/newedenfaces-react) and it is completely free, so use or modify it however you want. Here are some ideas for you to work on:
 
