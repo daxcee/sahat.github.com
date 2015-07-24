@@ -1295,7 +1295,7 @@ Create a new file *Navbar.js* inside **<i class="fa fa-folder-open"></i>app/comp
 ```js
 import React from 'react';
 import {Link} from 'react-router';
-import NavbarStore from '../stores/NavbarStore'
+import NavbarStore from '../stores/NavbarStore';
 import NavbarActions from '../actions/NavbarActions';
 
 class Navbar extends React.Component {
