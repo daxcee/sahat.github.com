@@ -183,7 +183,7 @@ Run `npm start` in the Terminal to make sure our Express app is working without 
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
-  While you could technically use <code>node server.js</code> to start the app right now, as soon as we start writing the React app using ECMAScript 6 and pre-rendering it on the server, we will need the Babel compiler.
+  While you could technically use <code>node server.js</code> to start the app right now, as soon as we start writing the React app using ECMAScript 6 and pre-rendering it on the server, we will need the Babel compiler, in other words use <code>babel-node server.js</code> to start the app directly.
 </div>
 
 
