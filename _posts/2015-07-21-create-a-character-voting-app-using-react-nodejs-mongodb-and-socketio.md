@@ -2323,6 +2323,7 @@ import React from 'react';
 import {Link} from 'react-router';
 import HomeStore from '../stores/HomeStore'
 import HomeActions from '../actions/HomeActions';
+import {first, without, findWhere} from 'underscore';
 
 class Home extends React.Component {
 
@@ -2347,7 +2348,7 @@ class Home extends React.Component {
 
   handleClick(character) {
     var winner = character.characterId;
-    var loser = this.state.characters[1 - this.state.characters.indexOf(winner)].characterId;
+    var loser = first(without(this.state.characters, findWhere(this.state.characters, { characterId: winner }))).characterId;
     HomeActions.vote(winner, loser);
   }
 
@@ -2384,6 +2385,8 @@ class Home extends React.Component {
 
 export default Home;
 ```
+
+**July 27, 2015 Update:** Fixed the error *Cannot read property 'characterId' of undefined*. I have updated how the "losing" Character ID is obtained inside `handleClick()` method. It uses [`_.findWhere`](http://underscorejs.org/#findWhere) to find the "winning" character object within the array, then using [`_.without`](http://underscorejs.org/#without) we get a new array without the "winning" character. Since we only have 2 characters in the array, the other object must be the "losing" character. And finally, using [`_.first`](http://underscorejs.org/#first) we get the first (and only) object in the array.
 
 It is not really necessary to map over the `characters` array since we only have 2 characters to display, but it is one way to do it. Another way would be to create a separate markup for `characters[0]` and `characters[1]` like so:
 
