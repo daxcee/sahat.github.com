@@ -972,6 +972,8 @@ In another tab, run `npm run watch` to start the Node.js server and automaticall
 
 ![](/images/blog/Screenshot 2015-06-22 22.50.23.png)
 
+**July 27, 2015 Update:** Once again, make sure you have installed [nodemon](https://github.com/remy/nodemon) via `sudo npm install -g nodemon` otherwise you will not be able to run the command above.
+
 Open [http://localhost:3000](http://localhost:3000) and you should see our React app render successfully:
 
 ![](/images/blog/Screenshot 2015-06-22 22.53.01.png)
@@ -3769,7 +3771,7 @@ If you liked this project, consider extending it or perhaps build a new app base
 - Image processing algorithm to reject [placeholder avatars](http://image.eveonline.com/Character/1_512.jpg) when adding a new character.
 - Automatically reset stats every X number of rounds.
 - Display voting history on the character profile page.
-- An Archives page to view Top 100 characters from previous rounds.
+- Archives page to view Top 100 characters from previous rounds.
 
 From all the emails that I have received since publishing the [TV Show Tracker](http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) tutorial, I have learned that this blog attracts readers of all levels - from long-time JavaScript gurus to those who are just starting out with coding, as well as everyone in between.
 
