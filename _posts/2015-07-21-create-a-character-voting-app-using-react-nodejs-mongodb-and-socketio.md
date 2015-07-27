@@ -50,6 +50,7 @@ Before proceeding, you will need to download and install the following tools:
 2. <i class="devicons devicons-bower"></i> [Bower](http://bower.io/)
 3. <i class="devicons devicons-mongodb"></i> [MongoDB](https://www.mongodb.org/downloads)
 4. <i class="devicons devicons-gulp"></i> [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
+5. <i class="devicons devicons-nodejs"></i> [nodemon](https://github.com/remy/nodemon#nodemon)
 
 ## Step 1. New Express Project
 
