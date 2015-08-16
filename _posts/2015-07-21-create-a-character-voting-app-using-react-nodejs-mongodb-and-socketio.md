@@ -2184,6 +2184,7 @@ In *server.js* add the following dependencies at the top:
 ```js
 var async = require('async');
 var request = require('request');
+var xml2js = require('xml2js');
 ```
 
 We will use [async.waterfall](https://github.com/caolan/async#waterfalltasks-callback) for managing multiple asynchronous operations and [request](https://github.com/request/request) module for making HTTP requests to the EVE Online API.
