@@ -462,7 +462,7 @@ main {
 
 .post .article-image .post-meta {
   position: absolute;
-  bottom: 80px;
+  bottom: 50px;
   left: 15%;
   right: 15%;
   z-index: 999;
@@ -1194,4 +1194,28 @@ i[class^='ion-'] {
 
 i.devicons {
   vertical-align: middle;
+}
+
+#carbonads {
+  max-width: 400px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  height: 100px;
+}
+.carbon-img {
+  float: left;
+  margin-right: 10px;
+}
+.carbon-text {
+  display: block;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #fff !important;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.5);
+  text-decoration: none !important;
+}
+.carbon-poweredby {
+  font-size: 75%;
+  color: rgba(255, 255, 255, 0.85) !important;
+  text-decoration: none !important;
 }
