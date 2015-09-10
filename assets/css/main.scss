@@ -1196,6 +1196,7 @@ i.devicons {
   vertical-align: middle;
 }
 
+.carbon-container,
 #carbonads {
   max-width: 400px;
   margin-top: 30px;
@@ -1203,13 +1204,19 @@ i.devicons {
   height: 100px;
   background-color: rgba(0, 0, 0, 0.25);
   padding: 10px;
-  box-shadow: inset 0 2px 2px rgba(0,0,0,0.05);
+  box-shadow: inset 0 2px 2px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
 }
+
+.carbon-container {
+  height: inherit;
+}
+
 .carbon-img {
   float: left;
   margin-right: 15px;
 }
+
 .carbon-text {
   display: block;
   font-size: 12px;
@@ -1218,9 +1225,14 @@ i.devicons {
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.5);
   text-decoration: none !important;
 }
+
 .carbon-poweredby {
   font-size: 75%;
   color: rgba(255, 255, 255, 0.85) !important;
   text-decoration: none !important;
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.25), 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.hidden {
+  display: none;
 }

@@ -15,3 +15,21 @@
   ga('require', 'linkid', 'linkid.js');
   ga('send', 'pageview');
 </script>
+
+<script>
+  (function() {
+    var tryMessage = function() {
+      setTimeout(function() {
+        if (!document.getElementById('carbonads')) {
+          $('.carbon-container').removeClass('hidden');
+        }
+      }, 2000);
+    };
+
+    if (window.addEventListener) {
+      window.addEventListener('load', tryMessage, false);
+    } else {
+      window.attachEvent('onload', tryMessage);
+    }
+  })();
+</script>
