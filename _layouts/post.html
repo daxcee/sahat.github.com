@@ -2,6 +2,17 @@
 <html>
 <head>
 {% include head.html %}
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "{{page.title}}",
+"alternativeHeadline": "{{page.excerpt}}",
+"image": "/images/{{page.image}}",
+"datePublished": "{{page.date|date_to_xmlschema}}",
+"description": "{{page.excerpt}}",
+}
+</script>
 </head>
 <body>
 
