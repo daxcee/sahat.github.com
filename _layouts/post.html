@@ -2,15 +2,19 @@
 <html>
 <head>
 {% include head.html %}
-
+<script type="application/ld+json">
+{
+"@context": "http://schema.org",
+"@type": "BlogPosting",
+"headline": "{{page.title}}",
+"alternativeHeadline": "{{page.excerpt}}",
+"image": "/images/{{page.image}}",
+"datePublished": "{{page.date|date_to_xmlschema}}",
+"description": "{{page.excerpt}}"
+}
+</script>
 </head>
 <body>
-<div itemscope itemtype="http://schema.org/BlogPosting">
-  <h2 itemprop="headline">{{page.title}}</h2>
-  <span itemprop="description">{{page.excerpt}}</span>
-  <img itemprop="image" src="/images/{{page.image}}" alt="{{page.title}}"/>
-  <meta itemprop="datePublished" content="{{page.date|date_to_xmlschema}}"/>
-</div>
 
 <div class="navigation">
   <a href="/" class="logo" title="Site Logo">Sahat <strong>Yalkabov</strong></a>
