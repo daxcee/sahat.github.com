@@ -3423,7 +3423,6 @@ export default (
     <Route path='/' handler={Home} />
     <Route path='/add' handler={AddCharacter} />
     <Route path='/characters/:id' handler={Character} />
-    <Route path='/shame' handler={CharacterList} />
     <Route path=':category' handler={CharacterList}>
       <Route path=':race' handler={CharacterList}>
         <Route path=':bloodline' handler={CharacterList} />
@@ -3432,6 +3431,9 @@ export default (
   </Route>
 );
 ```
+
+**September 22, 2015 Update:** Fixed a bug with Hall of Shame not fetching the right characters
+by removing the `/shame` route, since it is already passed as `category` to a dynamic route below it.
 
 Here are all the valid values for dynamic segments above:
 
