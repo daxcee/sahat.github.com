@@ -1,8 +1,7 @@
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 <script src="/assets/js/vendor/jquery.magnific-popup.min.js"></script>
 <script src="/assets/js/vendor/readingTime.min.js"></script>
 <script src="/assets/js/vendor/rrssb.min.js"></script>
-<script src="/assets/js/main.js"></script>
 
 <!-- Google Analytics -->
 <script>
@@ -32,4 +31,28 @@
       window.attachEvent('onload', tryMessage);
     }
   })();
+</script>
+
+<script>
+  // Reading Time
+  $('.post').readingTime({
+    remoteTarget: '.post-content',
+    readingTimeTarget: '.post-reading-time'
+  });
+
+  // Initialize magnific-popup
+  $('.magnific-popup').magnificPopup({ type: 'image' });
+
+
+  // Parallax background
+  $(window).resize(parallaxBackground);
+  $(window).scroll(parallaxBackground);
+
+  function parallaxBackground() {
+    var scrollTotal = $(window).scrollTop();
+    scrollTotal = Math.floor(scrollTotal / 2);
+    $('.post .article-image .post-image-image').css({
+      transform: 'translate3d(0,' + scrollTotal + 'px,0)'
+    });
+  }
 </script>
