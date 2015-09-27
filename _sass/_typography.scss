@@ -1,3 +1,67 @@
+@font-face {
+  font-family: icons;
+  font-weight: normal;
+  font-style: normal;
+  src: url("../fonts/icons.woff") format("woff");
+}
+
+@font-face {
+  font-family: "custom";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/custom.woff") format("woff");
+}
+
+@font-face {
+  font-family: "custom";
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/custom_bold.woff") format("woff");
+}
+
+@font-face {
+  font-family: "custom";
+  font-style: italic;
+  font-weight: bold;
+  src: url("../fonts/custom_bold_italic.woff") format("woff");
+}
+
+@font-face {
+  font-family: "custom";
+  font-style: italic;
+  font-weight: normal;
+  src: url("../fonts/custom_italic.woff") format("woff");
+}
+
+
+@font-face {
+  font-family: 'custom2';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/custom2_med.woff") format("woff")
+}
+
+@font-face {
+  font-family: 'custom2';
+  font-style: normal;
+  font-weight: bold;
+  src: url("../fonts/custom2_bold.woff") format("woff")
+}
+
+@font-face {
+  font-family: 'custom3';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/custom3.woff') format("woff");
+}
+
+@font-face {
+  font-family: 'custom3';
+  font-style: normal;
+  font-weight: bold;
+  src: url('../fonts/custom3-bold.woff') format("woff");
+}
+
 .list-inline {
   padding-left: 0;
   margin-left: -5px;
