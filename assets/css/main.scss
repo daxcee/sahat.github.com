@@ -12,71 +12,6 @@
 
 @import "rrssb";
 
-
-@font-face {
-  font-family: icons;
-  font-weight: normal;
-  font-style: normal;
-  src: url("../fonts/icons.woff") format("woff");
-}
-
-@font-face {
-  font-family: "custom";
-  font-style: normal;
-  font-weight: normal;
-  src: url("../fonts/custom.woff") format("woff");
-}
-
-@font-face {
-  font-family: "custom";
-  font-style: normal;
-  font-weight: bold;
-  src: url("../fonts/custom_bold.woff") format("woff");
-}
-
-@font-face {
-  font-family: "custom";
-  font-style: italic;
-  font-weight: bold;
-  src: url("../fonts/custom_bold_italic.woff") format("woff");
-}
-
-@font-face {
-  font-family: "custom";
-  font-style: italic;
-  font-weight: normal;
-  src: url("../fonts/custom_italic.woff") format("woff");
-}
-
-
-@font-face {
-  font-family: 'custom2';
-  font-style: normal;
-  font-weight: 500;
-  src: url("../fonts/custom2_med.woff") format("woff")
-}
-
-@font-face {
-  font-family: 'custom2';
-  font-style: normal;
-  font-weight: bold;
-  src: url("../fonts/custom2_bold.woff") format("woff")
-}
-
-@font-face {
-  font-family: 'custom3';
-  font-style: normal;
-  font-weight: normal;
-  src: url('../fonts/custom3.woff') format("woff");
-}
-
-@font-face {
-  font-family: 'custom3';
-  font-style: normal;
-  font-weight: bold;
-  src: url('../fonts/custom3-bold.woff') format("woff");
-}
-
 body {
   padding: 24px;
   font-size: 16px;
@@ -276,6 +211,7 @@ main {
 
 .content article {
   padding: 20px 0;
+  padding-top: 100vh;
   border-bottom: 1px solid #f2f2f0;
 }
 
@@ -285,13 +221,13 @@ main {
 
 .content article .post-title {
   letter-spacing: -0.02em;
-  font-weight: 800;
+  font-weight: 500;
   font-style: normal;
   display: block;
   font-size: 28px;
   line-height: 1.1;
   margin: 0 0 6px;
-  font-family: 'Alegreya', sans-serif;
+  font-family: 'custom2', sans-serif;
 }
 
 .content article .post-title a {
@@ -446,13 +382,11 @@ main {
 
 .post .article-image .post-meta {
   position: absolute;
-  bottom: 50px;
+  bottom: 12%;
   left: 15%;
   right: 15%;
   z-index: 999;
   font-family: 'Open Sans', "Helvetica Neue", Arial, Helvetica, sans-serif;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -468,7 +402,7 @@ main {
 }
 
 .post .article-image .post-title {
-  font-weight: 700;
+  font-weight: 500;
   font-style: normal;
   letter-spacing: -0.02em;
   font-size: 2rem;
