@@ -17,89 +17,74 @@
   font-family: icons;
   font-weight: normal;
   font-style: normal;
-  src: url("../fonts/icons.eot");
-  src: url("../fonts/icons.eot?#iefix") format("embedded-opentype"), url("../fonts/icons.woff") format("woff"), url("../fonts/icons.ttf") format("truetype"), url("../fonts/icons.svg#icons") format("svg");
+  src: url("../fonts/icons.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'custom';
+  font-family: "custom";
   font-style: normal;
   font-weight: normal;
-  src: url('../fonts/custom-webfont.eot');
-  src: url('../fonts/custom-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/custom-webfont.woff') format('woff'), url('../fonts/custom-webfont.ttf') format('truetype'), url('../fonts/custom-webfont.svg#custom') format('svg');
+  src: url("../fonts/custom.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'custom';
+  font-family: "custom";
   font-style: normal;
   font-weight: bold;
-  src: url('../fonts/custombold-webfont.eot');
-  src: url('../fonts/custombold-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/custombold-webfont.woff') format('woff'), url('../fonts/custombold-webfont.ttf') format('truetype'), url('../fonts/custombold-webfont.svg#custom') format('svg');
+  src: url("../fonts/custom_bold.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'custom';
+  font-family: "custom";
   font-style: italic;
   font-weight: bold;
-  src: url('../fonts/custombolditalic-webfont.eot');
-  src: url('../fonts/custombolditalic-webfont.eot?#iefix') format('embedded-opentype'),
-  url('../fonts/custombolditalic-webfont.woff') format('woff'),
-  url('../fonts/custombolditalic-webfont.ttf') format('truetype'),
-  url('../fonts/custombolditalic-webfont.svg#custom') format('svg');
+  src: url("../fonts/custom_bold_italic.woff") format("woff");
 }
 
 @font-face {
-  font-family: 'custom';
+  font-family: "custom";
   font-style: italic;
   font-weight: normal;
-  src: url('../fonts/customitalic-webfont.eot');
-  src: url('../fonts/customitalic-webfont.eot?#iefix') format('embedded-opentype'), url('../fonts/customitalic-webfont.woff') format('woff'), url('../fonts/customitalic-webfont.ttf') format('truetype'), url('../fonts/customkitalic-webfont.svg#custom') format('svg');
+  src: url("../fonts/custom_italic.woff") format("woff");
+}
+
+
+@font-face {
+  font-family: 'custom2';
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/custom2_med.woff") format("woff")
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-Regular.otf') format('opentype');
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-RegularItalic.otf') format('opentype');
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-Bold.otf') format('opentype');
+  font-family: 'custom2';
+  font-style: normal;
   font-weight: bold;
+  src: url("../fonts/custom2_bold.woff") format("woff")
 }
 
 @font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-BoldItalic.otf') format('opentype');
+  font-family: 'custom3';
+  font-style: normal;
+  font-weight: normal;
+  src: url('../fonts/custom3.woff') format("woff");
+}
+
+@font-face {
+  font-family: 'custom3';
+  font-style: normal;
   font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-Light.otf') format('opentype');
-  font-weight: 300;
-}
-
-@font-face {
-  font-family: 'Montserrat';
-  src: url('../fonts/Montserrat-LightItalic.otf') format('opentype');
-  font-weight: 300;
-  font-style: italic;
+  src: url('../fonts/custom3-bold.woff') format("woff");
 }
 
 body {
   padding: 24px;
   font-size: 16px;
   line-height: 24px;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "custom3", "Helvetica Neue", sans-serif;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 img {
