@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Cross-Country Road Trip in a Tesla Model S: Day 1"
-excerpt: Day 1: Los Angeles to Las Vegas.
+excerpt: Day 1 — Los Angeles to Las Vegas.
 image: blog/tesla-road-trip-day-1-cover.jpg
 ---
 
