@@ -11,7 +11,7 @@ The first charging stop was in Barstow, CA. Since it is located in the middle of
 
 ![](/images/blog/tesla-road-trip-day-1-1.jpg)
 
-I spent the next 2 hours driving through the empty desert. It is not the most exciting drive in the world.
+I spent the next 2 hours driving through the empty desert. It is not exactly the most exciting drive in the world...
 
 ![](/images/blog/tesla-road-trip-day-1-2.jpg)
 
@@ -33,7 +33,7 @@ I met up with a good friend from the Air Force around 5:00 pm, we grabbed some f
 
 ![](/images/blog/tesla-road-trip-day-1-6.jpg)
 
-I will be staying at Nellis overnight at my friend's dorms, and leave around 4:00 am. My next trip will be significantly longer — 739 miles from Las Vegas to Denver, Colorado. It should be possible to do in one go with a few quick 20-minute naps between the charging stops. The trip is actually longer than 10 hours 44 minutes because of charging stops, not that I would be able to do it in one shot even if I was driving a gasoline car.
+I will be staying at Nellis overnight at my friend's place, and leave around 4:00 am. My next trip will be significantly longer — 739 miles from Las Vegas to Denver, Colorado. It should be possible to do in one go with a few quick 20-minute naps between the charging stops. The trip is actually longer than 10 hours 44 minutes because of charging stops, not that I would be able to do it in one shot even if I was driving a gasoline car.
 
 ![](/images/blog/tesla-road-trip-day-1-8.png)
 
