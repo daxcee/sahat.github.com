@@ -60,6 +60,6 @@ That was the most hipster food market place I have been to. But we've had a real
 
 Less than a year ago I could have only dreamed of meeting Roniit some day. And now this. I am truly gateful for everything!
 
-So what's next? Either *Kansas City, Kansas* (604 miles) or *St. Louis, Missouri* (850 miles). I was so exhausted driving 740 miles from Las Vegas to Denver, so I am not sure if I can do 850 miles in one day. I would like to avoid driving at night, so in order for me to traverse 850 miles I would have to wake up and leave around 3:00am (in less than 2 hours) which is not going to happen.
+So what's next? Either *Kansas City* (604 miles) or *St. Louis* (850 miles). I was so exhausted driving 740 miles from Las Vegas to Denver, so I am not sure if I can do 850 miles in one day. I would like to avoid driving at night, so in order for me to traverse 850 miles I would have to wake up and leave around 3:00am (in less than 2 hours) which is not going to happen.
 
 ![](/images/blog/tesla-road-trip-day-2-15.png)
