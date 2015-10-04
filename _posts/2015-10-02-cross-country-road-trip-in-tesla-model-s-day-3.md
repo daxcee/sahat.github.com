@@ -52,6 +52,6 @@ I finally found a Starbucks in Kansas! It was right by the next supercharger loc
 
 My last stop was in *Topeka, Kansas*, which is about 60 miles (1 hour drive) west of *Kansas City*. I decided to stop in *Topeka* because I was very tired and was able to get a really good deal at the Country Inn and Suites hotel because I have a ton of points on my club membership card.
 
-The next trip will be the longest one ever, assuming I can cover that distance in one day. The total of 839 miles from *Topeka, Kansas* to *New Philadelphia, Ohio*. That's 4 states to cover: Kansas, Missouri, Indiana, Ohio.
+The next trip will be the longest one ever, assuming I can cover that distance in one day. The total of 839 miles from *Topeka, Kansas* to *New Philadelphia, Ohio*. That's <strike>4</strike> 5 states to cover: Kansas, Missouri, Illinois, Indiana, Ohio.
 
 ![](/images/blog/tesla-road-trip-day-3-8.png)
