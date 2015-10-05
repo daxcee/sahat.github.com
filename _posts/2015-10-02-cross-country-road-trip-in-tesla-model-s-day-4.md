@@ -73,7 +73,7 @@ By the time I got to the supercharger, the sun has almost set and it was getting
 
 ![](/images/blog/tesla-road-trip-day-4-15.jpg)
 
-Once I reached Ohio, I had to stop first at the *Dayton, Ohio* supercharger, followed by *Columbus, Ohio* supercharger.
+Once I reached Ohio, I had to stop first at the *Dayton, Ohio* supercharger, followed by *Columbus, Ohio* supercharger. I was a little worried about driving in Ohio at night because I did not want to hit a deer or some critters at 78 mph that could jump out suddenly. It was a likely possibility, on more than a few occasions I was the only driver on a highway, with no one behind or in front of me, just driving alone through pitch black darkness surrounded by lots of trees.
 
 I lost 2 hours during the timezone shift from MST to CST to EST and drove more than 850 miles. Exhausted wouldn't begin to describe how I felt by the time I got to *New Philadelphia / Dover, Ohio* at 2:00am. But I have made it across the 5 states safe and sound, and that's all that matters.
 
