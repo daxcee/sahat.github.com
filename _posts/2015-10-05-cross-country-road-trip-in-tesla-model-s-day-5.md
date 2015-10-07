@@ -64,4 +64,4 @@ And here is the map of the superchargers that will be available in 2016:
 ![](/images/blog/tesla-road-trip-day-5-22.png)
 
 
-There will be two more blog posts in this series — *Day 6* and *Epilogue*, which I will post tonight and tomorrow, respectively.
+There will be one more blog post in this series — *Day 6*, which I will post tonight or tomorrow.
