@@ -2296,8 +2296,10 @@ Or better yet, download this MongoDB file dump that contains over 4000 character
 And then run this command to import the *characters* collection into MongoDB:
 
 ```bash
-$ mongorestore newedenfaces.bson
+$ mongorestore newedenfaces.bson -d nef -c characters
 ```
+
+**October 11, 2015 Update:** Use explicit *database* and *collection* flags in the command above.
 
 You will not see updated character count in the search field just yet, since we haven't implemented an API endpoint for it. We will do that after the next section.
 
