@@ -2711,32 +2711,6 @@ app.get('/api/characters/search', function(req, res, next) {
 
 ---
 
-**GET /api/characters/:id**
-
-This route is used by the profile page (*Character* component that we will build next) as shown at the beginning of the tutorial.
-
-```js
-/**
- * GET /api/characters/:id
- * Returns detailed character information.
- */
-app.get('/api/characters/:id', function(req, res, next) {
-  var id = req.params.id;
-
-  Character.findOne({ characterId: id }, function(err, character) {
-    if (err) return next(err);
-
-    if (!character) {
-      return res.status(404).send({ message: 'Character not found.' });
-    }
-
-    res.send(character);
-  });
-});
-```
-
----
-
 **GET /api/characters/top**
 
 When I first built this project, I initially had around 7-9 almost identical routes for retrieving the Top 100 characters. After some code refactoring I ended up with just a single route below.
@@ -2834,6 +2808,34 @@ app.get('/api/characters/shame', function(req, res, next) {
       if (err) return next(err);
       res.send(characters);
     });
+});
+```
+
+---
+
+**GET /api/characters/:id**
+
+**October 11, 2015 Update:** I have left this Express route for last, so that other routes starting with */api/characters/*, do not get clobbered by the this route with the `:id` parameter.
+
+This route is used by the profile page (*Character* component that we will build next) as shown at the beginning of the tutorial.
+
+```js
+/**
+ * GET /api/characters/:id
+ * Returns detailed character information.
+ */
+app.get('/api/characters/:id', function(req, res, next) {
+  var id = req.params.id;
+
+  Character.findOne({ characterId: id }, function(err, character) {
+    if (err) return next(err);
+
+    if (!character) {
+      return res.status(404).send({ message: 'Character not found.' });
+    }
+
+    res.send(character);
+  });
 });
 ```
 
