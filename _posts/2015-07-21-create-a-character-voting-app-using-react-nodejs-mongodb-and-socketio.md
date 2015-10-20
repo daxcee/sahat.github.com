@@ -401,7 +401,7 @@ I don't know if you are aware of the latest [trend](https://speakerdeck.com/vjeu
 
 Before we jump into building the React app, I have decided to dedicate the next three sections to ES6, React, Flux, otherwise it may be too overwhelming trying to learn everything at once. Personally, I had a very hard time following some React + Flux code examples written in ES6 because I was learning a new syntax, a new framework and a completely unfamiliar app architecture all at once.
 
-Since I cannot cover everything in-depth, we will only be going over those topics that you need to know for this tutorial.
+Since I cannot cover everything in-depth, we will be going over only those topics that you need to know for this tutorial.
 
 ## Step 4. ES6 Crash Course
 
@@ -490,14 +490,25 @@ var box = new Box(2, 2);
 box.calculateArea(); // 4
 ```
 
-With ES6 classes you can also use `extends` to create a subclass from an existing class:
+With ES6 classes you can now use `extends` to create a subclass from an existing class:
 
 ```js
+// ES6
 class MyComponent extends React.Component {
-  // Now MyComponent class contains all React component methods
+  // Now MyComponent contains all React component methods
   // such as componentDidMount(), render() and etc.
 }
 ```
+
+```js
+// ES5
+var MyComponent = React.createClass({
+  // Now MyComponent contains all React component methods
+  // such as componentDidMount(), render() and etc.
+})
+```
+
+**October 19, 2015 Update:** Added the ES5 example using `React.createClass`.
 
 For more information about ES6 classes visit [Classes in ECMAScript 6](http://www.2ality.com/2015/02/es6-classes-final.html) blog post.
 
@@ -562,9 +573,9 @@ $.ajax({ type: 'POST', url: '/api/characters', data: { name: name, gender: gende
 
 Every function expression above creates its own `this` scope. Without binding `this` we would not be able to call `this.setState` in the example above, because `this` would have been *undefined*.
 
-Alternatively, we could have assigned `this` to a variable, e.g. `var self = this` and then used `self.setState` instead of `this.setState` inside the [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures).
+Alternatively, we could have assigned `this` to a variable, e.g. `var self = this` and then used `self.setState` instead of `this.setState` inside the [closures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Closures) to get around this classic JavaScript problem.
 
-In any case, here is an equivalent ES6 code using fat arrow functions which preserve original `this` value:
+In any case, here is an equivalent ES6 code using fat arrow functions which preserve the original `this` value:
 
 ```js
 $.ajax({ type: 'POST', url: '/api/characters', data: { name: name, gender: gender } })
@@ -599,6 +610,8 @@ Other notable features of React include:
 - The most **helpful error and warning messages** that I have seen in any JavaScript library.
 - **Components are self-contained**; markup and behavior ([and even styles](http://blog.vjeux.com/2014/javascript/react-css-in-js-nationjs.html)) live in the same place, making components very reusable.
 
+**October 19, 2015 Update:** We will not be building a true Isomorphic JavaScript app. If you disable JavaScript your Browser, a page will be rendered just fine for the most part, but it will not render any characters because that requires more work by fetching data from the database and then passing it to the root React component that will need to pass the data down to its children components, which is outside the scope of this tutorial. 
+
 I really like this excerpt from the [React v0.14 Beta 1 blog post](http://facebook.github.io/react/blog/2015/07/03/react-v0.14-beta-1.html) announcement that sums up nicely what React is all about:
 
 > It's become clear that the beauty and essence of React has nothing to do with browsers or the DOM. We think the true foundations of React are simply ideas of components and elements: being able to describe what you want to render in a declarative way.
@@ -607,9 +620,9 @@ I really like this excerpt from the [React v0.14 Beta 1 blog post](http://facebo
 
 Before going any further please watch this awesome video [React in 7 Minutes](https://egghead.io/lessons/react-react-in-7-minutes) by John Lindquist.
 
-And while you are there, I highly recommend getting the **PRO** subscription ($24.99/month) to unlock over 94 React and [React Native](https://facebook.github.io/react-native/) video lessons. No, you will not become an expert just by watching these videos, but they are amazing at giving you short and straight to the point explanations on any particular topic. If you are on a budget, you can subscribe for 1 month, download all videos, then cancel your subscription at the end of the month. Subscribing not only gives you access to React lessons, but also to [TypeScript](https://egghead.io/technologies/typescript), [Angular 2](https://egghead.io/technologies/angular2), [D3](https://egghead.io/technologies/d3), [ECMAScript 6](https://egghead.io/technologies/es6), [Node.js](https://egghead.io/technologies/node) and more.
+And while you are there, I highly recommend getting the **PRO** subscription ($24.99/month) to unlock over 94 React and [React Native](https://facebook.github.io/react-native/) video lessons. No, you will not become an expert just by watching these videos, but they are amazing at giving you short and straight to the point explanations on any particular topic. If you are on a budget, you can subscribe for 1 month, download all the videos, then cancel your subscription at the end of the month. Subscribing not only gives you access to React lessons, but also to [TypeScript](https://egghead.io/technologies/typescript), [Angular 2](https://egghead.io/technologies/angular2), [D3](https://egghead.io/technologies/d3), [ECMAScript 6](https://egghead.io/technologies/es6), [Node.js](https://egghead.io/technologies/node) and more.
 
-As an alternative, consider this highly rated course on Udemy — [Build Web Apps with React JS and Flux](https://www.udemy.com/learn-and-understand-reactjs/?couponCode=89527) by Stephen Grider. It contains over 71 videos and 10 hours of content that covers React, Flux, React Router, Firebase, Imgur API and more.
+**<i class="fa fa-hand-o-right"></i> Disclaimer:** I am not affiliated with *Egghead.io* and I do not get any commissions for referrals. 
 
 While learning React, the biggest challenge for me was that it required a completely different thinking approach to building UIs. Which is why reading [Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html) guide is absolutely a must for anyone who is starting out with React.
 
@@ -624,7 +637,7 @@ In similar fashion to the *Product Table* from [Thinking in React](https://faceb
 
 The top-level <span style='color: #FF4136'>App</span> component contains <span style='color: #0074D9'>Navbar</span>, <span style='color: #0074D9'>Homepage</span> and <span style='color: #0074D9'>Footer</span> components. <span style='color: #0074D9'>Homepage</span> component contains two <span style='color: #2ECC40'>Character</span> components.
 
-So, whenever you have a certain UI design in mind, start by breaking it apart from top-down and always be mindful of how your data propagates from parent to child, child to parent and between sibling components or you will quickly find yourself thinking *"WTF, how do you do this in React? This would have been so much simpler with jQuery..."*.
+So, whenever you have a certain UI design in mind, start by breaking it apart from top-down and always be mindful of how your data propagates from parent to child, child to parent and between sibling components or you will quickly find yourself completely lost. It may be difficult initially, but it will become second nature to you after building a few React apps.
 
 So, next time you decide to build a new app in React, before writing any code, do this hierarchy outline first. It will help you to visualize the relationships between multiple components and build them accordingly.
 
@@ -634,7 +647,7 @@ All components in React have a `render()` method. It always returns a *single ch
 
 ```js
 render() {
-  // Invalid JSX,
+  // Invalid JSX
   return (
     <li>Achura</li>
     <li>Civire</li>
@@ -657,7 +670,7 @@ render() {
 }
 ```
 
-I think you will agree that JSX is far more readable than plain JavaScript. Furthermore, [Babel](http://babeljs.io/) has a built-in support for JSX, so we don't need to do anything extra. If you have ever worked with AngularJS directives then you will appreciate working with React components, so instead of having two different files — *directive.js* (logic) and *template.html* (presentation), you have a single file containing both logic and presentation.
+I think you will agree that JSX is far more readable than plain JavaScript. Furthermore, [Babel](http://babeljs.io/) has a built-in support for JSX, so we don't need to install anything extra. If you have ever worked with AngularJS directives then you will appreciate working with React components, so instead of having two different files — *directive.js* (logic) and *template.html* (presentation), you have a single file containing both logic and presentation.
 
 The [`componentDidMount`](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount) method in React is the closest thing to [`$(document).ready`](https://learn.jquery.com/using-jquery-core/document-ready/) in jQuery. This method runs once ([only on the client](https://facebook.github.io/react/docs/component-specs.html#mounting-componentdidmount)) immediately after initial rendering of the component. This is where you would typically initialize third-party libraries and jQuery plugins, or connect to Socket.IO.
 
