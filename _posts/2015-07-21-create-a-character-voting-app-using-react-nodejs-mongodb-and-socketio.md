@@ -3794,6 +3794,7 @@ Link | Description
 [Atomic CSS](http://acss.io/) | A radical new approach for styling your app. It takes time getting used to it, but when you do, its advantages are quite nice. You no longer have to abstract styles with CSS classes, instead you style React components with "atomic" classes inside your components.
 [classnames](https://github.com/JedWatson/classnames) | A JavaScript utility for conditionally joining `classNames` together. It's a more elegant solution than using ternary operator and string concatenation.
 [Iso](https://github.com/goatslacker/iso) | Helper class for Alt that allows you to pass initial data from server to client.
+
 ## In Closing
 
 In my [previous](https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/) blog post that I published on December 9th, 2014 I said:
@@ -3814,6 +3815,7 @@ If you liked this project, consider extending it or perhaps build a new app base
 - Automatically reset stats every X number of rounds.
 - Display voting history on the character profile page.
 - Archives page to view Top 100 characters from previous rounds.
+- Convert API to Relay + GraphQL.
 
 From all the emails that I have received since publishing the [TV Show Tracker](http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) tutorial, I have learned that this blog attracts readers of all levels - from long-time JavaScript gurus to those who are just starting out with coding, as well as everyone in between.
 
