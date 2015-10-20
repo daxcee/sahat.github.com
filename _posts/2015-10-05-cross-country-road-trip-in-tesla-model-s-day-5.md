@@ -11,28 +11,17 @@ I have a lot of acquaintances and close friends in Ohio, some of whom are more l
 
 The only negative about driving up to *New Philadelphia / Dover, Ohio* is that it is at least an hour away from the closest supercharger. I left *Columbus, Ohio* with 210 miles and arrived here with 60-something miles. The next closest supercharger is by *Cleveland, Ohio* which requires about 70-80 miles to get there. So, basically it was a one way trip into a small town. I had to charge my car overnight using a regular 110V outlet which was SLOW. But, something is still better than nothing. How slow? 4 miles per hour, now compare that to the *initial* 380 miles per hour at a Tesla supercharger. The reason why I say initial, because eventually it starts to charge slower after about 100 miles, and takes the longest to charge the last remaining 10% from 90% to 100%. But even then, the slowest charging rate I have seen at any supercharger is something like 74 miles per hour.
 
-![](/images/blog/tesla-road-trip-day-5-2.jpg)
-
 First thing I got in the morning was breakfast at *Bob Evans* — local family-style restaurant in Ohio. More importantly, I really needed a coffee since I only had 4 hours of sleep.
-
-![](/images/blog/tesla-road-trip-day-5-1.jpg)
 
 New Philadelphia and Dover are really small towns. I spent most of my life living in the big cities — New York, Las Vegas, Los Angeles. Sometimes it feels nice to get away from all that noise, crowd and traffic.
 
-![](/images/blog/tesla-road-trip-day-5-3.jpg)
 ![](/images/blog/tesla-road-trip-day-5-4.jpg)
 
 After breakfast, we went for a hike to a place called *Dundee Falls*, no more than 15-20 minutes away. That place is just absolutely gorgeous. It is a picture-perfect definition of nature.
 
 ![](/images/blog/tesla-road-trip-day-5-5.jpg)
-![](/images/blog/tesla-road-trip-day-5-6.jpg)
 ![](/images/blog/tesla-road-trip-day-5-7.jpg)
-![](/images/blog/tesla-road-trip-day-5-8.jpg)
-![](/images/blog/tesla-road-trip-day-5-9.jpg)
-![](/images/blog/tesla-road-trip-day-5-10.jpg)
-![](/images/blog/tesla-road-trip-day-5-11.jpg)
 ![](/images/blog/tesla-road-trip-day-5-12.jpg)
-![](/images/blog/tesla-road-trip-day-5-13.jpg)
 
 Here is a short video footage that I captured there. Be sure to turn up the volume.
 
@@ -40,12 +29,9 @@ Here is a short video footage that I captured there. Be sure to turn up the volu
 
 After our short hike, all four of us went fishing on a boat at my friend's uncle's private land.
 
-![](/images/blog/tesla-road-trip-day-5-14.jpg)
 ![](/images/blog/tesla-road-trip-day-5-15.jpg)
 ![](/images/blog/tesla-road-trip-day-5-16.jpg)
-![](/images/blog/tesla-road-trip-day-5-17.jpg)
 ![](/images/blog/tesla-road-trip-day-5-18.jpg)
-![](/images/blog/tesla-road-trip-day-5-19.jpg)
 
 I did not manage to catch any fish, but the entire experience was definitely unforgettable. On a daily basis, I spend most of my time in an office environment, so it is nice to get away and immerse yourself into outdoors and nature sometimes.
 
