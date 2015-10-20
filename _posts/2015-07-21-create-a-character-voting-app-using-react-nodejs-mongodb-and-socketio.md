@@ -830,7 +830,6 @@ Create a new file *App.js* inside **<i class="fa fa-folder-open"></i>app/compone
 
 ```js
 import React from 'react';
-import {RouteHandler} from 'react-router';
 
 class App extends React.Component {
   render() {
@@ -918,7 +917,7 @@ export default Home;
 
 Below should be everything we have created up to this point. This would be a good time to double check your code.
 
-![](/images/blog/Screenshot 2015-10-20 00.57.45.png)
+![](/images/blog/Screenshot 2015-10-20 01.03.41.png)
 
 One last thing, open *alt.js* in the **<i class="fa fa-folder-open"></i>app** directory and paste the following code. I will explain its purpose in **Step 9** when we actually get to use it.
 
@@ -937,29 +936,53 @@ Open *server.js* and import the following modules by adding them at the top of t
 ```js
 var swig  = require('swig');
 var React = require('react');
+var ReactDOM = require('react-dom/server');
 var Router = require('react-router');
+var RoutingContext = Router.RoutingContext;
 var routes = require('./app/routes');
 ```
 
-Next, add the following [middleware](http://expressjs.com/guide/using-middleware.html) to in *server.js*, somewhere after existing Express middlewares:
+**October 19, 2015 Update:** Previous `React.renderToString` now lives in the [`react-dom/server`](https://www.npmjs.com/package/react-dom#on-the-server) package.
+
+Next, add the following [middleware](http://expressjs.com/guide/using-middleware.html) to *server.js*, somewhere after existing Express middlewares:
 
 ```js
 app.use(function(req, res) {
-  Router.run(routes, req.path, function(Handler) {
-    var html = React.renderToString(React.createElement(Handler));
-    var page = swig.renderFile('views/index.html', { html: html });
-    res.send(page);
+  Router.match({ routes: routes, location: req.url }, function(err, redirectLocation, renderProps) {
+    if (err) {
+      res.send(500, err.message)
+    } else if (redirectLocation) {
+      res.redirect(302, redirectLocation.pathname + redirectLocation.search)
+    } else if (renderProps) {
+      var html = ReactDOM.renderToString(<RoutingContext {...renderProps} />);
+      var page = swig.renderFile('views/index.html', { html: html });
+      res.send(200, page);
+    } else {
+      res.send(404, 'Page Not Found')
+    }
   });
 });
 ```
 
+**October 19, 2015 Update:** Previous `React.renderToString` now lives in the [`react-dom/server`](https://www.npmjs.com/package/react-dom#on-the-server) package. Additionally, server-side rendering with React Router has changed quite a bit. See [Server Rendering Guide](https://github.com/rackt/react-router/blob/f81c8e46883e7838e2790fba14c10a4822e5163a/docs/guides/advanced/ServerRendering.md#server-rendering) for more details.
+
+> **Note:** This screenshot is now outdated as of React 0.14 and React Router 1.0 but I left it here anyway to give you a better idea of where to place this middleware in *server.js*.
+
 ![](/images/blog/Screenshot 2015-06-22 22.01.53.png)
 
-This middleware function will be executed on every request to the server. The main difference between `Router.run` in *server.js* and `Router.run` in *main.js* is how the app renders.
+This middleware function will be executed on every request to the server, unless a request is handled by one the API endpoints that we will implement shortly.
+
+Conditional statements within the `Router.match` should be self-explanatory. Depending on if we have *500 Error*, *302 Redirect*, *200 Success*, *404 Not Found*, we take different actions. The last two — *200 Success* and *404 Not Found* are usually the most common responses.
 
 On the client-side, a rendered HTML markup gets inserted into `<div id="app"></div>`, while on the server a rendered HTML markup is sent to the *index.html* template where it is inserted into `<div id="app">{% raw %}{{ html|safe }}{% endraw %}</div>` by the [Swig](http://paularmstrong.github.io/swig/) template engine. *I chose Swig because I wanted to try something other than [Jade](http://jade-lang.com/) and [Handlebars](http://handlebarsjs.com/) this time*.
 
 But do we really need a separate template for this? Why not just render everything inside the *App* component? Yes, you could do it, as long as you are okay with [invalid HTML markup](https://validator.w3.org/) and not being able to include inline script tags like Google Analytics directly in the *App* component. But having said that, invalid markup is probably not relevant to SEO anymore and there are [workarounds](https://github.com/hzdg/react-google-analytics/blob/master/src/index.coffee) to include inline script tags in React components. So it's up to you, but for the purposes of this tutorial we will be using a Swig template.
+
+One last thing I need to explain are those JavaScript tripple dots. It is called the ES6 [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator) used in `{...renderProps}` above. That's basically like saying "just pass me everything". Since `renderProps` contains multiple things - *routes*, *params*, *components*, *location*, *history*, it would be a hassle to pass them as individual props. Spread operator is a handy shortcut for situations like these.
+
+**October 19, 2015 Update:** Added a new paragraph about the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator) and new Router matching conditions.
+
+![](/images/blog/Screenshot 2015-10-20 01.47.04.png)
 
 Create a new folder **<i class="fa fa-folder-open"></i>views** in the project root directory  (next to *package.json* and *server.js*). Then inside **<i class="fa fa-folder-open"></i>views**, create a new file *index.html*:
 
@@ -1292,11 +1315,11 @@ Open *App.js* inside **<i class="fa fa-folder-open"></i>app/components** and imp
 import Footer from './Footer';
 ```
 
-Then add `<Footer />` right after the `<RouterHandler />` component:
+Then add `<Footer />` right after the `{this.props.children}` line:
 
 ```html
 <div>
-  <RouteHandler />
+  {this.props.children}
   <Footer />
 </div>
 ```
@@ -1363,8 +1386,8 @@ class Navbar extends React.Component {
     if (searchQuery) {
       NavbarActions.findCharacter({
         searchQuery: searchQuery,
-        searchForm: this.refs.searchForm.getDOMNode(),
-        router: this.context.router
+        searchForm: this.refs.searchForm,
+        history: this.props.history
       });
     }
   }
@@ -1531,16 +1554,14 @@ class Navbar extends React.Component {
   }
 }
 
-Navbar.contextTypes = {
-  router: React.PropTypes.func.isRequired
-};
-
 export default Navbar;
 ```
 
-Ok, I'll admit, it is certainly possible to write most of the above markup dynamically with less lines of code by iterating through all races, then through all bloodlines, but to me this was a more straightforward approach that required less thinking and more copy & paste work.
+**October 19, 2015 Update:** Removed `Navbar.contextTypes` that was previously used to get an instance of the router and removed `getDOMNode()` method call since `this.refs.searchForm` already returns a DOM node now.
 
-One thing you will probably notice right away is the class variable `contextTypes`. We need it for referencing an instance of the router, which in turn gives us access to current *path*, current *query parameters*, *route parameters* and *transitions* to other routes. We do not use it directly in the *Navbar* component but instead pass it as an argument to *Navbar* actions so that it could navigate to a particular character profile page after fetching data from the server.
+Yes it is certainly possible to write most of the above markup dynamically with less lines of code by iterating through all races, then through all bloodlines, however, this was one of those things that I copy & pasted from my original project and didn't want to focus on too much.
+
+~~One thing you will probably notice right away is the class variable `contextTypes`. We need it for referencing an instance of the router, which in turn gives us access to current *path*, current *query parameters*, *route parameters* and *transitions* to other routes.~~ Now the `history` object (navigation) will be passed as a prop from the *App* component. We actually do not use it directly in the *Navbar* component but instead pass it as an argument to *Navbar* actions so that it could navigate to a particular character profile page from the *Navbar* store, after successfully fetching data from the server. We obviously cannot navigate from within the component since no action has been fired yet and no character data has been received. There are certainly other ways to get `history` or `router` object references inside a Flux store, but this is the least complicated solution I could think of.
 
 ![](/images/blog/Screenshot 2015-07-02 17.06.40.png)
 
@@ -1748,7 +1769,7 @@ class NavbarStore {
   }
 
   onFindCharacterSuccess(payload) {
-    payload.router.transitionTo('/characters/' + payload.characterId);
+    payload.history.pushState(null, '/characters/' + payload.characterId);
   }
 
   onFindCharacterFail(payload) {
@@ -1782,6 +1803,8 @@ class NavbarStore {
 export default alt.createStore(NavbarStore);
 ```
 
+**October 19, 2015 Update:** Changed [`router.transitionTo`](https://github.com/rackt/react-router/blob/master/UPGRADE_GUIDE.md#navigation-mixin) to [`history.pushState`](https://github.com/rackt/react-router/blob/master/UPGRADE_GUIDE.md#navigation-mixin) for page navigation.
+
 Recall this line in the *Navbar* component that we created above:
 
 ```html
@@ -1796,15 +1819,17 @@ Open **App.js** again and import the *Navbar* component:
 import Navbar from './Navbar';
 ```
 
-Then add `<Navbar />` right before the `<RouterHandler />` component:
+Then add `<Navbar />` right before the `this.props.children` component:
 
 ```html
 <div>
-  <Navbar />
-  <RouteHandler />
+  <Navbar history={this.props.history} />
+  {this.props.children}
   <Footer />
 </div>
 ```
+
+**October 19, 2015 Update:** If you recall, we created a `history` object via `createBrowserHistory` inside *main.js* and passed it as a prop to the `<Router>`. That's why this prop is available in the *App.js* component. Here, we are just passing it even further down to the *Navbar* component.
 
 ![](/images/blog/Screenshot 2015-07-04 13.02.12.png)
 
@@ -3106,10 +3131,6 @@ class Character extends React.Component {
   }
 }
 
-Character.contextTypes = {
-  router: React.PropTypes.func.isRequired
-};
-
 export default Character;
 ```
 
@@ -3338,10 +3359,6 @@ class CharacterList extends React.Component {
     );
   }
 }
-
-CharacterList.contextTypes = {
-  router: React.PropTypes.func.isRequired
-};
 
 export default CharacterList;
 ```
