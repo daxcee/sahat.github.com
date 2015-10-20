@@ -836,7 +836,7 @@ class App extends React.Component {
   render() {
     return (
       <div>
-        <RouteHandler />
+        {this.props.children}
       </div>
     );
   }
@@ -845,8 +845,9 @@ class App extends React.Component {
 export default App;
 ```
 
-`RouteHandler` is a component that renders the active child route handler. It will render one of the following components depending on the URL path: *Home*, *Top 100*, *Profile* or *Add Character*.
+~~`RouteHandler` is a component that~~ `{this.props.children}` now renders the active child route handler. It will render one of the following components depending on the URL path: *Home*, *Top 100*, *Profile* or *Add Character*.
 
+**October 19, 2015 Update:** [RouteHandler is gone](https://github.com/rackt/react-router/blob/master/UPGRADE_GUIDE.md#routehandler). Router now automatically populates `this.props.children` of your components based on the active route.
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
@@ -862,34 +863,40 @@ import App from './components/App';
 import Home from './components/Home';
 
 export default (
-  <Route handler={App}>
-    <Route path='/' handler={Home} />
+  <Route component={App}>
+    <Route path='/' component={Home} />
   </Route>
 );
 ```
 
-The reason for nesting routes this particular way is because we are going to place *Navbar* and *Footer* components, before and after the `RouteHandler`, inside the *App* component. Unlike other components, *Navbar* and *Footer* do not change between the route transitions. (See outlined screenshot from **Step 5**)
+**October 19, 2015 Update:** The `handler` prop is now called `component`. Named routes are gone as well.
 
-Lastly, we need to add a URL listener and render the application when it changes. Open *main.js* inside **<i class="fa fa-folder-open"></i>app** that we created earlier and paste the following:
+The reason for nesting routes this particular way is because we are going to place *Navbar* and *Footer* components, above and below the active route, inside the *App* component. Unlike other components, *Navbar* and *Footer* do not change/disappear between route transitions. (See outlined screenshot from **Step 5**)
+
+Lastly, we need to add a URL listener and render the application when it changes. Open *main.js* inside the **<i class="fa fa-folder-open"></i>app** directory that we created earlier and paste the following:
 
 ```js
 import React from 'react';
 import Router from 'react-router';
+import ReactDOM from 'react-dom';
+import createBrowserHistory from 'history/lib/createBrowserHistory';
 import routes from './routes';
 
-Router.run(routes, Router.HistoryLocation, function(Handler) {
-  React.render(<Handler />, document.getElementById('app'));
-});
+let history = createBrowserHistory();
+
+ReactDOM.render(<Router history={history}>{routes}</Router>, document.getElementById('app'));
 ```
+
+**October 19, 2015 Update:** `React.render` now lives in the [react-dom](https://www.npmjs.com/package/react-dom) package. `Router.HistoryLocation` is now handled by the [history](https://github.com/rackt/history) package. We use *history* to enable HTML5 History API and to programmatically transition between routes. Routes are now passed in to the `<Router>` component as children instead of prop.
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
 The <em>main.js</em> is the entry point for our React application. We use it in <em>gulpfile.js</em> where Browserify will traverse the entire tree of dependencies and generate the final <em>bundle.js</em> file. You will rarely have to touch this file after its initial setup.
 </div>
 
-[React Router](http://rackt.github.io/react-router/) bootstraps the routes from *routes.js* file, matches them against a URL, and then executes the appropriate callback handler, which in this case means rendering a React component into `<div id="app"></div>`. But how does it know which component to render? Well, for example, if we are on `/` URL path, then `<Handler />` renders the *Home* component, because that's what we have specified in *routes.js*. We will add more routes shortly.
+[React Router](http://rackt.github.io/react-router/) bootstraps the routes from *routes.js* file, matches them against a URL, and then executes the appropriate callback handler, which in this case means rendering a React component into `<div id="app"></div>`. But how does it know which component to render? Well, for example, if we are on `/` URL path, then `{this.props.children}` will render the *Home* component, because that's what we have specified in *routes.js*. We will add more routes shortly.
 
-Also, notice that we are using [`HistoryLocation`](http://rackt.github.io/react-router/#HistoryLocation) to enable HTML5 History API in order to make URLs look pretty. For example, it navigates to `http://localhost:3000/add` instead of  `http://localhost:3000/#add`. Since we are building an Isomorphic React application (rendered on the server and the client) we do not have to do any hacky [wildcard redirects on the server](https://github.com/sahat/tvshow-tracker/blob/master/server.js#L343-L345) to enable this support. It just works out of the box.
+Also, notice that we are using [`createBrowserHistory`](https://github.com/rackt/history) to enable HTML5 History API in order to make URLs look pretty. For example, it navigates to `http://localhost:3000/add` instead of  `http://localhost:3000/#add`. Since we are building an Isomorphic React application (rendered on the server and the client) we do not have to do any hacky [wildcard redirects on the server](https://github.com/sahat/tvshow-tracker/blob/master/server.js#L343-L345) to enable this support. It just works out of the box.
 
 Let's create one last React component for this section. Create a new file *Home.js* inside **<i class="fa fa-folder-open"></i>app/components** with the following contents:
 
@@ -911,9 +918,9 @@ export default Home;
 
 Below should be everything we have created up to this point. This would be a good time to double check your code.
 
-![](/images/blog/Screenshot 2015-06-22 21.09.21.png)
+![](/images/blog/Screenshot 2015-10-20 00.57.45.png)
 
-One last thing, open *alt.js* in **<i class="fa fa-folder-open"></i>app** and paste the following code. I will explain its purpose in **Step 9** when we actually get to use it.
+One last thing, open *alt.js* in the **<i class="fa fa-folder-open"></i>app** directory and paste the following code. I will explain its purpose in **Step 9** when we actually get to use it.
 
 ```js
 import Alt from 'alt';
