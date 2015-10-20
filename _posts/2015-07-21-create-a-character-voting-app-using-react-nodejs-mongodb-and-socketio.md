@@ -7,36 +7,40 @@ image: bg/7.jpg
 comments: true
 ---
 
+## Update Notice (October 19, 2015)
+Tutorial has been updated to use **React 0.14** and **React Router 1.0** that introduced breaking changes. For detailed tutorial updates see *October 19, 2015* notices below.
+
+
 ## Overview
 
 In this tutorial we are going to build a character voting app (inspired by *Facemash* and *Hot or Not*) for [EVE Online](http://www.eveonline.com/) - a massively multiplayer online game. Be sure to play this awesome soundtrack below to get yourself in the mood for this epicly long tutorial.
 
 <iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/152471846&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false"></iframe>
 
-While listening to this soundtrack, imagine yourself mining asteroid belts in deep space while keeping a lookout for pirates on the radar, researching propulsion system blueprints at the station's facility, manufacturing spaceship components for capital ships, placing buy & sell orders on the entirely player-driven market where supply and demand govern the game economics, hauling trade goods from a remote solar system in a massive freighter, flying blazingly fast interceptors with a microwarpdrive or powerful battleships armored to the teeth, optimizing extraction efficiency of rare  minerals from planets, or fighting large-scale battles with thousands of players from multiple alliances. That's **EVE Online**.
+While listening to this soundtrack, imagine yourself mining asteroid belts in deep space while keeping a lookout for pirates on the radar, researching propulsion system blueprints at the station's facility, manufacturing spaceship components for capital ships, placing buy & sell orders on the entirely player-driven market where supply and demand govern the game economics, hauling trade goods from a remote solar system in a massive freighter, flying blazingly fast interceptors with a microwarpdrive or powerful battleships armored to the teeth, optimizing extraction efficiency of rare  minerals from planets, or fighting large-scale battles with thousands of players from multiple alliances. That is **EVE Online**.
 
-Each player in EVE Online has a 3D avatar representing their character. This app is designed for ranking those avatars. Anyway, your goal here is to learn about Node.js and React, not EVE Online. But I will say this: "Having an interesting tutorial project is just as important, if not more so, than the main subject of the tutorial". The only reason I built the original [New Eden Faces](http://www.newedenfaces.com/) app is to learn <i class="devicons devicons-backbone"></i>Backbone.js and the only reason I built the [TV Show Tracker](https://github.com/sahat/tvshow-tracker) app is so that I could learn <i class="devicons devicons-angular"></i>AngularJS. To me, either one of these projects is far more interesting than a simple todo app that everyone seems to be using these days.
+Each player in EVE Online has a 3D avatar representing their character. This app is designed for ranking those avatars. Anyway, your goal here is to learn about Node.js, React and Flux, not EVE Online. But I will say this: "Having an interesting tutorial project is just as important, if not more so, than the main subject of the tutorial". The only reason I built the original [New Eden Faces](http://www.newedenfaces.com/) app is to learn <i class="devicons devicons-backbone"></i>Backbone.js and the only reason I built the [TV Show Tracker](https://github.com/sahat/tvshow-tracker) app is so that I could learn <i class="devicons devicons-angular"></i>AngularJS. To me, either one of these projects is far more interesting than a simple todo app that everyone seems to be using these days.
 
 One thing that I have learned — between screencasts, books and training videos, nothing is more effective than building a small project that you are passionate about to learn a new technology.
 
 ![](/images/blog/Screenshot 2015-03-31 23.05.36.png)
 
 <ul class="list-inline text-center">
-  <li><a href="https://github.com/sahat/newedenfaces-react"><i class="ion-fork-repo"></i> Source Code</a></li>
+  <li><a href="https://github.com/sahat/newedenfaces-react"><i class="ion-fork-repo"></i> GitHub Source Code</a></li>
 </ul>
 
-In the same spirit as my previous tutorials ([TV Show Tracker](http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) and [Instagram Clone](https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/)) this is a full-stack JavaScript tutorial where we build a complete app from the ground up.
+In the same spirit as my previous tutorials ([TV Show Tracker](http://sahatyalkabov.com/create-a-tv-show-tracker-using-angularjs-nodejs-and-mongodb/) and [Instagram Clone](https://hackhands.com/building-instagram-clone-angularjs-satellizer-nodejs-mongodb/)), this is a step by step full-stack JavaScript tutorial where we build a complete app from the ground up.
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
   This is a remake of the original <a href="http://www.newedenfaces.com/">New Eden Faces</a> (2013) project, which was my first ever single-page application written in Backbone.js. It has been running in production on <a href="https://www.openshift.com/">OpenShift</a> with Node.js 0.8.x for over 2 years now.
 </div>
 
-I usually try to make as few assumptions as possible about a particular topic, which is why my tutorials are so lengthy, but having said that, you need to have at least some prior experience with client-side JavaScript frameworks and Node.js to get the most out of this tutorial.
+I usually make as few assumptions as possible about a particular topic, which is why my tutorials are so lengthy, but having said that, you need to have at least some prior experience with client-side JavaScript frameworks and Node.js to get the most out of this tutorial.
 
 Before proceeding, you will need to download and install the following tools:
 
-1. <i class="devicons devicons-npm"></i> [Node.js](https://nodejs.org/) (or [io.js](https://iojs.org/en/index.html))
+1. <i class="devicons devicons-npm"></i> [Node.js](https://nodejs.org/)
 2. <i class="devicons devicons-bower"></i> [Bower](http://bower.io/)
 3. <i class="devicons devicons-mongodb"></i> [MongoDB](https://www.mongodb.org/downloads)
 4. <i class="devicons devicons-gulp"></i> [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
@@ -64,50 +68,54 @@ Open *package.json* and paste the following:
   "main": "server.js",
   "scripts": {
     "start": "babel-node server.js",
-    "watch": "nodemon --exec babel-node -- server.js"
+    "watch": "nodemon --exec babel-node -- server.js",
+    "postinstall": "bower install && gulp build"
   },
   "dependencies": {
-    "alt": "^0.17.1",
-    "async": "^1.4.0",
-    "babel": "^5.6.23",
-    "body-parser": "^1.13.2",
+    "alt": "^0.17.4",
+    "async": "^1.4.2",
+    "babel": "^5.8.23",
+    "body-parser": "^1.14.1",
     "colors": "^1.1.2",
-    "compression": "^1.5.1",
-    "express": "^4.13.1",
-    "mongoose": "^4.0.7",
+    "compression": "^1.6.0",
+    "express": "^4.13.3",
+    "history": "^1.12.5",
+    "mongoose": "^4.1.12",
     "morgan": "^1.6.1",
-    "react": "^0.13.3",
-    "react-router": "^0.13.3",
-    "request": "^2.58.0",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-router": "^1.0.0-rc3",
+    "request": "^2.65.0",
     "serve-favicon": "^2.3.0",
-    "socket.io": "^1.3.6",
+    "socket.io": "^1.3.7",
     "swig": "^1.4.2",
     "underscore": "^1.8.3",
-    "xml2js": "^0.4.9"
+    "xml2js": "^0.4.13"
   },
   "devDependencies": {
-    "babelify": "^6.1.3",
-    "bower": "^1.4.1",
-    "browserify": "^11.0.0",
+    "babelify": "^6.3.0",
+    "bower": "^1.6.3",
+    "browserify": "^11.2.0",
     "gulp": "^3.9.0",
-    "gulp-autoprefixer": "^2.3.1",
+    "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
     "gulp-cssmin": "^0.1.7",
-    "gulp-if": "^1.2.5",
+    "gulp-if": "^2.0.0",
     "gulp-less": "^3.0.3",
     "gulp-plumber": "^1.0.1",
-    "gulp-streamify": "0.0.5",
-    "gulp-uglify": "^1.2.0",
+    "gulp-streamify": "1.0.2",
+    "gulp-uglify": "^1.4.2",
     "gulp-util": "^3.0.6",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.3.0"
+    "watchify": "^3.4.0"
   },
   "license": "MIT"
 }
-
 ```
 
-These are all the packages that we will be using in this project. I will briefly go over each package.
+**October 19, 2015 Update:** Updated package versions and added two new packages: [react-dom](https://www.npmjs.com/package/react-dom) (as part of the React 0.14 changes) and [history](https://www.npmjs.com/package/history) (as part of the React Router 1.0 changes).
+
+These are all the packages that we will be using in this project. Let's briefly go over each package.
 
 | Package Name          | Description   |
 | ------------- |:-------------:|
@@ -117,10 +125,12 @@ These are all the packages that we will be using in this project. I will briefly
 | [body-parser](https://github.com/expressjs/body-parser) | For parsing POST request data.      |
 | [colors](https://github.com/marak/colors.js/) | Pretty console output messages.      |
 | [compression](https://github.com/expressjs/compression) | Gzip compression.    |
-| [express](http://expressjs.com/) | Web framework for Node.js.      |
+| [express](http://expressjs.com) | Web framework for Node.js.      |
+| [history](https://github.com/rackt/history) | Manage session history in browsers, used by react-router.      |
 | [mongoose](http://mongoosejs.com/) | MongoDB ODM with validation and schema support.      |
 | [morgan](https://github.com/expressjs/morgan) | HTTP request logger.      |
 | [react](http://facebook.github.io/react/) | React.      |
+| [react-dom](https://www.npmjs.com/package/react-dom) | React rendering, it is no longer bundled with React.      |
 | [react-router](https://github.com/rackt/react-router) | Routing library for React.      |
 | [request](https://github.com/request/request) | For making HTTP requests to EVE Online API.      |
 | [serve-favicon](https://github.com/expressjs/serve-favicon) | For serving *favicon.png* icon.      |
@@ -135,7 +145,7 @@ Run `npm install` in the Terminal to install the packages that we specified in t
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
-  If you are using Windows check out <a href="http://bliker.github.io/cmder">cmder</a>
+  If you are using Windows check out <a href="http://cmder.net/">cmder</a>
   console emulator. It is the closest thing to Mac OS X/Linux Terminal experience.
 </div>
 
@@ -162,10 +172,10 @@ app.listen(app.get('port'), function() {
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
- Although we will be building the React app in ES6, I have decided to use ES5 here because this back-end code is mostly unchanged from when I first built the original <a href="https://github.com/sahat/newedenfaces">New Eden Faces</a> project. Additionally, if you are using ES6 for the first time, then at least the Express app will still be familiar to you.
+ Although we will be building the React app in ES6, I have decided to use ES5 here because this back-end code is mostly unchanged from when I built the original <a href="https://github.com/sahat/newedenfaces">New Eden Faces</a> app. Furthermore, if you are using ES6 for the first time, it won't be too overwhelming, since the Express app should still be familiar to you.
 </div>
 
-Next, create a new directory **<i class="fa fa-folder-open"></i>public**. This is where we are going to place images, fonts , as well as compiled CSS and JavaScript files.
+Next, create a new directory **<i class="fa fa-folder-open"></i>public**. This is where we are going to place *images*, *fonts*, compiled *CSS* and *JavaScript* files.
 
 ![](/images/blog/Screenshot 2015-03-22 05.41.53.png)
 
@@ -173,11 +183,11 @@ Run `npm start` in the Terminal to make sure our Express app is working without 
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
-  While you could technically use <code>node server.js</code> to start the app right now, as soon as we start writing the React app using ECMAScript 6 and pre-rendering it on the server, we will need the Babel compiler, in other words use <code>babel-node server.js</code> to start the app directly.
+  While you could technically use <code>node server.js</code> to start the app right now, as soon as we start writing the React app using ECMAScript 6 and pre-rendering it on the server, we will need the Babel compiler. Alternatively, you could use <code>babel-node server.js</code> to start the app.
 </div>
 
 
-You should see the **Express server listening on port 3000** message in the Terminal.
+You should see **Express server listening on port 3000** message in the Terminal.
 
 ## Step 2. Build System
 
