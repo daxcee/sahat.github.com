@@ -191,13 +191,13 @@ You should see **Express server listening on port 3000** message in the Terminal
 
 ## Step 2. Build System
 
-If you have been around the web community at all, then you may have heard about [Browserify](http://browserify.org/) and [Webpack](http://webpack.github.io/) tools. If not, then consider the chaos that would arise from having to manually include so many `<script>` tags in HTML, in just the right order.
+If you have been around in the web community at all, then you may have heard about [Browserify](http://browserify.org/) and [Webpack](http://webpack.github.io/) tools. If not, then consider what it would be like having to manually include all these `<script>` tags in a specific order, because one file may depend on another file which depends on another file.
 
 ![](/images/blog/Screenshot 2015-06-20 22.56.37.png)
 
-Furthermore, we cannot use ES6 syntax directly in the browsers yet. It first needs to be transformed into ES5 by Babel before serving it to users.
+Additionally, we cannot use ECMAScript 6 directly in the browsers yet. Our code needs to be transformed by Babel into ECMAScript 5 before it can be served and interpreted by the browsers.
 
-We will be using [Gulp](http://gulpjs.com/) and [Browserify](http://browserify.org/) in this tutorial instead of Webpack. I will not advocate for which tool is better or worse, but I will say that Gulp + Browserify is a lot more straightforward than an equivalent Webpack file. I have yet to find any React boilerplate project with an easy to understand *webpack.config.js* file.
+We will be using [Gulp](http://gulpjs.com/) and [Browserify](http://browserify.org/) in this tutorial instead of Webpack. I will not advocate for which tool is better or worse, but personally I found that Gulp + Browserify is a lot more straightforward to me than an equivalent Webpack config file. I have yet to find a React boilerplate project with an easy to understand *webpack.config.js* file.
 
 Create a new file *gulpfile.js* and paste the following code:
 
@@ -222,6 +222,7 @@ var production = process.env.NODE_ENV === 'production';
 var dependencies = [
   'alt',
   'react',
+  'react-dom',
   'react-router',
   'underscore'
 ];
@@ -346,13 +347,13 @@ In the **<i class="fa fa-folder-open"></i>public** directory create 4 new folder
 ![](/images/blog/Screenshot 2015-06-21 00.47.32.png)
 
 
-In the **<i class="fa fa-folder-open"></i>newedenfaces** (project root), create a new folder **<i class="fa fa-folder-open"></i>app**.
+In the **<i class="fa fa-folder-open"></i>newedenfaces** directory (project root), create a new folder **<i class="fa fa-folder-open"></i>app**.
 
 Then inside **<i class="fa fa-folder-open"></i>app** create 4 new folders **<i class="fa fa-folder-open"></i>actions**, **<i class="fa fa-folder-open"></i>components**, **<i class="fa fa-folder-open"></i>stores**, **<i class="fa fa-folder-open"></i>stylesheets** and 3 empty files *alt.js*, *routes.js* and *main.js*.
 
 ![](/images/blog/Screenshot 2015-06-21 00.58.43.png)
 
-In the **<i class="fa fa-folder-open"></i>stylesheets** directory create a new file *main.less* which we will populate with styles shortly.
+In the **<i class="fa fa-folder-open"></i>stylesheets** directory create a new file *main.less* which we will populate with CSS styles shortly.
 
 Back in the project root directory (**<i class="fa fa-folder-open"></i>newedenfaces**), create a new file *bower.json* and paste the following:
 
@@ -373,9 +374,9 @@ Back in the project root directory (**<i class="fa fa-folder-open"></i>newedenfa
 Bower is a package manager that lets you easily download JavaScript libraries, such as the ones specified above, via a command line instead of visiting each individual website, downloading, extracting and adding it to the project manually.
 </div>
 
-Run `bower install` and wait for the packages to be downloaded and installed into the **<i class="fa fa-folder-open"></i>bower_components** directory. You can change that path using the [*.bowerrc*](http://bower.io/docs/config/#directory) file, but for the purposes of this tutorial we are sticking with the defaults.
+Run `bower install` and wait for the packages to be downloaded and installed into the **<i class="fa fa-folder-open"></i>bower_components** directory. You can change that path using the [*.bowerrc*](http://bower.io/docs/config/#directory) file, but for the purposes of this tutorial we will stick with the defaults.
 
-Similarly to **<i class="fa fa-folder-open"></i>node_modules**, you don't want to commit **<i class="fa fa-folder-open"></i>bower_components** into a Git repository. But if you do not commit it, how will those files be loaded when you deploy your app? We will get back to this issue during the deployment step of the tutorial.
+Similarly to **<i class="fa fa-folder-open"></i>node_modules**, you should not commit **<i class="fa fa-folder-open"></i>bower_components** into a Git repository. But wait a minute, if you don't add and commit it to Git, how will those files be loaded when you deploy your app? We will get back to this issue later during the deployment step of the tutorial.
 
 Copy all glyphicons fonts from **<i class="fa fa-folder-open"></i>bower_components/bootstrap/fonts** into **<i class="fa fa-folder-open"></i>public/fonts** directory.
 
@@ -388,22 +389,19 @@ Download and extract the following background images and place them into **<i cl
  I have used the Gaussian blur in Adobe Photoshop in order to create that out of focus effect over 3 years ago when I built the original New Eden Faces project, but now it should be totally possible to achieve a similar effect using <a href="http://codepen.io/aniketpant/pen/DsEve">CSS filters<a/>.
 </div>
 
-Open *main.less* that we have just created and paste the CSS styles from the following file. Due to the sheer length of it, I have decided not to include it in this post.
+Open *main.less* that we just created and paste the following styles from the link below. Due to the sheer length of it, I have decided to include it as a separate file.
 
 - <a href="https://github.com/sahat/newedenfaces-react/blob/master/app/stylesheets/main.less"><i class="devicons devicons-css3"></i> main.less</a>
 
 If you have used the [Bootstrap](http://getbootstrap.com/) CSS framework in the past, then most of it should be already familiar to you.
 
-<div class="admonition note">
-  <div class="admonition-title">Note</div>
-  I have spent many hours designing this UI, tweaking fonts and colors, adding subtle transition effects, so if you get a chance, explore it in greater detail after you finish this tutorial.
-</div>
-
 I don't know if you are aware of the latest [trend](https://speakerdeck.com/vjeux/react-css-in-js) to include styles directly inside React components, but I am not sure if I like this new practice. Perhaps when tooling gets better I will revisit this topic, until then I will use external stylesheets like I always have been. However, if you are interested in using modular CSS, check out [css-modulesify](https://github.com/css-modules/css-modulesify).
 
-Before we jump into building the React app, I have decided to dedicate the next three sections to ES6, React, Flux basics, otherwise it may be too overwhelming trying to learn everything at once. Personally, I had a very hard time following some React + Flux code examples written in ES6 because I was learning a new syntax, a new framework and a completely unfamiliar app architecture all at once.
+**October 19, 2015 Update:** If you are building reusable React components like [Elemental UI](http://elemental-ui.com/) and [Material UI](http://material-ui.com/) then by all means do it. I would actually prefer if I don't have to import accompanying "vendor" stylesheets like we do with pretty much every jQuery library.
 
-Since I cannot cover everything, we will only be going over those topics that you need to know for this tutorial.
+Before we jump into building the React app, I have decided to dedicate the next three sections to ES6, React, Flux, otherwise it may be too overwhelming trying to learn everything at once. Personally, I had a very hard time following some React + Flux code examples written in ES6 because I was learning a new syntax, a new framework and a completely unfamiliar app architecture all at once.
+
+Since I cannot cover everything in-depth, we will only be going over those topics that you need to know for this tutorial.
 
 ## Step 4. ES6 Crash Course
 
