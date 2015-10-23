@@ -16,11 +16,11 @@ sign-in method. You are not limited to the sign-in options above, in fact you
 can add any OAuth 1.0 or OAuth 2.0 provider by passing provider-specific
 information during the configuration step.
 
-<a href="https://satellizer.herokuapp.com/" class="btn">Demo</a>
-<a href="https://github.com/sahat/satellizer/" class="btn">Source</a>
+<i class="fa fa-play-circle-o"></i><a href="https://satellizer.herokuapp.com/" class="btn">Demo</a>
+<i class="fa fa-github"></i><a href="https://github.com/sahat/satellizer/" class="btn">Source</a>
 
 ![](/images/projects/satellizer.png)
-
+<br>
 ## ShowTrackr
 
 This TV Show Tracker was built for my very first talk at the [Node.js NYC Meetup](http://meetup.com/nodejs/).
@@ -30,11 +30,11 @@ stored in [Redis](http://redislabs.com). The UI is created using [Bootstrap Sass
 concatenation & minification is done via [Gulp](http://gulpjs.com). Authentication is handled
 by [Passport.js](http://passportjs.org/). Email notifications are sent out two hours before the show starts via [SendGrid](http://sendgrid.com).
 
-<a href="https://github.com/sahat/tvshow-tracker/" class="btn">Source</a>
+<i class="fa fa-github"></i><a href="https://github.com/sahat/tvshow-tracker/" class="btn">Source</a>
 
 ![](/images/projects/showtrackr.png)
 
-
+<br>
 ## JS Recipes
 
 JS Recipes is a hand-written collection of **How-To Guides** for back-end and
@@ -46,11 +46,12 @@ I think would be more appropriate for this kind of project, so that is why I wil
 move it over to Jekyll 2.0 soon, and then hook it up with [InstantClick](http://instantclick.io/)
 for ultra-fast responsiveness.
 
-<a href="http://jsrecipes.org/" class="btn">Demo</a>
-<a href="https://github.com/sahat/jsrecipes/" class="btn">Source</a>
+<i class="fa fa-play-circle-o"></i><a href="http://sahatyalkabov.com/jsrecipes/" class="btn">Demo</a>
+<i class="fa fa-github"></i><a href="https://github.com/sahat/jsrecipes/" class="btn">Source</a>
 
 ![](/images/projects/jsrecipes.png)
 
+<br>
 ## Angel Beats
 
 Real-time synchronized audio playback across multiple connected web browser clients.
@@ -65,6 +66,7 @@ to stream a soundtrack across four laptops during the demo!
 
 ![](/images/projects/angelbeats.png)
 
+<br>
 ## Hackathon Starter
 
 Hackathon Starter is a boilerplate for Node.js web applications.
@@ -81,10 +83,9 @@ of hackathon web apps, without being too specific.
 
 *Top post on Reddit for almost 24 hours*
 
-*The most trending repository **this week** (two weeks in a row) on GitHub*
+*The most trending repository "this week" (two weeks in a row) on GitHub*
 
-*The most trending repository **this month** on GitHub*
-
+*The most trending repository "this month" on GitHub*
 
 <iframe src="http://ghbtns.com/github-btn.html?wmode=opaque&amp;user=sahat&amp;repo=hackathon-starter&amp;type=watch&amp;count=true&amp;size=large" allowtransparency="true" frameborder="0" scrolling="0" width="170" height="30"></iframe>
 
@@ -110,12 +111,12 @@ of hackathon web apps, without being too specific.
   * Forgot Your Password
   * API Examples: Facebook, Foursquare, Venmo, LinkedIn, Tumblr, Twitter, Stripe, and more.
 
-<a href="hackathonstarter.herokuapp.com" class="btn">Demo</a>
-<a href="https://github.com/sahat/hackathon-starter" class="btn">Source</a>
+<i class="fa fa-play-circle-o"></i><a href="hackathonstarter.herokuapp.com" class="btn">Demo</a>
+<i class="fa fa-github"></i><a href="https://github.com/sahat/hackathon-starter" class="btn">Source</a>
 
 ![](/images/projects/hackathon-starter.png)
 
-
+<br>
 ## Ember + Sass + Express Starter
 
 This project provides a starting point for your [Ember](http://emberjs.com/) apps with
@@ -125,7 +126,7 @@ In fact it is designed to work with ember-tools for quickly scaffolding models,
 views, template, routes and controllers. *I no longer use Ember, so this project is no
 longer actively maintained*.
 
-<a href="https://github.com/sahat/ember-sass-express-starter" class="btn">Source</a>
+<i class="fa fa-github"></i><a href="https://github.com/sahat/ember-sass-express-starter" class="btn">Source</a>
 
 ![](/images/projects/ember-sass-express-starter.png)
 
@@ -145,7 +146,7 @@ Coffeed lets you place and manage your orders for food, drinks, or any other pre
 Users with admin privileges can add/remove new store items and store locations. Developed for an internal use
 at my friend's coffee shop in New York City.</p>
 
-<a href="https://github.com/sahat/coffeed" class="btn">Source</a>
+<i class="fa fa-github"></i><a href="https://github.com/sahat/coffeed" class="btn">Source</a>
 
 ![](/images/projects/coffeed.png)
 
@@ -167,9 +168,10 @@ or Node.js module.
 
 *Featured in JavaScript Weekly - Issue 155*
 
-<a href="https://rawgithub.com/sahat/requirejs-library/master/demo/inline.html" class="btn">Demo</a>
-<a href="https://github.com/sahat/requirejs-library" class="btn">Source</a>
+<i class="fa fa-play-circle-o"></i><a href="https://rawgithub.com/sahat/requirejs-library/master/demo/inline.html" class="btn">Demo</a>
+<i class="fa fa-github"></i><a href="https://github.com/sahat/requirejs-library" class="btn">Source</a>
 
+<br>
 ## CloudBucket (CCNY Capstone Project)
 
 CloudBucket is the online cloud storage system with a semantic search capability.
@@ -184,12 +186,12 @@ It is built using the following technologies: Node.js, Python, MongoDB, AWS S3, 
 jQuery, Bower, Google OAuth 2.0, Google Books API, SkyBiometry API, Last.fm API, Musixmatch API
 and other libraries.
 
-<a href="http://cloudbucket-sahat.rhcloud.com" class="btn">Demo</a>
-<a href="http://github.com/sahat/cloudbucket" class="btn">Source</a>
+<i class="fa fa-play-circle-o"></i><a href="http://cloudbucket-sahat.rhcloud.com" class="btn">Demo</a>
+<i class="fa fa-github"></i><a href="http://github.com/sahat/cloudbucket" class="btn">Source</a>
 
-![](/images/projects/cloudbucket.png)
+<img src="/images/projects/cloudbucket.png" style="width: auto; height: 500px">
 
-
+<br>
 ## New Eden Faces
 
 The New Eden Faces lets you vote between two randomly selected [EVE Online](http://eveonline.com) characters of the same gender.
@@ -205,7 +207,7 @@ module loader.
 
 ![](/images/projects/new-eden-faces.png)
 
-
+<br>
 ## Allison Eckfeldt's Website
 
 Allison Eckfeldt's personal website.

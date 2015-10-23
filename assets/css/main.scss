@@ -1,8 +1,6 @@
 ---
 ---
 
-@import "magnific";
-
 @import "reset";
 @import "variables";
 @import "utilities";
@@ -1093,14 +1091,7 @@ table th {
   border: 1px solid rgba(0, 120, 255, 0.3);
 }
 
-.magnific-popup {
-  outline: 0;
-}
-
-.magnific-popup img {
-  cursor: -webkit-zoom-in;
-  cursor: -moz-zoom-in;
-  cursor: zoom-in;
+.sidebar-img {
   border-radius: 4px;
 }
 
