@@ -7,8 +7,14 @@ image: bg/7.jpg
 comments: true
 ---
 
-## Update Notice (October 19, 2015)
-Tutorial has been updated to use **React 0.14** and **React Router 1.0** that introduced breaking changes. For detailed tutorial updates see *October 19, 2015* notices below.
+### Update Notice 2 (November 12, 2015)
+
+Tutorial has been updated to use [**Babel 6.x**](https://medium.com/@malyw/how-to-update-babel-5-x-6-x-d828c230ec53) and [**React Router 1.0**](https://github.com/rackt/react-router/releases/tag/v1.0.0). For detailed tutorial updates see *November 12, 2015* notes below.
+
+
+### Update Notice 1 (October 19, 2015)
+
+Tutorial has been updated to use **React 0.14** and **React Router 1.0-rc3** that introduced breaking changes. For detailed tutorial updates see *October 19, 2015* notes below.
 
 
 ## Overview
@@ -40,11 +46,11 @@ I usually make as few assumptions as possible about a particular topic, which is
 
 Before proceeding, you will need to download and install the following tools:
 
-1. <i class="devicons devicons-npm"></i> [Node.js](https://nodejs.org/)
+1. <i class="devicons devicons-nodejs_small"></i> [Node.js](https://nodejs.org/)
 2. <i class="devicons devicons-bower"></i> [Bower](http://bower.io/)
 3. <i class="devicons devicons-mongodb"></i> [MongoDB](https://www.mongodb.org/downloads)
 4. <i class="devicons devicons-gulp"></i> [gulp](https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md)
-5. <i class="devicons devicons-nodejs"></i> [nodemon](https://github.com/remy/nodemon#nodemon)
+5. <i class="devicons devicons-npm"></i> [nodemon](https://github.com/remy/nodemon#nodemon)
 
 ## Step 1. New Express Project
 
@@ -67,35 +73,40 @@ Open *package.json* and paste the following:
   },
   "main": "server.js",
   "scripts": {
-    "start": "babel-node server.js",
-    "watch": "nodemon --exec babel-node -- server.js",
-    "postinstall": "bower install && gulp build"
+    "start": "node server.js",
+    "watch": "nodemon server.js"
+  },
+  "babel": {
+    "presets": ["es2015", "react"]
   },
   "dependencies": {
-    "alt": "^0.17.4",
-    "async": "^1.4.2",
-    "babel": "^5.8.23",
+    "alt": "^0.17.8",
+    "async": "^1.5.0",
     "body-parser": "^1.14.1",
     "colors": "^1.1.2",
     "compression": "^1.6.0",
     "express": "^4.13.3",
-    "history": "^1.12.5",
-    "mongoose": "^4.1.12",
+    "history": "^1.13.0",
+    "mongoose": "^4.2.5",
     "morgan": "^1.6.1",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
-    "react-router": "^1.0.0-rc3",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "react-router": "^1.0.0",
     "request": "^2.65.0",
     "serve-favicon": "^2.3.0",
     "socket.io": "^1.3.7",
     "swig": "^1.4.2",
     "underscore": "^1.8.3",
-    "xml2js": "^0.4.13"
+    "xml2js": "^0.4.15"
   },
   "devDependencies": {
-    "babelify": "^6.3.0",
-    "bower": "^1.6.3",
-    "browserify": "^11.2.0",
+    "babel-loader": "^6.1.0",
+    "babel-core": "^6.1.19",
+    "babel-preset-es2015": "^6.1.18",
+    "babel-preset-react": "^6.1.18",
+    "babelify": "^7.2.0",
+    "bower": "^1.6.5",
+    "browserify": "^12.0.1",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
@@ -105,9 +116,9 @@ Open *package.json* and paste the following:
     "gulp-plumber": "^1.0.1",
     "gulp-streamify": "1.0.2",
     "gulp-uglify": "^1.4.2",
-    "gulp-util": "^3.0.6",
+    "gulp-util": "^3.0.7",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.4.0"
+    "watchify": "^3.6.0"
   },
   "license": "MIT"
 }
@@ -115,13 +126,16 @@ Open *package.json* and paste the following:
 
 **October 19, 2015 Update:** Updated package versions and added two new packages: [react-dom](https://www.npmjs.com/package/react-dom) (as part of the React 0.14 changes) and [history](https://www.npmjs.com/package/history) (as part of the React Router 1.0 changes).
 
+<img src="/images/babel-logo.svg" height="50" width="120">
+
+**November 12, 2015 Update:** Added `babel` configuration presets (new in Babel 6.x). No longer uses `babel-node` command to start or watch the server, instead you can use `node` and `nodemon` commands directly. Updated existing packages, removed unused packages, added new Babel 6.x packages.
+
 These are all the packages that we will be using in this project. Let's briefly go over each package.
 
 | Package Name          | Description   |
 | ------------- |:-------------:|
 | [alt](https://github.com/goatslacker/alt)      | Flux library for React. |
 | [async](https://github.com/caolan/async)      | For managing asynchronous flow.      |
-| [babel](http://babeljs.io) | ES6 compiler.      |
 | [body-parser](https://github.com/expressjs/body-parser) | For parsing POST request data.      |
 | [colors](https://github.com/marak/colors.js/) | Pretty console output messages.      |
 | [compression](https://github.com/expressjs/compression) | Gzip compression.    |
@@ -181,12 +195,6 @@ Next, create a new directory **<i class="fa fa-folder-open"></i>public**. This i
 
 Run `npm start` in the Terminal to make sure our Express app is working without any issues.
 
-<div class="admonition note">
-  <div class="admonition-title">Note</div>
-  While you could technically use <code>node server.js</code> to start the app right now, as soon as we start writing the React app using ECMAScript 6 and pre-rendering it on the server, we will need the Babel compiler. Alternatively, you could use <code>babel-node server.js</code> to start the app.
-</div>
-
-
 You should see **Express server listening on port 3000** message in the Terminal.
 
 ## Step 2. Build System
@@ -197,7 +205,7 @@ If you have been around in the web community at all, then you may have heard abo
 
 Additionally, we cannot use ECMAScript 6 directly in the browsers yet. Our code needs to be transformed by Babel into ECMAScript 5 before it can be served and interpreted by the browsers.
 
-We will be using [Gulp](http://gulpjs.com/) and [Browserify](http://browserify.org/) in this tutorial instead of Webpack. I will not advocate for which tool is better or worse, but personally I found that Gulp + Browserify is a lot more straightforward to me than an equivalent Webpack config file. I have yet to find a React boilerplate project with an easy to understand *webpack.config.js* file.
+We will be using [Gulp](http://gulpjs.com/) and [Browserify](http://browserify.org/) in this tutorial instead of Webpack. I will not advocate for which tool is better or worse, but personally I found that Gulp + Browserify is more straightforward to me than an equivalent Webpack config file. I have yet to find a React boilerplate project with an easy to understand *webpack.config.js* file.
 
 Create a new file *gulpfile.js* and paste the following code:
 
@@ -265,7 +273,7 @@ gulp.task('browserify-vendor', function() {
 gulp.task('browserify', ['browserify-vendor'], function() {
   return browserify('app/main.js')
     .external(dependencies)
-    .transform(babelify)
+    .transform(babelify, { presets: ['es2015', 'react'] })
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(gulpif(production, streamify(uglify({ mangle: false }))))
@@ -280,7 +288,7 @@ gulp.task('browserify', ['browserify-vendor'], function() {
 gulp.task('browserify-watch', ['browserify-vendor'], function() {
   var bundler = watchify(browserify('app/main.js', watchify.args));
   bundler.external(dependencies);
-  bundler.transform(babelify);
+  bundler.transform(babelify, { presets: ['es2015', 'react'] })
   bundler.on('update', rebundle);
   return rebundle();
 
@@ -320,10 +328,13 @@ gulp.task('default', ['styles', 'vendor', 'browserify-watch', 'watch']);
 gulp.task('build', ['styles', 'vendor', 'browserify']);
 ```
 
+**November 12, 2015 Update:** Updated `babelify` transform to use [**es2015**](http://babeljs.io/docs/plugins/preset-es2015/) and [**react**](http://babeljs.io/docs/plugins/preset-react/) presets.
+
 <div class="admonition note">
   <div class="admonition-title">Note</div>
    If you have not used Gulp before, this is a great starting point — <a href="http://www.sitepoint.com/introduction-gulp-js/">An Introduction to Gulp.js</a>.
 </div>
+
 
 Although the code should be more or less self-explanatory with those task names and code comments, let's briefly go over each task for completeness.
 
@@ -376,7 +387,7 @@ Bower is a package manager that lets you easily download JavaScript libraries, s
 
 Run `bower install` and wait for the packages to be downloaded and installed into the **<i class="fa fa-folder-open"></i>bower_components** directory. You can change that path using the [*.bowerrc*](http://bower.io/docs/config/#directory) file, but for the purposes of this tutorial we will stick with the defaults.
 
-Similarly to **<i class="fa fa-folder-open"></i>node_modules**, you should not commit **<i class="fa fa-folder-open"></i>bower_components** into a Git repository. But wait a minute, if you don't add and commit it to Git, how will those files be loaded when you deploy your app? We will get back to this issue later during the deployment step of the tutorial.
+Similarly to **<i class="fa fa-folder-open"></i>node_modules**, you should not commit **<i class="fa fa-folder-open"></i>bower_components** into a Git repository. But hold on, if we don't commit it to Git, how will those files be loaded when you deploy your app? We will revisit this issue later during the deployment step of this tutorial.
 
 Copy all glyphicons fonts from **<i class="fa fa-folder-open"></i>bower_components/bootstrap/fonts** into **<i class="fa fa-folder-open"></i>public/fonts** directory.
 
@@ -397,7 +408,7 @@ If you have used the [Bootstrap](http://getbootstrap.com/) CSS framework in the 
 
 I don't know if you are aware of the latest [trend](https://speakerdeck.com/vjeux/react-css-in-js) to include styles directly inside React components, but I am not sure if I like this new practice. Perhaps when tooling gets better I will revisit this topic, until then I will use external stylesheets like I always have been. However, if you are interested in using modular CSS, check out [css-modulesify](https://github.com/css-modules/css-modulesify).
 
-**October 19, 2015 Update:** If you are building reusable React components like [Elemental UI](http://elemental-ui.com/) and [Material UI](http://material-ui.com/) then by all means do it. I would actually prefer if I don't have to import accompanying "vendor" stylesheets like we do with pretty much every jQuery library.
+**October 19, 2015 Update:** If you are building reusable React components like [Elemental UI](http://elemental-ui.com/) and [Material UI](http://material-ui.com/) then by all means do it. Personally, I would actually prefer if I don't have to import accompanying "vendor" stylesheets, as we do with just much every user-interface jQuery library.
 
 Before we jump into building the React app, I have decided to dedicate the next three sections to ES6, React, Flux, otherwise it may be too overwhelming trying to learn everything at once. Personally, I had a very hard time following some React + Flux code examples written in ES6 because I was learning a new syntax, a new framework and a completely unfamiliar app architecture all at once.
 
@@ -934,27 +945,33 @@ Now we just need to set up a few more things on the back-end and then we can fin
 Open *server.js* and import the following modules by adding them at the top of the file:
 
 ```js
+// Babel ES6/JSX Compiler
+require('babel-core/register');
+
 var swig  = require('swig');
 var React = require('react');
 var ReactDOM = require('react-dom/server');
 var Router = require('react-router');
-var RoutingContext = Router.RoutingContext;
 var routes = require('./app/routes');
 ```
 
 **October 19, 2015 Update:** Previous `React.renderToString` now lives in the [`react-dom/server`](https://www.npmjs.com/package/react-dom#on-the-server) package.
 
+**November 12, 2015 Update:** Added Babel [Require Hook](https://babeljs.io/docs/setup/#babel_register). All subsequent files required by Node with the extensions `.es6`, `.es`, `.jsx` and `.js` will be transformed by Babel. Since I have switched to *Require Hook*, it is no longer necessary to run the app using `babel-node` command as mentioned in **Step 1**. Furthermore, this *Require Hook* will use Babel presets we specified in *package.json*.  To learn more about *Require Hook* usage and configuration, check out Babel [documentation guide](https://babeljs.io/docs/usage/require/).
+                                                            
+
+
 Next, add the following [middleware](http://expressjs.com/guide/using-middleware.html) to *server.js*, somewhere after existing Express middlewares:
 
 ```js
 app.use(function(req, res) {
-  Router.match({ routes: routes, location: req.url }, function(err, redirectLocation, renderProps) {
+  Router.match({ routes: routes.default, location: req.url }, function(err, redirectLocation, renderProps) {
     if (err) {
       res.status(500).send(err.message)
     } else if (redirectLocation) {
       res.status(302).redirect(redirectLocation.pathname + redirectLocation.search)
     } else if (renderProps) {
-      var html = ReactDOM.renderToString(<RoutingContext {...renderProps} />);
+      var html = ReactDOM.renderToString(React.createElement(Router.RoutingContext, renderProps));
       var page = swig.renderFile('views/index.html', { html: html });
       res.status(200).send(page);
     } else {
@@ -965,6 +982,8 @@ app.use(function(req, res) {
 ```
 
 **October 19, 2015 Update:** Previous `React.renderToString` now lives in the [`react-dom/server`](https://www.npmjs.com/package/react-dom#on-the-server) package. Additionally, server-side rendering with React Router has changed quite a bit. See [Server Rendering Guide](https://github.com/rackt/react-router/blob/f81c8e46883e7838e2790fba14c10a4822e5163a/docs/guides/advanced/ServerRendering.md#server-rendering) for more details.
+
+**November 12, 2015 Update:** `<RoutingContext {...renderProps} />` (ES6/JSX) has been replaced with `React.createElement(Router.RoutingContext, renderProps)` (ES5). That's because Babel *Require Hook* transforms only subsequent files, not current file. In other words, using JSX here will result in an illegal syntax error. Of course there are ways around this limitation, but I wanted to avoid creating additional files.
 
 > **Note:** This screenshot is now outdated as of React 0.14 and React Router 1.0 but I left it here anyway to give you a better idea of where to place this middleware in *server.js*.
 
@@ -981,6 +1000,8 @@ But do we really need a separate template for this? Why not just render everythi
 One last thing I need to explain are those JavaScript tripple dots. It is called the ES6 [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator) used in `{...renderProps}` above. That's basically like saying "just pass me everything". Since `renderProps` contains multiple things - *routes*, *params*, *components*, *location*, *history*, it would be a hassle to pass them as individual props. Spread operator is a handy shortcut for situations like these.
 
 **October 19, 2015 Update:** Added a new paragraph about the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator) and new Router matching conditions.
+
+**November 12, 2015 Update:** Spread operator is no longer used, however, previous paragraph is still relevant and useful, since you will no doubt run into this `...` notation again when developing React apps.
 
 ![](/images/blog/Screenshot 2015-10-20 01.47.04.png)
 
