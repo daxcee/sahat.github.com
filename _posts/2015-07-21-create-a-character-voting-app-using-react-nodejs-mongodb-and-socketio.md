@@ -9,7 +9,7 @@ comments: true
 
 ### Update Notice 2 (November 12, 2015)
 
-Tutorial has been updated to use [**Babel 6.x**](https://medium.com/@malyw/how-to-update-babel-5-x-6-x-d828c230ec53) and [**React Router 1.0**](https://github.com/rackt/react-router/releases/tag/v1.0.0). For detailed tutorial updates see *November 12, 2015* notes below.
+Tutorial has been updated to use [**Babel 6.0**](https://medium.com/@malyw/how-to-update-babel-5-x-6-x-d828c230ec53) and [**React Router 1.0**](https://github.com/rackt/react-router/releases/tag/v1.0.0). For detailed tutorial updates see *November 12, 2015* notes below.
 
 
 ### Update Notice 1 (October 19, 2015)
@@ -2361,13 +2361,15 @@ Go to http://localhost:3000/add then add a few characters. You could use some of
 - CCP Falcon
 - Celeste Taylor
 
+>**Note:** You can find additional character names over in the [EVE Online Forums](https://forums.eveonline.com/default.aspx?g=topics&f=258).
+
 ![](/images/blog/Screenshot 2015-07-15 14.05.53.png)
 
 Or better yet, download this MongoDB file dump that contains over 4000 characters and import it into your database. Please ignore "duplicate key errors" if you have already added some of the characters earlier.
 
 - [<i class="fa fa-cloud-download"></i> newedenfaces.bson](https://dl.dropboxusercontent.com/u/14131013/newedenfaces.bson)
 
-And then run this command to import the *characters* collection into MongoDB:
+In Terminal, navigate to where this file has been downloaded, then run the following command to import the characters into MongoDB:
 
 ```bash
 $ mongorestore newedenfaces.bson -d nef -c characters
