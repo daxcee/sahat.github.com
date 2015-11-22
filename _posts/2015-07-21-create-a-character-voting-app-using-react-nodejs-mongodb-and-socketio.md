@@ -2129,14 +2129,12 @@ import Home from './components/Home';
 import AddCharacter from './components/AddCharacter';
 
 export default (
-  <Route handler={App}>
-    <Route path='/' handler={Home} />
-    <Route path='/add' handler={AddCharacter} />
+  <Route component={App}>
+    <Route path='/' component={Home} />
+    <Route path='/add' component={AddCharacter} />
   </Route>
 );
 ```
-
-
 
 Here is a quick demonstration of the entire flow from the moment you start typing a character's name:
 
@@ -3290,10 +3288,10 @@ import AddCharacter from './components/AddCharacter';
 import Character from './components/Character';
 
 export default (
-  <Route handler={App}>
-    <Route path='/' handler={Home} />
-    <Route path='/add' handler={AddCharacter} />
-    <Route path='/characters/:id' handler={Character} />
+  <Route component={App}>
+    <Route path='/' component={Home} />
+    <Route path='/add' component={AddCharacter} />
+    <Route path='/characters/:id' component={Character} />
   </Route>
 );
 ```
@@ -3436,9 +3434,9 @@ export default alt.createActions(CharacterListActions);
 The `payload`, in this case, contains React Router params that we will specify in *routes.js* shortly:
 
 ```xml
-<Route path=':category' handler={CharacterList}>
-  <Route path=':race' handler={CharacterList}>
-    <Route path=':bloodline' handler={CharacterList} />
+<Route path=':category' component={CharacterList}>
+  <Route path=':race' component={CharacterList}>
+    <Route path=':bloodline' component={CharacterList} />
   </Route>
 </Route>
 ```
@@ -3491,13 +3489,13 @@ import Character from './components/Character';
 import CharacterList from './components/CharacterList';
 
 export default (
-  <Route handler={App}>
-    <Route path='/' handler={Home} />
-    <Route path='/add' handler={AddCharacter} />
-    <Route path='/characters/:id' handler={Character} />
-    <Route path=':category' handler={CharacterList}>
-      <Route path=':race' handler={CharacterList}>
-        <Route path=':bloodline' handler={CharacterList} />
+  <Route component={App}>
+    <Route path='/' component={Home} />
+    <Route path='/add' component={AddCharacter} />
+    <Route path='/characters/:id' component={Character} />
+    <Route path=':category' component={CharacterList}>
+      <Route path=':race' component={CharacterList}>
+        <Route path=':bloodline' component={CharacterList} />
       </Route>
     </Route>
   </Route>
@@ -3689,15 +3687,15 @@ import CharacterList from './components/CharacterList';
 import Stats from './components/Stats';
 
 export default (
-  <Route handler={App}>
-    <Route path='/' handler={Home} />
-    <Route path='/add' handler={AddCharacter} />
-    <Route path='/characters/:id' handler={Character} />
-    <Route path='/shame' handler={CharacterList} />
-    <Route path='/stats' handler={Stats} />
-    <Route path=':category' handler={CharacterList}>
-      <Route path=':race' handler={CharacterList}>
-        <Route path=':bloodline' handler={CharacterList} />
+  <Route component={App}>
+    <Route path='/' component={Home} />
+    <Route path='/add' component={AddCharacter} />
+    <Route path='/characters/:id' component={Character} />
+    <Route path='/shame' component={CharacterList} />
+    <Route path='/stats' component={Stats} />
+    <Route path=':category' component={CharacterList}>
+      <Route path=':race' component={CharacterList}>
+        <Route path=':bloodline' component={CharacterList} />
       </Route>
     </Route>
   </Route>
