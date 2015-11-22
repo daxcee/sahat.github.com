@@ -3611,7 +3611,7 @@ export default Stats;
 
 **<i class="devicons devicons-react"></i> Actions**
 
-Create a new file *Stats.js* inside **<i class="fa fa-folder-open"></i>app/actions** directory:
+Create a new file *StatsActions.js* inside **<i class="fa fa-folder-open"></i>app/actions** directory:
 
 ```js
 import alt from '../alt';
@@ -3640,7 +3640,7 @@ export default alt.createActions(StatsActions);
 
 **<i class="devicons devicons-react"></i> Store**
 
-Create a new file *Stats.js* inside **<i class="fa fa-folder-open"></i>app/store** directory:
+Create a new file *StatsStore.js* inside **<i class="fa fa-folder-open"></i>app/store** directory:
 
 ```js
 import {assign} from 'underscore';
