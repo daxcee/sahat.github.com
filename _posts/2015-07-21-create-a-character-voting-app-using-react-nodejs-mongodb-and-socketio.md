@@ -3769,6 +3769,8 @@ You will also need to add the following line to *package.json*, inside the [`"sc
 
 Since we will not be checking in compiled CSS and JavaScript to the Git repository, or third-party libraries in **<i class="fa fa-folder-open"></i>bower_components**, we need this `postinstall` command so that Heroku could compile the app and download Bower packages after deployment, otherwise it will not have access to *main.css*, *vendor.js*, *vendor.bundle.js* and *bundle.js* files inside **<i class="fa fa-folder-open"></i>public** directory.
 
+**November 22, 2015 Update:** By default, Heroku config is set to *production* and will install dependencies only from the `dependencies` object. Inside *package.json*, move all packages from `devDependencies` to `dependencies`.
+
 Next, let's initialize a new Git repository inside **<i class="fa fa-folder-open"></i>newedenfaces** directory:
 
 ```bash
