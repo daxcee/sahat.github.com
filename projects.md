@@ -136,7 +136,7 @@ longer actively maintained*.
 The official website of the new music band - Esoterik. Includes the usual tech
 stack - Node.js, MongoDB, Express, Jade, Stylus.
 
-<a href="http://www.esoterikmusic.com" class="btn">Demo</a>
+<i class="fa fa-play-circle-o"></i><a href="http://www.esoterikmusic.com" class="btn">Demo</a>
 
 ![](/images/projects/esoterik.png)
 
@@ -202,8 +202,8 @@ added later using [Socket.IO](http://socket.io). All that client-side code in a 
 **app.js** with over 1200 lines of code was later refactored to use [RequireJS](http://requirejs.org/) 
 module loader.
 
-<a href="http://www.newedenfaces.com" class="btn">Demo</a>
-<a href="https://github.com/sahat/newedenfaces" class="btn">Source</a>
+<i class="fa fa-play-circle-o"></i><a href="http://www.newedenfaces.com" class="btn">Demo</a>
+<i class="fa fa-github"></i><a href="https://github.com/sahat/newedenfaces" class="btn">Source</a>
 
 ![](/images/projects/new-eden-faces.png)
 
@@ -215,7 +215,7 @@ Content aggregation is done using YouTube, Instagram and Tumblr APIs completely
 on client-side via JSONP. I used [jQuery](http://jquery.com) for JSONP requests and [Underscore.js](http://underscorejs.org/#template)
 for templating support.
 
-<a href="http://kazlovesbats.com" class="btn">Demo</a>
+<i class="fa fa-play-circle-o"></i><a href="http://kazlovesbats.com" class="btn">Demo</a>
 
 ![](/images/projects/kazlovesbats.png)
 
