@@ -16,6 +16,29 @@ Tutorial has been updated to use [**Babel 6.0**](https://medium.com/@malyw/how-t
 
 Tutorial has been updated to use **React 0.14** and **React Router 1.0-rc3** that introduced breaking changes. For detailed tutorial updates see *October 19, 2015* notes below.
 
+## Table of Contents
+- [Overview](#overview)
+- [Step 1. New Express Project](#step-1.-new-express-project)
+- [Step 2. Build System](#step-2.-build-system)
+- [Step 3. Project Structure](#step-3.-project-structure)
+- [Step 4. ES6 Crash Course](#step-4.-es6-crash-course)
+- [Step 5. React Crash Course](#step-5.-react-crash-course)
+- [Step 6. Flux Architecture Crash Course](#step-6.-flux-architecture-crash-course)
+- [Step 7. React Routes (Client-Side)](#step-7.-react-routes-(client-side))
+- [Step 8. React Routes (Server-Side)](#step-8.-react-routes-(server-side))
+- [Step 9. Footer and Navbar Components](#step-9.-footer-and-navbar-components)
+- [Step 10. Socket.IO - Real-time User Count](#step-10.-socket.io---real-time-user-count)
+- [Step 11. Add Character Component](#step-11.-add-character-component)
+- [Step 12. Database Schema](#step-12.-database-schema)
+- [Step 13. Express API Routes (1 of 2)](#step-13.-express-api-routes-(1-of-2))
+- [Step 14. Home Component](#step-14.-home-component)
+- [Step 15. Express API Routes (2 of 2)](#step-15.-express-api-routes-(2-of-2))
+- [Step 16. Character (Profile) Component](#step-16.-character-(profile)-component)
+- [Step 17. Top 100 Component](#step-17.-top-100-component)
+- [Step 18. Stats Component](#step-18.-stats-component)
+- [Step 19. Deployment](#step-19.-deployment)
+- [Step 20. Additional Resources](#step-20.-additional-resources)
+- [In Closing](#in-closing)
 
 ## Overview
 
@@ -2379,7 +2402,7 @@ You will not see updated character count in the search field just yet, since we 
 
 Next, let's create the *Home* component - initial page that displays 2 characters side by side.
 
-## Step 15. Home Component
+## Step 14. Home Component
 
 This is one of the simpler components whose only responsibility is to display 2 images and handle click events to know which one is the winning and which one is the losing character between the two.
 
@@ -2595,7 +2618,7 @@ export default alt.createStore(HomeStore);
 Next, let's implement the remaining Express routes for fetching and updating two characters in *Home* component, retrieving total characters count and more.
 <!-- And there you have it. Refresh the browser once again and you should see two character images on the home page. Try clicking on one of them. After clicking on one of the images you should see a new set of characters appear. -->
 
-## Step 14. Express API Routes (2 of 2)
+## Step 15. Express API Routes (2 of 2)
 
 Switch back to *server.js*. I hope it is clear by now where you need to include all of the following routes - after Express middlewares but before the "React middleware".
 
