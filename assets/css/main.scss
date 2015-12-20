@@ -797,6 +797,21 @@ main {
   color: #333333;
 }
 
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+
+.top-share {
+  padding-bottom: 10px;
+}
+
+.fb_iframe_widget span {
+  vertical-align: inherit !important;
+}
+
 .share {
   text-align: right;
   padding: 20px 0 0;
