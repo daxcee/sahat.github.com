@@ -127,6 +127,7 @@ Open *package.json* and paste the following:
     "babel-core": "^6.1.19",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
+    "babel-register": "^6.3.13",
     "babelify": "^7.2.0",
     "bower": "^1.6.5",
     "browserify": "^12.0.1",
@@ -753,7 +754,7 @@ Instead of reiterating the [Flux  Overview](https://facebook.github.io/flux/docs
 
 ![](/images/blog/Screenshot 2015-06-22 02.18.48.png)
 
-1. On `componentDidLoad` (when the page is rendered) three actions are fired:
+1. On `componentDidMount` (when the page is rendered) three actions are fired:
 
     ```js
     OverviewActions.getSummary();
@@ -969,7 +970,7 @@ Open *server.js* and import the following modules by adding them at the top of t
 
 ```js
 // Babel ES6/JSX Compiler
-require('babel-core/register');
+require('babel-register');
 
 var swig  = require('swig');
 var React = require('react');
@@ -981,7 +982,9 @@ var routes = require('./app/routes');
 **October 19, 2015 Update:** Previous `React.renderToString` now lives in the [`react-dom/server`](https://www.npmjs.com/package/react-dom#on-the-server) package.
 
 **November 12, 2015 Update:** Added Babel [Require Hook](https://babeljs.io/docs/setup/#babel_register). All subsequent files required by Node with the extensions `.es6`, `.es`, `.jsx` and `.js` will be transformed by Babel. Since I have switched to *Require Hook*, it is no longer necessary to run the app using `babel-node` command as mentioned in **Step 1**. Furthermore, this *Require Hook* will use Babel presets we specified in *package.json*.  To learn more about *Require Hook* usage and configuration, check out Babel [documentation guide](https://babeljs.io/docs/usage/require/).
-                                                            
+
+**December 22, 2015 Update:** Use `require('babel-register')` instead of `require('babel-core/register')` in accordance to Babel [docs](https://babeljs.io/docs/setup/#babel_register).
+                                                
 
 
 Next, add the following [middleware](http://expressjs.com/guide/using-middleware.html) to *server.js*, somewhere after existing Express middlewares:
