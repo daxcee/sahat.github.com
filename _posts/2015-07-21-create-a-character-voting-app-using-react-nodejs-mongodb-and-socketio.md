@@ -2244,11 +2244,13 @@ Create another file in the top-level directory called *config.js* and paste the 
 
 ```js
 module.exports = {
-  database: process.env.MONGO_URI || 'localhost'
+  database: process.env.MONGO_URI || 'localhost/nef'
 };
 ```
 
-It will use an environment variable (if available) and fallback to "localhost". Using this approach allows us to use one hostname for local development and another hostname for production without updating any code, and it is especially useful when [dealing with OAuth client keys and client secrets](https://github.com/sahat/hackathon-starter/blob/master/config/secrets.js).
+**January 13, 2016 Update:** Use `localhost/nef` database, because that is where we are going to import characters in the next section.
+
+It will use an environment variable (if available) and fallback to "localhost/nef". Using this approach allows us to use one hostname for local development and another hostname for production without updating any code, and it is especially useful when [dealing with OAuth client keys and client secrets](https://github.com/sahat/hackathon-starter/blob/master/config/secrets.js).
 
 Now let's import it back in *server.js*:
 
