@@ -123,7 +123,6 @@ Open *package.json* and paste the following:
     "xml2js": "^0.4.15"
   },
   "devDependencies": {
-    "babel-loader": "^6.1.0",
     "babel-core": "^6.1.19",
     "babel-preset-es2015": "^6.1.18",
     "babel-preset-react": "^6.1.18",
