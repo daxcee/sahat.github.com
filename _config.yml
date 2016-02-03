@@ -26,17 +26,14 @@ links:
 
 timezone:    America/New_York
 future:      true
-highlighter: pygments
-markdown:    redcarpet
-
-redcarpet:
-  extensions: ["tables", "autolink", "strikethrough", "space_after_headers", "with_toc_data", "fenced_code_blocks"]
 
 # https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink:   /:categories/:title/
 
 # Amount of post to show on home page
+gems: [jekyll-paginate]
 paginate: 1000
+paginate_path: "page:num"
 
 kramdown:
   auto_ids: true
@@ -44,6 +41,7 @@ kramdown:
   entity_output: as_char
   toc_levels: 1..6
   input: GFM
+  syntax_highlighter: rouge
 
 include: [".htaccess"]
 exclude: ["lib", "config.rb", "Capfile", "config", "log", "Rakefile", "Rakefile.rb", "tmp", "less", "*.sublime-project", "*.sublime-workspace", "test", "spec", "Gruntfile.js", "package.json", "node_modules"]
