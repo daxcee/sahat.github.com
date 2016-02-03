@@ -7,6 +7,10 @@ image: bg/7.jpg
 comments: true
 ---
 
+### Update Notice 3 (February 2, 2016)
+
+Added a new section on *sourcemaps* in [Step 2](#step-2-build-system).
+
 ### Update Notice 2 (November 12, 2015)
 
 Tutorial has been updated to use [**Babel 6.0**](https://medium.com/@malyw/how-to-update-babel-5-x-6-x-d828c230ec53) and [**React Router 1.0**](https://github.com/rackt/react-router/releases/tag/v1.0.0). For detailed tutorial updates see *November 12, 2015* notes below.
@@ -85,7 +89,7 @@ Create a new directory **<i class="fa fa-folder-open"></i>newedenfaces**. Inside
 
 Open *package.json* and paste the following:
 
-```json
+```
 {
   "name": "newedenfaces",
   "description": "Character voting app for EVE Online",
@@ -137,6 +141,7 @@ Open *package.json* and paste the following:
     "gulp-if": "^2.0.0",
     "gulp-less": "^3.0.3",
     "gulp-plumber": "^1.0.1",
+    "gulp-sourcemaps": "^1.6.0",
     "gulp-streamify": "1.0.2",
     "gulp-uglify": "^1.4.2",
     "gulp-util": "^3.0.7",
@@ -247,6 +252,7 @@ var babelify = require('babelify');
 var browserify = require('browserify');
 var watchify = require('watchify');
 var uglify = require('gulp-uglify');
+var sourcemaps = require('gulp-sourcemaps');
 
 var production = process.env.NODE_ENV === 'production';
 
@@ -294,12 +300,14 @@ gulp.task('browserify-vendor', function() {
  |--------------------------------------------------------------------------
  */
 gulp.task('browserify', ['browserify-vendor'], function() {
-  return browserify('app/main.js')
+  return browserify({ entries: 'app/main.js', debug: true })
     .external(dependencies)
     .transform(babelify, { presets: ['es2015', 'react'] })
+    .pipe(streamify(sourcemaps.init({ loadMaps: true })))
     .bundle()
     .pipe(source('bundle.js'))
     .pipe(gulpif(production, streamify(uglify({ mangle: false }))))
+    .pipe(streamify(sourcemaps.write('.')))
     .pipe(gulp.dest('public/js'));
 });
 
@@ -309,7 +317,7 @@ gulp.task('browserify', ['browserify-vendor'], function() {
  |--------------------------------------------------------------------------
  */
 gulp.task('browserify-watch', ['browserify-vendor'], function() {
-  var bundler = watchify(browserify('app/main.js', watchify.args));
+  var bundler = watchify(browserify({ entries: 'app/main.js', debug: true }, watchify.args));
   bundler.external(dependencies);
   bundler.transform(babelify, { presets: ['es2015', 'react'] })
   bundler.on('update', rebundle);
@@ -325,6 +333,8 @@ gulp.task('browserify-watch', ['browserify-vendor'], function() {
         gutil.log(gutil.colors.green('Finished rebundling in', (Date.now() - start) + 'ms.'));
       })
       .pipe(source('bundle.js'))
+      .pipe(streamify(sourcemaps.init({ loadMaps: true })))
+      .pipe(streamify(sourcemaps.write('.')))
       .pipe(gulp.dest('public/js/'));
   }
 });
@@ -351,6 +361,8 @@ gulp.task('default', ['styles', 'vendor', 'browserify-watch', 'watch']);
 gulp.task('build', ['styles', 'vendor', 'browserify']);
 ```
 
+**February 2, 2016 Update:** Added [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) plugin.
+
 **November 12, 2015 Update:** Updated `babelify` transform to use [**es2015**](http://babeljs.io/docs/plugins/preset-es2015/) and [**react**](http://babeljs.io/docs/plugins/preset-react/) presets.
 
 <div class="admonition note">
@@ -372,7 +384,35 @@ Although the code should be more or less self-explanatory with those task names 
 | `default`           | Runs all of the above tasks and starts watching for file changes.      |
 | `build`             | Runs all of the above tasks then exits.    |
 
+#### <i class="fa fa-map"></i> Sourcemaps
+
+What are sourcemaps? Why do we need them? Sourcemaps, as the name implies, map a concatenated/minified file back to an original state (source file). We have two tasks above — `browserify` and `browserify-watch` that will generate a single file called `bundle.js`. This file is not meant to be human-readable, but rather interpreted by the browsers. So what happens when an error is thrown and you are trying to debug the problem? Consider the following example:
+
+![](/images/blog/Screenshot 2016-02-02 22.27.05.png)
+
+Notice that an error has occurred on a *line 2088* that does not match any of our source files. Clicking on it, reveals some details about the problem. In this particular case, you can easily figure out where it happened, especially if the code is not minified/mangled. *Not shown here, but if I were to scroll up a little, there is a function called __Stats__, which would immediately tell you that the problem is in the __Stats__ component.*
+
+![](/images/blog/Screenshot 2016-02-02 22.27.22.png)
+
+But it is a completely different story when you are working on a large React application, consisting of hundreds of components, written by many different people, spanning thousands and thousands lines of code.
+
+After adding sourcemaps support in the *gulpfile.js* above, here is how it would look like in the same scenario. First, a new file with a `*.js.map` extension is generated. 
+
+![](/images/blog/Screenshot 2016-02-02 22.35.18.png)
+
+
+Next, both Google Chrome and Mozilla Firefox will automatically try to load CSS and JavaScript sourcemaps, when available.
+
+![](/images/blog/Screenshot 2016-02-02 22.34.01.png)
+
+That's much better! It tells you not only in which file an error was thrown, but the exact line number as well. Clicking on the error above shows us the original source code.
+
+![](/images/blog/Screenshot 2016-02-02 22.34.13.png)
+
+**Note:** You may want to modify Gulp tasks above so that sourcemaps are generated only in *development mode*, similar to how code is minified code via [gulp-uglify](https://www.npmjs.com/package/gulp-uglify) only in *production mode*.
+
 Next, we will shift focus to the project structure by creating files and folders that *gulpfile.js* is expecting.
+
 
 ## Step 3. Project Structure
 
@@ -380,6 +420,9 @@ In the **<i class="fa fa-folder-open"></i>public** directory create 4 new folder
 
 ![](/images/blog/Screenshot 2015-06-21 00.47.32.png)
 
+It will show that an error is thrown on some line that does not exist in any of your source files. Clicking on the error, will reveal the details of where it has occurred.
+
+![](/images/blog/Screenshot 2016-02-02 22.27.22.png)
 
 In the **<i class="fa fa-folder-open"></i>newedenfaces** directory (project root), create a new folder **<i class="fa fa-folder-open"></i>app**.
 
