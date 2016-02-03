@@ -463,7 +463,7 @@ Download and extract the following background images and place them into **<i cl
 
 <div class="admonition note">
   <div class="admonition-title">Fun Fact</div>
- I have used the Gaussian blur in Adobe Photoshop in order to create that out of focus effect over 3 years ago when I built the original New Eden Faces project, but now it should be totally possible to achieve a similar effect using <a href="http://codepen.io/aniketpant/pen/DsEve">CSS filters<a/>.
+ I have used the Gaussian blur in Adobe Photoshop in order to create that out of focus effect over 3 years ago when I built the original New Eden Faces project, but now it should be totally possible to achieve a similar effect using <a href="http://codepen.io/aniketpant/pen/DsEve">CSS filters</a>.
 </div>
 
 Open *main.less* that we just created and paste the following styles from the link below. Due to the sheer length of it, I have decided to include it as a separate file.
