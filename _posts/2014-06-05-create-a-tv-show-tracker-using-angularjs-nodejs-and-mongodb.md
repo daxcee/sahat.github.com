@@ -6,6 +6,9 @@ gradient: 3
 image: blog/tvshow-tracker-cover.jpg
 ---
 
+### January 30, 2016 Update
+If you are interested in seeing this tutorial be updated for Angular 2.0, please send a request to sahat@me.com, and I will do it if there is enough interest.
+
 ## TL;DR
 
 ![](/images/blog/tvshow-tracker-32.png)
