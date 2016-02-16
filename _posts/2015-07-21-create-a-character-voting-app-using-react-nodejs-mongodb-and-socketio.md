@@ -142,9 +142,9 @@ Open *package.json* and paste the following:
     "gulp-less": "^3.0.3",
     "gulp-plumber": "^1.0.1",
     "gulp-sourcemaps": "^1.6.0",
-    "gulp-streamify": "1.0.2",
     "gulp-uglify": "^1.4.2",
     "gulp-util": "^3.0.7",
+    "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
     "watchify": "^3.6.0"
   },
@@ -241,12 +241,12 @@ Create a new file *gulpfile.js* and paste the following code:
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var gulpif = require('gulp-if');
-var streamify = require('gulp-streamify');
 var autoprefixer = require('gulp-autoprefixer');
 var cssmin = require('gulp-cssmin');
 var less = require('gulp-less');
 var concat = require('gulp-concat');
 var plumber = require('gulp-plumber');
+var buffer = require('vinyl-buffer');
 var source = require('vinyl-source-stream');
 var babelify = require('babelify');
 var browserify = require('browserify');
@@ -290,7 +290,8 @@ gulp.task('browserify-vendor', function() {
     .require(dependencies)
     .bundle()
     .pipe(source('vendor.bundle.js'))
-    .pipe(gulpif(production, streamify(uglify({ mangle: false }))))
+    .pipe(buffer())
+    .pipe(gulpif(production, uglify({ mangle: false })))
     .pipe(gulp.dest('public/js'));
 });
 
@@ -303,11 +304,12 @@ gulp.task('browserify', ['browserify-vendor'], function() {
   return browserify({ entries: 'app/main.js', debug: true })
     .external(dependencies)
     .transform(babelify, { presets: ['es2015', 'react'] })
-    .pipe(streamify(sourcemaps.init({ loadMaps: true })))
     .bundle()
     .pipe(source('bundle.js'))
-    .pipe(gulpif(production, streamify(uglify({ mangle: false }))))
-    .pipe(streamify(sourcemaps.write('.')))
+    .pipe(buffer())
+    .pipe(sourcemaps.init({ loadMaps: true }))
+    .pipe(gulpif(production, uglify({ mangle: false })))
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest('public/js'));
 });
 
@@ -319,7 +321,7 @@ gulp.task('browserify', ['browserify-vendor'], function() {
 gulp.task('browserify-watch', ['browserify-vendor'], function() {
   var bundler = watchify(browserify({ entries: 'app/main.js', debug: true }, watchify.args));
   bundler.external(dependencies);
-  bundler.transform(babelify, { presets: ['es2015', 'react'] })
+  bundler.transform(babelify, { presets: ['es2015', 'react'] });
   bundler.on('update', rebundle);
   return rebundle();
 
@@ -333,8 +335,9 @@ gulp.task('browserify-watch', ['browserify-vendor'], function() {
         gutil.log(gutil.colors.green('Finished rebundling in', (Date.now() - start) + 'ms.'));
       })
       .pipe(source('bundle.js'))
-      .pipe(streamify(sourcemaps.init({ loadMaps: true })))
-      .pipe(streamify(sourcemaps.write('.')))
+      .pipe(buffer())
+      .pipe(sourcemaps.init({ loadMaps: true }))
+      .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest('public/js/'));
   }
 });
@@ -360,6 +363,8 @@ gulp.task('watch', function() {
 gulp.task('default', ['styles', 'vendor', 'browserify-watch', 'watch']);
 gulp.task('build', ['styles', 'vendor', 'browserify']);
 ```
+
+**February 15, 2016 Update:** Replaced [gulp-streamify](https://www.npmjs.com/package/gulp-streamify) with [vinyl-buffer](https://www.npmjs.com/package/vinyl-buffer).
 
 **February 2, 2016 Update:** Added [gulp-sourcemaps](https://www.npmjs.com/package/gulp-sourcemaps) plugin.
 
