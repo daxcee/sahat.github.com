@@ -1,6 +1,6 @@
 ---
 layout: post
-category: recurse-center
+category: rc
 title: "Hacker School: Week 2"
 excerpt: "A blog post about my NYC Hacker School experience -- Week 2."
 image: blog/hacker-school-week-2-cover.jpg

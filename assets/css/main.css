@@ -2432,15 +2432,21 @@ i.devicons {
 
 .category-title {
     color: #2d2d34;
-    padding-top: 0.625rem;
+    padding-top: 10px;
+    padding-bottom: 10px;
     font-size: 18px;
     font-weight: bold;
+    text-transform: capitalize;
 }
 
 .category-title.tutorials {
-    border-top: solid 0.375rem gold;
+    border-top: 8px solid gold;
 }
 
 .category-title.personal {
-    border-top: 0.625rem solid #2B00F7;
+    border-top: 8px solid #2B00F7;
+}
+
+.category-title.recurse-center {
+    border-top: 8px solid #77d102;
 }

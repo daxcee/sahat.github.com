@@ -5,12 +5,37 @@ excerpt: "June '14: <a href='https://www.youtube.com/watch?v=Q2k-pGfWtQc'>Scarle
 gradient: 6
 image: home.jpg
 ---
+
+<div class="category-title tutorials">Tutorials</div>
+
 <ol class="posts">
-  {% for post in paginator.posts %}
-  <li>
-    <a class="title" href="{{ post.url }}">{{post.title}}</a>
-    <div class="excerpt">{{post.excerpt}}</div>
-    <span class="date">{{ post.date | date: "%B %d, %Y" }}</span>
-  </li>
-  {% endfor %}
+{% for post in site.categories.tutorials %}
+<li>
+  <a class="title" href="{{ post.url }}">{{post.title}}</a>
+  <div class="excerpt">{{post.excerpt}}</div>
+  <span class="date">{{ post.date | date: "%B %d, %Y" }}</span>
+</li>
+{% endfor %}
+</ol>
+
+<ol class="posts">
+<div class="category-title personal">Personal</div>
+{% for post in site.categories.personal] %}
+<li>
+  <a class="title" href="{{ post.url }}">{{post.title}}</a>
+  <div class="excerpt">{{post.excerpt}}</div>
+  <span class="date">{{ post.date | date: "%B %d, %Y" }}</span>
+</li>
+{% endfor %}
+</ol>
+
+<ol class="posts">
+<div class="category-title recurse-center">Recurse Center</div>
+{% for post in site.categories.rc %}
+<li>
+  <a class="title" href="{{ post.url }}">{{post.title}}</a>
+  <div class="excerpt">{{post.excerpt}}</div>
+  <span class="date">{{ post.date | date: "%B %d, %Y" }}</span>
+</li>
+{% endfor %}
 </ol>
