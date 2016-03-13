@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: tutorials
 title: Create a character voting app using React, Node.js, MongoDB and Socket.IO
 excerpt: "In this tutorial we are going to build a character voting app (inspired by Facemash) for EVE Online - a massively multiplayer online game. You will learn how to build a REST API with <strong>Node.js</strong>, save and retrieve data from <strong>MongoDB</strong>, track online visitors in real-time using <strong>Socket.IO</strong>, build a single-page app experience using <strong>React</strong> + <strong>Flux</strong> with server-side rendering and then finally deploy it to the cloud."
 gradient: 1

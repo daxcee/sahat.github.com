@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: personal
 title: "Cross-Country Road Trip in a Tesla Model S: Prologue"
 excerpt: I am about to embark on a 2,800-mile road trip from Los Angeles to New York using an electric car.
 image: blog/tesla-road-trip-prologue-cover2.jpeg

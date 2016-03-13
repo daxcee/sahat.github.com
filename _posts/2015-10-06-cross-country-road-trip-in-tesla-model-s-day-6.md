@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: personal
 title: "Cross-Country Road Trip in a Tesla Model S: Day 6"
 excerpt: Day 6 — New Philadelphia, Ohio to New York / New Jersey.
 image: blog/tesla-road-trip-day-6-cover.jpg

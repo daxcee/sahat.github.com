@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: personal
 title: "Cross-Country Road Trip in a Tesla Model S: Day 2"
 excerpt: Day 2 — Las Vegas to Denver, Colorado.
 image: blog/tesla-road-trip-day-2-cover.jpeg

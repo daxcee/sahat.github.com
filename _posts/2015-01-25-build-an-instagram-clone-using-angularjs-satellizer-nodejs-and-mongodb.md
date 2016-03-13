@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: tutorials
 title: Build an Instagram clone with AngularJS, Satellizer, Node.js and MongoDB
 excerpt: "This tutorial will show you how to build a simple Instagram clone using Satellizer for user authentication."
 gradient: 1

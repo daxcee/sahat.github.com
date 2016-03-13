@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: personal
 title: "Cross-Country Road Trip in a Tesla Model S: Day 3"
 excerpt: Day 3 — Denver to Kansas City.
 image: blog/tesla-road-trip-day-3-cover.jpg

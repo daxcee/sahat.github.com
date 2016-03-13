@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: personal
 title: "Cross-Country Road Trip in a Tesla Model S: Day 4"
 excerpt: Day 4 — Kansas City to New Philadelphia, Ohio.
 image: blog/tesla-road-trip-day-4-cover.jpeg

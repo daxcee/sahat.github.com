@@ -1,5 +1,6 @@
 ---
 layout: post
+category: recurse-center
 title: "Hacker School: Week 11 and 12 (Final)"
 excerpt: End of Hacker School and start of Yahoo! adventures.
 image: blog/hacker-school-week-11-12-cover.jpg
