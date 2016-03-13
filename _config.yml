@@ -29,7 +29,7 @@ future:      true
 
 highlighter: pygments
 
-permalink:   /:categories/:title/
+permalink:   /:title/
 
 gems: [jekyll-paginate]
 paginate: 1000
