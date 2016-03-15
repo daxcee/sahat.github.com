@@ -802,80 +802,80 @@ Instead of reiterating the [Flux  Overview](https://facebook.github.io/flux/docs
 
 ![](/images/blog/Screenshot 2015-06-22 02.18.48.png)
 
-1. On `componentDidMount` (when the page is rendered) three actions are fired:
+1) On `componentDidMount` (when the page is rendered) three actions are fired:
 
-    ```js
-    OverviewActions.getSummary();
-    OverviewActions.getApps();
-    OverviewActions.getCompanies();
-    ```
+```js
+OverviewActions.getSummary();
+OverviewActions.getApps();
+OverviewActions.getCompanies();
+```
 
-2. Each one of those actions makes an AJAX request to the server to fetch the data.
+2) Each one of those actions makes an AJAX request to the server to fetch the data.
 
-3. When the data is fetched, each action fires another *"success"* action and passes the data along with it:
+3) When the data is fetched, each action fires another *"success"* action and passes the data along with it:
 
-    ```js
-    getSummary() {
-      request
-        .get('/api/overview/summary')
-        .end((err, res) => {
-          this.actions.getSummarySuccess(res.body);
-        });
-    }
-    ```
+```js
+getSummary() {
+  request
+    .get('/api/overview/summary')
+    .end((err, res) => {
+      this.actions.getSummarySuccess(res.body);
+    });
+}
+```
 
-4. Meanwhile, the *Overview* store (a place where we keep the state for *Overview* component) is listening for those *"success"* actions. When the `getSummarySuccess` action is fired, `onGetSummarySuccess` method in the *Overview* store is called and the store is updated:
+4) Meanwhile, the *Overview* store (a place where we keep the state for *Overview* component) is listening for those *"success"* actions. When the `getSummarySuccess` action is fired, `onGetSummarySuccess` method in the *Overview* store is called and the store is updated:
 
-    ```js
-    class OverviewStore {
+```js
+class OverviewStore {
 
-      constructor() {
-        this.bindActions(OverviewActions);
-        this.summary = {};
-        this.apps = [];
-        this.companies = [];
-      }
+  constructor() {
+    this.bindActions(OverviewActions);
+    this.summary = {};
+    this.apps = [];
+    this.companies = [];
+  }
 
-      onGetSummarySuccess(data) {
-        this.summary = data;
-      }
+  onGetSummarySuccess(data) {
+    this.summary = data;
+  }
 
-      onGetAppsSuccess(data) {
-        this.apps = data;
-      }
+  onGetAppsSuccess(data) {
+    this.apps = data;
+  }
 
-      onGetCompaniesSuccess(data) {
-        this.companies = data;
-      }
-    }
-    ```
+  onGetCompaniesSuccess(data) {
+    this.companies = data;
+  }
+}
+```
 
-5. As soon as the store is updated, the *Overview* component will know about it because it has subscribed to the *Overview* store. When a store is updated/changed, a component will set its own state to whatever is in that store.
+5) As soon as the store is updated, the *Overview* component will know about it because it has subscribed to the *Overview* store. When a store is updated/changed, a component will set its own state to whatever is in that store.
 
-    ```js
-    class Overview extends React.Component {
+```js
+class Overview extends React.Component {
 
-      constructor(props) {
-        super(props);
-        this.state = OverviewStore.getState();
-        this.onChange = this.onChange.bind(this);
-      }
+  constructor(props) {
+    super(props);
+    this.state = OverviewStore.getState();
+    this.onChange = this.onChange.bind(this);
+  }
 
-      componentDidMount() {
-        OverviewStore.listen(this.onChange);
-      }
+  componentDidMount() {
+    OverviewStore.listen(this.onChange);
+  }
 
-      onChange() {
-        this.setState(OverviewStore.getState())
-      }
+  onChange() {
+    this.setState(OverviewStore.getState())
+  }
 
-      ...
-    }
-    ```
+  ...
+}
+```
 
-6. At this point the *Overview* component has been updated with the new data.
+6) At this point the *Overview* component has been updated with the new data.
 
-7. In screenshot above,when the date range is updated from the dropdown menu, the entire process is repeated all over again.
+7) In screenshot above,when the date range is updated from the dropdown menu, the entire process is repeated all over again.
 
 <div class="admonition note">
   <div class="admonition-title">Note</div>
@@ -2573,7 +2573,7 @@ render() {
       </div>
     );
   }
-  ```
+```
 
 The first image is offset via `col-md-offset-1` Bootstrap CSS class so both images are perfectly center-aligned.
 

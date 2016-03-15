@@ -27,7 +27,7 @@ links:
 timezone:    America/New_York
 future:      true
 
-highlighter: pygments
+highlighter: rouge
 
 permalink:   /:title/
 
