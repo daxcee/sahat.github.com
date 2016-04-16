@@ -1027,8 +1027,6 @@ var Router = require('react-router');
 var routes = require('./app/routes');
 ```
 
-**October 19, 2015 Update:** Previous `React.renderToString` now lives in the [`react-dom/server`](https://www.npmjs.com/package/react-dom#on-the-server) package.
-
 **November 12, 2015 Update:** Added Babel [Require Hook](https://babeljs.io/docs/setup/#babel_register). All subsequent files required by Node with the extensions `.es6`, `.es`, `.jsx` and `.js` will be transformed by Babel. Since I have switched to *Require Hook*, it is no longer necessary to run the app using `babel-node` command as mentioned in **Step 1**. Furthermore, this *Require Hook* will use Babel presets we specified in *package.json*.  To learn more about *Require Hook* usage and configuration, check out Babel [documentation guide](https://babeljs.io/docs/usage/require/).
 
 **December 22, 2015 Update:** Use `require('babel-register')` instead of `require('babel-core/register')` in accordance to Babel [docs](https://babeljs.io/docs/setup/#babel_register).
