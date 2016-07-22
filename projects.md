@@ -7,6 +7,18 @@ gradient: 2
 image: projects.jpg
 ---
 
+## Mega Boilerplate
+
+Mega Boilerplate is a starter project generator that focuses on simplicity and ease of use, while providing you with flexibility of choices. It was heavily inspired by the Hackathon Starter, but unlike it, you can customize any part of your application stack — from web framework and database to CSS preprocessor and client-side JavaScript framework. Currently, generators are primarily limited to Node.js web apps, but I am planning to expand support for other platforms and languages in the near future.
+
+<i class="fa fa-play-circle-o"></i><a href="http://megaboilerplate.com/" class="btn">Demo</a>
+
+<i class="fa fa-github"></i><a href="https://github.com/sahat/megaboilerplate" class="btn">Source</a>
+
+![](http://i.imgur.com/C7fMr95.png)
+
+<br>
+
 ## Satellizer
 
 Satellizer is a simple to use, end-to-end, token-based authentication module for
@@ -17,10 +29,13 @@ can add any OAuth 1.0 or OAuth 2.0 provider by passing provider-specific
 information during the configuration step.
 
 <i class="fa fa-play-circle-o"></i><a href="https://satellizer.herokuapp.com/" class="btn">Demo</a>
+
 <i class="fa fa-github"></i><a href="https://github.com/sahat/satellizer/" class="btn">Source</a>
 
 ![](/images/projects/satellizer.png)
+
 <br>
+
 ## ShowTrackr
 
 This TV Show Tracker was built for my very first talk at the [Node.js NYC Meetup](http://meetup.com/nodejs/).
@@ -35,6 +50,7 @@ by [Passport.js](http://passportjs.org/). Email notifications are sent out two h
 ![](/images/projects/showtrackr.png)
 
 <br>
+
 ## JS Recipes
 
 JS Recipes is a hand-written collection of **How-To Guides** for back-end and
@@ -47,11 +63,13 @@ move it over to Jekyll 2.0 soon, and then hook it up with [InstantClick](http://
 for ultra-fast responsiveness.
 
 <i class="fa fa-play-circle-o"></i><a href="http://sahatyalkabov.com/jsrecipes/" class="btn">Demo</a>
+
 <i class="fa fa-github"></i><a href="https://github.com/sahat/jsrecipes/" class="btn">Source</a>
 
 ![](/images/projects/jsrecipes.png)
 
 <br>
+
 ## Angel Beats
 
 Real-time synchronized audio playback across multiple connected web browser clients.
@@ -61,12 +79,12 @@ back-end and good old [jQuery](jquery.com) for the front-end. It did not win
 any awards at the [Cooper Union Hackathon 2014](http://hackcooper.org/), but it was pretty fun
 to stream a soundtrack across four laptops during the demo!
 
-<a href="http://angelbeats.herokuapp.com" class="btn">Demo</a>
-<a href="https://github.com/sahat/angelbeats" class="btn">Source</a>
+<i class="fa fa-github"></i><a href="https://github.com/sahat/angelbeats" class="btn">Source</a>
 
 ![](/images/projects/angelbeats.png)
 
 <br>
+
 ## Hackathon Starter
 
 Hackathon Starter is a boilerplate for Node.js web applications.
@@ -112,11 +130,13 @@ of hackathon web apps, without being too specific.
   * API Examples: Facebook, Foursquare, Venmo, LinkedIn, Tumblr, Twitter, Stripe, and more.
 
 <i class="fa fa-play-circle-o"></i><a href="hackathonstarter.herokuapp.com" class="btn">Demo</a>
+
 <i class="fa fa-github"></i><a href="https://github.com/sahat/hackathon-starter" class="btn">Source</a>
 
 ![](/images/projects/hackathon-starter.png)
 
 <br>
+
 ## Ember + Sass + Express Starter
 
 This project provides a starting point for your [Ember](http://emberjs.com/) apps with
@@ -169,9 +189,11 @@ or Node.js module.
 *Featured in JavaScript Weekly - Issue 155*
 
 <i class="fa fa-play-circle-o"></i><a href="https://rawgithub.com/sahat/requirejs-library/master/demo/inline.html" class="btn">Demo</a>
+
 <i class="fa fa-github"></i><a href="https://github.com/sahat/requirejs-library" class="btn">Source</a>
 
 <br>
+
 ## CloudBucket (CCNY Capstone Project)
 
 CloudBucket is the online cloud storage system with a semantic search capability.
@@ -187,11 +209,13 @@ jQuery, Bower, Google OAuth 2.0, Google Books API, SkyBiometry API, Last.fm API,
 and other libraries.
 
 <i class="fa fa-play-circle-o"></i><a href="http://cloudbucket-sahat.rhcloud.com" class="btn">Demo</a>
+
 <i class="fa fa-github"></i><a href="http://github.com/sahat/cloudbucket" class="btn">Source</a>
 
 <img src="/images/projects/cloudbucket.png" style="width: auto; height: 500px">
 
 <br>
+
 ## New Eden Faces
 
 The New Eden Faces lets you vote between two randomly selected [EVE Online](http://eveonline.com) characters of the same gender.
@@ -208,6 +232,7 @@ module loader.
 ![](/images/projects/new-eden-faces.png)
 
 <br>
+
 ## Allison Eckfeldt's Website
 
 Allison Eckfeldt's personal website.
@@ -238,6 +263,7 @@ Manually synchronizing lyrics with the song was long and tortorous process;
 I wouldn't do it again.
 
 <a href="http://sahat.github.io/opheliac" class="btn">Demo</a>
+
 <a href="https://github.com/sahat/sahat.github.com/tree/master/opheliac" class="btn">Source </a>
 
 ![](/images/projects/opheliac.png)
@@ -252,7 +278,6 @@ custom signup and login components, custom comments system, store purchases,
 YouTube trailer previews, and more! This was my very first project built with [Node.js](http://nodejs.org),
 or any JavaScript project for that matter.
 
-<a href="http://csc322.herokuapp.com" class="btn">Demo</a>
-<a href="https://github.com/sahat/csc322" class="btn">Source</a>
+<i class="fa fa-github"></i><a href="https://github.com/sahat/csc322" class="btn">Source</a>
 
 ![](/images/projects/csc322.png)
